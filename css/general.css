@@ -1,0 +1,100 @@
+html{
+    background-color:#def4fc;    
+    font-size:10px;
+    --color-nav:#050427;
+}
+
+body{
+    margin:0;
+    padding:0;
+    font-family: Roboto,Helvetica,Arial,sans-serif;    
+}
+
+@media (min-width:1400px){
+    body{
+	font-size:2em;
+    }
+}
+
+img{
+    height:auto;
+}
+
+body  > div:first-child{
+    max-width:1400px;
+    margin:0px auto;
+}
+
+body  > div:first-child > header{
+    background-color:#333;
+    position:relative;
+    padding:0.3%;
+}
+
+header img[src*="icono"]{
+    width:21%;
+    transform: rotate(-20deg);
+    position:absolute;
+    top:32%;
+}
+
+header img[src*="letras"]{
+    margin-left:21%;
+    width:15%;
+}
+
+body  > div:first-child > nav{
+    font-size:1em;
+    padding:0.5em 16%;
+    color:#fff;
+    list-style:none;
+    background: linear-gradient(to bottom, #065896 0%,#1e3975 54%,#464c6b 100%);
+    border:solid 1px var(--color-nav);
+    font-weight:bold;
+}
+
+body  > div:first-child > nav ul{
+    margin:0;
+    padding:0;
+}
+
+body  > div:first-child > nav li{
+    display:inline-block;
+    /*margin:0 1.4em 0 0;*/
+    padding:0;
+    text-shadow: 1px 1px 2px var(--color-nav);
+}
+
+body  > div:first-child > nav li::before{
+    content:"|";
+    margin:0 1em;
+    font-weight:normal;
+    color:#1f1b4c;
+    text-shadow: 1px 1px 2px #434b6f;
+}
+
+body  > div:first-child > nav li:first-child::before{
+    content:none;
+}
+
+body  > div:first-child footer{
+    font-size:0.8em;
+    border-top:solid 2px #000;
+    background: linear-gradient(to bottom, #4c4c4c 0%,#2c2c2c 27%,#2c2c2c 30%,#2c2c2c 31%,#111111 55%,#1c1c1c 78%,#131313 100%);
+    padding:1.2% 3.2%;
+}
+
+#autor{
+    margin:0.1em 0 0.4em 0;
+    
+}
+
+#autor > p:first-child{
+    font-size:1.2em;
+    color:#23a2cc;
+    margin:0 0 0.2em 0;
+}
+
+#autor address{
+    color:#8d928d;
+}
