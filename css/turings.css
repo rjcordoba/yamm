@@ -1,0 +1,68 @@
+body main{
+    display:flex;
+}
+
+main section:first-child{
+    /*width:70%;*/
+}
+
+main section:last-child{
+    width:30%;
+    --colorbf:#fbfbfa;
+
+    --altol:1em;
+     /*padding:4em 2%;*/
+}
+
+#pantalla{
+    --colnums:#b0b1b3;
+    --pad-pantalla:0.5em;
+    border:solid 1px var(--colnums);
+    border-left:solid 0.1em var(--colnums); 
+    display:flex;
+    align-items:stretch;
+    height:35em;
+    line-height:1.1em;
+}
+
+/*#pantalla > *{
+    display:inline-block;
+    line-height:0.8em;
+}*/
+
+#pantalla #nums{
+    flex-grow:0;
+    list-style-type:none;
+    padding:0 0.2em;
+    padding-top:var(--pad-pantalla);
+    background-color:#edf1f3;
+    border-right:solid 1px var(--colnums);
+    color:var(--colnums);
+}
+
+#pantalla [contenteditable]{
+    font-size:0.9em;
+    background-color:#fbfbfa;
+    font-family:monospace;
+    flex-grow:1;
+    padding-top:0.2em;
+    padding-top:var(--pad-pantalla);
+}
+
+span{font-size:0.9em; background-color:var(--colorbf);}
+
+#pantalla [contenteditable] p{
+   /* border:solid 1px red;
+    line-height: var(--altol);
+    
+  background-color:var(--colorbf);*/
+}
+
+#editor [contenteditable] p:first-child{
+    border:1px solid var(--colorbf);
+}
+/*
+#editor [contenteditable]::first-letter{
+    opacity:0;
+	 z-index:-4;
+}*/
