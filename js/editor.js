@@ -1,28 +1,48 @@
 var nave = document.querySelector("textarea");
 var $qS = document.querySelector;
-
+var $bId = document.getElementById;
 class Editor{
     constructor() {
 	document.execCommand("defaultParagraphSeparator", false, "p");
 
-	var pizarra = document.querySelector("#editor [contenteditable]");
-	var números = document.querySelector("#pantalla ul");
-	var unum;
-	this.pizarra = pizarra;
-	this.números = números;
-	//this.primera = piz.firstChild;
-	//this.mdown = null;
-	//this.mup = null;
-	//this.actual = null;
+	const pizarra = document.getElementById("pizarra");
+	const cnúmeros = document.querySelector("#pantalla > div:first-child");
+	const cpizarra = document.querySelector("#pantalla > div:last-child");
+	const números = document.getElementById("nums");
+	var unum = 1;
 	
+	pizarra.contentEditable = true;
+	pizarra.spellcheck = false;
 	números.innerHTML = "<li>1</li>";
-	(function iniciar_pantalla(){
-	    pizarra.innerHTML = "<p></p>";
-	    unum = números.firstChild;
-	}())
-	var observador = new MutationObserver(e => {
-	    console.log(e);});	
+	pizarra.innerHTML = "<p></p>";
+
+	const observador = new MutationObserver(e => {
+	    if(e.length == 1)
+		if(e[0].addedNodes.length > 0) añadir_num();
+		else quitar_num();
+	console.log(e)});	
+
 	observador.observe(pizarra, {childList: true});
+
+	cpizarra.addEventListener("scroll", () => {
+	    cnúmeros.scrollTop = cpizarra.scrollTop; console.log(cpizarra.scrollTop, cnúmeros.scrollTop);}, false);
+
+	const num_lista = document.createElement("li");
+	function añadir_num(){
+	    var el = num_lista.cloneNode();
+	    el.textContent = ++unum;
+	    números.appendChild(el);
+	}
+	function quitar_num(){
+	    if(unum == 1) pizarra.innerHTML = "<p></p>";
+	    else{
+		unum--;
+		números.lastChild.remove();
+	    }
+	}
+
+    }
+
 	//this.iniciar_pantalla();
 
 	/*piz.addEventListener("click", e => {
@@ -39,7 +59,6 @@ class Editor{
 
 	/*piz.addEventListener("mousedown", e => {
 	     console.log(e)}, false);*/
-    }
 
 /*    iniciar_pantalla(){
 	this.pizarra.innerHTML = "<p></p>";
