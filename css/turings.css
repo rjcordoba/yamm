@@ -8,15 +8,13 @@ main section:first-child{
 
 main section:last-child{
     width:30%;
-    --colorbf:#fbfbfa;
-
-    --altol:1em;
-     /*padding:4em 2%;*/
 }
 
 #pantalla{
     --colnums:#b0b1b3;
     --pad-pantalla:0.2em;
+    /* --colpizarra:#fcfcfc; */
+    --fontsize-pantalla:0.8em;
     font-size:0.8em;
     display:flex;
     align-items:stretch;
@@ -46,7 +44,7 @@ main section:last-child{
 }
 
 #pantalla > div:last-child{
-    background-color:#fbfbfa;
+    background-color:var(--colpizarra);
     font-family:monospace;
     flex-grow:1;
     padding-left:0.2em;
@@ -54,49 +52,36 @@ main section:last-child{
     word-wrap:normal;
     overflow:auto;
 }
-/*
-#pantalla > div{
-    overflow:hidden;
-    width:100%;
-}*/
 
 #pantalla #pizarra{
     display:inline-block;
     min-height:97%;
     min-width:100%;
-    box-sizing: border-box;
-    padding-top:0.13em;
-}
-
-/*#pantalla #pizarra{
-    font-size:0.9em;
-    background-color:#fbfbfa;
-    font-family:monospace;
-    flex-grow:1;
-    padding-left:0.2em;
+    box-sizing:border-box;
     padding-top:var(--pad-pantalla);
-    white-space:pre;
-    word-wrap:normal;
-}*/
+}
 
 #pantalla #pizarra:focus{
     outline-style: none;
 }
 
-span{font-size:0.9em; background-color:var(--colorbf);}
+span{font-size:var(fontsize-pantalla);}/* background-color:var(--colpizarra);}*/
 
-#pantalla #pizarra p{
-   /* border:solid 1px red;
-    line-height: var(--altol);
-    
-  background-color:var(--colorbf);*/
+#pantalla #pizarra p, #pantalla #nums li{
+    padding:1px 0; border:solid 1px red;
 }
 
 #pantalla #pizarra p:first-child{
-    border:1px solid var(--colorbf);
+    border:1px solid transparent;/*var(--colpizarra); */
+    box-sizing:border-box;
+    padding:0;position:relative;
 }
-/*
-#editor [contenteditable]::first-letter{
-    opacity:0;
-	 z-index:-4;
+
+/*#pantalla #pizarra p:first-child::before{
+
+     position:relative;z-index:-5;left:-5em; 
 }*/
+
+#pantalla #pizarra p:empty::before{
+    content:"\200b";
+}
