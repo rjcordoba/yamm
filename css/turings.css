@@ -13,9 +13,9 @@ main section:last-child{
 #pantalla{
     --colnums:#b0b1b3;
     --pad-pantalla:0.2em;
-    /* --colpizarra:#fcfcfc; */
     --fontsize-pantalla:0.8em;
-    font-size:0.8em;
+    --colpizarra:#fcfcfc;
+    font-size:var(--fontsize-pantalla);
     display:flex;
     align-items:stretch;
     line-height:1.34em;
@@ -65,7 +65,7 @@ main section:last-child{
     outline-style: none;
 }
 
-span{font-size:var(fontsize-pantalla);}/* background-color:var(--colpizarra);}*/
+span{font-size:var(--fontsize-pantalla);background-color:var(--colpizarra);}
 
 #pantalla #pizarra p, #pantalla #nums li{
     padding:1px 0; border:solid 1px red;
