@@ -5,76 +5,143 @@ class Editor{
     constructor() {
 
 	const pizarra = document.getElementById("pizarra");
-	const cnúmeros = document.querySelector("#pantalla > div:first-child");
+	const cont_números = document.querySelector("#pantalla > div:first-child");
 	const cont_pizarra = document.querySelector("#pantalla > div:last-child");
 	const números = document.getElementById("nums");
 	var unum = 1;
-	var actual;
+	var línea_actual;
 
-	// Inicializar la pizarra
+	/*============================
+	 *  Inicializar la pizarra
+	 *============================*/
 	pizarra.contentEditable = true;
 	pizarra.spellcheck = false;
 	números.innerHTML = "<li>1</li>";
 	pizarra.innerHTML = "<p></p>";
 	document.execCommand("defaultParagraphSeparator", false, "p");
-	actual = pizarra.firstChild;
+	línea_actual = pizarra.firstChild;
 	
-	// Para actuar cuando se añaden y eliminan líneas.
-	const observador = new MutationObserver(e => {
-	    // if(e.length == 1)
-		if(e[0].addedNodes.length > 0) añadir_num();
-		else quitar_nums(e.length);
-	console.log(e)});	
-
-	observador.observe(pizarra, {childList: true});
-
-	const num_lista = document.createElement("li");
-	function añadir_num(){
-	    var el = num_lista.cloneNode();
-	    el.textContent = ++unum;
-	    números.appendChild(el);
-	}
-
+	/*====================
+	 *  Observador
+	 *====================*/
+	// var pend_pegar = null;
 	const primera_línea = document.createElement("p");
-	function quitar_nums(tam){
-	    for(let i = 0; i < tam; i++){
-		unum--;
-		números.lastChild.remove();
-	    }
-	    if(unum == 0){
-		pizarra.appendChild(primera_línea);
-		document.getSelection().collapse(primera_línea);
-	    }
-	    actual = buscar_p(document.getSelection().anchorNode);
-	    console.log(document.getSelection());
-	}
+	const num_lista = document.createElement("li");
+	const observador = new MutationObserver(lerroak => {
+		 console.log(lerroak);
+		 // const tam = e.length;
+		 lerroak.forEach(e => {
+			  if(e.addedNodes.length > 0){
+					var el = num_lista.cloneNode();
+					el.textContent = ++unum;
+					números.appendChild(el);
+			  }
+			  else{
+					unum--;
+					números.lastChild.remove();
+					// }
+					if(unum == 0){
+						 pizarra.appendChild(primera_línea);
+						 document.getSelection().collapse(primera_línea);
+					}
+			  }
+			  poner_actual();
+			  // 		for(let i = 0; i < tam; i++){
+			  // if(e[i].addedNodes.length > 0) añadir_num();
+			  // else{
+			  // 	  quitar_nums(e.length);
+			  // 	  poner_actual();
+			  // 	  if(pend_pegar){
+			  // 			pend_pegar();
+			  // 			pend_pegar = null;
+			  // 	  }
+			  //		 }
+		 });
+	});
+   observador.observe(pizarra, {childList: true});
+
+	// const num_lista = document.createElement("li");
+	// function añadir_num(){
+	//     // for(let i = 0; i < tam; i++){
+	// 	var el = num_lista.cloneNode();
+	// 	el.textContent = ++unum;
+	// 	números.appendChild(el);
+	//   //  }
+	// }
+
+
+	// function quitar_num(){
+	// 	 // for(let i = 0; i < tam; i++){
+	// 		  unum--;
+	// 		  números.lastChild.remove();
+	//     // }
+	//     if(unum == 0){
+	// 		  pizarra.appendChild(primera_línea);
+	// 		  document.getSelection().collapse(primera_línea);
+	//     }
+	// }
 
 	function buscar_p(elem){
 	    var e = elem;
 	    while(e.nodeName != "P") e = e.parentNode;
 	    return e;
 	}
+
+   function poner_actual(){
+		 línea_actual = buscar_p(document.getSelection().anchorNode);
+	}
+
+	/*====================
+	 *  Manejadores
+	 *====================*/
 	
 	// Para que los números de línea hagan scroll con la pizarra.
 	cont_pizarra.addEventListener("scroll", () => {
-	    cnúmeros.scrollTop = cont_pizarra.scrollTop;}, false);
+	    cont_números.scrollTop = cont_pizarra.scrollTop;}, false);
 
-	pizarra.addEventListener("cut", () => {
-	    console.log("cuuuut");}, false);
-	    
+	// pizarra.addEventListener("cut", () => {
+	//     console.log("cuuuut");}, false);
+
+	// nave.onpaste = () => console.log("en textarea..........");
+
 	pizarra.addEventListener("paste", e => {
 	    e.preventDefault();
-	    // if()
-	    console.log("paaaaaaaaaaste");}, false);
-	    
+	    var texto = (e.clipboardData || window.clipboardData).getData("text").replace(/[\t\v\f]/g, " ").split(/\r\n|\r|\n/);
+	    var selección = document.getSelection();
+	    // if(selección.type == "Range"){
+	    // 	  document.execCommand("delete", false);
+		 // }
+		// if(selección.getRangeAt(0).commonAncestorContainer == pizarra)
+		//     pend_pegar = pegar;
+
+		// else pegar();
+	   //  }
+	   //  else pegar();
+//	    function pegar(){
+		document.execCommand("insertText", false, texto[0]);
+		var cantidad =texto.length;
+
+			  console.log(cantidad);//<----------------------------
+
+		for(let i=1; i<cantidad; i++){
+		    document.execCommand("insertParagraph", false);
+			 // poner_actual();
+		    // let rango = document.createRange();
+		    // rango.selectNode(línea_actual);
+		    // rango.collapse(true);
+		    // selección.removeAllRanges();
+		    // selección.addRange(rango);
+		    document.execCommand("insertText", false, texto[i]);
+		}
+//		línea_actual = la;
+//	    }
+	});
+
+//pizarra.addEventListener('insert', function (e) {console.log("lalala") }, false);
 
 
 
-pizarra.addEventListener('insert', function (e) {console.log("lalala") }, false);
-
-
-
-    }
+   }
 }
 
 var editor = new Editor;
