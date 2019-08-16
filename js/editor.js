@@ -27,7 +27,7 @@ class Editor{
 	// var pend_pegar = null;
 	const primera_línea = document.createElement("p");
 	const num_lista = document.createElement("li");
-	const observador = new MutationObserver(lerroak => {
+	new MutationObserver(lerroak => {
 		 console.log(lerroak);
 		 // const tam = e.length;
 		 lerroak.forEach(e => {
@@ -57,8 +57,7 @@ class Editor{
 			  // 	  }
 			  //		 }
 		 });
-	});
-   observador.observe(pizarra, {childList: true});
+	}).observe(pizarra, {childList: true});
 
 	// const num_lista = document.createElement("li");
 	// function añadir_num(){
@@ -81,10 +80,10 @@ class Editor{
 	//     }
 	// }
 
-	function buscar_p(elem){
-	    var e = elem;
+	function buscar_p(e){
+		 var e = document.getSelection().anchorNode;
 	    while(e.nodeName != "P") e = e.parentNode;
-	    return e;
+	    return e;	    
 	}
 
    function poner_actual(){
@@ -98,6 +97,24 @@ class Editor{
 	// Para que los números de línea hagan scroll con la pizarra.
 	cont_pizarra.addEventListener("scroll", () => {
 	    cont_números.scrollTop = cont_pizarra.scrollTop;}, false);
+
+	{let pul = false;
+	pizarra.addEventListener("focus", () => {
+		 if(!pul) línea_actual = primera_línea;console.log(línea_actual,"focus");}, false);
+
+	pizarra.addEventListener("mousedown", () => {
+		 pul = true;console.log(línea_actual,"down");}, false);
+		  
+	pizarra.addEventListener("mouseup", e => {
+		 if(e.target == pizarra) línea_actual = pizarra.lastChild;
+		 else línea_actual = buscar_p(e.target);e.stopPropagation();console.log(línea_actual,"up");}, false);
+
+	 pizarra.addEventListener("blur", () => {
+	     pul = false;console.log(línea_actual,"blur");}, false);
+
+	 document.querySelector("main section:last-child").addEventListener("mouseup", e => {
+		  pul = true; línea_actual = pizarra.lastChild; console.log(línea_actual,"section");}, false);
+   }
 
 	// pizarra.addEventListener("cut", () => {
 	//     console.log("cuuuut");}, false);
