@@ -9,6 +9,7 @@ body{
     padding:0;
     font-family: Roboto,Helvetica,Arial,sans-serif;
     font-size:1.2em;
+	 background-color:#f7f5f1;
 }
 
 *{margin:0; padding:0;}
@@ -18,14 +19,26 @@ img{
 }
 
 body  > div:first-child{
-    max-width:1400px;;
     margin:0px auto;
+}
+
+.anchura{
+    max-width:1400px;
+	 margin:0 auto;
+	 box-sizing:border-box;
+}
+
+#cont-principal{
+	 padding:0;
+}
+
+header .anchura{
+    position:relative;
+    padding:0.3em 0.3% 0;
 }
 
 body  > div:first-child > header{
     background-color:#333;
-    position:relative;
-    padding:0.3em 0.3% 0;
 }
 
 header img[src*="icono"]{
@@ -42,8 +55,7 @@ header img[src*="letras"]{
 
 body  > div:first-child > nav{
     font-size:1em;
-    padding:0.4em 16%;
-    margin:0;
+	 padding:0.4em 0;
     color:#fff;
     list-style:none;
     background: linear-gradient(to bottom, #065896 0%,#1e3975 54%,#464c6b 100%);
@@ -53,9 +65,8 @@ body  > div:first-child > nav{
     font-weight:bold;
 }
 
-body  > div:first-child > nav ul{
-    margin:0;
-    padding:0;
+body > div > nav li:first-child{
+    margin-left:16%;
 }
 
 body  > div:first-child > nav li{
@@ -76,20 +87,19 @@ body  > div:first-child > nav li:first-child::before{
     content:none;
 }
 
-body div:first-child > nav + *{
-    background-color:#f7f5f1;
-}
+/* body div:first-child > nav + *{ */
+/*     background-color:#f7f5f1; */
+/* } */
 
 body  > div:first-child footer{
     font-size:0.8em;
     border-top:solid 2px #000;
     background: linear-gradient(to bottom, #4c4c4c 0%,#2c2c2c 27%,#2c2c2c 30%,#2c2c2c 31%,#111111 55%,#1c1c1c 78%,#131313 100%);
-    padding:1.2% 3.2%;
+    padding:1.2% 0;
 }
 
 #autor{
-    margin:0.1em 0 0.4em 0;
-    
+    margin:0.1em 0 0.4em 2.4em;    
 }
 
 #autor > p:first-child{
@@ -106,11 +116,11 @@ body  > div:first-child footer{
     body{
 	font-size:2em;
     }
-    body  > div:first-child > header{
-	padding-top:0.5%;
-    }
+   /*  body  > div:first-child > header{ */
+	/* padding-top:0.5%; */
+   /*  } */
     header img[src*="icono"]{
-	top:2em;
+	top:1.98em;
     }
 }
 

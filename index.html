@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <meta charset="UTF-8">
-   <title>Página de inicio</title>
-   <meta name="author" content="R. Córdoba García">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" type="text/css" href="css/general.css">
-   <link rel="stylesheet" type="text/css" href="css/turings.css"><!--***********************-->
+  <head>
+    <meta charset="UTF-8">
+    <title>Página de inicio</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/turings.css"><!--***********************-->
 
-   <script></script>
+    <script>
+	 </script>
 
-   <style></style>
+    <style></style>
     
- </head>
- <body>
-   <div>
-     <header>
-       <img src="imgs/icono.svg">
-       <img src="imgs/letras.svg">
-     </header>
-     <nav>
-       <ul>
-	 <li>C--</li><li>Máquinas</li>
-       </ul>
-     </nav>
-     <main><!--***********************-->
-       <section><textarea rows="44" cols="50"></textarea><!--****|||||||||||||||||||||||||||||||||******-->
-       </section>
-       <section>
-	 <div id="editor">
-	   <div id="pantalla">
-	     <div><ul id="nums"></ul></div>
-	     <div><div id="pizarra"></div></div>
-	   </div>
+  </head>
+  <body>
+	 <div>
+    <header>
+		<div class="anchura">
+        <img src="imgs/icono.svg">
+        <img src="imgs/letras.svg">
+		</div>
+    </header>
+    <nav>
+      
+		  <ul class="anchura">
+		  <li>C--</li><li>Máquinas</li>
+        </ul>
+		
+    </nav>
+	 <div id="cont-principal" class="anchura">
+		<main><!--***********************-->
+        <section><textarea rows="44" cols="50"></textarea><!--****|||||||||||||||||||||||||||||||||******-->
+        </section>
+        <section>
+			 <div id="editor">
+				<div id="pantalla">
+				  <div><ul id="nums"></ul></div>
+				  <div><div id="pizarra"></div>
+				</div>
+			 </div>
+        </section>       
+		</main><!--***********************-->
 	 </div>
-       </section>       
-     </main><!--***********************-->
-     <footer>
-     <div id="autor">
-       <p>R. Córdoba García</p>
-       <address>rcordoba77@gmail.com</address>
-     </div>
-   </footer>
-   </div>
- </body>
+    <footer>
+		<div class="anchura">
+		  <div id="autor">
+			 <p>R. Córdoba García</p>
+			 <address>rcordoba77@gmail.com</address>
+		  </div>
+		</div>
+    </footer>
+	 </div>
+  </body>
 </html>
 <script src="js/editor.js"></script><!--***********************-->

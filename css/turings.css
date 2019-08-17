@@ -59,6 +59,16 @@ main section:last-child{
     min-width:100%;
     box-sizing:border-box;
     padding-top:var(--pad-pantalla);
+	 color:#333;
+}
+
+#pizarra p::selection{
+	 background-color:#eef595;
+color:#222304;
+}
+
+#pizarra br::selection{
+	 background-color:transparent;
 }
 
 #pantalla #pizarra:focus{
