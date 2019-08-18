@@ -7,7 +7,16 @@ main section:first-child{
 }
 
 main section:last-child{
-    width:30%;
+    width:37%;
+}
+
+#editor{
+	 --borde-pantalla:#280303;
+	 margin:2em 10% 5em;
+	 padding:0.34em;
+	 background-color:#6f2020;
+	 border:solid 2px var(--borde-pantalla);
+	 border-radius: 5px;
 }
 
 #pantalla{
@@ -15,13 +24,14 @@ main section:last-child{
     --pad-pantalla:0.2em;
     --fontsize-pantalla:0.8em;
     --colpizarra:#fcfcfc;
+	 --heigth-pantalla:10em;
     font-size:var(--fontsize-pantalla);
     display:flex;
     align-items:stretch;
     line-height:1.34em;
-    height:10em;
+    height:var(--heigth-pantalla);
     overflow:auto;
-    border:solid 1px var(--colnums);
+    border:solid 1px var(--borde-pantalla);
     border-left:solid 0.1em var(--colnums);
 }
 
@@ -30,7 +40,7 @@ main section:last-child{
     display:inline-block;
     text-align:right;
     padding-top:var(--pad-pantalla);
-    
+    padding-bottom:var(--heigth-pantalla);
 }
 
 #pantalla > div:first-child{
@@ -64,7 +74,7 @@ main section:last-child{
 
 #pizarra p::selection{
 	 background-color:#eef595;
-color:#222304;
+	 color:#222304;
 }
 
 #pizarra br::selection{

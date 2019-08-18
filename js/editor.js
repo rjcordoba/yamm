@@ -3,7 +3,8 @@ var $qS = document.querySelector;
 var $bId = document.getElementById;
 
 class Editor{
-    constructor() {
+ constructor()
+{
 
    const pizarra = document.getElementById("pizarra");
 	const cont_números = document.querySelector("#pantalla > div:first-child");
@@ -16,10 +17,11 @@ class Editor{
 	 *  Inicializar la pizarra
 	 *============================*/
 
+	const primera_línea = document.createElement("p");
 	números.innerHTML = "<li>1</li>";
 	pizarra.contentEditable = true;
 	pizarra.spellcheck = false;
-	pizarra.innerHTML = "<p></p>";
+   pizarra.appendChild(primera_línea);
 	document.execCommand("defaultParagraphSeparator", false, "p");
 	línea_actual = pizarra.firstChild;
 	
@@ -27,11 +29,8 @@ class Editor{
 	 *  Observador
 	 *====================*/
 
-	const primera_línea = document.createElement("p");
 	const num_lista = document.createElement("li");
-	new MutationObserver(lerroak => {
-		 console.log(lerroak);//<------------------------------------------
-
+		  new MutationObserver(lerroak => {
 		 lerroak.forEach(e => {
 			  if(e.addedNodes.length > 0){
 					var el = num_lista.cloneNode();
@@ -64,17 +63,19 @@ class Editor{
 	 *  Manejadores
 	 *====================*/
 
-	function poner_texto(t){
-      const texto = t.getData("text").replace(/[\t\v\f]/g, " ").split(/\r\n|\r|\n/);
-      const cantidad =texto.length;
-      document.execCommand("insertText", false, texto[0]);
-		for(let i=1; i<cantidad; i++){
-		     document.execCommand("insertParagraph", false);
-		     document.execCommand("insertText", false, texto[i]);
-		 }
-	}
+	 function poner_texto(t){
+		  pizarra.removeEventListener("input", metido_char, false);
+        const texto = t.getData("text").replace(/[\t\v\f]/g, " ").split(/\r\n|\r|\n/);
+        const cantidad =texto.length;
+        document.execCommand("insertText", false, texto[0]);
+		  for(let i=1; i<cantidad; i++){
+				document.execCommand("insertParagraph", false);
+				document.execCommand("insertText", false, texto[i]);
+		  }
+		  pizarra.addEventListener("input", metido_char, false);
+	 }
 	
-	// Para que los números de línea hagan scroll con la pizarra.
+//	Para que los números de línea hagan scroll con la pizarra.
 	cont_pizarra.addEventListener("scroll", () => {
 	    cont_números.scrollTop = cont_pizarra.scrollTop;}, false);
 
@@ -85,15 +86,15 @@ class Editor{
 	pizarra.addEventListener("mousedown", () => {
 		 pul = true;}, false);
 		  
-	cont_pizarra.addEventListener("mouseup", e => {
+	pizarra.addEventListener("mouseup", e => {
 		 if(e.target == pizarra) línea_actual = pizarra.lastChild;
 		 else línea_actual = buscar_p(e.target);e.stopPropagation();}, false);
 
-	 pizarra.addEventListener("blur", () => {
-	     pul = false;}, false);
+    pizarra.addEventListener("blur", () => {
+	      pul = false;}, false);
 
 	//  document.querySelector("main section:last-child").addEventListener("mouseup", e => {
-	// 	  pul = true; línea_actual = pizarra.lastChild; console.log(línea_actual,"section");}, false);
+	//  	  pul = true; línea_actual = pizarra.lastChild; console.log(línea_actual,"section");}, false);
    }
 
 	pizarra.addEventListener("paste", e => {
@@ -103,11 +104,59 @@ class Editor{
    pizarra.addEventListener("dragover", e => {
 		 e.preventDefault();}, false);
 
-	pizarra.addEventListener("drop", e => {
-		 e.preventDefault;
+	cont_pizarra.addEventListener("drop", e => {
+		 e.preventDefault();
 		 pizarra.focus();
 		 poner_texto(e.dataTransfer);}, false);
-    }
+
+    
+
+    {let pintro = false, pback = false;
+
+	 function metido_char(){
+		  console.log("input",línea_actual);
+		  if(printro) return;
+		  const texto_línea = línea_actual.textContent;
+		  if(pback && !texto_línea) return;
+	 } 
+
+	 pizarra.addEventListener("keydown", e => {
+		  switch (e.key){
+		  case "Enter":
+				pintro = true;
+				break;
+		  case "Backspace":
+				pback = true;
+		  }
+	 }, false);
+
+	 pizarra.addEventListener("input", metido_char, false);
+
+	 pizarra.addEventListener("keyup", e => {
+	 	  if(e.key.indexOf("Arrow") != -1) {poner_actual();}
+		  else
+				switch (e.key){
+				case "PageDown":
+					 línea_actual = pizarra.lastChild;
+					 break;
+				case "PageUp":
+					 línea_actual = primera_línea;
+					 break;
+				case "Enter":
+					 pintro = false;
+					 //Comprobar si hay que indentar la línea. La línea anterior la analiza en input.
+					 break;
+				case "Backspace":
+					 pback = false;
+					 break;					 
+		  }
+		  console.log(línea_actual,e);}, false);
+	 }
+
+
+
+	 
+  }
 }
 
 var editor = new Editor;
