@@ -3,7 +3,7 @@ const re_blancos = /\s/yug
      ,re_símbolo = /\s*(Any|None|not|::|sw|-(?:0|1)|\u0259|\.\.\.|\S)\s+/yug
      ,re_griega = /\s*(?:[\u0381-\u03c9]|alpha|alfa|beta|gamma|delta|(?:e|é)psilon|(?:ds|z|th)?eta|iota|kappa|lambda|m(?:i|u)|n(?:u|i)|(?:ó|o)micron|rho|sigma|tau|(?:ú|i)psilon|(?:ph|f|ch|j|ps|x|p)i|omega)\s*/yg
      ,re_acción = /\s*(R|L|P(\S)|E)\s*/yug
-     ,re_mconfig = /([a-zñáéíóú](?:[a-zA-ZñÑáéíóúÁÉÍÓÚ])*)(?:'|’)*([0-9])*(\(|\s)/yug
+     ,re_mconfig = /([a-zñáéíóú](?:[a-zA-ZñÑáéíóúÁÉÍÓÚ])*(?:'|’)*)([0-9])*(\(|\s)/yug
      ,re_cualquiera = /\s*(\S+)/yug
      ,re_varconfig = /\s*([A-ZÄÖÜ\uẞ])\s*/yg
 ;
@@ -18,6 +18,9 @@ const letras_griegas = {alfa:'\u03b1', alpha:'\u03b1', beta:'\u03b2', gamma:'\u0
 const errores = [/*0*/"fin de lista de variables", /*1*/"variables en m-function", /*2*/"final de línea", /*3*/"m-function o espacio y símbolo"
 	,/*4*/"símbolo o llave de apertura", /*5*/"acciones o m-configuración final"];
 
+
+var sust_símbolos = false;
+
 //Variable global que se pone cuando se detecta un error en la línea.
 var tok_esperado;
     // ,índice;
@@ -31,11 +34,11 @@ function int_línea(texto){
 	const espacios = aplicar_re(re_blancos); //re en vez de ver si hay un espacio para que funcione con cualquier espacio unicode.
 	if(!texto[índice]) return null; //No hay nada o sólo espacios.
 	if(texto[0] == "}"){
-		partes.push(new Llave("}", 6));
+		partes.push(new Llave("}", 4));
 		índice = 1;
 	}
 	else if(texto[0] == "{"){
-		partes.push(new Llave("{", 5));
+		partes.push(new Llave("{", 3));
 		índice = 1;
 	}
 	else{
@@ -83,17 +86,29 @@ function int_línea(texto){
 			return null;
 		}
 		if(nombre[3] != "("){
-			índice--; //Para que vuelva a leer el espacio y guardar el nombre del símbolo sin este espacio haciendo trim.
-			return new Mconfig(nombre[1].trim(), nombre[2], [[],[]], false);
+			return new Mconfig(nombre[1], nombre[2], [[],[]], 0);
 		}
 		const variables = int_variables();
-		if(tok_esperado) return new Mconfig(nombre[1], nombre[2], variables, false);
+		if(tok_esperado) return new Mconfig(nombre[1], nombre[2], variables, 1);
 		if(texto[índice] == ")"){
 			índice++;
-			return new Mconfig(nombre[1], nombre[2], variables, true);
+			return new Mconfig(nombre[1], nombre[2], variables, 2);
 		}
 		tok_esperado = errores[0];
-    	return new Mconfig(nombre[1], nombre[2], variables, false);
+    	return new Mconfig(nombre[1], nombre[2], variables, 1);
+	}
+
+	function int_griega(){
+		const griega = aplicar_re(re_griega);
+		if(!griega) return null;
+		var texto = griega[0];
+		var simb = griega[1];
+		if(sust_símbolos && simb.legth > 1){
+				let s = letras_griegas[simb];
+				texto.replace(/\S+/u, s);
+				simb = s;
+		}
+		return new Símbolo(texto, simb);
 	}
 
 	function int_variables(){
@@ -101,20 +116,26 @@ function int_línea(texto){
 		var s;
 		var coma = true; // Para saber si ha salido del primer bucle por que no hay coma o porque no hay varconfig.
 		while(s = aplicar_re(re_varconfig)){
-			vars[0].push(s[0]);
+			vars[0].push(new VarConfig(s[0], s[1]));
 			if(!aplicar_re(re_coma)){
 				coma = false;
 				break;
 			}
 		}
 		if(coma)
-			while(s = aplicar_re(re_griega)){
-				vars[1].push(s[0]);
+			while(s = int_griega()){
+				vars[1].push(Símbolo.a_varsimb(s));
 				if(!aplicar_re(re_coma)) break;
 			}
-		if(!vars[0].length && !vars[1].length) tok_error = errores[1];
+		if(!vars[0].length && !vars[1].length) tok_esperado = errores[1];
 		return vars;
 	}
+
+	function int_símbolo(){
+		var s = int_griega();
+		if(s) return s;
+		s = 
+}
 	
 	function aplicar_re(re){
 		re.lastIndex = índice;

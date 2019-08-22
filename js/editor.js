@@ -108,8 +108,9 @@ cont_pizarra.addEventListener("drop", e => {
 {let pintro = false, pback = false;
 
  function metido_char(e){
-	  console.log("input",e);
-	 if(pintro) console.log(convertir_línea(línea_actual.textContent));
+	 if(pintro) {
+		 var ll = convertir_línea(línea_actual.textContent);
+		 línea_actual.replaceChild(ll, línea_actual.firstChild);console.log(ll);}
 	 //Comprobar si hay error y si lo hay poner marca roja en la línea.
 	  //const texto_línea = línea_actual.textContent;
 	  if(pback) poner_actual();//return;
@@ -123,7 +124,7 @@ cont_pizarra.addEventListener("drop", e => {
 			break;
 	  case "Backspace":
 			pback = true;break;
-	  case "U+000A": console.log("lalala");e.preventDefault();
+	  case "U+000A": e.preventDefault();
 	  }
  }, false);
 
