@@ -18,9 +18,9 @@ img{
     height:auto;
 }
 
-body  > div:first-child{
-    margin:0px auto;
-}
+/* body  > div:first-child{ */
+/*     margin:0px auto; */
+/* } */
 
 .anchura{
     max-width:1400px;
@@ -37,7 +37,7 @@ header .anchura{
     padding:0.3em 0.3% 0;
 }
 
-body  > div:first-child > header{
+body  > header{
     background-color:#333;
 }
 
@@ -53,7 +53,7 @@ header img[src*="letras"]{
     width:15%;
 }
 
-body  > div:first-child > nav{
+body > nav{
     font-size:1em;
 	 padding:0.4em 0;
     color:#fff;
@@ -65,17 +65,17 @@ body  > div:first-child > nav{
     font-weight:bold;
 }
 
-body > div > nav li:first-child{
+body > nav li:first-child{
     margin-left:16%;
 }
 
-body  > div:first-child > nav li{
+body > nav li{
     display:inline-block;
     padding:0;
     text-shadow: 0px 0px 2px var(--color-nav);
 }
 
-body  > div:first-child > nav li::before{
+body  > nav li::before{
     content:"|";
     margin:0 1em;
     font-weight:normal;
@@ -83,7 +83,7 @@ body  > div:first-child > nav li::before{
     text-shadow: 1px 1px 2px #434b6f;
 }
 
-body  > div:first-child > nav li:first-child::before{
+body  > nav li:first-child::before{
     content:none;
 }
 
@@ -91,7 +91,7 @@ body  > div:first-child > nav li:first-child::before{
 /*     background-color:#f7f5f1; */
 /* } */
 
-body  > div:first-child footer{
+body > footer{
     font-size:0.8em;
     border-top:solid 2px #000;
     background: linear-gradient(to bottom, #4c4c4c 0%,#2c2c2c 27%,#2c2c2c 30%,#2c2c2c 31%,#111111 55%,#1c1c1c 78%,#131313 100%);
