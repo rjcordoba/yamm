@@ -1,0 +1,24 @@
+#pantalla sub { 
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+#pantalla .mcnombre{
+	color:#751414;
+}
+
+#pantalla .var_mc{
+	color:#db8181;
+}
+
+#pantalla .var_simb{
+	color:#4abff9;
+}
+
+#pantalla .simbol{
+	color:##1649ab;
+}
+
+#pantalla .simbol{
+	color:##9ea223;
+}

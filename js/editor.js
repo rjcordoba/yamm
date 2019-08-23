@@ -24,7 +24,7 @@ línea_actual = pizarra.firstChild;
  *====================*/
 
 const num_lista = document.createElement("li");
-new MutationObserver(lerroak => {
+new MutationObserver(lerroak => {console.log(lerroak);
 	 lerroak.forEach(e => {
 		  if(e.addedNodes.length > 0){
 				var el = num_lista.cloneNode();
@@ -108,7 +108,8 @@ cont_pizarra.addEventListener("drop", e => {
 {let pintro = false, pback = false;
 
  function metido_char(e){
-	 if(pintro) {
+	 if(pintro){
+		 
 		 var ll = convertir_línea(línea_actual.textContent);
 		 línea_actual.replaceChild(ll, línea_actual.firstChild);console.log(ll);}
 	 //Comprobar si hay error y si lo hay poner marca roja en la línea.
