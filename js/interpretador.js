@@ -1,4 +1,5 @@
 const re_blancos = /\s/yug
+     ,re_noblancos = /\S\S/yug
      ,re_coma = /,/yg
      ,re_puntocoma = /;/yug
      ,re_nor = /\s*nor\s/yug
@@ -89,6 +90,12 @@ function int_línea(texto){
 	function emp_símbolo(){
 		const simb = int_símbolo();
 		if(!simb){
+			tok_esperado = errores[6];
+			return;
+		}
+		re_noblancos.lastIndex = índice - 1;
+		if(re_noblancos.test(texto)){
+			tok_error = simb.texto;
 			tok_esperado = errores[6];
 			return;
 		}

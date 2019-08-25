@@ -13,28 +13,25 @@ main section:last-child{
 }
 
 #editor{
-	 --borde-pantalla:#280303;
 	 margin:2em 10% 5em;
 	 padding:0.34em;
 	 background-color:#6f2020;
-	 border:solid 2px var(--borde-pantalla);
+	 border:solid 2px #280303;
 	 border-radius: 5px;
 }
 
 #pantalla{
-    --colnums:#b0b1b3;
     --pad-pantalla:0.2em;
     --fontsize-pantalla:0.6em;
-    --colpizarra:#fcfcfc;
-	 --heigth-pantalla:10em;
+	--heigth-pantalla:10em;
     font-size:var(--fontsize-pantalla);
     display:flex;
     align-items:stretch;
     line-height:1.14em;
     height:var(--heigth-pantalla);
     overflow:auto;
-    border:solid 1px var(--borde-pantalla);
-    border-left:solid 0.1em var(--colnums);
+	border-left-width:1px;
+	border-left-style:solid;
 }
 
 #pantalla #nums{
@@ -49,14 +46,12 @@ main section:last-child{
     flex-grow:0;
     flex-shrink:0;
     padding:0 0.3em;
-    background-color:#edf1f3;
-    border-right:solid 1px var(--colnums);
-    color:var(--colnums);
     overflow:hidden;
+	border-right-style: solid;
+	border-right-width: 1px;
 }
 
 #pantalla > div:last-child{
-    background-color:var(--colpizarra);
     font-family:monospace;
     flex-grow:1;
     padding-left:0.2em;
@@ -71,7 +66,10 @@ main section:last-child{
     min-width:100%;
     box-sizing:border-box;
     padding-top:var(--pad-pantalla);
-	color:#333;
+}
+
+#pizarra span{
+	font-weight:bold;
 }
 
 /* span{font-size:var(--fontsize-pantalla);background-color:var(--colpizarra);} */
