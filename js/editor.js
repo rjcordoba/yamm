@@ -24,22 +24,22 @@ línea_actual = pizarra.firstChild;
  *====================*/
 
 const num_lista = document.createElement("li");
-new MutationObserver(lerroak => {console.log(lerroak);
+new MutationObserver(lerroak => {console.log(lerroak);//<-----------------------------------------
 	 lerroak.forEach(e => {
-		  if(e.addedNodes.length > 0){
-				var el = num_lista.cloneNode();
-				el.textContent = ++unum;
-				números.appendChild(el);
-		  }
-		  else{
-				unum--;
-				números.lastChild.remove();
-				if(unum == 0){
-					 pizarra.appendChild(primera_línea);
-					 document.getSelection().collapse(primera_línea);
-				}
-		  }
-		  poner_actual();
+		 if(e.addedNodes.length > 0){
+			 var el = num_lista.cloneNode();
+			 el.textContent = ++unum;
+			 números.appendChild(el);
+		 }
+		 else{
+			 unum--;
+			 números.lastChild.remove();
+			 if(unum == 0){
+				 pizarra.appendChild(primera_línea);
+				 document.getSelection().collapse(primera_línea);
+			 }
+		 }
+		 poner_actual();
 	 });
 }).observe(pizarra, {childList: true});
 
@@ -103,19 +103,15 @@ cont_pizarra.addEventListener("drop", e => {
 	 pizarra.focus();
 	 poner_texto(e.dataTransfer);}, false);
 
-
-
-{let pintro = false, pback = false;
-
- function metido_char(e){
-	 if(pintro){
-		 
+ function interp_línea(e){		 
 		 var ll = convertir_línea(línea_actual.textContent);
-		 línea_actual.replaceChild(ll, línea_actual.firstChild);console.log(ll);}
+		 línea_actual.innerHTML = "";
+		 línea_actual.appendChild(ll);
+		 // línea_actual.replaceChild(ll, línea_actual.firstChild););}
 	 //Comprobar si hay error y si lo hay poner marca roja en la línea.
 	  //const texto_línea = línea_actual.textContent;
-	  if(pback) poner_actual();//return;
- } 
+	  //return;
+} 
 
  pizarra.addEventListener("keydown", e => {
 	  switch (e.key){
@@ -126,29 +122,38 @@ cont_pizarra.addEventListener("drop", e => {
 	  case "Backspace":
 			pback = true;break;
 	  case "U+000A": e.preventDefault();
+	  case "Tab":
+		  e.preventDefault();
+		  interp_línea();
 	  }
  }, false);
 
- pizarra.addEventListener("input", metido_char, false);
+let pintro = false, pback = false;
+function metido_char(){
+	if(pintro) interp_línea();
+	if(pback) poner_actual();
+
+ // pizarra.addEventListener("input", metido_char, false);
 
  pizarra.addEventListener("keyup", e => {
-	  if(e.key.indexOf("Arrow") != -1) {poner_actual();}
-	  else
-			switch (e.key){
-			case "PageDown":
-				 línea_actual = pizarra.lastChild;
-				 break;
-			case "PageUp":
-				 línea_actual = primera_línea;
-				 break;
-			case "Enter":
-				 pintro = false;
-				 //Comprobar si hay que indentar la línea. La línea anterior la analiza en input.
-				 break;
-			case "Backspace":
-				 pback = false;
-				 break;					 
-			}
+	 if(e.key.indexOf("Arrow") != -1) {poner_actual();}
+	 else
+		 switch (e.key){
+		 case "PageDown":
+			 línea_actual = pizarra.lastChild;
+			 break;
+		 case "PageUp":
+			 línea_actual = primera_línea;
+			 break;
+		 case "Enter":
+			 pintro = false;
+			 línea_actual.textContent = línea_actual.textContent;
+			 //Comprobar si hay que indentar la línea. La línea anterior la analiza en input.
+			 break;
+		 case "Backspace":
+			 pback = false;
+			 break;					 
+		 }
 
  });
 }

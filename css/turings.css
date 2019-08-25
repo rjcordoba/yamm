@@ -71,20 +71,7 @@ main section:last-child{
     min-width:100%;
     box-sizing:border-box;
     padding-top:var(--pad-pantalla);
-	 color:#333;
-}
-
-#pizarra p::selection, #pizarra span::selection{
-	 background-color:#eef595;
-	 color:#222304;
-}
-
-#pizarra br::selection{
-	 background-color:transparent;
-}
-
-#pantalla #pizarra:focus{
-    outline-style: none;
+	color:#333;
 }
 
 /* span{font-size:var(--fontsize-pantalla);background-color:var(--colpizarra);} */
@@ -98,11 +85,6 @@ main section:last-child{
     box-sizing:border-box;
     padding:0;position:relative;
 }
-
-/*#pantalla #pizarra p:first-child::before{
-
-     position:relative;z-index:-5;left:-5em; 
-}*/
 
 #pantalla #pizarra p:empty::before{
     content:"\200b";

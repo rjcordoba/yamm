@@ -1,24 +1,49 @@
-#pantalla sub { 
+#pizarra *::selection{
+	 background-color:#eef595;
+	 color:#222304;
+}
+
+#pizarra br::selection{
+	 background-color:transparent;
+}
+
+#pizarra span{
+	font-weight:bold;
+}
+
+#pizarra:focus{
+    outline-style: none;
+}
+
+#pizarra sub { 
   vertical-align: sub;
   font-size: smaller;
 }
 
-#pantalla .mcnombre{
+#pizarra .mcnombre{
 	color:#751414;
 }
 
-#pantalla .var_mc{
+#pizarra .var_mc{
 	color:#db8181;
 }
 
-#pantalla .var_simb{
+#pizarra .var_simb{
 	color:#4abff9;
 }
 
-#pantalla .simbol{
-	color:##1649ab;
+#pizarra .simbol{
+	color:#1649ab;
 }
 
-#pantalla .simbol{
-	color:##9ea223;
+#pizarra .akzioa{
+	color:#5d9108;
+}
+
+/* #pizarra .mcfinal .var_simb{ */
+/* 	color:#9ea223; */
+/* } */
+
+#pizarra .mcfinal{
+	color:#037010;
 }
