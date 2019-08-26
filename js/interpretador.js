@@ -28,6 +28,9 @@ const errores = [/*0*/"fin de lista de variables", /*1*/"variables en m-function
 //Opción para convertir los símbolos en las letras griegas.
 var sust_símbolos = true;
 
+//El interpretador detecta si hay llave de apertura o cierre.
+var indentar = false;
+
 //Variable global que se pone cuando se detecta un error en la línea.
 var tok_esperado;
 var tok_error;
@@ -319,7 +322,11 @@ function convertir_línea(texto){
 	for(let i=0;i<n;i++){
 		let nodos;
 		if(typeof partes[i] == "string") nodos = document.createTextNode(partes[i]);
-        else nodos = partes[i].obt_nodos();
+        else{
+			if(partes[i].tipo == 3) indentar = true;
+			else if(partes[i].tipo == 4) indentar = false;
+			nodos = partes[i].obt_nodos();
+		}
 		df.appendChild(nodos);
 	}
 	return df;

@@ -4,6 +4,7 @@ const pizarra = document.getElementById("pizarra");
 const cont_números = document.querySelector("#pantalla > div:first-child");
 const cont_pizarra = document.querySelector("#pantalla > div:last-child");
 const números = document.getElementById("nums");
+const minib = document.getElementById("minib");
 var unum = 1;
 var línea_actual;
 
@@ -58,7 +59,7 @@ function poner_actual(){
  *====================*/
 
 function poner_texto(t){
-	 pizarra.removeEventListener("input", metido_char, false);
+	 pizarra.removeEventListener("input", interp_línea, false);
 	 const texto = t.getData("text").replace(/[\t\v\f]/g, " ").split(/\r\n|\r|\n/);
 	 const cantidad =texto.length;
 	 document.execCommand("insertText", false, texto[0]);
@@ -66,7 +67,7 @@ function poner_texto(t){
 		  document.execCommand("insertParagraph", false);
 		  document.execCommand("insertText", false, texto[i]);
 	 }
-	 pizarra.addEventListener("input", metido_char, false);
+	 pizarra.addEventListener("input", interp_línea, false);
 }
 
 //	Para que los números de línea hagan scroll con la pizarra.
@@ -86,9 +87,6 @@ cont_pizarra.addEventListener("scroll", () => {
 
  pizarra.addEventListener("blur", () => {
 	  pul = false;}, false);
-
- //  document.querySelector("main section:last-child").addEventListener("mouseup", e => {
- //  	  pul = true; línea_actual = pizarra.lastChild; console.log(línea_actual,"section");}, false);
 }
 
 pizarra.addEventListener("paste", e => {
@@ -103,57 +101,64 @@ cont_pizarra.addEventListener("drop", e => {
 	 pizarra.focus();
 	 poner_texto(e.dataTransfer);}, false);
 
- function interp_línea(e){		 
-		 var ll = convertir_línea(línea_actual.textContent);
-		 línea_actual.innerHTML = "";
-		 línea_actual.appendChild(ll);
-		 // línea_actual.replaceChild(ll, línea_actual.firstChild););}
-	 //Comprobar si hay error y si lo hay poner marca roja en la línea.
-	  //const texto_línea = línea_actual.textContent;
-	  //return;
-} 
+function quitar_mensaje(){
+	minib.innerHTML = "";
+	pizarra.removeEventListener("input", quitar_mensaje, false);
+}
 
- pizarra.addEventListener("keydown", e => {
-	  switch (e.key){
-	  case "Enter":
-			if(e.shiftKey) e.preventDefault();
-			else pintro = true;
+{let pintro = false;
+
+function interp_línea(e){
+
+	console.time("Int. línea");	
+
+	if(pintro) sust_símbolos = true;
+	var ll = convertir_línea(línea_actual.textContent);
+	línea_actual.innerHTML = "";
+	línea_actual.appendChild(ll);
+	if(tok_esperado && pintro){
+		minib.textContent = `Error\nEsperado: ${tok_esperado}.\nEncontrado: ${tok_error}`;
+		pizarra.addEventListener("input", quitar_mensaje, false);
+	}
+	sust_símbolos = false;
+
+	console.timeEnd("Int. línea");
+
+}
+
+pizarra.addEventListener("keydown", e => {
+	switch (e.key){
+	case "Enter":
+		if(e.shiftKey) e.preventDefault();
+		else pintro = true;
+		break;
+	case "U+000A": e.preventDefault();
+	case "Tab":
+		e.preventDefault();
+		interp_línea();
+	}
+}, false);
+
+pizarra.addEventListener("input", interp_línea, false);
+
+pizarra.addEventListener("keyup", e => {
+	if(e.key.indexOf("Arrow") != -1) poner_actual();
+	else
+		switch (e.key){
+		case "PageDown":
+			línea_actual = pizarra.lastChild;
 			break;
-	  case "Backspace":
-			pback = true;break;
-	  case "U+000A": e.preventDefault();
-	  case "Tab":
-		  e.preventDefault();
-		  interp_línea();
-	  }
- }, false);
-
-let pintro = false, pback = false;
-function metido_char(){
-	if(pintro) interp_línea();
-	if(pback) poner_actual();
-
- // pizarra.addEventListener("input", metido_char, false);
-
- pizarra.addEventListener("keyup", e => {
-	 if(e.key.indexOf("Arrow") != -1) {poner_actual();}
-	 else
-		 switch (e.key){
-		 case "PageDown":
-			 línea_actual = pizarra.lastChild;
-			 break;
-		 case "PageUp":
-			 línea_actual = primera_línea;
-			 break;
-		 case "Enter":
-			 pintro = false;
-			 línea_actual.textContent = línea_actual.textContent;
-			 //Comprobar si hay que indentar la línea. La línea anterior la analiza en input.
-			 break;
-		 case "Backspace":
-			 pback = false;
-			 break;					 
-		 }
-
- });
+		case "PageUp":
+			línea_actual = primera_línea;
+			break;
+		case "Enter":
+			pintro = false;
+			línea_actual.textContent = línea_actual.textContent;
+			if(indentar) document.execCommand("insertText", false, "   ");
+			break;
+		case "Backspace":
+			poner_actual();
+			break;					 
+	}
+});
 }

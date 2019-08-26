@@ -204,6 +204,6 @@ class Llave{
 	}
 
 	obt_nodos(){
-		return document.createTextNode(this.texto);
+		return crear_span(this.texto, "llave");
 	}	
 }
