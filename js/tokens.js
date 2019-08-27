@@ -24,18 +24,18 @@ class Mconfig{
 		this.simbs = variables[1];
 	 	this.paréntesis = paréntesis;
 		this.textopar = ")";
-	 }
+	}
 
 	obt_nodos(){
 		const trozos = document.createDocumentFragment();
-		var nodo = crear_span(this.nombre, "mcnombre");
+		trozos.appendChild(crear_span(this.nombre, "mcnombre"));
 		if(this.número){
 			let num = document.createElement("sub");
 			num.appendChild(document.createTextNode(this.número));
-			nodo.appendChild(num);
+			num.className = "mcnombre";
+			trozos.appendChild(num);
 		}
-		if(this.paréntesis) nodo.appendChild(document.createTextNode("("));
-		trozos.appendChild(nodo);
+		if(this.paréntesis) trozos.appendChild(crear_span("(", "mcnombre"));
 		const n = this.mconfs.length;
 		if(n){
 			trozos.appendChild(this.mconfs[0].obt_nodos());
@@ -70,14 +70,14 @@ class Mcfinal extends Mconfig{
 
 	obt_nodos(){
 		const trozos = document.createDocumentFragment();
-		var nodo = crear_span(this.nombre, "mcfinal");
+		trozos.appendChild(crear_span(this.nombre, "mcfinal"));
 		if(this.número){
 			let num = document.createElement("sub");
 			num.appendChild(document.createTextNode(this.número));
-			nodo.appendChild(num);
+			num.className = "mcfinal";
+			trozos.appendChild(num);
 		}
-		if(this.paréntesis) nodo.appendChild(document.createTextNode("("));
-		trozos.appendChild(nodo);
+		if(this.paréntesis) trozos.appendChild(crear_span("(", "mcfinal"));
 		const n = this.mconfs.length;
 		if(n){
 			trozos.appendChild(this.mconfs[0].obt_nodos());

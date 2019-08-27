@@ -106,59 +106,106 @@ function quitar_mensaje(){
 	pizarra.removeEventListener("input", quitar_mensaje, false);
 }
 
-{let pintro = false;
+{let pintro = false, pret = false;
 
-function interp_línea(e){
+ function pos_caret(){
+	 const sel = document.getSelection();
+	 const el = sel.anchorNode;
+	 // const offs = sel.anchorOffset;
+	 var cont = 0;
+	 chars_antes(línea_actual.firstChild);
+	 return cont + sel.anchorOffset;
 
-	console.time("Int. línea");	
+	 function chars_antes(nod){
+		 if(nod == el){
+			 encontrado = true;
+			 return;
+		 }
+		 if(nod.nodeType == 3) cont += nod.textContent.length;
+		 else chars_antes(nod.firstChild);
+		 if(!encontrado && nod.nextSibling) chars_antes(nod.nextSibling);
+	 }
+ }
 
-	if(pintro) sust_símbolos = true;
-	var ll = convertir_línea(línea_actual.textContent);
-	línea_actual.innerHTML = "";
-	línea_actual.appendChild(ll);
-	if(tok_esperado && pintro){
-		minib.textContent = `Error\nEsperado: ${tok_esperado}.\nEncontrado: ${tok_error}`;
-		pizarra.addEventListener("input", quitar_mensaje, false);
-	}
-	sust_símbolos = false;
+ function poner_caret(pos){
+	 var rec = línea_actual.firstChild;
+	 var pos_act = rec.textContent.length;
+	 var pos_ant = 0;
+	 while(pos_act < pos){
+		 rec = rec.nextSibling;
+		 pos_ant = pos_act;
+		 pos_act += rec.textContent.length;
+	 }
+	 document.getSelection().collapse(rec.firstChild? rec.firstChild : rec, pos - pos_ant);
+ }
 
-	console.timeEnd("Int. línea");
+ function interp_línea(e){
 
-}
+	 console.time("Int. línea");	
+	 
+	 
+	 var ll = convertir_línea(línea_actual.textContent);
+	 línea_actual.innerHTML = "";
+	 línea_actual.appendChild(ll);
+	 if(tok_esperado && pintro){
+		 minib.textContent = `Error\nEsperado: ${tok_esperado}.\nEncontrado: ${tok_error}`;
+		 pizarra.addEventListener("input", quitar_mensaje, false);
+	 }	 
+	 
+	 console.timeEnd("Int. línea");
 
-pizarra.addEventListener("keydown", e => {
-	switch (e.key){
-	case "Enter":
-		if(e.shiftKey) e.preventDefault();
-		else pintro = true;
+ }
+
+ pizarra.addEventListener("keydown", e => {
+ 	switch (e.key){
+ 	case "Enter":
+ 		if(e.shiftKey) e.preventDefault();
+ 		else pintro = true;
+ 		break;
+	case "Backspace":
+		pret = true;
 		break;
-	case "U+000A": e.preventDefault();
-	case "Tab":
-		e.preventDefault();
-		interp_línea();
-	}
-}, false);
+ 	case "U+000A": e.preventDefault();
+ 	case "Tab":
+ 		e.preventDefault();
+ 		interp_línea();
+ 	}
+ }, false);
 
-pizarra.addEventListener("input", interp_línea, false);
+ function introducido(){
+	 if(pret) return;
+	 if(pintro){
+		 sust_símbolos = true;
+		 interp_línea();
+		 sust_símbolos = false;
+	 }
+	 else{
+		 const caret = pos_caret();
+		 interp_línea();
+		 poner_caret(caret);
+	 }
+ }
 
-pizarra.addEventListener("keyup", e => {
-	if(e.key.indexOf("Arrow") != -1) poner_actual();
-	else
-		switch (e.key){
-		case "PageDown":
-			línea_actual = pizarra.lastChild;
-			break;
-		case "PageUp":
-			línea_actual = primera_línea;
-			break;
-		case "Enter":
-			pintro = false;
-			línea_actual.textContent = línea_actual.textContent;
-			if(indentar) document.execCommand("insertText", false, "   ");
-			break;
-		case "Backspace":
-			poner_actual();
-			break;					 
-	}
-});
+ pizarra.addEventListener("input", introducido, false);
+
+ pizarra.addEventListener("keyup", e => {
+	 if(e.key.indexOf("Arrow") != -1) poner_actual();
+	 else
+		 switch (e.key){
+		 case "PageDown":
+			 línea_actual = pizarra.lastChild;
+			 break;
+		 case "PageUp":
+			 línea_actual = primera_línea;
+			 break;
+		 case "Enter":
+			 pintro = false;
+			 línea_actual.textContent = línea_actual.textContent;
+			 break;
+		 case "Backspace":
+			 pret = false;
+			 poner_actual();
+			 break;					 
+		 }
+ });
 }

@@ -1,3 +1,17 @@
+@font-face {
+  font-family:escribir;
+  src: url(../fuentes/Typewriter_dry.otf);
+}
+
+@font-face {
+  font-family:alemana;
+  src: url(../fuentes/Bertholdr_Mainzer_Fraktur.ttf);
+}
+
+#pizarra{
+font-family:"escribir"
+}
+
 #pizarra *::selection{
 	 background-color:#eef595;
 	 color:#222304;
@@ -27,21 +41,19 @@
 #pantalla > div:first-child{
 	background-color:#e1e3e4;
 	border-right-color: var(--colnums);
-	border-left-color:var(--colnums);
+	border-left: solid 1px #333;
     color:var(--colnums);
-}
-
-#pantalla > div:last-child{
-
-}
-
-#pizarra{
-	
 }
 
 #pizarra sub { 
   vertical-align: sub;
-  font-size: smaller;
+  font-size:0.7em;
+}
+
+.mcnombre, .var_mc, .mcfinal{
+	font-family: 'alemana';
+	letter-spacing:0.11em;
+	font-size:1.1em;
 }
 
 #pizarra .mcnombre{
