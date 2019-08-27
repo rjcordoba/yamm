@@ -113,6 +113,7 @@ function quitar_mensaje(){
 	 const el = sel.anchorNode;
 	 // const offs = sel.anchorOffset;
 	 var cont = 0;
+	 var encontrado = false;
 	 chars_antes(línea_actual.firstChild);
 	 return cont + sel.anchorOffset;
 
@@ -141,7 +142,7 @@ function quitar_mensaje(){
 
  function interp_línea(e){
 
-	 console.time("Int. línea");	
+
 	 
 	 
 	 var ll = convertir_línea(línea_actual.textContent);
@@ -152,8 +153,6 @@ function quitar_mensaje(){
 		 pizarra.addEventListener("input", quitar_mensaje, false);
 	 }	 
 	 
-	 console.timeEnd("Int. línea");
-
  }
 
  pizarra.addEventListener("keydown", e => {
@@ -173,6 +172,9 @@ function quitar_mensaje(){
  }, false);
 
  function introducido(){
+
+	 console.time("Int. línea");	
+
 	 if(pret) return;
 	 if(pintro){
 		 sust_símbolos = true;
@@ -184,6 +186,9 @@ function quitar_mensaje(){
 		 interp_línea();
 		 poner_caret(caret);
 	 }
+
+	 console.timeEnd("Int. línea");
+
  }
 
  pizarra.addEventListener("input", introducido, false);

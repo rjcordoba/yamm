@@ -81,6 +81,7 @@ function int_línea(texto){
 		const acc_mconf = int_am();
 		if(acc_mconf) return; //Se puede seguir parseando.
 		if(sig.símbolo == "{"){ //No se puede seguir parseando pero si lo que se coge como símbolo es llave también es correcto.
+			tok_esperado = null;
 			partes.pop(); // Se quita el simbolo que se había metido y se interpreta como llave,
 			partes.push(new Llave(sig.texto, 5));
 			return;
