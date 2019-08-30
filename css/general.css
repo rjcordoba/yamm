@@ -25,7 +25,8 @@ img{
 }
 
 #cont-principal{
-	 padding:0;
+	padding:0;
+	color:#333;
 }
 
 header .anchura{
@@ -52,13 +53,18 @@ header img[src*="letras"]{
 body > nav{
     font-size:1em;
 	padding:0.4em 0;
-    color:#fff;
+	color:#fff;    
     list-style:none;
     background: linear-gradient(to bottom, #065896 0%,#1e3975 54%,#464c6b 100%);
     border-style:solid;
     border-color:var(--color-nav);
     border-width:1px 0; 
     font-weight:bold;
+}
+
+body > nav a, body > nav a:visited{
+	text-decoration:none;
+	color:#fff;
 }
 
 body > nav li:first-child{
@@ -85,7 +91,7 @@ body  > nav li:first-child::before{
 
 body > footer{
     font-size:0.8em;
-    border-top:solid 2px #000;
+    border-top:solid 1px #000;
     background: linear-gradient(to bottom, #4c4c4c 0%,#2c2c2c 27%,#2c2c2c 30%,#2c2c2c 31%,#111111 55%,#1c1c1c 78%,#131313 100%);
     padding:1.2% 0;
 }
@@ -138,4 +144,7 @@ body > footer{
     header img[src*="icono"]{
 		top:1.6em;
     }
+}
+
+@media max-width:799px{
 }

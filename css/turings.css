@@ -56,9 +56,7 @@ main section:last-child{
 
 #pantalla > div:last-child{
     font-family:monospace;
-	overflow:auto;
     flex-grow:1;
-    
     white-space:pre;
     word-wrap:normal;
     overflow:auto;

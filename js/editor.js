@@ -25,7 +25,7 @@ línea_actual = pizarra.firstChild;
  *====================*/
 
 const num_lista = document.createElement("li");
-new MutationObserver(lerroak => {console.log(lerroak);//<-----------------------------------------
+new MutationObserver(lerroak => {
 	 lerroak.forEach(e => {
 		 if(e.addedNodes.length > 0){
 			 var el = num_lista.cloneNode();
@@ -45,7 +45,7 @@ new MutationObserver(lerroak => {console.log(lerroak);//<-----------------------
 }).observe(pizarra, {childList: true});
 
 function buscar_p(e){
-	 var e = document.getSelection().anchorNode;
+	 // var e = document.getSelection().anchorNode;
 	 while(e.nodeName != "P") e = e.parentNode;
 	 return e;	    
 }
@@ -141,18 +141,13 @@ function quitar_mensaje(){
  }
 
  function interp_línea(e){
-
-
-	 
-	 
 	 var ll = convertir_línea(línea_actual.textContent);
 	 línea_actual.innerHTML = "";
 	 línea_actual.appendChild(ll);
 	 if(tok_esperado && pintro){
 		 minib.textContent = `Error\nEsperado: ${tok_esperado}.\nEncontrado: ${tok_error}`;
 		 pizarra.addEventListener("input", quitar_mensaje, false);
-	 }	 
-	 
+	 }	 	 
  }
 
  pizarra.addEventListener("keydown", e => {
@@ -171,22 +166,34 @@ function quitar_mensaje(){
  	}
  }, false);
 
+ function emp_formateo(){
+	 sust_símbolos = true;
+	 coma_sep = ", ";
+	 pcoma_sep = "; "
+ }
+
+ function fin_formateo(){
+	 sust_símbolos = false;
+	 coma_sep = ",";
+	 pcoma_sep = ";"
+ }
+ 
  function introducido(){
 
 	 console.time("Int. línea");	
 
 	 if(pret) return;
 	 if(pintro){
-		 sust_símbolos = true;
+		 emp_formateo();
 		 interp_línea();
-		 sust_símbolos = false;
+		 fin_formateo();
 	 }
 	 else{
 		 const caret = pos_caret();
 		 interp_línea();
 		 poner_caret(caret);
 	 }
-
+	 
 	 console.timeEnd("Int. línea");
 
  }

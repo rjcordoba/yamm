@@ -1,11 +1,12 @@
 /*=======================
 *  Tipos
-* Acciones: 1
-* Mcfinal: 2
-* Llave de apertura: 3
-* Llave de cierre: 4
-* Símbolo not: 5
-* Mconfig: 6
+* Símbolo: 1
+* Símbolo not: 2
+* Mcfinal: 3
+* Acciones: 4
+* Mconfig: 5
+* Llave de apertura: 6
+* Llave de cierre: 7
 **=======================*/
 
 function crear_span(texto, clase){
@@ -15,9 +16,12 @@ function crear_span(texto, clase){
 	return nodo;
 }
 
+var coma_sep = ",";
+var pcoma_sep = ";";
+
 class Mconfig{
 	constructor(nombre, número, variables, paréntesis){
-		this.tipo = 6;
+		this.tipo = 5;
 		this.nombre = nombre;
 		this.número = número;
 	 	this.mconfs = variables[0];
@@ -40,16 +44,16 @@ class Mconfig{
 		if(n){
 			trozos.appendChild(this.mconfs[0].obt_nodos());
 			for(let i=1; i<n; i++){
-				trozos.appendChild(document.createTextNode(","));
+				trozos.appendChild(document.createTextNode(coma_sep));
 				trozos.appendChild(this.mconfs[i].obt_nodos());
 			}
 		}
 		const n2 = this.simbs.length;
 		if(n2){
-			if(n) trozos.appendChild(document.createTextNode(","));
+			if(n) trozos.appendChild(document.createTextNode(coma_sep));
 			trozos.appendChild(this.simbs[0].obt_nodos());
 			for(let i=1; i<n2; i++){
-				trozos.appendChild(document.createTextNode(","));
+				trozos.appendChild(document.createTextNode(coma_sep));
 				trozos.appendChild(this.simbs[i].obt_nodos());
 			}		
 		}
@@ -58,13 +62,27 @@ class Mconfig{
 		}
 		return trozos;
 	}
+
+	limpiar(){
+		this.nombre = this.nombre.trim();
+		var n = this.mconfs.length;
+		for(let i=0; i<n; i++){
+			this.mconfs[i] = this.mconfs[i].limpiar();
+		}
+		n = this.simbs.length;
+		for(let i=0; i<n; i++){
+			this.simbs[i] = this.simbs[i].limpiar();
+		}
+		if(this.textopar) this.textopar = this.textopar.trim();
+		return this;
+	}
 }
 
 class Mcfinal extends Mconfig{
 	constructor(nombre, número, variables, paréntesis, textopar){
 		super(nombre, número, variables, paréntesis);
 		this.textopar = textopar;
-		this.tipo = 2;
+		this.tipo = 3;
 		this.claseest = "mcfinal"
 	}
 
@@ -82,16 +100,16 @@ class Mcfinal extends Mconfig{
 		if(n){
 			trozos.appendChild(this.mconfs[0].obt_nodos());
 			for(let i=1; i<n; i++){
-				trozos.appendChild(document.createTextNode(","));
+				trozos.appendChild(document.createTextNode(coma_sep));
 				trozos.appendChild(this.mconfs[i].obt_nodos());
 			}
 		}
 		const n2 = this.simbs.length;
 		if(n2){
-			trozos.appendChild(document.createTextNode(";"));
+			trozos.appendChild(document.createTextNode(pcoma_sep));
 			trozos.appendChild(this.simbs[0].obt_nodos());
 			for(let i=1; i<n2; i++){
-				trozos.appendChild(document.createTextNode(","));
+				trozos.appendChild(document.createTextNode(coma_sep));
 				trozos.appendChild(this.simbs[i].obt_nodos());
 			}		
 		}
@@ -111,16 +129,27 @@ class VarConfig{
 	obt_nodos(){
 		return crear_span(this.texto, "var_mc");
 	}
+
+	limpiar(){
+		this.texto = this.letra;
+		return this;
+	}
 }
 
 class Símbolo{
 	constructor(texto, símbolo){
+		this.tipo = 1;
 		this.texto = texto;
 		this.símbolo = símbolo;
 	}
 
 	obt_nodos(){
 		return crear_span(this.texto, "simbol");
+	}
+
+	limpiar(){
+		this.texto = this.símbolo;
+		return this;
 	}
 
 	static a_varsimb(s){
@@ -140,7 +169,7 @@ class VarSimb extends Símbolo{
 
 class SímboloNot{
 	constructor(not, simbnot, nor, simbnor){
-		this.tipo = 5;
+		this.tipo = 2;
 		this.not = not;
 		this.simbnot = simbnot;
 		this.nor = nor;
@@ -155,6 +184,14 @@ class SímboloNot{
 		if(this.simbnor) trozos.appendChild(this.simbnor.obt_nodos());
 		return trozos;
 	}
+
+	limpiar(){
+		this.not = ` ${this.not.trim()} `;
+		this.nor = ` ${this.nor.trim()} `;
+		this.simbnot = this.simbnot.limpiar();
+		this.simbnor = this.simbnor.limpiar();
+		return this;
+	}
 }
 
 class Acción{
@@ -165,6 +202,11 @@ class Acción{
 
 	obt_nodos(){
 		return crear_span(this.texto, "akzioa");
+	}
+
+	limpiar(){
+		this.texto = this.acción;
+		return this;
 	}
 }
 
@@ -179,10 +221,17 @@ class Print extends Acción{
 		if(this.símbolo) trozos.appendChild(this.símbolo.obt_nodos());
 		return trozos;
 	}
+
+	limpiar(){
+		this.texto = this.acción;
+		this.símbolo = this.símbolo.limpiar();
+		return this;
+	}
 }
 
 class Acciones{
 	constructor(acciones){
+		this.tipo = 4;
 		this.acciones = acciones;
 	}
 	obt_nodos(){
@@ -195,6 +244,14 @@ class Acciones{
 		}
 		return trozos;
 	}
+
+	limpiar(){
+		const n = this.acciones.length;
+		for(let i=0; i<n; i++){
+			this.acciones[i] = this.acciones[i].limpiar();
+		}
+		return this;
+	}
 }
 
 class Llave{
@@ -205,5 +262,10 @@ class Llave{
 
 	obt_nodos(){
 		return crear_span(this.texto, "llave");
-	}	
+	}
+
+	limpiar(){
+		this.texto = this.texto.trim();
+		return this;
+	}
 }

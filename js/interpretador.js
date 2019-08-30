@@ -5,13 +5,13 @@ const re_blancos = /\s/yug
      ,re_nor = /\s*nor\s/yug
      ,re_símbolo = /\s*(Any|None|not|::|sw|(?:\u0305|-)(?:0|1)|\.\.\.|\S)\s*/yug
      ,re_nosimb = /Any|None|\.\.\./
-     ,re_griega = /\s*(?:[\u0381-\u03c9]|(alpha|alfa|beta|gamma|delta|(?:e|é)psilon|(?:ds|z|th)?eta|iota|kappa|lambda|m(?:i|u)|n(?:u|i)|(?:ó|o)micron|rho|sigma|tau|(?:ú|i)psilon|(?:ph|f|ch|j|ps|x|p)i|omega))\s*/yug
+     ,re_griega = /\s*(?:[\u03b1-\u03c9]|(alpha|alfa|beta|gamma|delta|(?:e|é)psilon|(?:ds|z|th)?eta|iota|kappa|lambda|m(?:i|u)|n(?:u|i)|(?:ó|o)micron|rho|sigma|tau|(?:ú|i)psilon|(?:ph|f|ch|j|ps|x|p)i|omega))\s*/yug
      ,re_acción = /\s*(?:(R|L|E)\s*|(P))/yug
      ,re_mconfig = /([a-zñáéíóú](?:[a-zA-ZñÑáéíóúÁÉÍÓÚ])*(?:'|’)*)(\d*)(\()?/yug
      ,re_mcfinal = /(\s*[a-zñáéíóú](?:[a-zA-ZñÑáéíóúÁÉÍÓÚ])*(?:'|’)*)(\d*)(\()?/yug
      ,re_paréntesis = /\)\s*/yug
      ,re_cualquiera = /\s*(\S+)/yug
-     ,re_varconfig = /\s*([A-ZÄÖÜ\uẞ])\s*/yg
+     ,re_varconfig = /\s*([A-ZÄÖÜẞ])\s*/yg
 ;
 
 const letras_griegas = {alfa:'\u03b1', alpha:'\u03b1', beta:'\u03b2', gamma:'\u03b3', delta:'\u03b4', epsilon:'\u03b5', épsilon:'\u03b5',
@@ -29,6 +29,9 @@ const errores = [/*0*/"fin de lista de variables", /*1*/"variables en m-function
 //Opción para convertir los símbolos en las letras griegas.
 var sust_símbolos = false;
 
+//Si hay que formatear la línea que se interpreta.
+//var formatear = false;
+
 //Variable global que se pone cuando se detecta un error en la línea.
 var tok_esperado;
 var tok_error;
@@ -43,11 +46,11 @@ function int_línea(texto){
 	const espacios = aplicar_re(re_blancos); //re en vez de ver si hay un espacio para que funcione con cualquier espacio unicode.
 	if(!texto[índice]) return null; //No hay nada o sólo espacios.
 	if(texto[0] == "}"){
-		partes.push(new Llave("}", 4));
+		partes.push(new Llave("}", 7));
 		índice = 1;
 	}
 	else if(texto[0] == "{"){
-		partes.push(new Llave("{", 3));
+		partes.push(new Llave("{", 6));
 		índice = 1;
 	}
 	else{
@@ -318,7 +321,7 @@ l
 				tok_error = par_cierre[0];
 				return new Mcfinal(nombre[1], nombre[2], args, 1);
 			}
-			return new Mcfinal(nombre[1], nombre[2], args, 2, par_cierre);
+			return new Mcfinal(nombre[1], nombre[2], args, 2, par_cierre[0]);
 		}
 		tok_esperado = errores[0];
 		return new Mcfinal(nombre[1], nombre[2], args, 1);
@@ -337,15 +340,28 @@ l
  *=============================================================*/
 
 function convertir_línea(texto){
-	const df = document.createDocumentFragment();
-	const partes = int_línea(texto);
+	var  partes = int_línea(texto);
 	if(!partes) return document.createTextNode("");
-	const n = partes.length;
-	for(let i=0;i<n;i++){
-		let nodos;
-		if(typeof partes[i] == "string") nodos = document.createTextNode(partes[i]);
-        else nodos = partes[i].obt_nodos();
-		df.appendChild(nodos);
+	var n = partes.length;
+	var i;
+	if(sust_símbolos){
+		const df = [];
+		for(i=0;i<n;i++){
+			if(typeof partes[i] == "string") df.push(partes[i]);
+			else{
+				if(partes[i].tipo < 5) df.push("    ");
+				df.push(partes[i].limpiar());
+			}
+		}
+		partes = df;
+		n = df.length;
+	}/**/
+	const df2 = document.createDocumentFragment();
+	for(i=0;i<n;i++){
+		let nodo;
+		if(typeof partes[i] == "string") nodo = document.createTextNode(partes[i]);
+        else nodo = partes[i].obt_nodos();
+		df2.appendChild(nodo);
 	}
-	return df;
+	return df2;
 }

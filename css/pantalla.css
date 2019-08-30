@@ -70,6 +70,7 @@ font-family:"escribir"
 
 #pizarra .simbol{
 	color:#1649ab;
+	font-family: 'monospace';
 }
 
 #pizarra .akzioa{
@@ -79,10 +80,6 @@ font-family:"escribir"
 #pizarra .llave{
 	color:#000;
 }
-
-/* #pizarra .mcfinal .var_simb{ */
-/* 	color:#9ea223; */
-/* } */
 
 #pizarra .mcfinal{
 	color:#037010;
