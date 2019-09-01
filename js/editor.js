@@ -59,15 +59,23 @@ function poner_actual(){
  *====================*/
 
 function poner_texto(t){
-	 pizarra.removeEventListener("input", interp_línea, false);
-	 const texto = t.getData("text").replace(/[\t\v\f]/g, " ").split(/\r\n|\r|\n/);
-	 const cantidad =texto.length;
-	 document.execCommand("insertText", false, texto[0]);
-	 for(let i=1; i<cantidad; i++){
-		  document.execCommand("insertParagraph", false);
-		  document.execCommand("insertText", false, texto[i]);
-	 }
-	 pizarra.addEventListener("input", interp_línea, false);
+	pizarra.removeEventListener("input", introducido, false);
+	const texto = t.getData("text").replace(/[\t\v\f]/g, " ").split(/\r\n|\r|\n/);
+	const cantidad =texto.length;
+	document.execCommand("insertText", false, texto[0]);
+	var n1 = buscar_p(document.getSelection().anchorNode);
+	for(let i=1; i<cantidad; i++){
+		document.execCommand("insertParagraph", false);
+		document.execCommand("insertText", false, texto[i]);
+	}
+	var n2 = buscar_p(document.getSelection().anchorNode);
+	while(n1 != n2){
+		interp_línea(n1);
+		n1 = n1.nextSibling;	 
+	}
+	interp_línea(n1);
+	poner_actual();
+	pizarra.addEventListener("input", introducido, false);
 }
 
 //	Para que los números de línea hagan scroll con la pizarra.
@@ -87,6 +95,15 @@ cont_pizarra.addEventListener("scroll", () => {
 
  pizarra.addEventListener("blur", () => {
 	  pul = false;}, false);
+}
+
+{let mod_portap = e => {
+	e.preventDefault();
+	e.clipboardData.setData('text/plain', document.getSelection().toString().replace(/\n((\r\n|\r|\n)+)/g, "$1"));}
+
+ pizarra.addEventListener("copy", e => mod_portap(e), false);
+
+ pizarra.addEventListener("cut", e => mod_portap(e), false);
 }
 
 pizarra.addEventListener("paste", e => {
@@ -140,31 +157,18 @@ function quitar_mensaje(){
 	 document.getSelection().collapse(rec.firstChild? rec.firstChild : rec, pos - pos_ant);
  }
 
- function interp_línea(e){
-	 var ll = convertir_línea(línea_actual.textContent);
-	 línea_actual.innerHTML = "";
-	 línea_actual.appendChild(ll);
-	 if(tok_esperado && pintro){
+ function interp_línea(l){
+	 var ll = convertir_línea(l.textContent);
+	 l.innerHTML = "";
+	 l.appendChild(ll);
+ }
+
+ function poner_error(){
+	 if(tok_esperado){
 		 minib.textContent = `Error\nEsperado: ${tok_esperado}.\nEncontrado: ${tok_error}`;
 		 pizarra.addEventListener("input", quitar_mensaje, false);
 	 }	 	 
  }
-
- pizarra.addEventListener("keydown", e => {
- 	switch (e.key){
- 	case "Enter":
- 		if(e.shiftKey) e.preventDefault();
- 		else pintro = true;
- 		break;
-	case "Backspace":
-		pret = true;
-		break;
- 	case "U+000A": e.preventDefault();
- 	case "Tab":
- 		e.preventDefault();
- 		interp_línea();
- 	}
- }, false);
 
  function emp_formateo(){
 	 sust_símbolos = true;
@@ -180,25 +184,57 @@ function quitar_mensaje(){
  
  function introducido(){
 
-	 console.time("Int. línea");	
+	 // console.time("Int. línea");	
 
 	 if(pret) return;
 	 if(pintro){
 		 emp_formateo();
-		 interp_línea();
+		 interp_línea(línea_actual);
 		 fin_formateo();
+		 poner_error();
 	 }
 	 else{
 		 const caret = pos_caret();
-		 interp_línea();
+		 interp_línea(línea_actual);
 		 poner_caret(caret);
 	 }
 	 
-	 console.timeEnd("Int. línea");
+	 // console.timeEnd("Int. línea");
 
  }
 
  pizarra.addEventListener("input", introducido, false);
+
+ function int_rango(){
+	 const s = document.getSelection();
+	 var n1 = buscar_p(s.anchorNode);
+	 var n2 = buscar_p(s.focusNode);
+	 if(n1.compareDocumentPosition(n2) == 4) [n1, n2] = [n2, n1];
+	 while(n1 != n2){
+		 interp_línea(n1);
+		 n1 = n1.nextSibling;	 
+	 }
+	 interp_línea(n1);
+}
+
+ pizarra.addEventListener("keydown", e => {
+ 	switch (e.key){
+ 	case "Enter":
+ 		if(e.shiftKey) e.preventDefault();
+ 		else pintro = true;
+ 		break;
+	case "Backspace":
+		pret = true;
+		break;
+ 	case "U+000A": e.preventDefault();
+ 	case "Tab":
+ 		e.preventDefault();
+		emp_formateo();
+		int_rango();
+		fin_formateo();
+		poner_actual();
+ 	}
+ }, false);
 
  pizarra.addEventListener("keyup", e => {
 	 if(e.key.indexOf("Arrow") != -1) poner_actual();

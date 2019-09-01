@@ -7,6 +7,8 @@
 * Mconfig: 5
 * Llave de apertura: 6
 * Llave de cierre: 7
+* Comentario: 8
+* VarConfig: 9
 **=======================*/
 
 function crear_span(texto, clase){
@@ -95,6 +97,10 @@ class Mcfinal extends Mconfig{
 			num.className = "mcfinal";
 			trozos.appendChild(num);
 		}
+		if(!this.paréntesis && this.textopar){//Los espacios que hay detrás se guardan en textopar para no crear otro atributo en el objeto.
+			trozos.appendChild(document.createTextNode(this.textopar));
+			return trozos;
+		}
 		if(this.paréntesis) trozos.appendChild(crear_span("(", "mcfinal"));
 		const n = this.mconfs.length;
 		if(n){
@@ -122,6 +128,7 @@ class Mcfinal extends Mconfig{
 
 class VarConfig{
 	constructor(texto, letra){
+		this.tipo = 9;
 		this.texto = texto;
 		this.letra = letra;
 	}
@@ -186,10 +193,10 @@ class SímboloNot{
 	}
 
 	limpiar(){
-		this.not = ` ${this.not.trim()} `;
-		this.nor = ` ${this.nor.trim()} `;
-		this.simbnot = this.simbnot.limpiar();
-		this.simbnor = this.simbnor.limpiar();
+		this.not = `${this.not.trim()} `;
+		if(this.nor) this.nor = ` ${this.nor.trim()} `;
+		if(this.simbnot) this.simbnot = this.simbnot.limpiar();
+		if(this.simbnor) this.simbnor = this.simbnor.limpiar();
 		return this;
 	}
 }
@@ -224,7 +231,7 @@ class Print extends Acción{
 
 	limpiar(){
 		this.texto = this.acción;
-		this.símbolo = this.símbolo.limpiar();
+		if(this.símbolo) this.símbolo = this.símbolo.limpiar();
 		return this;
 	}
 }
@@ -239,7 +246,7 @@ class Acciones{
 		const n = this.acciones.length;
 		trozos.appendChild(this.acciones[0].obt_nodos());
 		for(let i=1;i<n;i++){
-			trozos.appendChild(document.createTextNode(","));
+			trozos.appendChild(document.createTextNode(coma_sep));
 			trozos.appendChild(this.acciones[i].obt_nodos());
 		}
 		return trozos;
@@ -266,6 +273,20 @@ class Llave{
 
 	limpiar(){
 		this.texto = this.texto.trim();
+		return this;
+	}
+}
+
+class Comentario{
+	constructor(texto){
+		this.tipo = 8;
+		this.texto = texto;
+	}
+
+	obt_nodos(){
+		return crear_span(this.texto, "comentario");
+	}
+	limpiar(){
 		return this;
 	}
 }

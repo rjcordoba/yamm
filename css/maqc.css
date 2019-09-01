@@ -1,22 +1,57 @@
 @import url("./pantalla.css");
 
-body main{
-    display:flex;
+#cont-principal{
+	font-size:0.83em;
+	--textocolor:#333;
+	color:var(--textocolor);
 }
 
-main section:first-child{
-    /*width:70%;*/
+#cont-principal main{
+	padding:1.7em 10% 8em 12%;
+	font-size:1em;
 }
 
-main section:last-child{
-    width:37%;
+#cont-principal h1{
+	padding-bottom:0.4em;
+	font-size:2em;
+}
+
+main h2{
+	margin:0.3em 0 0.6em;
+	padding-right:1em;
+	display:inline-block;
+	border-bottom:1px solid;
+	font-size:1.6em;
+}
+
+#sel_color{
+	padding:0.3em 0;
+}
+
+#sel_color ul{
+	padding:0 0,11em;
+	height:0.6em;
+}
+
+#sel_color li{
+	width:0.6em;
+	height:0.6em;
+}
+
+#sel_color #sel_oscura{
+	background-color:#111;
+}
+
+#sel_color #sel_clara{
+	background-color:#eee;
 }
 
 #editor{
-	 margin:2em 1% 5em;
-	 padding:0.47em;
-	 border-radius:5px;
-	 font-size:0.7em;
+	width:46em;
+	margin:2em 1% 5em;
+	padding:0.47em;
+	border-radius:5px;
+	font-size:0.9em;
 }
 
 #pantalla{
@@ -25,16 +60,7 @@ main section:last-child{
     display:flex;
     align-items:stretch;
     line-height:1.3em;
-    height:var(--heigth-pantalla);
-}
-
-#minib{
-	margin-top:1em;
-	white-space:pre;
-    word-wrap:normal;
-	min-height:2.5em;
-	font-size:0.7em;
-	line-height:1.5em;
+    height:60em;
 }
 
 #pantalla #nums{
@@ -42,7 +68,7 @@ main section:last-child{
     display:inline-block;
     text-align:right;
     padding-top:var(--pad-pantalla);
-    padding-bottom:var(--heigth-pantalla);
+    /* padding-bottom:var(--heigth-pantalla); */
 }
 
 #pantalla > div:first-child{
@@ -55,7 +81,6 @@ main section:last-child{
 }
 
 #pantalla > div:last-child{
-    /* font-family:monospace; */
     flex-grow:1;
     white-space:pre;
     word-wrap:normal;
@@ -71,24 +96,20 @@ main section:last-child{
     padding-top:var(--pad-pantalla);
 }
 
-#pizarra:focus{
-    outline-style: none;
-}
 
 #pantalla #pizarra p, #pantalla #nums li{
-    padding:1px 0;/* border:solid 1px red;*/
+    padding:1px 0;
 }
 
-#pantalla #pizarra p:first-child{
-    border:1px solid transparent;
-    box-sizing:border-box;
-    padding:0;position:relative;
+#pizarra span{
+	line-height:0;
 }
 
 #pizarra p:empty::before{
     content:"\200b";
 }
 
-#pizarra span{
-	line-height:0;
+@media max-width:799px{
+#cont-principal main{
+	margin-left:6%;
 }

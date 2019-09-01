@@ -5,7 +5,8 @@
 
 @font-face {
   font-family:alemana;
-  src: url(../fuentes/Bertholdr_Mainzer_Fraktur.ttf);
+  /* src: url(../fuentes/Bertholdr_Mainzer_Fraktur.ttf); */
+src: url(../fuentes/Kleist-Fraktur.ttf);
 }
 
 #pizarra{
@@ -48,33 +49,35 @@ font-family:"escribir"
 #pizarra sub { 
   vertical-align: sub;
   font-size:0.7em;
+  line-height:0;
 }
 
 .mcnombre, .var_mc, .mcfinal{
-	font-family: 'alemana';
+	font-family:alemana;
 	letter-spacing:0.11em;
 	font-size:1.1em;
 }
 
 #pizarra .mcnombre{
-	color:#751414;
+	color:#c12222;
 }
 
 #pizarra .var_mc{
-	color:#db8181;
+	color:#b7780b;
 }
 
 #pizarra .var_simb{
-	color:#4abff9;
+	color:#0699e2;
 }
 
 #pizarra .simbol{
-	color:#1649ab;
-	font-family: 'monospace';
+	color:#0442b9;
+	font-family:'PT Mono', monospace;
+	/* font-weight:bold; */
 }
 
 #pizarra .akzioa{
-	color:#5d9108;
+	color:#466514;
 }
 
 #pizarra .llave{
@@ -82,7 +85,11 @@ font-family:"escribir"
 }
 
 #pizarra .mcfinal{
-	color:#037010;
+	color:#a631b9;
+}
+
+#pizarra .comentario{
+	color:#1fab30;
 }
 
 /*============================
@@ -127,7 +134,7 @@ font-family:"escribir"
 }
 
 #editor.oscuro .mcnombre{
-	color:#bf4747;
+	color:#ea5858;
 }
 
 #editor.oscuro .simbol{
@@ -136,4 +143,8 @@ font-family:"escribir"
 
 #editor.oscuro .mcfinal{
 	color:#859c88;
+}
+
+#editor.oscuro .comentario{
+	color:#13ad13;
 }

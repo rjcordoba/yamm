@@ -32,6 +32,7 @@
 		<h2>Gramática</h2>
 		<div id="gram_cont">
 		  <ul id="gramar">
+			<li><span class="cabecera">comentario</span><em>;</em><em class="expl">cualquier cosa</em></li>
 			<li><span class="cabecera">table</span>table-inst*</li>
 			<li><span class="cabecera">nl</span>salto de línea</li>
 			<li><span class="cabecera">sp</span>espacio</li>
@@ -39,7 +40,7 @@
 			<li><span class="cabecera">configuration</span>mconfig symbol</li>
 			<li><span class="cabecera">mconfig</span>name | mfunction</li>
 			<li><span class="cabecera">mfunction</span>name<em>(</em>cs-variables<em>)</em></li>
-			<li><span class="cabecera">symbol-var</span>letra griega minúscula</li>
+			<li><span class="cabecera">symbol-var</span><em class="expl">letra griega minúscula</em></li>
 			<li><span class="cabecera">mconfig-var</span>[<em>A-Z</em>] | <em>Ä</em> | <em>Ö</em> | <em>Ü</em> | <em>ẞ</em></li>
 			<li><span class="cabecera">symbol-vars</span>symbol-var | symbol-var<em>,</em> symbol-vars</li>
 			<li><span class="cabecera">mconf-vars</span>mconf-vars | mconf-vars<em>,</em> mconf-vars</li>
@@ -62,6 +63,7 @@
 		  </p>
 		  <p>La llave de apertura no debe preceder nada en la misma línea. Si ocupa una línea por si misma no puede tener espacios antes.</p>
 		  <p>La llave de cierre debe ocupar una línea por si misma, sin espacios antes.</p>
+		  <p>Un comentario debe empezar la línea, sin espacios delante.</p>
 		</aside>
 		<h2>Símbolos</h2>
 		<p>Puede ser cualquier gráfico individual que se pueda representar con un codepoint unicode; en el caso de las letras griegas
@@ -103,7 +105,7 @@
 		  <dd>Se imprime en la posición actual el símbolo <span>s</span>.</dd>
 		</dl>
 		<h2>Nombres m-configurations</h2>
-		<p>Los nombres deben estar formados por caracteres del alfabeto español, empezanado por una letra minúscula. Adicionalmente
+		<p>Los nombres deben estar formados por caracteres del alfabeto español o guiones, empezanado por una letra minúscula. Adicionalmente
 		  pueden acabar con cualquier número de comillas simples, seguidas a su vez de cualquier número de dígitos.</p>
 		<h2 id="ej">Ejemplos</h2>
 		<ul id="ejtrozos">
@@ -127,19 +129,17 @@
 		  <li><pre>f(C, B, alfa){
     sw    L    f1(C, B, alfa)
     not alfa    L    f(C, B, alfa)
-}
-			</pre>
-			<p>Definición de skeleton.</p>
-		  </li>
-		  <li><pre class="mal">
+}</pre>
+	<p>Definición de skeleton.</p>
+	  </li>
+	  <li><pre class="mal">
  c1(C)    beta    pe(C, beta)
 			</pre>
 			<p><span class="error">Error</span><br>
 			La m-configuration inicial no debe estar precedida por ningún espacio.</p>
 		  </li>
 		  <li><pre>
-c1(C)    beta    pe(C, beta)
-			</pre>
+c1(C)    beta    pe(C, beta)</pre>
 			<p>Ejemplo anterior corregido.<br>En la m-configuration c1(C) lee cualquier símbolo y pasa a la mconfiguration pe(C, beta), donde beta es cualquier símbolo leído en el
 			 momento de cambiar de m-configuration.</p>
 		  </li>
@@ -148,30 +148,26 @@ cp2(C, A, gamma)
  {
 gamma    C
 not gamma    A
-}
-			</pre>
-			<p><span class="error">Error</span><br>
-			  La llave de apertura que ocupa una línea no debe tener espacios antes.<br>
-			Las líneas que comienzan con un símbolo deben empezar con algún espacio.</p>
+}</pre>
+	<p><span class="error">Error</span><br>
+		  La llave de apertura que ocupa una línea no debe tener espacios antes.<br>
+     		Las líneas que comienzan con un símbolo deben empezar con algún espacio.</p>
 		  </li>
 		  <li><pre>
 cp2(C, A, gamma)
 {
     gamma    C
     not gamma    A
-}
-			</pre>
-			<p>Ejemplo anterior corregido.</p>
-		  </li>
-		   <li><pre class="mal">
-cr(B, alfa)    cr(cr(B, alfa), re(B, a, alfa), alfa)
-			</pre>
-			 <p><span class="error">Error</span><br>
+}</pre>
+	<p>Ejemplo anterior corregido.</p>
+	  </li>
+	   <li><pre class="mal">
+cr(B, alfa)    cr(cr(B, alfa), re(B, a, alfa), alfa)</pre>
+    <p><span class="error">Error</span><br>
 			 Debe haber algún símbolo.</p>
-		   </li>
-		    <li><pre>
-cr(B, alfa)    ...    cr(cr(B, alfa), re(B, a, alfa), alfa)
-			</pre>
+	    </li>
+	    <li><pre>
+cr(B, alfa)    ...    cr(cr(B, alfa), re(B, a, alfa), alfa)</pre>
 			  <p>Ejemplo anterior corregido.<br>
 			  Pasa de una m-configuration a otra con cualquier símbolo y sin símbolo.</p>
 </li>

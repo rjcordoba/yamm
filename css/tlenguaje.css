@@ -5,6 +5,8 @@
 
 #cont-principal{
 	font-size:0.83em;
+	--textocolor:#333;
+	color:var(--textocolor);
 }
 
 #cont-principal main{
@@ -48,6 +50,12 @@ main h2#ej{
 	color:#293aca;
 }
 
+#gramar em.expl{
+	font-style:italic;
+	font-weight:normal;
+	color:var(--textocolor);
+}
+
 #gramar .cabecera{
 	color:#0765ad;
 }
@@ -61,6 +69,7 @@ main h2#ej{
 }
 
 aside.gram_ac{
+	line-height:1.55em;
 	font-size:0.86em;
 	margin:2em 0 1.1em;
 	background-color:#ecebe4;

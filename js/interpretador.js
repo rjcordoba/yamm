@@ -7,8 +7,8 @@ const re_blancos = /\s/yug
      ,re_nosimb = /Any|None|\.\.\./
      ,re_griega = /\s*(?:[\u03b1-\u03c9]|(alpha|alfa|beta|gamma|delta|(?:e|é)psilon|(?:ds|z|th)?eta|iota|kappa|lambda|m(?:i|u)|n(?:u|i)|(?:ó|o)micron|rho|sigma|tau|(?:ú|i)psilon|(?:ph|f|ch|j|ps|x|p)i|omega))\s*/yug
      ,re_acción = /\s*(?:(R|L|E)\s*|(P))/yug
-     ,re_mconfig = /([a-zñáéíóú](?:[a-zA-ZñÑáéíóúÁÉÍÓÚ])*(?:'|’)*)(\d*)(\()?/yug
-     ,re_mcfinal = /(\s*[a-zñáéíóú](?:[a-zA-ZñÑáéíóúÁÉÍÓÚ])*(?:'|’)*)(\d*)(\()?/yug
+     ,re_mconfig = /([a-zñáéíóú](?:[a-zA-ZñÑáéíóúÁÉÍÓÚ-])*(?:'|’)*)(\d*)(\()?/yug
+     ,re_mcfinal = /(\s*[a-zñáéíóú](?:[a-zA-ZñÑáéíóúÁÉÍÓÚ-])*(?:'|’)*)(\d*)(\(|\s+)?/yug
      ,re_paréntesis = /\)\s*/yug
      ,re_cualquiera = /\s*(\S+)/yug
      ,re_varconfig = /\s*([A-ZÄÖÜẞ])\s*/yg
@@ -44,7 +44,12 @@ function int_línea(texto){
 	tok_error = null;
 	
 	const espacios = aplicar_re(re_blancos); //re en vez de ver si hay un espacio para que funcione con cualquier espacio unicode.
-	if(!texto[índice]) return null; //No hay nada o sólo espacios.
+	const esps = espacios? espacios[0] : "";
+	if(!texto[índice]){ //No hay nada o sólo espacios.
+		partes.push(esps);
+		return partes;
+	}
+	
 	if(texto[0] == "}"){
 		partes.push(new Llave("}", 7));
 		índice = 1;
@@ -52,6 +57,10 @@ function int_línea(texto){
 	else if(texto[0] == "{"){
 		partes.push(new Llave("{", 6));
 		índice = 1;
+	}
+	else if(texto[0] == ";"){
+		partes.push(new Comentario(texto));
+		return partes;
 	}
 	else{
 		if(espacios){
@@ -98,13 +107,14 @@ function int_línea(texto){
 			tok_esperado = errores[6];
 			return;
 		}
-		re_noblancos.lastIndex = índice - 1;
-		if(re_noblancos.test(texto)){
-			tok_error = simb.texto;
-			tok_esperado = errores[6];
-			return;
-		}
 		partes.push(simb);
+		// re_noblancos.lastIndex = índice - 1;
+		// if(re_noblancos.test(texto)){
+		// 	tok_error = simb.texto;
+		// 	tok_esperado = errores[6];
+		// 	return;
+		// }
+		
 		int_am();
 	}
 	
@@ -128,13 +138,13 @@ function int_línea(texto){
 		tok_esperado = errores[0];
     	return new Mconfig(nombre[1], nombre[2], variables, 1);
 	}
-l
+
 	function int_griega(){
 		const griega = aplicar_re(re_griega);
 		if(!griega) return null;
 		var texto = griega[0];
 		var simb = griega[1];
-		if(simb && sust_símbolos){
+		if(simb && sust_símbolos && simb.length > 1){
 				simb = letras_griegas[simb];
 				texto = texto.replace(/\S+/, simb);
 		}
@@ -148,21 +158,15 @@ l
 		while(s = aplicar_re(re_varconfig)){
 			coma = false;
 			vars[0].push(new VarConfig(s[0], s[1]));
-			if(!aplicar_re(re_coma)){
-				coma = false;
-				break;
-			}
-			else coma = true;
+			if(aplicar_re(re_coma))	coma = true;
+			else break;
 		}
-		if(coma)
+		if(coma || !vars[0].length)
 			while(s = int_griega()){
 				coma = false;
 				vars[1].push(Símbolo.a_varsimb(s));
-				if(!aplicar_re(re_coma)){
-					coma = false;
-					break;
-				}
-				else coma = true;
+				if(aplicar_re(re_coma))	coma = true;
+				else break;
 			}
 		if(coma){
 			tok_error = ",";
@@ -194,12 +198,12 @@ l
 		if(!nor) return new SímboloNot(n, s, null, null);
 		if(sig_not){
 			tok_esperado = errores[6];
-			return new SímboloNot(n, s, nor, null);
+			return new SímboloNot(n, s, nor[0], null);
 		}
 		const s2 = int_símbolo();
-		if(s2) return new SímboloNot(n, s, nor, s2);
+		if(s2) return new SímboloNot(n, s, nor[0], s2);
 		tok_esperado = errores[6];
-		return new SímboloNot(n, s, nor, null);
+		return new SímboloNot(n, s, nor[0], null);
 	}
 
 	function int_símbolo(){
@@ -215,7 +219,7 @@ l
 				texto = texto.replace(/sw/, "\u0259");
 				simb = "\u0259";
 			}
-			else if(simb[0] == "-"){
+			else if(simb[0] == "-" && simb[1]){
 				let rp = "\u0305" + simb[1];
 				texto = texto.replace(/-\d/, rp);
 				simb = rp;
@@ -271,9 +275,13 @@ l
 	function int_mcfinal(){
 		var punto_coma = false;
 		const args = [[],[]];
-		const nombre = aplicar_re(re_mcfinal);
+		var nombre = aplicar_re(re_varconfig);
+		if(nombre) return new Mcfinal(nombre[0], null, args, 0);//VarConfig(nombre[0], nombre[1]);
+		nombre = aplicar_re(re_mcfinal);
 		if(!nombre) return null;
-		if(!nombre[3]) return new Mcfinal(nombre[1], nombre[2], args, 0);
+		const nom3 = nombre[3];
+		if(!nom3) return new Mcfinal(nombre[1], nombre[2], args, 0);
+		if(nom3 && nom3 != "(") return new Mcfinal(nombre[1], nombre[2], args, 0, nom3);//Hay espacios detrás.
 		var v, s, par_cierre;
 		var coma;
 		while(v = int_mcfinal()){
@@ -341,7 +349,7 @@ l
 
 function convertir_línea(texto){
 	var  partes = int_línea(texto);
-	if(!partes) return document.createTextNode("");
+//	if(!partes) return document.createTextNode("");
 	var n = partes.length;
 	var i;
 	if(sust_símbolos){
