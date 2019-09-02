@@ -1,0 +1,107 @@
+@font-face {
+  font-family:flechas;
+  src: url(../fuentes/flechas.ttf);
+}
+
+#cont-principal{
+	font-size:0.83em;
+	--textocolor:#333;
+	color:var(--textocolor);
+}
+
+#cont-principal main{
+	padding:1.7em 10% 8em 12%;
+	font-size:1.06em;
+}
+
+#cont-principal h1{
+	padding-bottom:0.4em;
+	font-size:2em;
+}
+
+main h2{
+	margin:0.8em 0 0.6em;
+	padding:0 1em 0 0.3em;
+	display:inline-block;
+	border-bottom:1px solid;
+	font-size:1.6em;
+}
+
+p#explic{
+	line-height:1.45em;
+}
+
+main ul#lis_ins{
+	list-style-type:none;
+	background-color:#fff;
+	padding:0 1em;
+	margin-top:1.2em;
+	border:solid 1px #152f65;
+	border-radius:3px;
+}
+
+main #lis_ins > li{
+	display:flex;
+	/* margin:1em 0; */
+	border-color:#152f65;
+	border-style:solid;
+	border-bottom-width:1px;
+	border-right:none;
+	border-top:none;
+	border-left:none;
+	padding:2.1em 1em;
+}
+
+main #lis_ins > li:last-child{
+	border-bottom:none;
+}
+
+main #lis_ins > li > p{
+	width:32%;
+	font-size:1.24em;
+}
+
+main #lis_ins > li > div{
+	width:68%;
+	font-size:0.91em;
+	line-height:1.5em;
+}
+
+.inst{
+	color:#0765ad;
+}
+
+.expsi{
+	font-style:italic;
+}
+
+span.simb{
+	font-weight:bold;
+	color: #293aca;
+}
+
+#lis_ins ol{
+	list-style-type:none;
+	margin:0.47em 0 0 0.4em;
+}
+
+#lis_ins ol li{
+	padding:0.3em 0;
+}
+
+#cont_igual{
+	margin-top:1em;
+}
+
+.inst::after{
+    content: "k";
+    font-family: flechas;
+    font-size: 1.1em;
+    color: black;
+    padding: 0 0.4em;
+}
+
+@media max-width:799px{
+#cont-principal main{
+	margin-left:6%;
+}

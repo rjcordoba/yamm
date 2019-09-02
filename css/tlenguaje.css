@@ -61,7 +61,7 @@ main h2#ej{
 }
 
 #gramar .cabecera::after{
-	content:"k";
+	content:"K";
 	font-family:flechas;
 	font-size:1.1em;
 	color:black;
