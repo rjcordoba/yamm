@@ -59,6 +59,10 @@ sub{
 	background-color:#eeefe7;
 }
 
+/* .macro div:first-child{ */
+/* 	flex-grow:0; */
+/* } */
+
 .macro.sinrel{
 	margin-bottom:2.4em;
 }
@@ -71,12 +75,29 @@ sub{
 	padding-right:2em;
 }
 
-
-.macro ol{
+.macro ol, .macro pre.trad{
 	background-color:#fff;
 	border:solid 1px #ddd;
 	border-radius: 3px;
 	list-style-type:none;
+}
+
+.macro pre{
+	font-size:0.8em;
+	line-height:1.6em;
+}
+.macro code{
+	font-family:Roboto, Helvetica, Arial, sans-serif;
+	font-style:normal;
+}
+
+.macro pre.trad{
+	padding:0.1em 0.7em;
+	font-size:1em;
+}
+
+.coninsts pre.trad{
+	position:relative;
 }
 
 .macro ol li{
@@ -92,6 +113,10 @@ li.cnum_inst{
 	position:relative;
 }
 
+li.vac{
+	text-align:center;
+}
+
 .num_inst{
 	position:absolute;
 	left:100%;
@@ -100,6 +125,10 @@ li.cnum_inst{
 
 .num_inst::before{
 	content:"\2190";
+}
+
+pre .num_inst::before{
+	margin-left:0.1em;
 }
 
 .cont_macro{
@@ -138,10 +167,11 @@ li.cnum_inst{
 	background-color:#ececdf;
 }
 
-ul.explicn{
+ul.explicn, .macro ol{
 	list-style-type:none;
 }
 
 ul.explicn li{
 	padding:0.3em 0;
 }
+
