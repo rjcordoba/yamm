@@ -30,73 +30,82 @@
 	  <main><!--***********************-->
 		<h1>Lenguaje C--</h1>
 		<h2>Macros y utilidades</h2>
-		<h3>Op. aritméticos 2</h3>
-		<div class="macro sinrel">
-		  <div>
-			Z++;
-		  </div>
-		  <div class="flecha"></div>
-		  <div>
-			<ol>
-			  <li>Z<span class="noterm"><sub>n</sub></span> = Z<span class="noterm"><sub>n</sub></span> + 1.;</li>
-			</ol>
-		  </div>
+		<h3>Op. booleanos</h3>
+		<div class="gramat">
+		  <ol>
+			<li><span class="noterm cabecera">opb</span><span class="term">||</span> | <span class="term">&&</span></li>
+			<li><span class="noterm cabecera">restb</span><span class="noterm">opb exp restb</span> | <span class="noterm">&epsilon;</span></li>
+		  </ol>
 		</div>
-		<div class="macro sinrel">
+		<ul class="explicn">
+		  <li><span class="noterm">exp</span> en <span class="noterm">s<sub>1</sub> exp s<sub>2</sub></span> representa cualquier cadena
+			de caracteres entre <span class="noterm">s<sub>1</sub></span> y <span class="noterm">s<sub>2</sub></span></li>
+		  <li><span class="noterm">&epsilon;</span> representa la cadena vacía.</li>
+		</ul>
+		<div class="macro conlista sinrel">
 		  <div>
-			Z--;
+			Z<span class="noterm"><sub>n</sub></span> = <span class="noterm">exp<sub>1</sub></span>
+			<span class="term"> || </span><span class="noterm">exp<sub>2</sub></span>;
 		  </div>
 		  <div class="flecha"></div>
 		  <div>
 			<ol>
-			  <li>Z<span class="noterm"><sub>n</sub></span> = Z<span class="noterm"><sub>n</sub></span> - 1.;</li>
-			</ol>
-		  </div>
-		</div>
-		<div class="macro sinrel">
-		  <div>
-			STOP
-		  </div>
-		  <div class="flecha"></div>
-		  <div>
-			<ol>
-			  <li>Instrucción vacía.</li>
-			</ol>
-		  </div>
-		</div>
-		<div class="macro conlista coninsts sinrel">
-		  <div>
-			Z<span class="noterm"><sub>n</sub></span> = &alpha; / &beta;;
-		  </div>
-		  <div class="flecha"></div>
-		  <div>
-			<ol>
-			  <li>Z<sub>.mul1</sub> = &alpha;;</li>
-			  <li>Z<sub>.mul2</sub> = &beta;;</li>
-			  <li>Z<span class="noterm"><sub>n</sub></span> = 0;</li>
-			  <li>Z<sub>.cdiv</sub> = 0;</li>
-			  <li>Z<sub>1</sub> = 0;</li>
-			  <li>=<sup>.mul2</sup></li>
-			  <li>&#xFF0A;<sup>:i2</sup></li>
-			  <li>STOP</li>
-			  <li class="cnum_inst">Z<span class="noterm"><sub>n</sub></span>++;<span class="num_inst">:i1</span></li>
-			  <li class="cnum_inst">Z<sub>.cdiv</sub> = Z<sub>.cdiv</sub> + Z<sub>.mul2</sub>;<span class="num_inst">:i2</span></li>
-			  <li>Z<sub>.rel1</sub> = Z<sub>.cdiv</sub> &lt;= Z<sub>.mul1</sub>;</li>			  
-			  <li>=<sup>.rel1</sup></li>
-			  <li>&#xFF0A;<sup>:i1</sup></li>
+			  <li>Z<sub>.b1</sub> = <span class="noterm">exp<sub>1</sub></span>;</li>
+			  <li>Z<sub>.b2</sub> = <span class="noterm">exp<sub>2</sub></span>;</li>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = Z<sub>.b1</sub> + Z<sub>.b2</sub>;</li>
 			</ol>
 		  </div>
 		</div>
 		<div class="macro conlista sinrel">
 		  <div>
-			Z<span class="noterm"><sub>n</sub></span> = &alpha; % &beta;;
+			Z<span class="noterm"><sub>n</sub></span> = <span class="noterm">exp<sub>1</sub></span>
+			<span class="term"> && </span><span class="noterm">exp<sub>2</sub></span>;
 		  </div>
 		  <div class="flecha"></div>
 		  <div>
 			<ol>
-			  <li>Z<sub>.rest</sub> = &alpha; / &beta;;</li>
-			  <li>Z<sub>.rest</sub> = Z<sub>.rest</sub> * &beta;;</li>
-			  <li>Z<span class="noterm"><sub>n</sub></span> = &alpha; - Z<sub>.rest</sub>;</li>
+			  <li>Z<sub>.b1</sub> = <span class="noterm">exp<sub>1</sub></span>;</li>
+			  <li>Z<sub>.b2</sub> = <span class="noterm">exp<sub>2</sub></span>;</li>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = Z<sub>.b1</sub> * Z<sub>.b2</sub>;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro conlista sinrel">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = <span class="noterm">exp<sub>1</sub></span>
+			<span class="term"> && </span><span class="noterm">exp<sub>2</sub> opb exp<sub>3</sub> restb</span>;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<sub>.resa</sub> = <span class="noterm">exp<sub>1</sub></span> && <span class="noterm">exp<sub>2</sub></span>;</li>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = Z<sub>.resa</sub><span class="noterm"> opb exp<sub>3</sub> restb;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro conlista sinrel">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = <span class="noterm">exp<sub>1</sub></span>
+			<span class="term"> || </span><span class="noterm">exp<sub>2</sub><span class="term"> || </span> exp<sub>3</sub> restb</span>;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<sub>.reso</sub> = <span class="noterm">exp<sub>1</sub></span> || <span class="noterm">exp<sub>2</sub></span>;</li>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = Z<sub>.reso</sub> || <span class="noterm">exp<sub>3</sub> restb;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro conlista sinrel">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = <span class="noterm">exp<sub>1</sub></span>
+			<span class="term"> || </span><span class="noterm">exp<sub>2</sub><span class="term"> && </span> exp<sub>3</sub> restb</span>;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<sub>.resa</sub> = <span class="noterm">exp<sub>2</sub></span> && <span class="noterm">exp<sub>3</sub></span>;</li>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = <span class="noterm">exp<sub>1</sub> || Z<sub>.resa</sub> restb;</li>
 			</ol>
 		  </div>
 		</div>
