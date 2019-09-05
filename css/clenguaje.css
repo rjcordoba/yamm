@@ -1,31 +1,4 @@
-@font-face {
-  font-family:flechas;
-  src: url(../fuentes/flechas.ttf);
-}
-
-#cont-principal{
-	font-size:0.83em;
-	--textocolor:#333;
-	color:var(--textocolor);
-}
-
-#cont-principal main{
-	padding:1.7em 10% 8em 12%;
-	font-size:1.06em;
-}
-
-#cont-principal h1{
-	padding-bottom:0.4em;
-	font-size:2em;
-}
-
-main h2{
-	margin:0.8em 0 0.6em;
-	padding:0 1em 0 0.3em;
-	display:inline-block;
-	border-bottom:1px solid;
-	font-size:1.6em;
-}
+@import "clgeneral.css";
 
 p#explic{
 	line-height:1.45em;
@@ -33,7 +6,7 @@ p#explic{
 
 main ul#lis_ins{
 	list-style-type:none;
-	background-color:#fff;
+	background-color:#f9f9fb;
 	padding:0 1em;
 	margin-top:1.2em;
 	border:solid 1px #152f65;
@@ -94,14 +67,9 @@ span.simb{
 }
 
 .inst::after{
-    content: "k";
+    content: "K";
     font-family: flechas;
     font-size: 1.1em;
     color: black;
     padding: 0 0.4em;
-}
-
-@media max-width:799px{
-#cont-principal main{
-	margin-left:6%;
 }

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/cmacros.css"><!--***********************-->
+
+    <script>
+	</script>
+
+    <style></style>
+    
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>     
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura">
+	  <main><!--***********************-->
+		<h1>Lenguaje C--</h1>
+		<h2>Macros y utilidades</h2>
+		<h3>Op. relacionales</h3>
+		<div class="macro">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = <span class="term">true</span>;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = <span class="term">1</span>;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = <span class="term">false</span>;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = <span class="term">0</span>;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = <span class="term">!</span>&alpha;;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = <span class="term">1 - </span>&alpha;;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = &alpha;<span class="term"> &lt; </span>&beta;;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = &beta;<span class="term"> - </span>&alpha;;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = &alpha;<span class="term"> &gt; </span>&beta;;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = &alpha;<span class="term"> - </span>&beta;;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro conlista">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = &alpha;<span class="term"> &lt;= </span>&beta;;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<sub>.rel1</sub> = &beta; <span class="term"> + 1</span>;</li>
+			  <li>Z<sub>n</sub> = Z<sub>.rel1</sub><span class="term"> - </span>&alpha;;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = &alpha;<span class="term"> &gt;= </span>&beta;;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<span class="noterm"><sub>n</sub></span> = &beta;<span class="term"> &lt;= </span>&alpha;;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro conlista">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = &alpha;<span class="term"> != </span>&beta;;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<sub>.rel1</sub> = &alpha;<span class="term"> &lt; </span>&beta;;</li>
+			  <li>Z<sub>.rel2</sub> = &beta;<span class="term"> &lt; </span>&alpha;</li>
+			  <li>Z<sub>n</sub> = Z<sub>.rel1</sub><span class="term"> + Z<sub>.rel2</sub>;</li>
+			</ol>
+		  </div>
+		</div>
+		<div class="macro conlista">
+		  <div>
+			Z<span class="noterm"><sub>n</sub></span> = &alpha;<span class="term"> == </span>&beta;;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<ol>
+			  <li>Z<sub>.rel1</sub> = &alpha;<span class="term"> != </span>&beta;;</li>
+			  <li>Z<sub>n</sub> = <span class="term"> !Z<sub>.rel1</sub>;</li>
+			</ol>
+		  </div>
+		</div> 
+	  </main><!--***********************-->
+	  <div class="nav_pag nav_pag2"><p><a href="./cmacros-2.html">&lt;&lt; ant</a></p><p><a href="./cmacros-4.html">sig &gt;&gt;</a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>

@@ -5,8 +5,21 @@ body main{
 }
 
 main section:first-child{
-    /*width:70%;*/
+    width:70%;
 }
+
+
+
+main section:first-child div{
+	font-size:3em;
+	width:10em;
+	text-align:center;
+	margin-top:3em;
+	color:#c51d1d;
+}
+
+
+
 
 main section:last-child{
     width:37%;
@@ -21,7 +34,7 @@ main section:last-child{
 
 #pantalla{
     --pad-pantalla:0.4em;
-	--heigth-pantalla:90em;
+	--heigth-pantalla:30em;
     display:flex;
     align-items:stretch;
     line-height:1.3em;
