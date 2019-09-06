@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/cmacros.css"><!--***********************-->
+
+    <script>
+	</script>
+
+    <style></style>
+    
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>     
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura">
+	  <main><!--***********************-->
+		<h1>Lenguaje C--</h1>
+		<h2>Macros y utilidades</h2>
+		<h3>Subprogramas 2</h3>
+		<div class="gramat">
+		  <ol>
+			<li><span class="noterm cabecera">param</span><span class="noterm">typec [nombre]</span></li>
+			<li><span class="noterm cabecera">params</span><span class="noterm">param</span> | <span class="noterm">param</span>
+			, <span class="noterm">params</span></li>
+			<li><span class="noterm cabecera">nombf</span><span class="noterm">nombre</span> |
+			  <span class="noterm">nombre</span>.<span class="noterm">tvs</span></li>
+			<li><span class="noterm cabecera">t</span>Y | S | F</li>
+			<li><span class="noterm cabecera">tvs</span><span class="noterm">t</span> |
+			  <span class="noterm">tvs.t</span></li>
+		  </ol>
+		</div>
+		<div class="macro">
+		  <div>
+			<span class="noterm">typec</span>nombre();
+		  </div>
+		  <div class="flecha"></div>
+		  <div><ol><li><span class="noterm">typec</span>:nombre;</li></ol></div>
+		</div>
+		<div class="macro conlista sinrel">
+		  <div>
+			<span class="noterm">typec</span>nombre.<span class="noterm">tvs</span>();
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"><code
+>#define nombre nombre.<span class="noterm">tvs</span>
+<span class="noterm">typec</span>nombre.<span class="noterm">tvs</span>;</code></pre>
+		  </div>
+		</div>
+		<div class="macro">
+		  <div>
+<span class="fcompil">fnomb</span>(<span class="noterm">nombp</span>, unsigned int)
+		  </div>
+		  <div class="flecha"></div>
+		  <div><ol><li><span class="noterm">nombp</span>.Y</li></ol></div>
+		</div>
+		<div class="macro">
+		  <div>
+<span class="fcompil">fnomb</span>(<span class="noterm">nombp</span>, <span class="noterm">[</span>signed<span class="noterm">]</span> int)
+		  </div>
+		  <div class="flecha"></div>
+		  <div><ol><li><span class="noterm">nombp</span>.S</li></ol></div>
+		</div>
+		<div class="macro sinrel">
+		  <div>
+<span class="fcompil">fnomb</span>(<span class="noterm">nombp</span>, float)
+		  </div>
+		  <div class="flecha"></div>
+		  <div><ol><li><span class="noterm">nombp</span>.F</li></ol></div>
+		</div>
+		<div class="macro">
+		  <div>
+<span class="noterm">typec nombp</span>(<span class="noterm">typec</span> <span class="noterm">[ident]</span>);
+		  </div>
+		  <div class="flecha"></div>
+		  <div><ol><li><span class="noterm">typec</span> <span class="fcompil">fnomb</span>(<span class="noterm">nombp</span>,
+				<span class="noterm">typec</span>)</li></ol></div>
+		</div>
+		<div class="macro sinrel">
+		  <div>
+			<span class="noterm">typec nombp</span>(<span class="noterm">typec</span> <span class="noterm">[ident]</span>,
+			<span class="noterm">params</span>);
+		  </div>
+		  <div class="flecha"></div>
+		  <div><ol><li><span class="noterm">typec</span> <span class="fcompil">fnomb</span>(<span class="noterm">nombp</span>,
+				<span class="noterm">typec</span>)(<span class="noterm">params</span>)</li></ol></div>
+		</div>
+<div class="macro conlista sinrel">
+		  <div>
+			<pre><code
+><span class="noterm">typec</span> nombre(<span class="noterm">params</span>){
+   <span class="noterm">text</span>
+}</code></pre>
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"><code
+><span class="noterm">typec</span> nombre(<span class="noterm">params</span>);
+nombre(<span class="noterm">params</span>){
+   <span class="noterm">intructs</span>
+   <span class="noterm">text</span>
+}</code></pre>
+		  </div>
+		  </div>		
+</main><!--***********************-->
+	<div class="nav_pag nav_pag2"><p><a href="./cmacros-8.html">&lt;&lt; ant</a></p><p><a href="./cmacros-10.html">sig &gt;&gt;</a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>

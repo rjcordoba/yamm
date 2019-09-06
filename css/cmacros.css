@@ -10,7 +10,7 @@ h3{
 
 .gramat{
 	/* display:flex; */
-	margin:1em 0 2em 0;
+	margin:2em 0 2em 0;
 }
 
 .gramat .term{
@@ -83,7 +83,6 @@ sub{
 }
 
 .macro pre{
-	font-size:0.8em;
 	line-height:1.6em;
 }
 .macro code{
@@ -93,7 +92,6 @@ sub{
 
 .macro pre.trad{
 	padding:0.1em 0.7em;
-	font-size:1em;
 }
 
 .coninsts pre.trad{

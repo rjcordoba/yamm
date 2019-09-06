@@ -35,7 +35,7 @@
 		  <div>
 			<pre><code
 >if(<span class="noterm">exp</span>){
-    <span class="noterm">intructs</span>
+    <span class="noterm">text</span>
 }
 </code></pre>
 		  </div>
@@ -46,7 +46,7 @@
 			  <li>Z<sub>1</sub> = 0;</li>		  
 			  <li>=<sup>.b1</sup></li>
 			  <li>&#xFF0A;<sup>:i1</sup></li>
-			  <li><span class="noterm">intructs</span></li>
+			  <li><span class="noterm">text</span></li>
 			  <li class="cnum_inst vac">...<span class="num_inst">:i1</span></li>
 			</ol>
 		  </div>
@@ -55,10 +55,10 @@
 		  <div>
 			<pre><code
 >if(<span class="noterm">exp</span>){
-  <span class="noterm">intructs<sub>1</sub></span>
+  <span class="noterm">text<sub>1</sub></span>
 }
 else{	
- <span class="noterm">intructs<sub>2</sub></span>
+ <span class="noterm">text<sub>2</sub></span>
 }
 </code></pre>
 		  </div>
@@ -66,10 +66,10 @@ else{
 		  <div>
 			<pre class="trad"><code
 >if(<span class="noterm">exp</span>){
-  <span class="noterm">intructs<sub>1</sub></span>
+  <span class="noterm">text<sub>1</sub></span>
   &#xFF0A;<sup>:i2</sup>
 }
-<span class="noterm">intructs<sub>2</sub></span><span class="num_inst">:i1</span>
+<span class="noterm">text<sub>2</sub></span><span class="num_inst">:i1</span>
 <span class="num_inst">:i2</span>
 </code></pre>
 		  </div>
@@ -78,14 +78,14 @@ else{
 		  <div>
 			<pre><code
 >while(<span class="noterm">exp</span>){
-  <span class="noterm">intructs<sub>1</sub></span>
+  <span class="noterm">text</span>
 }</code></pre>
 		  </div>
 		  <div class="flecha"></div>
 		  <div>
 			<pre class="trad"><code
 >if(<span class="noterm">exp</span>){<span class="num_inst">:i2</span>
-  <span class="noterm">intructs</span>
+  <span class="noterm">text</span>
   &#xFF0A;<sup>:i2</sup>
 }</code></pre>
 </div>
@@ -94,7 +94,7 @@ else{
 		  <div>
 			<pre><code
 >for(<span class="noterm">exp<sub>1</sub></span>; <span class="noterm">exp<sub>2</sub></span>; <span class="noterm">exp<sub>3</sub></span>){
-  <span class="noterm">intructs</span>
+  <span class="noterm">text</span>
 }</code></pre>
 		  </div>
 		  <div class="flecha"></div>
@@ -102,7 +102,7 @@ else{
 			<pre class="trad"><code
 ><span class="noterm">exp<sub>1</sub></span>;
 while(<span class="noterm">exp<sub>2</sub></span>){
-  <span class="noterm">intructs</span>
+  <span class="noterm">text</span>
   <span class="noterm">exp<sub>3</sub></span>;
 }</code></pre>
 		  </div>
