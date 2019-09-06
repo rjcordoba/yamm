@@ -59,12 +59,12 @@ sub{
 	background-color:#eeefe7;
 }
 
-/* .macro div:first-child{ */
-/* 	flex-grow:0; */
-/* } */
-
 .macro.sinrel{
 	margin-bottom:2.4em;
+}
+
+.macro.sinrel2{
+	margin-top:2.4em;
 }
 
 .macro.conlista{
