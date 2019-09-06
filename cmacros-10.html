@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/cmacros.css"><!--***********************-->
+
+    <script>
+	</script>
+
+    <style></style>
+    
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>     
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura">
+	  <main><!--***********************-->
+		<h1>Lenguaje C--</h1>
+		<h2>Macros y utilidades</h2>
+		<h3>Def. subprograma</h3>
+		<div class="macro conlista sinrel coninsts" id="defsub">
+		  <div>
+			<pre><code
+>V<sub>:nombp</sub>(<span class="noterm">params</span>){
+   <span class="noterm">program</span>
+}</code></pre>
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"><code
+><span class="fcompil">adjustf</span>{<span class="num_inst">:nombp</span>
+   unsigned int back;
+   <span class="fcompil">exp_params</span>(<span class="noterm">params</span>)
+   <span class="noterm">program</span>
+   Z<sub>:i1</sub> = back;
+   &#xFF0A;<span class="num_inst">:i1</span>
+}</code></pre>
+		  </div>
+		</div>
+		<p class="explicn">
+		  Para cada subprograma los números asociados a los nombres empiezan desde 1, y se tiene una variable «num_vars» independiente
+		  del programa general y del resto de subprogramas.
+		</p>
+		<div class="macro">
+		  <div>
+			<span class="fcompil">exp_params</span>()
+		  </div>
+		  <div class="flecha"></div>
+		  <div><ol><li>&#x2205;</li></ol></div>
+		</div>
+		<div class="macro">
+		  <div>
+			<span class="fcompil">exp_params</span>(<span class="noterm">param</span>)
+		  </div>
+		  <div class="flecha"></div>
+		  <div><ol><li><span class="noterm">param</span>;</li></ol></div>
+		</div>
+		<div class="macro sinrel">
+		  <div>
+			<span class="fcompil">exp_params</span>(<span class="noterm">param</span>, <span class="noterm">params</span>)
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"><code
+><span class="noterm">param</span>
+<span class="fcompil">exp_params</span>(<span class="noterm">params</span>)</code></pre>
+		  </div>
+		</div>
+		<h4 class="fcompil_exp"><span class="fcompil">adjustd</span>{instrucciones}</h4>
+		<p class="fcompil_expp">Por cada instrucción de la forma y<sup>nombre</sup>, siendo nombre unos de los identificadores qeu aparecen
+		  en algún «typec ident» en el subprograma, se añade antes de las instrucciones:
+		  Z<sub><span class="noterm">nombre</span></sub> = Z<sub>.top + n</sub>, donde n es el número natural asociado por el expansor a
+		<span class="noterm">nombre</span>.</p>
+</main><!--***********************-->
+	<div class="nav_pag nav_pag2"><p><a href="./cmacros-9.html">&lt;&lt; ant</a></p><p><a href="./cmacros-11.html">sig &gt;&gt;</a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>
