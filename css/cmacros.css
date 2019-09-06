@@ -9,8 +9,8 @@ h3{
 }
 
 .gramat{
-	display:flex;
-	margin:1em 0;
+	/* display:flex; */
+	margin:1em 0 2em 0;
 }
 
 .gramat .term{
@@ -175,3 +175,19 @@ ul.explicn li{
 	padding:0.3em 0;
 }
 
+.fcompil{
+	color:#212194;
+}
+
+.fcompil::before, .fcompil::after{
+	content:":";
+	color:#e633bd;
+}
+
+h4.fcompil_exp{
+	margin:0.4em 0;
+}
+
+p.fcompil_expp{
+	margin:0 0.6em;
+}

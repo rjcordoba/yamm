@@ -100,7 +100,7 @@ nombre = <span class="noterm">exp</span>;</code></pre>
 			<div class="flecha"></div>
 			<div><ol><li><span class="noterm">typec </span>nombre = <span class="noterm">exp</span>;</li></ol></div>
 		  </div>
-		  <div class="macro conlista">
+		  <div class="macro conlista sinrel">
 			<div>
 			  <span class="noterm">typec </span>nombre[<span class="noterm">n</span>] =
 			  {<span class="noterm">exp<sub>1</sub></span>, <span class="noterm">exp<sub>2</sub></span>, ..., <span class="noterm">exp<sub>n</sub></span>};
@@ -113,6 +113,42 @@ nombre = <span class="noterm">exp</span>;</code></pre>
 > = <span class="noterm">exp<sub>n</sub></span>;</code></pre>
 			</div>
 		  </div>
+		  <div class="macro">
+			<div>
+			  unsigned int <span class="noterm">stars</span>nombre;
+			</div>
+			<div class="flecha"></div>
+			<div><ol><li>#define nombre Y<sub>nombre</sub></li></ol></div>
+		  </div>
+		  <div class="macro conlista">
+		  <div>
+			<span class="noterm">[ </span>signed<span class="noterm">] </span>int <span class="noterm">stars</span> nombre;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"
+><code>#define <span class="noterm">stars</span>nombre <span class="noterm">stars</span>S<sub>nombre</sub>
+#define nombre = Y<sub>nombre</sub></code></pre>
+		  </div>
+		  </div>
+		  <div class="macro conlista">
+		  <div>
+			float <span class="noterm">stars</span> nombre;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"
+><code>#define <span class="noterm">stars</span>nombre <span class="noterm">stars</span>F<sub>nombre</sub>
+#define nombre = Y<sub>nombre</sub></code></pre>
+		  </div>
+		  </div>
+		<p class="explicn">
+		  Cada nombre se asocia a un número natural, empezando desde 1 para el primer nombre en aparecer y n + 1 para
+		  el nombre que  aparezca después del nombre al que se asocie n. Al expandir todas las instrucciones se resuelve el
+		  número final que representará una posición asociada al nombre. Este número final sera «.top + i», siendo «.top» el mayor
+		  número asociado a un nombre de la forma «.nombre» e «i» el natural asociado en primera instancia al nombre.
+		  El expansor guarda una variable interna llamada «num_vars» que empieza desde cero y suma uno con cada nombre encontrado.
+		</p>		  
 </main><!--***********************-->
 </div>
 	<div class="nav_pag nav_pag2"><p><a href="./cmacros-6.html">&lt;&lt; ant</a></p><p><a href="./cmacros-8.html">sig &gt;&gt;</a></p></div>

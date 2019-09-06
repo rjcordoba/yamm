@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/cmacros.css"><!--***********************-->
+
+    <script>
+	</script>
+
+    <style></style>
+    
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>     
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura">
+	  <main><!--***********************-->
+		<h1>Lenguaje C--</h1>
+		<h2>Macros y utilidades</h2>
+		<h3>Asignaciones 2</h3>
+		<div class="gramat">
+		  <span class="noterm cabecera">V, W</span>
+		  <span class="term"> Y </span>|<span class="term"> S </span>|<span class="term"> F</span>
+		  </div>
+		<div class="macro conlista">
+		  <div>
+			<span class="noterm">V<sub>n</sub></span> = *<span class="noterm">starsW</span><sub>nombre</sub>;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"><code
+>Z<sub>.pointr</sub> = <span class="noterm">starsW</span><sub>nombre</sub>;
+<span class="fcompil">adjustd</span>{<span class="noterm">V<sub>n</sub></span> = W<sub>.change</sub>}</code></pre>
+</div>
+		</div>
+		<div class="macro conlista">
+		  <div>
+			*<span class="noterm">starsV</span><sub>nombre</sub> = &alpha;;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"><code
+>Z<sub>.resp</sub> = &alpha;;
+Z<sub>.pointr</sub> = <span class="noterm">starsV</span><sub>nombre</sub>;
+<span class="fcompil">adjustd</span>{V<sub>.change</sub> = Z<sub>.resp</sub>}</code></pre>
+</div>
+		</div>
+		<div class="macro conlista">
+		  <div>
+			V<span class="noterm"><sub>n</sub></span> =
+			W<span class="noterm"><sub>nombre</sub></span>[<span class="noterm">exp</span>];
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"><code
+>Z<sub>.ind</sub> = <span class="noterm">exp</span> + &<span class="noterm">W<sub>nombre</sub></span>;
+<span class="noterm">V<sub>n</sub></span> = *<span class="noterm">W</span><sub>.ind</sub>;</code></pre>
+</div>
+		</div>
+		<div class="macro conlista sinrel">
+		  <div>
+			V<span class="noterm"><sub>nombre</sub></span>[<span class="noterm">exp</span>] = &alpha;;
+		  </div>
+		  <div class="flecha"></div>
+		  <div>
+			<pre class="trad"><code
+>Z<sub>.ind</sub> = &<span class="noterm">V<sub>nombre</sub></span> + <span class="noterm">exp</span>;
+*Z<sub>.ind</sub> = &alpha;;</code></pre>
+</div>
+</div>
+		<div class="gramat">
+		  <pre><span class="noterm cabecera">y</span><span class="term">1</span> | <span class="term">0</span> | <span class="term">=</span></pre>
+		</div>
+		<p class="explicn">Texto de la forma <span class="fcompil noterm">func_expansor</span> representa
+		  procedimientos usados por el expansor de intrucciones; no aparecen en el programa inicial ni final.</p>
+		<h4 class="fcompil_exp"><span class="fcompil">adjustd</span>{instrucciones}</h4>
+		<p class="fcompil_expp">Se espande «instrucciones»; por cada y<sup>.change</sup> entre las instrucciones resultantes de la expansión se añade
+		  antes de todas las instrucciones: «Z<sub>:i<span class="noterm">n</span></sub> = Z<sub>.pointr</sub>», donde
+		«:i<span class="noterm">n</span>» es la posición de la instrucción y<sup>.change</sup>.</p>
+</main><!--***********************-->
+	<div class="nav_pag nav_pag2"><p><a href="./cmacros-7.html">&lt;&lt; ant</a></p><p><a href="./cmacros-9.html">sig &gt;&gt;</a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>
