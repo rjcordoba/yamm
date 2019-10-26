@@ -4,7 +4,7 @@ p#explic{
 	line-height:1.45em;
 }
 
-main ul#lis_ins{
+main #lis_ins{
 	list-style-type:none;
 	background-color:#f9f9fb;
 	padding:0 1em;

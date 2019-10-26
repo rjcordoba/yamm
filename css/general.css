@@ -1,3 +1,8 @@
+@font-face {
+  font-family:flechas;
+  src: url(../fuentes/flechas.ttf);
+}
+
 html{
     background-color:#060813;
     font-size:10px;
@@ -25,7 +30,6 @@ img{
 }
 
 #cont-principal{
-	padding:0;
 	color:#333;
 }
 
@@ -54,7 +58,7 @@ body > nav{
     font-size:1em;
 	padding:0.4em 0;
 	color:#fff;    
-    list-style:none;
+    çlist-style:none;
     background: linear-gradient(to bottom, #065896 0%,#1e3975 54%,#464c6b 100%);
     border-style:solid;
     border-color:var(--color-nav);
@@ -77,7 +81,7 @@ body > nav li{
     text-shadow: 0px 0px 2px var(--color-nav);
 }
 
-body  > nav li::before{
+body > nav li::before{
     content:"|";
     margin:0 1em;
     font-weight:normal;
@@ -85,14 +89,42 @@ body  > nav li::before{
     text-shadow: 1px 1px 2px #434b6f;
 }
 
-body  > nav li:first-child::before{
+body > nav li:first-child::before{
     content:none;
+}
+
+#cont-principal main{
+	padding:1.7em 10% 0 12%;
+	font-size:0.95em;
+}
+
+#cont-principal h1{
+	padding-bottom:0.4em;
+	font-size:2em;
+}
+
+main h2{
+	margin:0.8em 0 0.6em;
+	display:inline-block;
+	border-bottom:1px solid;
+	font-size:1.6em;
+}
+
+.nav_pag{
+	display:flex;
+	margin:2em 9% 3em 9%;
+	justify-content:flex-end;
+	font-size:1.1em;
+}
+
+.nav_pag.nav_pag2{
+	justify-content:space-between;
 }
 
 body > footer{
     font-size:0.8em;
     border-top:solid 1px #000;
-    background: linear-gradient(to bottom, #4c4c4c 0%,#2c2c2c 27%,#2c2c2c 30%,#2c2c2c 31%,#111111 55%,#1c1c1c 78%,#131313 100%);
+    background:linear-gradient(to bottom, #4c4c4c 0%,#2c2c2c 23%,#2c2c2c 10%,#2c2c2c 11%,#222222 35%,#1c1c1c 78%,#131313 100%);
     padding:1.2% 0;
 }
 
@@ -147,4 +179,6 @@ body > footer{
 }
 
 @media max-width:799px{
+#cont-principal main{
+	margin-left:6%;
 }

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<html lang="es">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
+
+    <script>
+	</script>
+
+    <style>
+	 #notación{
+		 font-size:0.9em;
+	 }
+	 #notación ol{
+		 list-style-type:square;
+		 font-size:0.84em;
+		 padding-left:2em;
+	 }
+	 #notación ol > li{
+		 margin-top:1em;
+	 }
+	 #notación ul{
+		 list-style-type:none;
+	 }
+	 #notación ul li{
+		 display:inline-block;
+	 }
+	 #notación ul li::after{
+		 content:",";
+		 margin-right:0.5em;
+	 }
+	 #notación ul li:last-child::after{
+		 content:none;
+	 }
+	</style>
+
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura">
+	  <main><!--***********************-->
+		<h1>Lenguaje C--</h1>
+		<h2>Macros y utilidades</h2>
+		<div class="gramat">
+		  <ol>
+			<li>
+			  <div class="noterm">nd</div>
+			  <div class="flechag"></div>
+			  <ul class="term">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">ndc</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="term">0</span></li>
+				<li><span class="noterm">nd</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">ndcc</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="epsilon"></span></li>
+				<li><span class="noterm">ndc</span><span class="noterm">ndcc</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">natural</div>
+			  <div class="flechag"></div>
+			  <div><span class="noterm">nd</span><span class="noterm">ndcc</span></div>
+			</li>
+			<li>
+			  <div><span class="nnoterm">n</span><span class="separador"> &#xFF5C; </span><span class="nnoterm">m</span></div>
+				<div class="flechag"></div>
+				<div class="noterm">natural</div>
+			</li>
+			<li>
+			  <div class="noterm">id</div>
+			  <div class="flechag"></div>
+			  <div class="nnoterm">cadena de caracteres</div>
+			</li>
+			<li>
+			  <div>&Omega;</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="term">.</span><span class="noterm">id</span></li>
+				<li><span class="noterm">natural</span></li>
+			  </ul>
+			</li>
+			<!-- <li> -->
+			<!--   <div class="noterm">sig</div> -->
+			<!--   <div class="flechag"></div> -->
+			<!--   <ul> -->
+			<!-- 	<li><span class="epsilon"></span></li> -->
+			<!-- 	<li><span class="comilla">&#x2032</span><span class="noterm">sig</span></li> -->
+			<!--   </ul> -->
+			<!-- </li> -->
+			<li>
+			  <div class="nnoterm">x</div>
+			  <div class="flechag"></div>
+			  <ul class="term">
+				<li>1</li>
+				<li>0</li>
+				<li>=</li>
+				<li class="estrella">&#xFF0A;</li>
+			  </ul>
+			</li>
+		  </ol>
+		  <aside>
+			  <p><span>&epsilon;</span>cadena vacía.</p>
+			  <p><span>|</span>separador de producciones.</p>
+		  </aside>
+		</div>
+		<div id="notación">
+		  <p>Es verdad:</p>
+		  <ol>
+			<li><ul><li>2 = 1 + 1</li><li>3 = 2 + 1</li><li>4 = 3 + 1</li><li>5 = 4 + 1</li><li>6 = 5 + 1</li><li>7 = 6 + 1</li><li>8 = 7 + 1</li><li>9 = 8 + 1</li><li>10 = 9 + 1</li></ul>
+			</li>
+			<li><span class="noterm">n</span>1 = <span class="noterm">n</span>0 + 1</li>
+			<li>
+			  <span class="noterm">n</span><span class="noterm">nd<sub>1</sub></span> =
+			  <span class="noterm">n</span><span class="noterm">nd<sub>2</sub></span> + 1
+			</li>
+		  </ol>
+		</div>
+		<div class="macro">
+		  <div><span class="nnoterm">x</span><sup>1</sup></div>
+		  <div class="flecha"></div>
+		  <div><span class="nnoterm">x</span></div>
+		</div>
+		<div class="macro">
+		  <div class="nnoterm">x<sup>n</sup></div>
+		  <div class="flecha"></div>
+		  <div><span class="nnoterm">x</span></div>
+		</div>
+	  </main><!--***********************-->
+	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html"><< ant</a></p><p><a href="./cmacros-2.html">sig >></a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>

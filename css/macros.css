@@ -1,0 +1,269 @@
+h3{
+	font-size:1.1em;
+    margin:2em 1em 1em 0;
+    border-bottom:solid 1px;
+    padding:0 0.5em 0 0.3em;
+    width:fit-content;
+}
+
+.gramat{
+	font-family:"Times New Roman", Times, serif;
+	margin:1.4em 0 2em 0;
+	background-color:#f4f4f5;
+	width:fit-content;
+	padding:1em;
+	border:solid 1px #e1e2e2;
+	border-radius:2px;
+}
+
+.gramat aside{
+	font-size:0.77em;
+	border:solid 1px #e1e2e2;
+	border-left-width:3px;
+	padding:0.5em 0.8em;
+	margin-top:2em;
+	background-color:#f6f6f9;
+}
+
+.gramat aside span{
+	font-size:1.2em;
+}
+
+.gramat aside span::after{
+	content:"-";
+	padding:0 0.5em;
+}
+
+.gramat, .exp_gramat{
+	list-style-type:none;
+}
+
+.gramat .term{
+	font-weight:bold;
+}
+
+.gramat ol > li{
+	display:flex;
+	margin-bottom:0.67em;
+}
+
+.gramat ol > li:last-child{
+	margin-bottom:0;
+}
+.gramat ul > li{
+	display:inline-block;
+}
+
+.gramat .epsilon::before{
+	content:"ε";
+}
+
+.separador, .estrella{
+	line-height:0;
+}
+
+.estrella{
+	font-size:0.92em;
+}
+
+.nnoterm, .noterm{
+	font-style:italic;
+	padding-right:0.1em;
+}
+
+.gramat ul > li::before{
+	content:"\FF5C  ";
+	line-height:0;
+	font-weight:normal;
+}
+
+.gramat ul > li:first-child::before{
+	content:none;
+} 
+
+.noterm::before{
+	content:"\27E8";
+}
+
+.noterm::after{
+	content:"\27E9";
+}
+
+.noterm::before, .noterm::after{
+	font-style: normal;
+	line-height:0;
+}
+
+.gramat .flechag::before{
+    content:"\2192";
+	line-height:0;
+    /* font-family:flechas; */
+    font-size:1.4em;
+    color:#929191;
+    padding:0 0.17em;
+	font-style:normal;
+}
+
+sup{
+	vertical-align:super;
+	font-size:0.55em;
+}
+
+sub{
+	vertical-align:sub;
+	font-size:0.55em;
+}
+
+.comilla{
+	font-size:2.8em;
+	line-height:0;
+	vertical-align: bottom;
+}
+
+.macro{
+	display:flex;
+	align-items:center;
+	margin:1em 0 0 0.4em;
+	width:fit-content;
+	padding:0.33em 1em;
+	background-color:#eeefe7;
+	font-family:monospace;
+}
+
+.flecha::before{
+    content:"\2B95";
+    font-size:0.7em;
+    color:#555;
+    padding:0 0.6em;
+	font-style:normal;
+}
+
+
+.macro > *:last-child{
+	background-color:#fff;
+	border:solid 1px #ddd;
+	border-radius: 3px;
+	list-style-type:none;
+	padding:0.2em 0.4em;
+}
+
+
+/* ------------------------------------------------------------------ */
+.macro.sinrel{
+	margin-bottom:2.4em;
+}
+
+.macro.sinrel2{
+	margin-top:2.4em;
+}
+
+.macro.conlista{
+	align-items:normal;
+}
+
+.macro.coninsts{
+	padding-right:2em;
+}
+
+.macro pre{
+	line-height:1.6em;
+}
+.macro code{
+	font-family:Roboto, Helvetica, Arial, sans-serif;
+	font-style:normal;
+}
+
+.macro pre.trad{
+	padding:0.1em 0.7em;
+}
+
+.coninsts pre.trad{
+	position:relative;
+}
+
+.macro ol li{
+	border-bottom:solid 1px #ddd;
+	padding:0.2em 0.4em;
+}
+
+.macro ol li:last-child{
+	border:none;
+}
+
+li.cnum_inst{
+	position:relative;
+}
+
+li.vac{
+	text-align:center;
+}
+
+.num_inst{
+	position:absolute;
+	left:100%;
+	font-size:0.8em;
+}
+
+.num_inst::before{
+	content:"\2190";
+}
+
+pre .num_inst::before{
+	margin-left:0.1em;
+}
+
+.cont_macro{
+	display:flex;
+	align-items:center;
+}
+
+.aclarcn{
+	font-size:0.9em;
+	align-self:center;
+	margin:0.2em 1.2em;
+	padding-top:1em;
+}
+
+.apunte{
+	font-size:0.7em;
+	margin-top:0.7em;
+	text-align: center;
+}
+
+.explicn{
+	font-size:0.8em;
+	padding:0.5em 0.65em;
+	margin:1.8em 0 3em 0;
+	width:fit-content;
+	border-left:solid 3px #dcdccc;
+	background-color:#ececdf;
+}
+
+ul.explicn, .macro ol{
+	list-style-type:none;
+}
+
+ul.explicn li{
+	padding:0.3em 0;
+}
+
+.fcompil{
+	color:#212194;
+}
+
+.fcompil::before, .fcompil::after{
+	content:":";
+	color:#e633bd;
+}
+
+h4.fcompil_exp{
+	margin:0.4em 0;
+}
+
+p.fcompil_expp{
+	margin:0 0.6em;
+}
+
+#defsub{
+	padding-right:4em;
+}
