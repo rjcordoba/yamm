@@ -13,30 +13,29 @@
 	</script>
 
     <style>
-	 #notación{
-		 font-size:0.9em;
-	 }
-	 #notación ol{
-		 list-style-type:square;
-		 font-size:0.84em;
-		 padding-left:2em;
-	 }
-	 #notación ol > li{
-		 margin-top:1em;
-	 }
-	 #notación ul{
-		 list-style-type:none;
-	 }
-	 #notación ul li{
-		 display:inline-block;
-	 }
-	 #notación ul li::after{
-		 content:",";
-		 margin-right:0.5em;
-	 }
-	 #notación ul li:last-child::after{
-		 content:none;
-	 }
+	  #notación{
+		  font-size:0.9em;
+		  margin-bottom:1.7em;
+	  }
+	  #notación ol{
+		  list-style-type:square;
+		  font-size:0.84em;
+		  padding-left:2em;
+	  }
+	  #notación ol > li{
+		  margin-top:1em;
+	  }
+	  #notación ul{
+		  list-style-type:none;
+	  }
+	  #notación ul li:last-child::after{
+		  content:none;
+	  }
+	  .especificación{
+		  display:inline;
+		  font-size:0.9em;
+		  margin-left:2em;
+	  }
 	</style>
 
   </head>
@@ -133,30 +132,54 @@
 		  </ol>
 		  <aside>
 			  <p><span>&epsilon;</span>cadena vacía.</p>
-			  <p><span>|</span>separador de producciones.</p>
+			  <p><span>|</span>separador de entidades.</p>
+			  <p>no terminales en cursiva; terminales en negrita.</p>
+			  <p></p>
 		  </aside>
 		</div>
 		<div id="notación">
 		  <p>Es verdad:</p>
 		  <ol>
-			<li><ul><li>2 = 1 + 1</li><li>3 = 2 + 1</li><li>4 = 3 + 1</li><li>5 = 4 + 1</li><li>6 = 5 + 1</li><li>7 = 6 + 1</li><li>8 = 7 + 1</li><li>9 = 8 + 1</li><li>10 = 9 + 1</li></ul>
+			<li><ul><li>2 = 1 + 1</li><li>3 = 2 + 1</li><li>4 = 3 + 1</li><li>5 = 4 + 1</li>
+				<li>6 = 5 + 1</li><li>7 = 6 + 1</li><li>8 = 7 + 1</li><li>9 = 8 + 1</li><li>10 = 9 + 1</li></ul>
 			</li>
-			<li><span class="noterm">n</span>1 = <span class="noterm">n</span>0 + 1</li>
+			<li><span class="noterm">natural<sub>1</sub></span>1 = <span class="noterm">natural<sub>1</sub></span>0 + 1</li>
 			<li>
-			  <span class="noterm">n</span><span class="noterm">nd<sub>1</sub></span> =
-			  <span class="noterm">n</span><span class="noterm">nd<sub>2</sub></span> + 1
+			  <span class="noterm">natural<sub>1</sub></span><span class="noterm">nd<sub>1</sub></span> =
+			  <span class="noterm">natural<sub>1</sub></span><span class="noterm">nd<sub>2</sub></span> + 1
+			  <p class="especificación">
+				si <span class="noterm">nd<sub>1</sub></span> = <span class="noterm">nd<sub>2</sub></span> + 1 es verdad.
+			  </p>
+			</li>
+			<li>
+			  <span class="noterm">natural<sub>1</sub></span>0 = <span class="noterm">natural<sub>2</sub></span>9 + 1
+			  <p class="especificación">
+				si <span class="noterm">natural<sub>1</sub></span> = <span class="noterm">natural<sub>2</sub></span> + 1 es verdad.
+			  </p>
 			</li>
 		  </ol>
 		</div>
-		<div class="macro">
+		<aside class="glue">
+		  No terminales con subíndice (p.ej. <span class="noterm">natural<sub>1</sub></span>, <span class="nnoterm">m<sub>1</sub></span>
+		  representan una cadena concreta, que puede ser cualquiera, que se pueda derivar de ese no terminal.
+		</aside>
+		<div class="macro glue-bot">
 		  <div><span class="nnoterm">x</span><sup>1</sup></div>
 		  <div class="flecha"></div>
 		  <div><span class="nnoterm">x</span></div>
 		</div>
-		<div class="macro">
-		  <div class="nnoterm">x<sup>n</sup></div>
+		<div class="mmacro glue-bot">
+		  <div class="macro">
+			<div><span class="nnoterm">x</span><sup class="nnoterm">n</sup></div>
+			<div class="flecha"></div>
+			<div><span class="nnoterm">x</span><sup class="nnoterm">m</sup><span class="comilla">’</span></div>
+		  </div>
+		  <p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.
+		</div>
+		<div class="macro glue-bot">
+		  <div>Z<sup>&Omega;</sup> = 0;</div>
 		  <div class="flecha"></div>
-		  <div><span class="nnoterm">x</span></div>
+		  <div>0<sup>&Omega;</sup></div>
 		</div>
 	  </main><!--***********************-->
 	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html"><< ant</a></p><p><a href="./cmacros-2.html">sig >></a></p></div>
