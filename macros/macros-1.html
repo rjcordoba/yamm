@@ -36,6 +36,9 @@
 		  font-size:0.9em;
 		  margin-left:2em;
 	  }
+	  .corrección1{
+		  padding-left:0.2em;
+	  }
 	</style>
 
   </head>
@@ -94,7 +97,7 @@
 			  <div><span class="noterm">nd</span><span class="noterm">ndcc</span></div>
 			</li>
 			<li>
-			  <div><span class="nnoterm">n</span><span class="separador"> &#xFF5C; </span><span class="nnoterm">m</span></div>
+			  <div><span class="nnoterm">letra minúscula</span></div>
 				<div class="flechag"></div>
 				<div class="noterm">natural</div>
 			</li>
@@ -131,10 +134,9 @@
 			</li>
 		  </ol>
 		  <aside>
-			  <p><span>&epsilon;</span>cadena vacía.</p>
-			  <p><span>|</span>separador de entidades.</p>
+			  <p>&epsilon; - cadena vacía.</p>
+			  <p>| - separador de entidades.</p>
 			  <p>no terminales en cursiva; terminales en negrita.</p>
-			  <p></p>
 		  </aside>
 		</div>
 		<div id="notación">
@@ -159,28 +161,37 @@
 			</li>
 		  </ol>
 		</div>
-		<aside class="glue">
-		  No terminales con subíndice (p.ej. <span class="noterm">natural<sub>1</sub></span>, <span class="nnoterm">m<sub>1</sub></span>
+		<aside class="aclaración glue">
+		  No terminales con subíndice (p.ej. <span class="noterm">natural<sub>1</sub></span>, <span class="nnoterm">m<sub>1</sub></span>)
 		  representan una cadena concreta, que puede ser cualquiera, que se pueda derivar de ese no terminal.
 		</aside>
 		<div class="macro glue-bot">
-		  <div><span class="nnoterm">x</span><sup>1</sup></div>
+		  <pre><code><span class="nnoterm">x</span><sup>1</sup></code></pre>
 		  <div class="flecha"></div>
-		  <div><span class="nnoterm">x</span></div>
+		  <pre><code><span class="nnoterm corrección1">x</span></code></pre>
 		</div>
 		<div class="mmacro glue-bot">
 		  <div class="macro">
-			<div><span class="nnoterm">x</span><sup class="nnoterm">n</sup></div>
+			<pre><code><span class="nnoterm">x</span><sup class="nnoterm">n</sup></code></pre>
 			<div class="flecha"></div>
-			<div><span class="nnoterm">x</span><sup class="nnoterm">m</sup><span class="comilla">’</span></div>
+			<pre><code><span class="nnoterm">x</span><sup class="nnoterm">m</sup><span class="comilla">’</span></code></pre>
 		  </div>
 		  <p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.
 		</div>
-		<div class="macro glue-bot">
-		  <div>Z<sup>&Omega;</sup> = 0;</div>
-		  <div class="flecha"></div>
-		  <div>0<sup>&Omega;</sup></div>
-		</div>
+		<aside class="ejemplos">
+		  <h3>Ejemplos</h3>
+			<ol>
+			  <li><pre>＊<sup>3</sup></pre></li>
+			  <li><pre>＊<sup>2</sup><span class="comilla">’</span></pre></li>
+			  <li><pre>＊<sup>1</sup><span class="comilla">’<span>’</span></span></pre></li>
+			  <li><pre>＊<span class="comilla">’<span>’</span></span></pre></li>
+			</ol>
+		</aside>
+		<!-- <div class="macro glue-bot"> -->
+		<!--   <pre><code>Z<sup>&Omega;</sup> = 0;</code></pre> -->
+		<!--   <div class="flecha"></div> -->
+		<!--   <pre><code>0<sup>&Omega;</sup></code></pre> -->
+		<!-- </div> -->
 	  </main><!--***********************-->
 	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html"><< ant</a></p><p><a href="./cmacros-2.html">sig >></a></p></div>
 	</div>
