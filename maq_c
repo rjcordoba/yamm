@@ -1,0 +1,184 @@
+;buscar símbolo
+f(A, α){
+     α    A
+     not α    L    f(A; α)
+     None    R    f'(A; α)
+}
+
+f'(A, α){
+     α    A
+     not α    R    f'(A; α)
+}
+
+;mover a la derecha
+d(A)    ...    R    A
+
+rest(A){
+     e    E, P1    A
+     f    E, P0    A
+     g    E, P=    A
+     h    E, P*    A
+     z    E, P-    A
+     a    A
+     b    A
+     c    A
+     d    A
+}
+
+encop(α){
+     |    E, P', L    encop(; α)
+     a    f(sum(; α); α)
+     b    f(nil(; ); )
+     c    f(comp(; ); )
+     d    ir(; α)
+}
+
+;m-configuration inicial
+b    ...    ini(selin)
+
+ini(A){
+     Any    L    ini(A)
+     None    R    A
+}
+
+;ir al final de la cinta
+final(A){
+     Any    R    final(A)
+     None    L    A
+}
+
+selin{
+     '    R    selin
+     1    E, Pa    buscop(; a)
+     0    E, Pb    buscop(; b)
+     =    E, Pc    buscop(; c)
+     *    E, Pd    buscop(; d)
+}
+
+sigin{
+     1    R    sigin
+     0    R    sigin
+     =    R    sigin
+     *    R    sigin
+     '    R    sigin
+     -    R    sigin
+     a    E, P1, R    selin
+     b    E, P0, R    selin
+     c    E, P=, R    selin
+}
+
+buscop(α)    ...    ini(buscop2(; α))
+
+buscop2(α){
+     '    R    buscop2(; α)
+     |    R    buscop2(; α)
+     1    E, Pe    buscop3(; α, e)
+     0    E, Pf    buscop3(; α, f)
+     =    E, Pg    buscop3(; , g)
+     *    E, Ph    buscop3(; , h)
+     -    E, Pz    buscop3(; , z)
+     None    Pz    buscop3(; α, z)
+     α    buscop3(; α, α)
+}
+
+buscop3(α, β)    ...    f(d(buscop4(; α, β)); α)
+
+buscop4(α, β){
+     |    R    buscop4(; α, β)
+     '    E, P1    buscop5(; α, β)
+     not | nor '    L    encop(; β)
+     None    L    encop(; β)
+}
+
+buscop5(α, β)    ...    f(rest(d(buscop2(; α))); β)
+
+;operación para *
+ir(α){
+     α    E, P*    selin
+     not α    E, P*    f(rest(selin); α)
+}
+;operación para 1
+sum(α){
+     z    E, P1    ini(sigin)
+     not z    final(marc(; α))
+}
+
+marc(α){
+     α    R, P', L    rest(ini(sigin))
+     not α    hueco(; α)
+}
+hueco(α)    β    E, R, Pβ, L, L    marc(; α)
+;operación para 0
+nil(α){
+     z    E, P-    ini(sigin)
+     e    E, Pz    d(qmarc(; z))
+     not z nor e    d(qmarc(; α))
+}
+
+qmarc(α){
+     '    E, R    cerhueco(f(d(qmarc)); α)
+     not '    L    rest(ini(sigin))
+     None    L    rest(ini(sigin))
+}
+cerhuec(A){
+     β    E, L, Pβ, R, R    cerhueco(A)
+     None    L, L    A
+}
+
+;operacion para =
+comp(α){
+     z    E, P-    ini(d(compn))
+     not z    ini(comppos(; α))
+}
+compn{
+     -    ssigin
+     not -    sigin
+}
+
+comppos(α){
+     -    sigin
+     not -    R    compm(; α)
+}
+saltp(A){
+     ~    saltp(A)
+     &    saltp(A)
+     not ~ nor &    A
+}
+
+
+saltot(A){
+     ~    R    saltot(A)
+     not ~    A
+}
+compm(α){
+     '    E, P&    umo(comp2(; α); α)
+     not '    umo(comf; α)
+}
+umo(A, α)    ...    f(d(saltot(A)); α)
+ump(alfa) ... ini(d(saltp(compm(;alfa))))
+comp2(α){
+     &    E, P~    ump(; α)
+     '    E, P~    ump(; α)
+     not & nor '    L    falso
+     None    L    falso
+}
+compf{
+     '    L    falso
+     not '    L    verdadero
+}
+falso    ...    reset(sigin)
+verdadero    ...    reset(ssigin)
+reset(A){
+     ~    E, P', L    reset(A)
+     not ~    rest(reset2(A))
+}
+reset2(A){
+     &    E, P', L    reset2(A)
+     not &    L    reset2(A)
+     None    R    A
+}
+ssigin    ...    f(d(saltsim(selin)); c)
+saltsim(A){
+     '    R    saltsim(A)
+     not '    R    A
+}
