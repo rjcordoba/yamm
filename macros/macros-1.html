@@ -186,17 +186,17 @@
 		  <div class="macro">
 			<pre><code><span class="nnoterm">x</span><sup class="nnoterm">n</sup></code></pre>
 			<div class="flecha"></div>
-			<pre><code><span class="nnoterm">x</span><sup class="nnoterm">m</sup><span class="comilla">’</span></code></pre>
+			<pre><code><span class="nnoterm">x</span><sup class="nnoterm">m</sup><span class="comilla comletra"><span>’</span></span></code></pre>
 		  </div>
 		  <p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.
 		</div>
 		<aside class="ejemplos">
 		  <h3>Ejemplo</h3>
 		  <ol>
-			  <li><pre><code>＊<sup class="numbers">3</sup></code></pre></li>
-			  <li><pre><code>＊<sup class="numbers">2</sup><span class="comilla">’</span></code></pre></li>
-			  <li><pre><code>＊<sup class="numbers">1</sup><span class="comilla">’<span>’</span></span></code></pre></li>
-			  <li><pre><code>＊<span class="comilla">’<span>’</span></span></code></pre></li>
+			<li><div><pre><code>＊<sup class="numbers">3</sup></code></pre></div></li>
+			<li><div><pre><code>＊<sup class="numbers">2</sup><span class="comilla comgr"><span>’</span></span></code></pre></div></li>
+			<li><div><pre><code>＊<sup class="numbers">1</sup><span class="comilla comgr"><span>’</span><span>’</span></span></code></pre></div></li>
+			<li><div><pre><code>＊<span class="comilla comgr"><span>’</span><span>’</span></span></code></pre></div></li>
 		  </ol>
 		</aside>
 		<h3>Asignaciones</h3>
@@ -269,44 +269,105 @@ JUMP
 		  <h3>Ejemplo</h3>
 		  <ol>
 			<li>
-			  <pre><code>INIT
-Z<sub class="numbers">2</sub> <span class="simbind">=</span> Z<sub class="numbers">5</sub>;</code></pre>
+			  <div>
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+				</ol>
+				<pre><code><span class="simbexp">INIT</span>
+<span class="simbexp">Z</span><sub class="numbers">13</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="numbers">17</sub>;</code></pre>
+			  </div>
 			</li>
 			<li>
-			  <pre class="flech"><code>1
-<span class="simbexp">Z</span><sub>1</sub><span class="simbind">=</span> <span class="simbexp">Z</span><sub>5</sub>;
-0<sup class="numbers">2</sup>
+			  <div class="flech">
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+				</ol>
+				<pre><code>1
+<span class="simbexp">Z</span><sub class="numbers">1</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub>17</sub>;
+0<sup class="numbers">13</sup>
 <span class="simbexp">JUMP</span>
-1<sup class="numbers">2</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="numbers">2</sup>
+1<sup class="numbers">13</sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers">13</sup>
 ＊<sup class="pos_puntos">1</sup></code></pre>
+			  </div>
 			</li>
 			<li>
-			  <pre class="flech"><code>1
-Z<sub>1</sub> <span class="simbind">=</span> <span class="numbers">0</span></sub>;
+			  <div class="flech">
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+				</ol>
+				<pre><code>1
+<span class="simbexp">Z</span><sub class="numbers">1</sub><span class="simbind"> = </span><span class="numbers">0</span>;
 <span class="simbexp">JUMP</span>
 1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">5</sup>
+=<sup class="numbers">17</sup>
 ＊<sup class="pos_puntos">2</sup>
-0<sup class="numbers">2</sup>
+0<sup class="numbers">13</sup>
 <span class="simbexp">JUMP</span>
-1<sup class="numbers">2</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="numbers">2</sup>
+1<sup class="numbers">13</sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers">13</sup>
 ＊<sup class="pos_puntos">1</sup></code></pre>
-	</li>
-	<li>
-	  <pre class="flech"><code>1
+			  </div>
+			</li>
+			<li>
+			  <div class="flech">
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+				</ol>
+				<pre><code>1
 0
 =
 1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">5</sup>
+=<sup class="numbers">17</sup>
 ＊<sup class="pos_puntos">2</sup>
-0<sup class="numbers">2</sup>
+0<sup class="numbers">13</sup>
 =
-1<sup class="numbers">2</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="numbers">2</sup>
+1<sup class="numbers">13</sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers">13</sup>
 ＊<sup class="pos_puntos">1</sup></code></pre>
-	</li>
+			  </div>
+			</li>
+			<li>
+			  <div class="flech">
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+				</ol>
+				<pre><code>1
+0
+=
+1<span class="flechita">4</span>
+=<sup class="numbers">17</sup>
+＊<sup class="numbers">4</sup>
+0<sup class="numbers">13</sup>
+=
+1<sup class="numbers">13</sup><span class="flechita">9</span>
+=<sup class="numbers">13</sup>
+＊<sup class="numbers">9</sup></code></pre>
+			  </div>
+			</li>
+			<li>
+			  <div class="flech">
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+				</ol>
+				<pre><code>1
+0
+=
+1
+=<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+＊<span class="comilla"><span>’</span><span>’</span><span>’</span></span>
+0<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span></span>
+=
+1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span></span>
+=<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span></span>
+＊<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+></span></code></pre>
+			  </div>
+			</li>
 		  </ol>
 		</aside>
 	  </main><!--***********************-->

@@ -137,17 +137,19 @@ sub{
 	font-size:0.55em;
 }
 
-.comilla{
-	position:relative;
-    left:-0.15em;
-    top:0.15em;
-	font-size:1.3em;
-}
-
 .comilla span{
 	position:relative;
-	left:-0.3em;
-	margin-right:-0.15em;
+	left:-0.1em;
+	margin-right:-0.3em;
+}
+
+.comilla.comgr span{
+    font-size:1.3em;
+	top:0.15em;
+}
+
+.comilla.comletra span{
+    top:0.1em;
 }
 
 .mmacro{
@@ -172,12 +174,8 @@ sub{
 	--margin-arriba: 0.2em;
 }
 
-.flech{
+.macro.flech{
 	padding-right:2em;
-}
-
-code{
-	font-family:Consola, Monaco, monospace;
 }
 
 .macro > *:first-child, .flecha{
@@ -219,36 +217,52 @@ code{
 	display:flex;
 	font-size:0.85em;
 	flex-wrap:wrap;
+	font-family:Consola, Monaco, monospace;
 }
 
-.ejemplos li{
+.ejemplos > ol > li{
 	display:flex;
-	margin-bottom:1em;
+	margin-bottom:2em;
 }
 
-.ejemplos li::after{
+.ejemplos > ol > li::after{
 	content:"⇒";
-	margin:0 1em;
+	margin:0 0.7em;
 	display:flex;
 	align-items:center;
+	font-size:1.5em;
 }
 
-.ejemplos li:last-child::after{
+.ejemplos > ol > li:last-child::after{
 	content:none;
+}
+
+.ejemplos li > div{
+	border:solid 2px #767888;
+	border-radius:4px;
+	line-height:1.6em;
+	position:relative;
+	display:flex;
+}
+
+.ejemplos li ol{
+	display:flex;
+	flex-direction:column;
+	padding:0.85em 0.2em 0 0.4em;
+	border-right:solid 2px #4e5f63;
+	text-align:right;
+	color:#a2a1a1;
+	background-color:#484646;
 }
 
 .ejemplos pre{
 	background-color:#222;
 	color:#eee;
 	padding:0.7em;
-	border:solid 2px #53545a;
-	min-width:4em;
-	border-radius:4px;
-	line-height:1.6em;
-	position:relative;
+	min-width:6em;
 }
 
-.ejemplos pre.flech{
+.ejemplos div.flech{
 	margin-right:1em;
 }
 
@@ -294,7 +308,7 @@ dl.expansor li{
 	top:0.1em;
 }
 
-.pos_puntos, .ejemplos .flechita .pos_puntos{
+.flechita, .ejemplos .flechita .pos_puntos{
 	color:#034ea0;
 }
 

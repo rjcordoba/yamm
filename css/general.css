@@ -94,7 +94,7 @@ body > nav li:first-child::before{
 }
 
 #cont-principal main{
-	padding:1.7em 10% 0 12%;
+	padding:1.7em 0 0 10%;
 	font-size:0.95em;
 }
 
