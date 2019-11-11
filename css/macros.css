@@ -22,11 +22,11 @@ sub, sup{
 	margin-bottom:var(--glue-macro);
 }
 
-main > aside.aclarcn{
+aside.aclarcn{
 	font-size:0.7em;
 	border-left:solid 5px #e1e2e2;
 	padding:0.8em 0.8em;
-	margin-top:1.6em;
+	margin:1.6em 0 4.5em;
 	background-color:rgb(225,226,226,0.18);
 	width:fit-content;
 }
@@ -187,7 +187,7 @@ sub{
 }
 
 .ejemplos{
-	margin-bottom:3em;
+	margin-bottom:1em;
 }
 
 .ejemplos h3{
@@ -273,6 +273,12 @@ sub{
 .ejemplos .puntitos{
 	display:flex;
 	align-items:center;
+	font-size:1.5em;
+	margin-left: 0.5em;
+}
+
+.puntitos::before{
+	content:"...";
 }
 
 dl.expansor{
@@ -281,13 +287,18 @@ dl.expansor{
 }
 
 dl.expansor dt.flechita{
-	font-size:1.2em;
+	font-size:1.45em;
 	border-left:solid 0.3em #0358b5;
 	background-color: rgba(3, 88, 181, 0.04);
 	padding: 0 1.6em 0 0.35em;
 	width: fit-content;
 	margin-bottom:1em;
 	padding-left:0.65em;
+	font-weight: bold;
+}
+
+dl.expansor dt.flechita::before{
+	font-weight: bold;
 }
 
 dl.expansor ol{
@@ -334,6 +345,10 @@ dl.expansor li{
 
 .numbers{
 	color:#83f5fd;
+}
+
+.numberp{
+	color:#b47ff5;
 }
 
 .simbind{
