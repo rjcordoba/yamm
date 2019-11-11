@@ -177,18 +177,18 @@
 		  No terminales con subíndice (p.ej. <span class="noterm">natural<sub>1</sub></span>, <span class="nnoterm">m<sub>1</sub></span>)
 		  representan una cadena concreta, que puede ser cualquiera, que se pueda derivar de ese no terminal.
 		</aside>
-		<div class="macro glue-macro">
+		<div class="macro">
 		  <pre><code><span class="nnoterm">x</span>1</sup></code></pre>
 		  <div class="flecha"></div>
 		  <pre><code><span class="nnoterm corrección1">x</span></code></pre>
 		</div>
-		<div class="mmacro">
+		<div class="mmacro glue-macro">
 		  <div class="macro">
 			<pre><code><span class="nnoterm">x</span><sup class="nnoterm">n</sup></code></pre>
 			<div class="flecha"></div>
 			<pre><code><span class="nnoterm">x</span><sup class="nnoterm">m</sup><span class="comilla comletra"><span>’</span></span></code></pre>
 		  </div>
-		  <p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.
+		  <p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
 		</div>
 		<aside class="ejemplos">
 		  <h3>Ejemplo</h3>
@@ -200,25 +200,74 @@
 		  </ol>
 		</aside>
 		<h3>Asignaciones</h3>
-		<div class="macro glue-macro">
+		<div class="macro">
 		  <pre><code>Z<sub>&Omega;</sub> = 0;</code></pre>
 		  <div class="flecha"></div>
 		  <pre><code>0<sup>&Omega;</sup></code></pre>
 		</div>
-		<div class="macro glue-macro">
+		<div class="macro">
 		  <pre><code>Z<sub>&Omega;</sub> = 1;</code></pre>
 		  <div class="flecha"></div>
 		  <pre><code>0<sup>&Omega;</sup>1<sup>&Omega;</sup></code></pre>
 		</div>
-		<div class="mmacro">
+		<div class="mmacro glue-macro">
 		  <div class="macro">
 			<pre><code>Z<sub>&Omega;</sub> = <span class="nnoterm">n</span>;</code></pre>
 			<div class="flecha"></div>
 			<pre><code>Z<sub>&Omega;</sub> = <span class="nnoterm">m</span>;
 1<sup>&Omega;</sup></code></pre>
 		  </div>
-		  <p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.
+		  <p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
 		</div>
+		<aside class="ejemplos">
+		  <h3>Ejemplo</h3>
+		  <ol>
+			<li>
+			  <div>
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li>
+				</ol>
+<pre><code><span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"
+> = </span><span class="numbers">3</span>;</code></pre>
+			  </div>
+			</li>
+			<li>
+			  <div>
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li>
+				</ol>
+				<pre><code><span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"
+> = </span><span class="numbers">2</span>;
+1<sup><span class="numbers">29</span></sup></code></pre>
+			  </div>
+			</li>
+			<li>
+			  <div>
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li>
+				</ol>
+				<pre><code><span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"
+> = </span><span class="numbers">1</span>;
+1<sup><span class="numbers">29</span></sup>
+1<sup><span class="numbers">29</span></sup></code></pre>
+			  </div>
+			</li>
+			<li>
+			  <div>
+				<ol>
+				  <li>1</li><li>2</li><li>3</li><li>4</li>
+				</ol>
+				<pre><code>0<sup class="numbers">29</sup>
+1<sup class="numbers">29</sup>
+1<sup><span class="numbers">29</span></sup>
+1<sup><span class="numbers">29</span></sup></code></pre>
+			  </div>
+			</li>
+			<li>
+			  <p class="puntitos">...</p>
+			</li>
+		  </ol>
+		</aside>
 		<dl class="expansor">
 		  <dt class="flechita"><span class="pos_puntos nnoterm">n</span></dt>
 		  <dd>Marcas que pone el expansor de instrucciones, apuntando a una instrucción.
@@ -229,31 +278,34 @@
   			</ol>
 		  </dd>
 		</dl>
-		<div class="macro glue-macro">
+		<div class="macro">
 		  <pre><code>JUMP</code></pre>
 		  <div class="flecha"></div>
 		  <pre><code>=</code></pre>
 		</div>
-		<div class="macro glue-macro">
+		<div class="macro">
 		  <pre><code>INIT</code></pre>
 		  <div class="flecha"></div>
 		  <pre><code>1</code></pre>
 		</div>
-		<div class="macro glue-macro">
+		<div class="macro">
 		  <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Omega;</sub>;</code></pre>
 		  <div class="flecha"></div>
 		  <pre><code>&epsilon;</code></pre>
 		</div>
-		<div class="macro glue-macro flech">
-		  <pre><code>Z<sub>1</sub> = Z<sub>&Omega;</sub>;</code></pre>
-		  <div class="flecha"></div>
-		  <pre><code>Z<sub>1</sub> = 0;
+		<div class="mmacro glue-macro">
+		  <div class="macro flech">
+			<pre><code>Z<sub>1</sub> = Z<sub>&Omega;</sub>;</code></pre>
+			<div class="flecha"></div>
+			<pre><code>Z<sub>1</sub> = 0;
 JUMP
 1<span class="flechita"><span class="pos_puntos">i</span></span>
 =<sup>&Omega;</sup>
 ＊<sup class="pos_puntos">i</sup></code></pre>
+		  </div>
+		  <p>con &Omega; no es 1.</p>
 		</div>
-		<div class="mmacro">
+		<div class="mmacro glue-macro">
 		  <div class="macro flech">
 			<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub>;</code></pre>
 			<div class="flecha"></div>
@@ -264,6 +316,7 @@ JUMP
 =<sup>&Omega;</sup>
 ＊<sup class="pos_puntos">i</sup></code></pre>
 		  </div>
+		  <p>con &Omega; es distinto de &Phi;.</p>
 		</div>
 		<aside class="ejemplos">
 		  <h3>Ejemplo</h3>
