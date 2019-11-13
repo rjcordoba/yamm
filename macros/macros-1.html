@@ -25,9 +25,7 @@
 		  margin-top:1em;
 		  list-style-type:square;
 	  }
-	  /* #notación ul{ */
-	  /* 	  list-style-type:none; */
-	  /* } */
+	  
 	  #notación ul li:last-child::after{
 		  content:none;
 	  }
@@ -47,12 +45,6 @@
 		  font-size:inherit;
 	  }
 	  
-	  dl .flechita::before{
-		  position:relative;
-		  bottom:0.13em;
-		  padding:0;
-	  }
-
 	</style>
 
   </head>
@@ -69,9 +61,9 @@
       </ul>
     </nav>
 	<div id="cont-principal" class="anchura">
-	  <main><!--***********************-->
 		<h1>Lenguaje C--</h1>
 		<h2>Macros y utilidades</h2>
+		<main><!--***********************-->
 		<div class="gramat">
 		  <ol>
 			<li>
@@ -178,7 +170,7 @@
 		  representan una cadena concreta, que puede ser cualquiera, que se pueda derivar de ese no terminal.
 		</aside>
 		<div class="macro">
-		  <pre><code><span class="nnoterm">x</span>1</sup></code></pre>
+		  <pre><code><span class="nnoterm">x</span><sup>1</sup></code></pre>
 		  <div class="flecha"></div>
 		  <pre><code><span class="nnoterm corrección1">x</span></code></pre>
 		</div>
@@ -273,10 +265,10 @@
 		  Tres puntos (...) representa cualquier instrucción o cualquier expansión de instrucciones.
 		</aside>
 		<dl class="expansor">
-		  <dt class="flechita"><span class="pos_puntos nnoterm">n</span></dt>
+		  <dt class="flechita"><span class="pos_puntos nnoterm">⟨natural⟩</span></dt>
 		  <dd>Marcas que pone el expansor de instrucciones, apuntando a una instrucción.
 			<ol>
-			  <li>La primera marca que pone es <span class="flechita"><span class="pos_puntos nnoterm">n</span></span>.</li>
+			  <li>La primera marca que pone es <span class="flechita"><span class="pos_puntos">1</span></span>.</li>
 			  <li>Si pone una marca <span class="flechita"><span class="pos_puntos nnoterm">m</span></span>, la siguiente marca será
 				<span class="flechita"><span class="pos_puntos nnoterm">n</span></span>, donde n = m + 1 es verdad.</li>
   			</ol>

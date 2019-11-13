@@ -226,7 +226,7 @@ sub{
 
 .ejemplos > ol > li{
 	display:flex;
-	margin-bottom:2em;
+	margin-bottom:2.7em;
 }
 
 .ejemplos > ol > li::after{
@@ -274,25 +274,43 @@ sub{
 	display:flex;
 	align-items:center;
 	font-size:1.5em;
-	margin-left: 0.5em;
+	margin-left:0 0.5em;
 }
 
 .puntitos::before{
 	content:"...";
 }
 
-dl.expansor{
-	font-size:0.8em;
+.expansor{
+	font-size:0.9em;
 	margin-bottom:2.9em;
+	max-width:60em;
+	line-height: 1.7em;
 }
 
-dl.expansor dt.flechita{
+.expansor h3{
+	color:#0c70de;
+	/* border-bottom:none; */
+}
+
+.expansor .flechita{
+	position:static;
+	font-size:inherit;
+}
+
+.expansor .flechita::before{
+	position:relative;
+	bottom:0.13em;
+	padding:0;
+}
+
+dl.expansor dt.flechita, .expansor h3{
 	font-size:1.45em;
-	border-left:solid 0.3em #0358b5;
+	border-left:solid 0.3em #0c70de;
 	background-color: rgba(3, 88, 181, 0.04);
-	padding: 0 1.6em 0 0.35em;
+	padding:0.1em 1.6em 0.1em 0.35em;
 	width: fit-content;
-	margin-bottom:1em;
+	margin-bottom:0.8em;
 	padding-left:0.65em;
 	font-weight: bold;
 }
@@ -301,24 +319,35 @@ dl.expansor dt.flechita::before{
 	font-weight: bold;
 }
 
-dl.expansor ol{
+.expansor ol{
 	margin-left:1.4em;
 }
 
-dl.expansor li{
-	list-style:square;
-	margin:1em 0;
+.expansor > ol, .expansor dd ol{
+	margin-top:0.5em;
+}
+
+.expansor li{
+	list-style-type:square;
+}
+
+.expansor li li{
+	list-style-type:disc;
+	margin:0.2em 0;
+	font-size:0.91em;
 }
 
 .flechita{
 	font-size:0.7em;
 	position:absolute;
 	left:100%;
+	font-weight:bold;
 }
 
 .flechita::before{
 	content:"←";
 	padding-left:0.4em;
+	font-weight:normal;
 }
 
 .ejemplos .flechita::before{
@@ -334,6 +363,11 @@ dl.expansor li{
 
 .ejemplos .pos_puntos{
 	color:#77aeea;
+}
+
+.pos_puntos{
+	font-weight:bold;
+	color:#034ea0;
 }
 
 .pos_puntos::before{
@@ -358,4 +392,9 @@ dl.expansor li{
 
 .simbexp{
 	color:#fdaab9;
+}
+
+.ejemplos .id_exp{
+	color:#fba26a;
+	font-size: 0.6em;
 }
