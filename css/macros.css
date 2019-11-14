@@ -15,7 +15,7 @@ sub, sup{
 }
 
 .glue{
-	margin-bottom:2.7em;
+	margin-bottom:2.7em !important;
 }
 
 .glue-macro{
@@ -188,10 +188,7 @@ sub{
 
 .ejemplos{
 	margin-bottom:1em;
-}
-
-.ejemplos h3{
-	font-size:1em;
+	font-size:0.95em;
 }
 
 .flecha::before{
@@ -210,7 +207,8 @@ sub{
 	padding:var(--margin-arriba) 0.6em;
 }
 
-.ejemplos h3{
+#cont-principal .ejemplos h1{
+	font-size:1.3em;
 	width:fit-content;
 	padding:0 1em 0 0.4em;
 	border-bottom:solid 1px;
@@ -234,7 +232,7 @@ sub{
 	margin:0 0.7em;
 	display:flex;
 	align-items:center;
-	font-size:1.5em;
+	font-size:2em;
 }
 
 .ejemplos > ol > li:last-child::after{
@@ -253,7 +251,7 @@ sub{
 	display:flex;
 	flex-direction:column;
 	padding:0.85em 0.2em 0 0.4em;
-	border-right:solid 2px #4e5f63;
+	border-right:solid 2px #465254;
 	text-align:right;
 	color:#a2a1a1;
 	background-color:#484646;
@@ -264,6 +262,7 @@ sub{
 	color:#eee;
 	padding:0.7em;
 	min-width:6em;
+	width:100%;
 }
 
 .ejemplos div.flech{
@@ -274,7 +273,6 @@ sub{
 	display:flex;
 	align-items:center;
 	font-size:1.5em;
-	margin-left:0 0.5em;
 }
 
 .puntitos::before{
@@ -282,14 +280,14 @@ sub{
 }
 
 .expansor{
-	font-size:0.9em;
+	font-size:0.85em;
 	margin-bottom:2.9em;
 	max-width:60em;
 	line-height: 1.7em;
 }
 
 .expansor h3{
-	color:#0c70de;
+	color:#0554ab;
 	/* border-bottom:none; */
 }
 
@@ -306,7 +304,7 @@ sub{
 
 dl.expansor dt.flechita, .expansor h3{
 	font-size:1.45em;
-	border-left:solid 0.3em #0c70de;
+	border-left:solid 0.3em #0554ab;
 	background-color: rgba(3, 88, 181, 0.04);
 	padding:0.1em 1.6em 0.1em 0.35em;
 	width: fit-content;
@@ -353,8 +351,6 @@ dl.expansor dt.flechita::before{
 .ejemplos .flechita::before{
 	color:#111f;
 	font-size:1.25em;
-	position:relative;
-	top:0.1em;
 }
 
 .flechita, .ejemplos .flechita .pos_puntos{
@@ -372,7 +368,10 @@ dl.expansor dt.flechita::before{
 
 .pos_puntos::before{
 	content:":";
+	font-style:normal;
 	color:#f536c0;
+	position: relative;
+    bottom: 0.1em;
 }
 
 /* colores gramática */
@@ -382,7 +381,7 @@ dl.expansor dt.flechita::before{
 }
 
 .numberp{
-	color:#b47ff5;
+	color:#bd8cf9;
 }
 
 .simbind{

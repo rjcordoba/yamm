@@ -44,7 +44,15 @@
 		  position:static;
 		  font-size:inherit;
 	  }
+
+	  .expansor li:first-child .flechita::before{
+		  bottom:0.22em;
+	  }
 	  
+	  .pbajo.pos_puntos::before{
+		  position:static;
+	  }
+
 	</style>
 
   </head>
@@ -183,7 +191,7 @@
 		  <p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
 		</div>
 		<aside class="ejemplos">
-		  <h3>Ejemplo</h3>
+		  <h1>Ejemplo</h1>
 		  <ol>
 			<li><div><pre><code>＊<sup class="numbers">3</sup></code></pre></div></li>
 			<li><div><pre><code>＊<sup class="numbers">2</sup><span class="comilla comgr"><span>’</span></span></code></pre></div></li>
@@ -220,7 +228,7 @@
 				  <li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
 				</ol>
 				<pre><code>...
-<span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"> = </span><span class="numberp">3</span>;</code></pre>
+<span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"> = </span><span class="numberp">3</span><span class="simbind">;</span></code></pre>
 			  </div>
 			</li>
 			<li>
@@ -229,7 +237,7 @@
 				  <li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
 				</ol>
 				<pre><code>...
-<span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"> = </span><span class="numberp">2</span>;
+<span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"> = </span><span class="numberp">2</span><span class="simbind">;</span>
 1<sup><span class="numbers">29</span></sup></code></pre>
 			  </div>
 			</li>
@@ -239,7 +247,7 @@
 				  <li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
 				</ol>
 				<pre><code>...
-<span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"> = </span><span class="numberp">1</span>;
+<span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span>
 1<sup><span class="numbers">29</span></sup>
 1<sup><span class="numbers">29</span></sup></code></pre>
 			  </div>
@@ -268,9 +276,9 @@
 		  <dt class="flechita"><span class="pos_puntos nnoterm">⟨natural⟩</span></dt>
 		  <dd>Marcas que pone el expansor de instrucciones, apuntando a una instrucción.
 			<ol>
-			  <li>La primera marca que pone es <span class="flechita"><span class="pos_puntos">1</span></span>.</li>
-			  <li>Si pone una marca <span class="flechita"><span class="pos_puntos nnoterm">m</span></span>, la siguiente marca será
-				<span class="flechita"><span class="pos_puntos nnoterm">n</span></span>, donde n = m + 1 es verdad.</li>
+			  <li>La primera marca que pone es <span class="flechita"><span class="pos_puntos nnoterm">1</span></span>.</li>
+			  <li>Si pone una marca <span class="flechita"><span class="pos_puntos nnoterm pbajo">m</span></span>, la siguiente marca será
+				<span class="flechita"><span class="pos_puntos nnoterm pbajo">n</span></span>, donde n = m + 1 es verdad.</li>
   			</ol>
 		  </dd>
 		</dl>
@@ -293,11 +301,11 @@
 		  <div class="macro flech">
 			<pre><code>Z<sub>1</sub> = Z<sub>&Omega;</sub>;</code></pre>
 			<div class="flecha"></div>
-			<pre><code>Z<sub>1</sub> = 0;
+			<pre><code>Z<sub>1</sub> = 0;</span>
 JUMP
-1<span class="flechita"><span class="pos_puntos">i</span></span>
+1<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
 =<sup>&Omega;</sup>
-＊<sup class="pos_puntos">i</sup></code></pre>
+＊<sup class="pos_puntos nnoterm">i</sup></code></pre>
 		  </div>
 		  <p>con &Omega; no es 1.</p>
 		</div>
@@ -305,17 +313,17 @@ JUMP
 		  <div class="macro flech">
 			<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub>;</code></pre>
 			<div class="flecha"></div>
-			<pre><code>Z<sub>1</sub> = Z<sub>&Phi;</sub>;
+			<pre><code>Z<sub>1</sub> = Z<sub>&Phi;</sub>;</span>
 0<sup>&Omega;</sup>
 JUMP
-1<sup>&Omega;</sup><span class="flechita"><span class="pos_puntos">i</span></span>
+1<sup>&Omega;</sup><span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
 =<sup>&Omega;</sup>
-＊<sup class="pos_puntos">i</sup></code></pre>
+＊<sup class="pos_puntos nnoterm">i</sup></code></pre>
 		  </div>
 		  <p>con &Omega; es distinto de &Phi;.</p>
 		</div>
 		<aside class="ejemplos">
-		  <h3>Ejemplo</h3>
+		  <h1>Ejemplo</h1>
 		  <ol>
 			<li>
 			  <div>
@@ -324,7 +332,7 @@ JUMP
 				</ol>
 				<pre><code><span class="simbexp">INIT</span>
 <span class="simbexp">Z</span><sub class="numbers">13</sub><span class="simbind"> = </span><span class="simbexp"
->Z</span><sub class="numbers">17</sub>;</code></pre>
+>Z</span><sub class="numbers">17</sub><span class="simbind">;</span></code></pre>
 			  </div>
 			</li>
 			<li>
@@ -333,7 +341,7 @@ JUMP
 				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
 				</ol>
 				<pre><code>1
-<span class="simbexp">Z</span><sub class="numbers">1</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="numbers">17</sub>;
+<span class="simbexp">Z</span><sub class="numbers">1</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="numbers">17</sub><span class="simbind">;</span>
 0<sup class="numbers">13</sup>
 <span class="simbexp">JUMP</span>
 1<sup class="numbers">13</sup><span class="flechita"><span class="pos_puntos">1</span></span>
@@ -347,7 +355,7 @@ JUMP
 				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
 				</ol>
 				<pre><code>1
-<span class="simbexp">Z</span><sub class="numbers">1</sub><span class="simbind"> = </span><span class="numberp">0</span>;
+<span class="simbexp">Z</span><sub class="numbers">1</sub><span class="simbind"> = </span><span class="numberp">0</span><span class="simbind">;</span>
 <span class="simbexp">JUMP</span>
 1<span class="flechita"><span class="pos_puntos">2</span></span>
 =<sup class="numbers">17</sup>
