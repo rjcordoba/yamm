@@ -39,7 +39,7 @@ aside.aclarcn{
 	width:fit-content;
 	padding:1em;
 	border:solid 1px #e1e2e2;
-	border-radius:2px;
+	border-radius:0.12em;
 }
 
 .gramat aside{
@@ -55,7 +55,6 @@ aside.aclarcn{
 .gramat aside dl{
 	margin-top:0.2em;
 }
-
 
 .gramat aside dt{
 	text-decoration: underline;
@@ -120,7 +119,6 @@ aside.aclarcn{
 .gramat .flechag::before{
     content:"→";
 	line-height:0;
-    /* font-family:flechas; */
     font-size:1.4em;
     color:#929191;
     padding:0 0.17em;
@@ -173,6 +171,8 @@ sub{
 	width:fit-content;
 	padding:0.33em 1em;
 	background-color:#ecefdd;
+	border:solid 1px #e8ead7;
+	border-radius:0.15em;
 	line-height:1.7em;
 	margin-bottom:var(--glue-macro);
 	--margin-arriba: 0.2em;
@@ -202,7 +202,7 @@ sub{
 .macro > pre:last-child{
 	background-color:#fff;
 	border:solid 1px #ddd;
-	border-radius:3px;
+	border-radius:0.13em;
 	position:relative;
 	padding:var(--margin-arriba) 0.6em;
 }
