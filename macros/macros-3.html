@@ -13,18 +13,6 @@
 	</script>
 
     <style>
-	  .expansor > ol > li{
-		  margin-bottom:1.3em;
-	  }
-
-	  .id_exp{
-		  color:#e48608;
-	  }
-
-	  .expansor sup{
-		  font-size:0.8em;
-	  }
-
 	</style>
 
   </head>
@@ -44,297 +32,49 @@
 		<h1>Lenguaje C--</h1>
 		<h2>Macros y utilidades</h2>
 		<main><!--***********************-->
-		  <div class="expansor">
-			<h3>Expansiones finales</h3>
-			<p>Cuando todas las demás expansiones de macroinstrucciones se han llevado a cabo:</p>
-			<ol>
-			  <li>El expansor asocia un <span class="noterm">natural</span> a cada instrucción en el orden en que aparecen:
-				<ol>
-				  <li>a la primera instrucción le asocia 1.</li>
-				  <li>si a una instrucción le asocia <span class="nnoterm">m</span>, a la siguiente le asociará <span class="nnoterm">n</span>,
-					donde n = m + 1 es verdad.
-				  </li>
-				</ol>
-			  </li>
-			  <li>Sea <span class="nnoterm">m</span> el <span class="noterm">natural</span> asociado por el expansor a la última instrucción y verdad n = m + 1.
-				Por cada instrucción de la forma <span class="nnoterm">x</span><sup class="id_exp">.<span class="noterm">id</span></sup>
-				se añade como instrucción siguiente a la instrucción asociada a <span class="nnoterm">m</span> una nueva instrucción, 1, que se asocia a
-				<span class="nnoterm">n</span>, y se sustituyen por <span class="nnoterm">n</span> todas las apariciones de
-				<span class="id_exp">.<span class="noterm">id</span></span>.
-			  </li>
-			  <li>Se añade al final una nueva instrucción, 1<sup class="pos_puntos">top</sup> y se pone una marca apuntando a ella,
-				<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>. Se sustituyen en las instrucciones todas las apariciones de
-				<span class="pos_puntos">top</span> por <span class="pos_puntos nnoterm">i</span>.
-			  </li>
-			  <li>Por cada marca <span class="flechita"><span class="pos_puntos nnoterm">i</span></span> se sustituyen en las instrucciones por
-				<span class="nnoterm">n</span> todas las apariciones de <span class="pos_puntos nnoterm">i</span>, donde
-				<span class="nnoterm">n</span> es el <span class="noterm">natural</span> asociado a la instrucción a la que
-				<span class="flechita"><span class="pos_puntos nnoterm">i</span></span> apunta. Se elimina la marca.
-			  </li>
-			  <li>Se expanden las macroinstrucciones de la forma <span class="nnoterm">x</span><sup class="nnoterm">n</sup>.</li>
-			</ol>
-		  </div>
-		  <aside class="ejemplos">
-		  <h1>Ejemplo</h1>
-		  <ol>
-			<li>
-			  <div>
-				<pre><code><span class="simbexp">INIT</span>
-<span class="simbexp">Z</span><sub class="id_exp">.sum1</sub><span class="simbind"> = </span><span class="numberp">2</span><span class="simbind">;</span>
-<span class="simbexp">Z</span><sub class="id_exp">.resa</sub><span class="simbind"> = </span><span class="simbexp"
->Z</span><sub class="id_exp">.sum1</sub>;</code></pre>
-			  </div>
-			</li>
-			<li>
-			  <p class="puntitos"></p>
-			</li>
-			<li>
-			  <div class="flech">
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                   >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li>
-				</ol>
-				<pre><code>1
-0<sup class="id_exp">.sum1</sup>
-1<sup class="id_exp">.sum1</sup>
-1<sup class="id_exp">.sum1</sup>
-0
-=
-1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="id_exp">.sum1</sup>
-＊<sup class="pos_puntos">2</sup>
-0<sup class="id_exp">.resa</sup>
-=
-1<sup class="id_exp">.resa</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="id_exp">.resa</sup>
-＊<sup class="pos_puntos">1</sup></code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div class="flech">
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li>
-				</ol>
-				<pre><code>1
-0<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-0
-=
-1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">15</sup>
-＊<sup class="pos_puntos">2</sup>
-0<sup class="id_exp">.resa</sup>
-=
-1<sup class="id_exp">.resa</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="id_exp">.resa</sup>
-＊<sup class="pos_puntos">1</sup>
-1</code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div class="flech">
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
-				</ol>
-				<pre><code>1
-0<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-0
-=
-1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">15</sup>
-＊<sup class="pos_puntos">2</sup>
-0<sup class="numbers">16</sup>
-=
-1<sup class="numbers">16</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="numbers">16</sup>
-＊<sup class="pos_puntos">1</sup>
-1
-1</code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div class="flech">
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
-				</ol>
-				<pre><code>1
-0<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-0
-=
-1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">15</sup>
-＊<sup class="pos_puntos">2</sup>
-0<sup class="numbers">16</sup>
-=
-1<sup class="numbers">16</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="numbers">16</sup>
-＊<sup class="pos_puntos">1</sup>
-1
-1
-1<sup class="pos_puntos">top</sup><span class="flechita"><span class="pos_puntos">3</span></span></code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div class="flech">
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
-				</ol>
-				<pre><code>1
-0<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-0
-=
-1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">15</sup>
-＊<sup class="pos_puntos">2</sup>
-0<sup class="numbers">16</sup>
-=
-1<sup class="numbers">16</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="numbers">16</sup>
-＊<sup class="pos_puntos">1</sup>
-1
-1
-1<sup class="pos_puntos">3</sup><span class="flechita"><span class="pos_puntos">3</span></span></code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div>
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
-				</ol>
-				<pre><code>1
-0<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-0
-=
-1
-=<sup class="numbers">15</sup>
-＊<sup class="numbers">7</sup>
-0<sup class="numbers">16</sup>
-=
-1<sup class="numbers">16</sup>
-=<sup class="numbers">16</sup>
-＊<sup class="numbers">12</sup>
-1
-1
-1<sup class="numbers">17</sup></code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div>
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
-				</ol>
-				<pre><code>1
-0<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
-1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
-1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
-0
-=
-1
-=<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
-＊<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
-0<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
-=
-1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
-=<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
-＊<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span></span>
-1
-1
-1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span></code></pre>
-			  </div>
-			</li>
-		  </ol>
-		  </aside>
-		  <div class="gramat glue">
-			<ol>
-			  <li>
-				<div class="nnoterm">&lambda;</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="noterm">natural</span></li>
-				  <li>Z<sub>&Omega;</sub></li>
-				</ul>
-			  </li>
-			</ol>
-		  </div>
-		  <h3>Op. Aritméticas 1</h3>
+		  <h3>Op. Aritméticas 2</h3>
 		  <div class="macro flech">
-			<pre><code>Z<sub>&Omega;</sub> += &lambda;;</code></pre>
-			<div class="flecha"></div>
-			<pre><code>Z<sub>.posf</sub> = &lambda;;
-Z<sub>1</sub> = 0;
-＊<sup class="pos_puntos nnoterm">j</sup>
-1<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
-1<sup>&Omega;</sup>
-=<sup>.posf</sup><span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
-＊<sup class="pos_puntos nnoterm">i</sup></code></pre>
-</div>
-		<div class="macro">
-		  <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> + Z<sub>&Psi;</sub>;</code></pre>
-			<div class="flecha"></div>
-<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub>;
-Z<sub>&Omega;</sub> += Z<sub>&Psi;</sub>;</code></pre>
-		</div>
-		<div class="macro">
-		  <pre><code>Z<sub>&Omega;</sub>++;</code></pre>
-<div class="flecha"></div>
-<pre><code>1<sup>&Omega;</sup>;</code></pre>
-		</div>
-		<div class="macro flech">
-		  <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> - Z<sub>&Psi;</sub>;</code></pre>
+			<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> * Z<sub>&Psi;</sub>;</code></pre>
 			<div class="flecha"></div>
 			<pre><code>Z<sub>&Omega;</sub> = 0;
 Z<sub>1</sub> = 0;
-JUMP
-Z<sub>1</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
-=<sup>&Phi;</sup>
-JUMP
-＊<sup class="pos_puntos nnoterm">j</sup>
+＊<sup class="pos_puntos nnoterm">i</sup>
+Z<sub>1</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
+Z<sub>.cont</sub> = Z<sub>1</sub>;
+Z<sub>&Omega;</sub> += Z<sub>&Phi;</sub>;
+Z<sub>1</sub> = Z<sub>.cont</sub>
+=<sup>&Psi;</sup><span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
+＊<sup class="pos_puntos nnoterm">j</sup></code></pre>
+		  </div>
+		  <div class="macro flech">
+			<pre><code>STOP</code></pre>
+			<div class="flecha"></div>
+			<pre><code>0<sup class="pos_puntos nnoterm">i</sup>
+1<span class="flechita"><span class="pos_puntos nnoterm">i</span></span></code></pre>
+		  </div>
+		  <div class="macro flech">
+			<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> / Z<sub>&Psi;</sub>;</code></pre>
+			<div class="flecha"></div>
+			<pre><code>Z<sub>&Omega;</sub> = 0;
+Z<sub>.da</sub> = Z<sub>&Phi;</sub>;
+Z<sub>.da</sub>++;
+Z<sub>1</sub> = 0;
 =<sup>&Psi;</sup>
 ＊<sup class="pos_puntos nnoterm">i</sup>
-Z<sub>1</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">k</span></span>
-Z<sub>&Omega;</sub>++;
-=<sup>&Phi;</sup>
-＊<sup class="pos_puntos nnoterm">k</sup>
-<span class="puntitos"></span><span class="flechita"><span class="pos_puntos nnoterm">j</span></span></code></pre>
-		</div>
-		<div class="macro">
-		  <pre><code>Z<sub>&Omega;</sub> -= &lambda;</code></pre>
+STOP
+Z<sub>&Omega;</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
+Z<sub>.da</sub> -= Z<sub>&Psi;</sub>;<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
+Z<sub>1</sub> = 0;
+=<sup>.da</sup>
+＊<sup class="pos_puntos nnoterm">j</sup></code></pre>
+		  </div>
+		  <div class="macro">
+			<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> % Z<sub>&Psi;</sub>;</code></pre>
 			<div class="flecha"></div>
-<pre><code>Z<sub>.sum1</sub> = Z<sub>&Omega;</sub>;
-Z<sub>.sum2</sub> = &lambda;;
-Z<sub>&Omega;</sub> = Z<sub>.sum1</sub> + Z<sub>.sum2</sub>;</code></pre>
-		</div>
-		<div class="macro">
-		  <pre><code>Z<sub>&Omega;</sub>--;</code></pre>
-			<div class="flecha"></div>
-<pre><code>Z<sub>.sum1</sub> = Z<sub>&Omega;</sub>;
-Z<sub>.sum2</sub> = 1;
-Z<sub>&Omega;</sub> = Z<sub>.sum1</sub> - Z<sub>.sum2</sub>;</code></pre>
-		</div>
+			<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> / Z<sub>&Psi;</sub>;
+Z<sub>.ra</sub> = Z<sub>&Omega;</sub> * Z<sub>&Psi;</sub>;
+Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> - Z<sub>.ra</sub>;</code></pre>
+		  </div>
 		</main><!--***********************-->
 	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html"><< ant</a></p><p><a href="./cmacros-2.html">sig >></a></p></div>
 	</div>
