@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<html lang="es">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
+
+    <script>
+	</script>
+
+    <style>
+	</style>
+
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura">
+		<h1>Lenguaje C--</h1>
+		<h2>Macros y utilidades</h2>
+		<main><!--***********************-->
+		  <div class="gramat">
+			<ol>
+			  <li>
+				<div class="nnoterm">nombre</div>
+				<div class="flechag"></div>
+				<div class="nnoterm">identificador de K&R</div>
+			  </li>
+			  <li>
+				<div class="noterm">dims</div>
+				<div class="flechag"></div>
+				<ul>
+				<li><span class="epsilon"></span></li>
+				<li><span class="term">$</span><span class="nnoterm">n</span><span class="noterm">dims</span></li>
+			  </ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">enombre</div>
+				<div class="flechag"></div>
+				<div><span class="nnoterm">nombre</span><span class="noterm">dims</span></div>
+			  </li>
+			  <li>
+				<div class="noterm">stars</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="epsilon"></span></li>
+				  <li><span class="term">*</span><span class="noterm">stars</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">inds</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="epsilon"></span></li>
+				  <li><span class="term">[</span><span class="nnoterm">n</span><span class="term">]</span><span class="noterm">inds</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">var</div>
+				<div class="flechag"></div>
+				<div><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">inds</span></div>
+			  </li>
+			  <li>
+				<div class="noterm">sign</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="term">+</span></li>
+				  <li><span class="term">-</span></li>
+				  <li><span class="epsilon"></span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">racional</div>
+				<div class="flechag"></div>
+				<div><span class="term">[</span><span class="nnoterm">n</span><span class="term">/</span><span class="nnoterm">m</span><span class="term">]</span></div>
+			  </li>
+			  <li>
+				<div class="nnoterm">litp</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="term">0</span></li>
+				  <li><span class="noterm">natural</span></li>
+				  <li><span class="noterm">racional</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">lit</div>
+				<div class="flechag"></div>
+				<div><span class="noterm">sign</span><span class="nnoterm">litp</span></div>
+			  </li>
+			  <li>
+				<div class="nnoterm">list_lit</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="nnoterm">lit</span></li>
+				  <li><span class="nnoterm">lit</span><span class="term">, </span><span class="nnoterm">list_lit</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">asig</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="nnoterm">lit</span></li>
+				  <li><span class="term">{</span><span class="nnoterm">list_lit</span><span class="term">}</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">inic</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="epsilon"></span></li>
+				  <li><span class="term">=</span> <span class="noterm">asig</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">vari</div>
+				<div class="flechag"></div>
+				<div><span class="nnoterm">var</span><span class="noterm">inic</span></div>
+			  </li>
+			  <li>
+				<div class="nnoterm">list_inic</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="nnoterm">vari</span></li>
+				  <li><span class="nnoterm">vari</span><span class="term">, </span><span class="nnoterm">list_inic</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">signed</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="term">signed</span></li>
+				  <li><span class="epsilon"></span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">type</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="term">unsigned int</span></li>
+				  <li><span class="nnoterm">signed</span> <span class="term">int</span></li>
+				  <li><span class="term">float</span></li>
+				</ul>
+			  </li>
+			</ol>
+			<aside>
+			<dl>
+			  <dt class="nnoterm">identificador de K&R</dt>
+			  <dd>letra o ‘_’ seguido de cualquier cantidad de símbolos <span class="nnoterm">n</span>, letras o ‘_’.</dd>
+			</dl>
+		  </aside>
+		  </div>
+		  <h3>Reserva de posiciones</h3>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">type vari</span><span class="term">,</span> <span class="nnoterm">list_inic</span><span class="term">;</span></code></pre>
+			<div class="flecha"></div>
+<pre><code><span class="nnoterm">type vari</span><span class="term">;</span>
+<span class="nnoterm">type list_inic</span><span class="term">;</span></code></pre>
+		  </div>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term"> = </span><span class="nnoterm">lit</span><span class="term">;</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">;</span>
+<span class="noterm">stars</span><span class="nnoterm">enombre</span><span class="term"> = </span><span class="nnoterm">lit</span><span class="term">;</span></code></pre>
+		  </div>
+		  <aside class="ejemplos">
+		  <h1>Ejemplo</h1>
+		  <ol>
+			<li>
+			  <div><pre><code><span class="pclave">unsigned int</span><span class="nvars"> var1</span><span class="simbind"> = </span
+><span class="numberp">7</span><span class="simbind"></span><span class="simbind">,</span><span class="nvars"> var2</span
+><span class="simbind">[</span><span class="numberp">3</span><span class="simbind">]</span><span class="simbind"> = </span><span class="simbind">{</span
+><span class="numberp">5</span><span class="simbind">, </span><span class="numberp">23</span><span class="simbind">, </span><span class="numberp"
+>17</span><span class="simbind">}</span><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="pclave">unsigned int</span><span class="nvars"> var1</span><span class="simbind"> = </span
+><span class="numberp">7</span><span class="simbind">;</span>
+<span class="pclave">unsigned int </span><span class="nvars">var2</span><span class="simbind">[</span><span class="numberp">3</span
+><span class="simbind">]</span><span class="simbind"> = </span><span class="simbind">{</span><span class="numberp">5</span><span class="simbind"
+>, </span><span class="numberp">23</span><span class="simbind">, </span><span class="numberp">17</span><span class="simbind">}</span
+><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="pclave">unsigned int</span><span class="nvars"> var1</span><span class="simbind">;</span>
+<span class="nvars">var1</span><span class="simbind"> = </span><span class="numberp">7</span><span class="simbind">;</span>
+<span class="pclave">unsigned int </span><span class="nvars">var2</span><span class="simbind">[</span><span class="numberp">3</span
+><span class="simbind">]</span><span class="simbind"> = </span><span class="simbind">{</span><span class="numberp">5</span><span class="simbind"
+>, </span><span class="numberp">23</span><span class="simbind">, </span><span class="numberp">17</span><span class="simbind">}</span
+><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <p class="puntitos"></p>
+			</li>
+		  </ol>
+		</aside>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[1];</span></code></pre>
+			<div class="flecha"></div>
+<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">;</span></code></pre>
+		  </div>
+		  <div class="mmacro">
+			<div class="macro">
+			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">n</span>];</span></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">m</span>];</span>
+<span class="nnoterm">type enombre</span><span class="term">$<span class="nnoterm">n</span>;</span></code></pre>
+			</div><p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="simbind">*</span><span class="nvars">var</span><span class="simbind"
+>[</span><span class="numberp">3</span><span class="simbind">]</span><span class="simbind">;</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="simbind">*</span><span class="nvars">var</span
+><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">var<span class="simbexp2">$</span>3</span><span class="simbind">;</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="simbind">*</span><span class="nvars">var</span
+><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">var<span class="simbexp2">$</span>2</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">var<span class="simbexp2">$</span>3</span><span class="simbind">;</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="simbind">*</span><span class="nvars">var</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">var<span class="simbexp2">$</span>2</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">var<span class="simbexp2">$</span>3</span><span class="simbind">;</span></code></pre></div>
+			  </li>
+			  <li>
+			  <p class="puntitos"></p>
+			</li>
+			</ol>
+		  </aside>
+		</main><!--***********************-->
+	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html"><< ant</a></p><p><a href="./cmacros-2.html">sig >></a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>
