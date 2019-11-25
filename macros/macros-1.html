@@ -42,7 +42,20 @@
 
 	  .expansor .flechita{
 		  position:static;
+	  }
+
+	  .expansor dt .pos_puntos::before{
+		  bottom:0;
+	  }
+
+	  .expansor dd .flechita{
 		  font-size:inherit;
+	  }
+
+	  .expansor .flechita::before{
+		  position:relative;
+		  bottom:0.13em;
+		  padding:0;
 	  }
 
 	  .expansor li:first-child .flechita::before{
@@ -277,7 +290,7 @@
 		  <dt class="flechita"><span class="pos_puntos nnoterm">⟨natural⟩</span></dt>
 		  <dd>Marcas que pone el expansor de instrucciones, apuntando a una instrucción.
 			<ol>
-			  <li>La primera marca que pone es <span class="flechita"><span class="pos_puntos nnoterm">1</span></span>.</li>
+			  <li>La primera marca que pone es <span class="flechita"><span class="pos_puntos term">1</span></span>.</li>
 			  <li>Si pone una marca <span class="flechita"><span class="pos_puntos nnoterm pbajo">m</span></span>, la siguiente marca será
 				<span class="flechita"><span class="pos_puntos nnoterm pbajo">n</span></span>, donde n = m + 1 es verdad.</li>
   			</ol>

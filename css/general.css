@@ -98,7 +98,7 @@ body > nav li:first-child::before{
 	font-size:0.95em;
 }
 
-#cont-principal h1{
+#cont-principal > h1{
 	padding-bottom:0.4em;
 	font-size:2em;
 }
