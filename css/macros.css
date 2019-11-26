@@ -185,6 +185,7 @@ sub{
 	border:solid 1px #e8ead7;
 	border-radius:0.15em;
 	width:fit-content;
+	margin-bottom:var(--glue-macro);
 }
 
 .mmacro_exp .secundario{
@@ -409,6 +410,10 @@ dl.expansor dt.flechita::before{
 	bottom:0;
 }
 
+.numnat{
+	margin-left:-0.25em;
+}
+
 /* colores gramática */
 
 .numbers{
@@ -442,4 +447,8 @@ dl.expansor dt.flechita::before{
 .ejemplos .id_exp{
 	color:#fba26a;
 	font-size: 0.6em;
+}
+
+.preproc{
+	color:#e778f9;
 }

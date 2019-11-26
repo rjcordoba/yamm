@@ -186,15 +186,15 @@
 		  <h1>Ejemplo</h1>
 		  <ol>
 			<li>
-			  <div><pre><code><span class="pclave">#define foo bar</span>
-<span class="pclave">#define baz 5</span>
+			  <div><pre><code><span class="preproc">#define foo bar</span>
+<span class="preproc">#define baz 5</span>
 
 <span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">foo</span><span class="simbind">;</span>
 <span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">foo<span class="simbind"> + </span
 >baz</span><span class="simbind">;</span></code></pre></div>
 			</li>
 			<li>
-			  <div><pre><code><span class="pclave">#define baz 5</span>
+			  <div><pre><code><span class="preproc">#define baz 5</span>
 
 <span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">bar</span><span class="simbind">;</span>
 <span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">bar<span class="simbind"> + </span
@@ -209,7 +209,47 @@
 			  <p class="puntitos"></p>
 			</li>
 		  </ol>
-		</aside>
+		  </aside>
+			<div class="macro">
+			  <pre><code><span class="term">unsigned int </span><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">dims</span>;</code></pre>
+			  <div class="flecha"></div>
+<pre><code><span class="term">#define </span><span class="nnoterm">nombre </span><span class="term">Y<sub class="nnoterm numnat">n</sub></span><span class="noterm">dims</span>
+<span class="term">#define </span><span class="nnoterm">nombre</span><span class="noterm">dims</span><span class="term"> Y<sub class="nnoterm numnat">n</sub></span></code></pre>
+			</div>
+			<aside class="ejemplos">
+			  <h3>Ejemplo</h3>
+			  <ol>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
+					</ol>
+					<pre><code><span class="simbexp">INIT</span>
+<span class="pclave">unsigned int </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span>
+<span class="pclave">unsigned int </span><span class="nvars">bar</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">47</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind"> = </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
+					</ol>
+					<pre><code><span class="simbexp">INIT</span>
+<span class="preproc">#define foo Y<sub class="numnat">n</sub></span>
+<span class="preproc">#define foo Y<sub class="numnat">n</sub></span>
+<span class="pclave">unsigned int </span><span class="nvars">bar</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">47</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind"> = </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				
+				<li>
+				  <p class="puntitos"></p>
+				</li>
+			  </ol>
+			</aside>
 		  <dl class="expansor">
 			<dt><span class="var_exp">num_position</span></dt>
 			<dd>El expansor asocia un <span class="noterm">natural</span> a <span class="var_exp">num_position</span>.
@@ -416,6 +456,7 @@
 			  </li>
 		   </ol>
 		 </aside>
+		 
 		</main><!--***********************-->
 	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html"><< ant</a></p><p><a href="./cmacros-2.html">sig >></a></p></div>
 	</div>
