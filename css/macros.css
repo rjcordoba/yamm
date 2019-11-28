@@ -164,7 +164,7 @@ sub{
 
 .mmacro > p{
 	margin-left:1.6em;
-	font-size:0.8em;
+	font-size:0.9em;
 }
 
 .macro{
@@ -289,7 +289,7 @@ sub{
 .ejemplos li ol{
 	display:flex;
 	flex-direction:column;
-	padding:0.85em 0.2em 0 0.4em;
+	padding:0.85em 0.2em 0.4em 0.4em;
 	border-right:solid 2px #465254;
 	text-align:right;
 	color:#a2a1a1;
@@ -325,7 +325,7 @@ sub{
 
 .expansor{
 	font-size:0.85em;
-	margin:3.5em 0 3.9em;
+	margin:3.5em 0 4.9em;
 	max-width:60em;
 	line-height: 1.7em;
 }
