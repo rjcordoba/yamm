@@ -19,6 +19,43 @@ sub, sup{
 	margin-bottom:2.7em !important;
 }
 
+.ejemplos h1, .postulado h1{
+	padding:0.3em 1.6em 0.1em 0.3em;
+	width: fit-content;
+	margin-bottom:0.8em;
+	padding-left:0.65em;
+	font-weight: bold;
+	border-left:solid 0.3em;
+}
+
+.postulado{
+	font-size:0.85em;
+	margin-bottom:0.9em;
+	padding:1.1em;
+	border:solid 1px #eaecea;
+	border-radius:0.2em;
+	max-width:42em;
+}
+
+.postulado h1{
+	font-size:1.1em;
+	background-color:#edefed;
+	color:#474e22;
+}
+
+.postulado ol{
+	margin:0.9em 0 0 1.5em;
+}
+
+.postulado li{
+	list-style-type:disc;
+	margin-bottom:0.3em;
+}
+
+.postulado li:last-child{
+	margin-bottom:0.3em;
+}
+
 aside.aclarcn{
 	font-size: 0.8em;
     line-height: 1.5;
@@ -31,7 +68,7 @@ aside.aclarcn{
 
 .gramat{
 	font-family:"Times New Roman", Times, serif;
-	font-size:0.9em;
+	font-size:0.95em;
 	margin:1.4em 0 1.5em 0;
 	background-color:#f4f4f5;
 	width:fit-content;
@@ -81,10 +118,6 @@ aside.aclarcn{
 }
 .gramat ul > li{
 	display:inline-block;
-}
-
-.gramat .epsilon::before{
-	content:"ε";
 }
 
 .separador, .estrella{
@@ -246,7 +279,7 @@ sub{
 	width:fit-content;
 	padding:0 1em 0 0.4em;
 	border-bottom:solid 1px;
-	margin:0.5em 0 1.1em;
+	margin:0.5em 0 0.9em;
 }
 
 .ejemplos{
@@ -324,7 +357,7 @@ sub{
 }
 
 .expansor{
-	font-size:0.85em;
+	font-size:0.9em;
 	margin:3.5em 0 4.9em;
 	max-width:60em;
 	line-height: 1.7em;

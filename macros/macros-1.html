@@ -26,10 +26,6 @@
 		  list-style-type:square;
 	  }
 	  
-	  #notación ul li:last-child::after{
-		  content:none;
-	  }
-	  
 	  .especificación{
 		  display:inline;
 		  font-size:0.9em;
@@ -114,7 +110,7 @@
 			  <div class="noterm">ndcc</div>
 			  <div class="flechag"></div>
 			  <ul>
-				<li><span class="epsilon"></span></li>
+				<li><span>ε</span></li>
 				<li><span class="noterm">ndc</span><span class="noterm">ndcc</span></li>
 			  </ul>
 			</li>
@@ -154,38 +150,41 @@
 			</li>
 		  </ol>
 		  <aside>
-			<p>no terminales en cursiva, entre ‘⟨⟩’ o no, o letra griega</p>
-			<p>terminales en negrita.</p>
-			<p>&epsilon; - cadena vacía.</p>
+			<p>No terminales en cursiva, entre ‘⟨⟩’ o no, o letra griega.</p>
+			<p>Terminales en negrita.</p>
+			<p>ε - cadena vacía.</p>
 			<p>| - alternativas entre entidades.</p>
 			<dl>
-			  <dt class="nnoterm">letra minúscula</dt>
+			  <dt class="nnoterm">Letra minúscula</dt>
 			  <dd>Letras minúsculas de alfabeto español (a, b, ..., z).</dd>
 			  <dt class="nnoterm">cadena de caracteres</dt>
 			  <dd>Concatenación de más de una <span class="nnoterm">letra minúscula</span> y/o número.</dd>
 			</dl>
 		  </aside>
 		</div>
-		<div id="notación">
+		<div class="postulado">
+		  <h1>Postulado 1</h1>
 		  <p>Es verdad:</p>
 		  <ol>
-			<li><ul><li>2 = 1 + 1</li><li>3 = 2 + 1</li><li>4 = 3 + 1</li><li>5 = 4 + 1</li>
-				<li>6 = 5 + 1</li><li>7 = 6 + 1</li><li>8 = 7 + 1</li><li>9 = 8 + 1</li><li>10 = 9 + 1</li></ul>
-			</li>
-			<li><span class="noterm">natural<sub>1</sub></span>1 = <span class="noterm">natural<sub>1</sub></span>0 + 1</li>
-			<li>
-			  <span class="noterm">natural<sub>1</sub></span><span class="noterm">nd<sub>1</sub></span> =
-			  <span class="noterm">natural<sub>1</sub></span><span class="noterm">nd<sub>2</sub></span> + 1
-			  <p class="especificación">
-				si <span class="noterm">nd<sub>1</sub></span> = <span class="noterm">nd<sub>2</sub></span> + 1 es verdad.
-			  </p>
-			</li>
-			<li>
-			  <span class="noterm">natural<sub>1</sub></span>0 = <span class="noterm">natural<sub>2</sub></span>9 + 1
-			  <p class="especificación">
-				si <span class="noterm">natural<sub>1</sub></span> = <span class="noterm">natural<sub>2</sub></span> + 1 es verdad.
-			  </p>
-			</li>
+			<li>2 = 1 + 1</li><li>3 = 2 + 1</li><li>4 = 3 + 1</li><li>5 = 4 + 1</li>
+			<li>6 = 5 + 1</li><li>7 = 6 + 1</li><li>8 = 7 + 1</li><li>9 = 8 + 1</li>
+		  </ol>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 2</h1>
+		  <p>Si <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad, <span class="nnoterm">k</span> = <span class="nnoterm">m</span> + 1
+			es verdad si y sólo si <span class="nnoterm">n</span> y <span class="nnoterm">k</span> son el mismo <span class="noterm">natural</span>.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 3</h1>
+		  <p><span class="nnoterm">n</span><span class="noterm">ndc<sub>1</sub></span> = <span class="nnoterm">m</span><span class="noterm">ndc<sub>2</sub></span> + 1
+			es verdad si y sólo si una de las siguientes afirmaciones es verdad:</p>
+		  <ol>
+			<li><span class="nnoterm">n</span> y <span class="nnoterm">m</span> son el mismo <span class="noterm">natural</span>,
+			  <span class="noterm">ndc<sub>1</sub></span> es 1 y <span class="noterm">ndc<sub>2</sub></span> es 0.</li>
+			<li><span class="noterm">ndc<sub>1</sub></span> es 0, <span class="noterm">ndc<sub>2</sub></span> es 9, y
+			  <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</li>
+			<li><span class="noterm">ndc<sub>1</sub></span> no es 0 y <span class="noterm">ndc<sub>1</sub></span> = <span class="noterm">ndc<sub>2</sub></span> + 1 es verdad.</li>
 		  </ol>
 		</div>
 		<aside class="aclarcn glue">
@@ -235,7 +234,7 @@
 		  <p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
 		</div>
 		<aside class="ejemplos">
-		  <h3>Ejemplo</h3>
+		  <h1>Ejemplo</h1>
 		  <ol>
 			<li>
 			  <div>
@@ -310,7 +309,7 @@
 		<div class="macro">
 		  <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Omega;</sub>;</code></pre>
 		  <div class="flecha"></div>
-		  <pre><code>&epsilon;</code></pre>
+		  <pre><code>ε</code></pre>
 		</div>
 		<div class="mmacro">
 		  <div class="macro flech">
