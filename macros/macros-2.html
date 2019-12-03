@@ -9,8 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/general.css">
     <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
 
-    <script>
-	</script>
+
 
     <style>
 	  .expansor > ol > li{
@@ -23,6 +22,10 @@
 
 	  .expansor sup{
 		  font-size:0.8em;
+	  }
+
+	  .ejemplos .resalt_nums{
+		  color:#77aeea;
 	  }
 
 	</style>
@@ -43,35 +46,29 @@
 	<div id="cont-principal" class="anchura">
 		<h1>Lenguaje C--</h1>
 		<h2>Macros y utilidades</h2>
-		<main><!--***********************-->
+		<main><!--***********************-->		  
 		  <div class="expansor">
-			<h3>Expansiones finales</h3>
-			<p>Cuando todas las demás expansiones de macroinstrucciones se han llevado a cabo:</p>
+			<h1>Expansiones finales</h1>
+			<p class="mimp">Cuando sólo quedan macroinstrucciones de la forma <span class="nnoterm">x</span><sup>&Omega;</sup>, el expansor:</p>
 			<ol>
-			  <li>El expansor asocia un <span class="noterm">natural</span> a cada instrucción en el orden en que aparecen:
+			  <li>Por cada <span class="noterm">id</span> que aparezca en alguna instrucción <span class="nnoterm">x</span><sup>.<span class="noterm">id</span></sup>:
 				<ol>
-				  <li>a la primera instrucción le asocia 1.</li>
-				  <li>si a una instrucción le asocia <span class="nnoterm">m</span>, a la siguiente le asociará <span class="nnoterm">n</span>,
-					donde n = m + 1 es verdad.
-				  </li>
+				  <li>añade al final una nueva instrucción ‘1’ y una marca <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> apuntando a esta intruccion.</li>
+				  <li>sustituye todas las apariciones de .<span class="noterm">id</span> por <span class="pos_puntos nnoterm pbajo">i</span>.</li>
 				</ol>
 			  </li>
-			  <li>Sea <span class="nnoterm">m</span> el <span class="noterm">natural</span> asociado por el expansor a la última instrucción y verdad n = m + 1.
-				Por cada instrucción de la forma <span class="nnoterm">x</span><sup class="id_exp">.<span class="noterm">id</span></sup>
-				se añade como instrucción siguiente a la instrucción asociada a <span class="nnoterm">m</span> una nueva instrucción, 1, que se asocia a
-				<span class="nnoterm">n</span>, y se sustituyen por <span class="nnoterm">n</span> todas las apariciones de
-				<span class="id_exp">.<span class="noterm">id</span></span>.
+			  <li>Asocia un <span class="noterm">natural</span> a cada macroinstrucción en el orden en que aparecen:
+				<ol>
+				  <li>a la primera instrucción le asocia 1.</li>
+				  <li>si a una instrucción le asocia <span class="nnoterm">m</span>, a la siguiente le asociará <span class="nnoterm">n</span>, donde n = m + 1 es verdad.</li>
+				</ol>
 			  </li>
-			  <li>Se añade al final una nueva instrucción, 1<sup class="pos_puntos">top</sup> y se pone una marca apuntando a ella,
-				<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>. Se sustituyen en las instrucciones todas las apariciones de
-				<span class="pos_puntos">top</span> por <span class="pos_puntos nnoterm">i</span>.
-			  </li>
-			  <li>Por cada marca <span class="flechita"><span class="pos_puntos nnoterm">i</span></span> se sustituyen en las instrucciones por
-				<span class="nnoterm">n</span> todas las apariciones de <span class="pos_puntos nnoterm">i</span>, donde
-				<span class="nnoterm">n</span> es el <span class="noterm">natural</span> asociado a la instrucción a la que
-				<span class="flechita"><span class="pos_puntos nnoterm">i</span></span> apunta. Se elimina la marca.
-			  </li>
-			  <li>Se expanden las macroinstrucciones de la forma <span class="nnoterm">x</span><sup class="nnoterm">n</sup>.</li>
+			  <li>
+				Por cada marca <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> sustituye en las macroinstrucciones todas las apariciones de
+				<span class="pos_puntos nnoterm pbajo">i</span> por <span class="nnoterm">n</span>, donde <span class="nnoterm">n</span> es el <span class="noterm">natural</span>
+				asociado a la macroinstrucción a la que apunta <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span>.
+			  </li>			  
+			  <li>Expande las macroinstrucciones de la forma <span class="nnoterm">x</span><sup class="nnoterm">n</sup>.</li>
 			</ol>
 		  </div>
 		  <aside class="ejemplos">
@@ -90,10 +87,6 @@
 			</li>
 			<li>
 			  <div class="flech">
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                   >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li>
-				</ol>
 				<pre><code>1
 0<sup class="id_exp">.sum1</sup>
 1<sup class="id_exp">.sum1</sup>
@@ -112,106 +105,72 @@
 			</li>
 			<li>
 			  <div class="flech">
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li>
-				</ol>
 				<pre><code>1
-0<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
+0<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
 0
 =
 1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">15</sup>
+=<sup class="pos_puntos">3</sup>
 ＊<sup class="pos_puntos">2</sup>
 0<sup class="id_exp">.resa</sup>
 =
 1<sup class="id_exp">.resa</sup><span class="flechita"><span class="pos_puntos">1</span></span>
 =<sup class="id_exp">.resa</sup>
 ＊<sup class="pos_puntos">1</sup>
-1</code></pre>
+1<span class="flechita"><span class="pos_puntos">3</span></span></code></pre>
 			  </div>
 			</li>
 			<li>
 			  <div class="flech">
-				<ol>
+				<pre><code>1
+0<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+0
+=
+1<span class="flechita"><span class="pos_puntos">2</span></span>
+=<sup class="pos_puntos">3</sup>
+＊<sup class="pos_puntos">2</sup>
+0<sup class="numbers"><span class="pos_puntos">4</span></sup>
+=
+1<sup class="numbers"><span class="pos_puntos">4</span></sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers"><span class="pos_puntos">4</span></sup>
+＊<sup class="pos_puntos">1</sup>
+1<span class="flechita"><span class="pos_puntos">3</span></span>
+1<span class="flechita"><span class="pos_puntos">4</span></span></code></pre>
+			  </div>
+			</li>
+			<li>
+			  <div class="flech">
+				<ol class="resalt_nums">
 				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
                   >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
 				</ol>
 				<pre><code>1
-0<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
+0<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
 0
 =
 1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">15</sup>
+=<sup class="pos_puntos">3</sup>
 ＊<sup class="pos_puntos">2</sup>
-0<sup class="numbers">16</sup>
+0<sup class="numbers"><span class="pos_puntos">4</span></sup>
 =
-1<sup class="numbers">16</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="numbers">16</sup>
+1<sup class="numbers"><span class="pos_puntos">4</span></sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers"><span class="pos_puntos">4</span></sup>
 ＊<sup class="pos_puntos">1</sup>
-1
-1</code></pre>
+1<span class="flechita"><span class="pos_puntos">3</span></span>
+1<span class="flechita"><span class="pos_puntos">4</span></span></code></pre>
 			  </div>
-			</li>
-			<li>
-			  <div class="flech">
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
-				</ol>
-				<pre><code>1
-0<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-0
-=
-1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">15</sup>
-＊<sup class="pos_puntos">2</sup>
-0<sup class="numbers">16</sup>
-=
-1<sup class="numbers">16</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="numbers">16</sup>
-＊<sup class="pos_puntos">1</sup>
-1
-1
-1<sup class="pos_puntos">top</sup><span class="flechita"><span class="pos_puntos">3</span></span></code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div class="flech">
-				<ol>
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
-				</ol>
-				<pre><code>1
-0<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-1<sup class="numbers">15</sup>
-0
-=
-1<span class="flechita"><span class="pos_puntos">2</span></span>
-=<sup class="numbers">15</sup>
-＊<sup class="pos_puntos">2</sup>
-0<sup class="numbers">16</sup>
-=
-1<sup class="numbers">16</sup><span class="flechita"><span class="pos_puntos">1</span></span>
-=<sup class="numbers">16</sup>
-＊<sup class="pos_puntos">1</sup>
-1
-1
-1<sup class="pos_puntos">3</sup><span class="flechita"><span class="pos_puntos">3</span></span></code></pre>
-			  </div>
-			</li>
+			</li>			
 			<li>
 			  <div>
-				<ol>
+				<ol class="resalt_nums">
 				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
+                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
 				</ol>
 				<pre><code>1
 0<sup class="numbers">15</sup>
@@ -228,15 +187,14 @@
 =<sup class="numbers">16</sup>
 ＊<sup class="numbers">12</sup>
 1
-1
-1<sup class="numbers">17</sup></code></pre>
+1</code></pre>
 			  </div>
 			</li>
 			<li>
 			  <div>
-				<ol>
+				<ol class="resalt_nums">
 				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
+                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
 				</ol>
 				<pre><code>1
 0<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
@@ -261,9 +219,7 @@
 ＊<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
 ><span>’</span><span>’</span></span>
 1
-1
-1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
-><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span></code></pre>
+1</code></pre>
 			  </div>
 			</li>
 		  </ol>
@@ -347,4 +303,16 @@ Z<sub>&Omega;</sub> = Z<sub>.sum1</sub> - Z<sub>.sum2</sub>;</code></pre>
 	  </div>
     </footer>
   </body>
+      <script>
+		var pantallas = document.querySelectorAll(".ejemplos pre");
+var l = pantallas.length;
+var max=0;
+for(var i=0;i<l;i++){
+	if(pantallas[i].offsetWidth > max) max = pantallas[i].offsetWidth;
+}
+for(i=0;i<l;i++){
+pantallas[i].style.width = max + "px";
+}
+	</script>
+
 </html>

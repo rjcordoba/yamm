@@ -35,32 +35,7 @@
 	  .corrección1{
 		  padding-left:0.2em;
 	  }
-
-	  .expansor .flechita{
-		  position:static;
-	  }
-
-	  .expansor dt .pos_puntos::before{
-		  bottom:0;
-	  }
-
-	  .expansor dd .flechita{
-		  font-size:inherit;
-	  }
-
-	  .expansor .flechita::before{
-		  position:relative;
-		  bottom:0.13em;
-		  padding:0;
-	  }
-
-	  .expansor li:first-child .flechita::before{
-		  bottom:0.22em;
-	  }
 	  
-	  .pbajo.pos_puntos::before{
-		  position:static;
-	  }
 
 	</style>
 
@@ -286,11 +261,11 @@
 		<aside class="aclarcn glue">
 		  Tres puntos (...) representa cualquier instrucción o cualquier expansión de instrucciones.
 		</aside>
-		<dl class="expansor">
+		<dl class="expansor glue">
 		  <dt class="flechita"><span class="pos_puntos nnoterm">⟨natural⟩</span></dt>
-		  <dd>Marcas que pone el expansor de instrucciones, apuntando a una instrucción.
+		  <dd><p class="mimp">Marcas que pone el expansor de instrucciones, apuntando a una instrucción.</p>
 			<ol>
-			  <li>La primera marca que pone es <span class="flechita"><span class="pos_puntos term">1</span></span>.</li>
+			  <li  class="ppuntos">La primera marca que pone es <span class="flechita"><span class="pos_puntos term">1</span></span>.</li>
 			  <li>Si pone una marca <span class="flechita"><span class="pos_puntos nnoterm pbajo">m</span></span>, la siguiente marca será
 				<span class="flechita"><span class="pos_puntos nnoterm pbajo">n</span></span>, donde n = m + 1 es verdad.</li>
   			</ol>

@@ -19,41 +19,16 @@ sub, sup{
 	margin-bottom:2.7em !important;
 }
 
-.ejemplos h1, .postulado h1{
-	padding:0.3em 1.6em 0.1em 0.3em;
+.expansor.glue{
+	margin-bottom:3.7em !important;
+}
+
+.postulado h1, .expansor h1, dl.expansor dt{
+	padding:0.35em 1.6em 0.3em 0.65em;
 	width: fit-content;
 	margin-bottom:0.8em;
-	padding-left:0.65em;
 	font-weight: bold;
 	border-left:solid 0.3em;
-}
-
-.postulado{
-	font-size:0.85em;
-	margin-bottom:0.9em;
-	padding:1.1em;
-	border:solid 1px #eaecea;
-	border-radius:0.2em;
-	max-width:42em;
-}
-
-.postulado h1{
-	font-size:1.1em;
-	background-color:#edefed;
-	color:#474e22;
-}
-
-.postulado ol{
-	margin:0.9em 0 0 1.5em;
-}
-
-.postulado li{
-	list-style-type:disc;
-	margin-bottom:0.3em;
-}
-
-.postulado li:last-child{
-	margin-bottom:0.3em;
 }
 
 aside.aclarcn{
@@ -170,6 +145,10 @@ sub{
 	font-size:0.55em;
 }
 
+.noterm sub, .nnoterm sub, .noterm sup, .nnoterm sup{
+	font-style:normal;
+}
+
 .comilla span{
 	position:relative;
 	left:-0.1em;
@@ -279,11 +258,12 @@ sub{
 	width:fit-content;
 	padding:0 1em 0 0.4em;
 	border-bottom:solid 1px;
+	border-left:solid 0.3em;
 	margin:0.5em 0 0.9em;
 }
 
 .ejemplos{
-	margin-bottom:3.5em;
+	margin-bottom:2.5em;
 	font-size:0.95em;
 }
 
@@ -358,16 +338,19 @@ sub{
 
 .expansor{
 	font-size:0.9em;
-	margin:3.5em 0 4.9em;
+	margin:3.5em 0 1.9em;
 	max-width:60em;
 	line-height: 1.7em;
 }
 
+#cont-principal dl.expansor dt, .expansor h1{
+	font-size: 1.45em;
+    color: var(--color-exp);
+    border-left: solid 0.3em var(--color-exp);
+    background-color: rgba(3, 88, 181, 0.04);
+}
+
 dl.expansor dt{
-	font-size:1.45em;
-	color:var(--color-exp);
-	border-left:solid 0.3em var(--color-exp);
-	background-color: rgba(3, 88, 181, 0.04);
 	padding:0.1em 1.6em 0.1em 0.35em;
 	width: fit-content;
 	margin-bottom:0.8em;
@@ -380,11 +363,11 @@ dl.expansor dt.flechita::before{
 }
 
 .expansor ol{
-	margin-left:1.4em;
+	margin-left:1.6em;
 }
 
 .expansor > ol, .expansor dd ol{
-	margin-top:0.5em;
+	margin-top:0.8em;
 }
 
 .expansor li{
@@ -394,7 +377,48 @@ dl.expansor dt.flechita::before{
 .expansor li li{
 	list-style-type:disc;
 	margin:0.2em 0;
-	font-size:0.91em;
+	font-size:0.95em;
+}
+
+.expansor .mimp{
+	font-size:1.1em;
+}
+
+.postulado{
+	font-size:0.85em;
+	margin-bottom:0.9em;
+	padding:1.1em;
+	border:solid 1px #eaecea;
+	border-radius:0.2em;
+	max-width:42em;
+}
+
+.postulado h1{
+	font-size:0.9em;
+	background-color:#edefed;
+	color:#474e22;
+}
+
+.postulado > ol{
+	margin:0.9em 0 0 1.5em;
+}
+
+.postulado > ol li{
+	list-style-type:square;
+	margin-bottom:0.55em;
+}
+
+.postulado > ol ol{
+	margin:0.75em 0 0 1.5em;
+}
+
+.postulado > ol ol li{
+	list-style-type:disc;
+	margin-bottom:0.3em;
+}
+
+.postulado li:last-child{
+	margin-bottom:0.55em;
 }
 
 .flechita{
@@ -437,6 +461,32 @@ dl.expansor dt.flechita::before{
 .pos_puntos::before{
 	position: relative;
     bottom:0.1em;
+}
+
+.pbajo.pos_puntos::before{
+	position:static;
+}
+
+.expansor .flechita{
+	position:static;
+}
+
+.expansor dt .pos_puntos::before{
+	bottom:0;
+}
+
+.expansor dd .flechita, .expansor .flechita{
+	font-size:inherit;
+}
+
+.expansor .flechita::before{
+	position:relative;
+	bottom:0.1em;
+	padding:0;
+}
+
+.expansor .ppuntos .flechita::before{
+	bottom:0.19em;
 }
 
 .macro .pos_puntos::before{

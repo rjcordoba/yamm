@@ -1,0 +1,651 @@
+ <!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
+	<script src="../js/macros.js" defer></script>
+
+    <style>
+	  .resaltart{
+		  color:#01030a;
+	  }
+	</style>
+
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura">
+		<h1>Lenguaje C--</h1>
+		<h2>Macros y utilidades</h2>
+		<main><!--***********************-->
+		  <div class="gramat">
+			<ol>
+			  <li>
+				<div class="nnoterm">nombre</div>
+				<div class="flechag"></div>
+				<div class="nnoterm">identificador de K&amp;R</div>
+			  </li>
+			  <li>
+				<div class="noterm">dims</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>ε</li>
+				  <li><span class="term">$</span><span class="nnoterm">n</span><span class="noterm">dims</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">enombre</div>
+				<div class="flechag"></div>
+				<div><span class="nnoterm">nombre</span><span class="noterm">dims</span></div>
+			  </li>
+			  <li>
+				<div class="noterm">stars</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>ε</li>
+				  <li><span class="term">*</span><span class="noterm">stars</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">inds</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>ε</li>
+				  <li><span class="term">[</span><span class="nnoterm">n</span><span class="term">]</span><span class="noterm">inds</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">var</div>
+				<div class="flechag"></div>
+				<div><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">inds</span></div>
+			  </li>
+			  <li>
+				<div class="noterm">sign</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="term">+</span></li>
+				  <li><span class="term">-</span></li>
+				  <li>ε</li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">racional</div>
+				<div class="flechag"></div>
+				<div><span class="term">[</span><span class="nnoterm">n</span><span class="term">$</span><span class="nnoterm">m</span><span class="term">]</span></div>
+			  </li>
+			  <li>
+				<div class="nnoterm">litp</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="term">0</span></li>
+				  <li><span class="noterm">natural</span></li>
+				  <li><span class="noterm">racional</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">lit</div>
+				<div class="flechag"></div>
+				<div><span class="noterm">sign</span><span class="nnoterm">litp</span></div>
+			  </li>
+			  <li>
+				<div class="nnoterm">list_lit</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="nnoterm">lit</span></li>
+				  <li><span class="nnoterm">lit</span><span class="term">, </span><span class="nnoterm">list_lit</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">asig</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="nnoterm">lit</span></li>
+				  <li><span class="term">{</span><span class="nnoterm">list_lit</span><span class="term">}</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">inic</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>ε</li>
+				  <li><span class="term">=</span> <span class="noterm">asig</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">vari</div>
+				<div class="flechag"></div>
+				<div><span class="nnoterm">var</span><span class="noterm">inic</span></div>
+			  </li>
+			  <li>
+				<div class="nnoterm">list_inic</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="nnoterm">vari</span></li>
+				  <li><span class="nnoterm">vari</span><span class="term">, </span><span class="nnoterm">list_inic</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">signed</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="term">signed</span></li>
+				  <li>ε</li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">type</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="term">unsigned int</span></li>
+				  <li><span class="nnoterm">signed</span> <span class="term">int</span></li>
+				  <li><span class="term">float</span></li>
+				</ul>
+			  </li>
+			</ol>
+			<aside>
+			<dl>
+			  <dt class="nnoterm">identificador de K&amp;R</dt>
+			  <dd>letra o ‘_’ seguido de cualquier cantidad de símbolos <span class="nnoterm">n</span>, letras o ‘_’.</dd>
+			</dl>
+		  </aside>
+		  </div>
+		  <h3>Reserva de posiciones</h3>
+		  <aside class="aclarcn glue">
+			<p><span class="nnoterm">cadena</span> representa una sucesión de símbolos sin espacios.</p>
+			<p><span class="nnoterm">texto</span> representa una sucesión de símbolos y espacios.</p>
+		  </aside>
+		  <div class="mmacro_exp">
+			<div class="macro">
+			  <pre><code><span class="term">#define</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>2</sub></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code>ε</code></pre>
+			</div>
+			<div class="secundario">
+			  <h1>Efecto secundario</h1>
+			  <p>Se sustituye ‘<span class="nnoterm">cadena</span><sub>1</sub>’ por <span class="nnoterm">cadena</span><sub>2</sub>’,
+			  siempre que ‘<span class="nnoterm">cadena</span><sub>1</sub>’ no forme parte de un ‘<span class="nnoterm">enombre</span>’ mayor.</p>
+			</div>
+		  </div>
+		  <aside class="ejemplos">
+		  <h1>Ejemplo</h1>
+		  <ol>
+			<li>
+			  <div><pre><code><span class="preproc">#define foo bar</span>
+<span class="preproc">#define baz 5</span>
+
+<span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">foo</span><span class="simbind">;</span>
+<span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">foo<span class="simbind"> + </span
+>baz</span><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="preproc">#define baz 5</span>
+
+<span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">bar</span><span class="simbind">;</span>
+<span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">bar<span class="simbind"> + </span
+>baz</span><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">bar</span><span class="simbind">;</span>
+<span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">bar</span><span class="simbind"> + </span
+><span class="numberp">5</span><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <p class="puntitos"></p>
+			</li>
+		  </ol>
+		  </aside>
+			<dl class="expansor">
+			  <dt><span class="var_exp">num_position</span></dt>
+			  <dd>El expansor asocia un <span class="noterm">natural</span> a <span class="var_exp">num_position</span>.
+			  <ol>
+				<li>Antes de empezar las expansiones le asocia 1.</li>
+				<li>Si está asociado <span class="nnoterm">m</span>, después de expandir una intrucción
+				  ‘<span class="resaltart"><span class="nnoterm">type <span class="noterm">stars</span>enombre</span>’</span>
+				  asocia <span class="nnoterm">n</span>, siendo verdad <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1.
+				</li>
+  			  </ol>
+			  </dd>
+			</dl>
+			<div class="mmacro">
+			  <div class="macro">
+				<pre><code><span class="term">unsigned int </span><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">dims</span>;</code></pre>
+				<div class="flecha"></div>
+				<pre><code><span class="term">#define </span><span class="nnoterm">nombre </span><span class="term">Y<sub class="nnoterm numnat">n</sub></span><span class="noterm">dims</span>
+<span class="term">#define </span><span class="nnoterm">nombre</span><span class="noterm">dims</span><span class="term"> Y<sub class="nnoterm numnat">n</sub></span></code></pre>
+			  </div>
+			  <p>donde n es el <span class="noterm">natural</span> asociado a <span class="var_exp">num_position</span>.
+			</div>
+			<aside class="ejemplos">
+			  <h1>Ejemplo</h1>
+			  <ol>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+					</ol>
+					<pre><code><span class="pclave">INIT</span>
+<span class="pclave">unsigned int </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span>
+<span class="pclave">unsigned int </span><span class="nvars">bar</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">47</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind"> = </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+					</ol>
+					<pre><code>1
+<span class="pclave">unsigned int </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span>
+<span class="pclave">unsigned int </span><span class="nvars">bar</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">47</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind"> = </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+					</ol>
+					<pre><code>1
+<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
+<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
+<span class="pclave">unsigned int </span><span class="nvars">bar</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">47</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind"> = </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <p class="puntitos"></p>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+					</ol>
+					<pre><code>1
+<span class="preproc">#define bar Y<sub class="numnat">2</sub></span>
+<span class="preproc">#define bar Y<sub class="numnat">2</sub></span>
+<span class="simbexp">Y<sub class="numbers">1</sub></span><span class="simbind"> = </span><span class="numberp">47</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind"> = </span><span class="simbind">*</span><span class="simbexp">Y<sub class="numbers">1</sub></span><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <p class="puntitos"></p>
+				</li>
+			  </ol>
+			</aside>
+			<div class="macro">
+				<pre><code><span class="nnoterm">signed </span><span class="term">int </span><span class="noterm">stars</span
+><span class="nnoterm">nombre</span><span class="noterm">dims</span>;</code></pre>
+				<div class="flecha"></div>
+				<pre><code><span class="term">float </span><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">dims</span>;</code></pre>
+			  </div>
+			<div class="mmacro">
+			  <div class="macro">
+				<pre><code><span class="term">float </span><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">dims</span>;</code></pre>
+				<div class="flecha"></div>
+				<pre><code><span class="term">unsigned int </span><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">dims</span>;
+<span class="term">#define </span><span class="term"><span class="noterm">stars</span>Y<sub class="nnoterm numnat">n</sub></span
+><span class="term"> <span class="noterm">stars</span>F<sub class="nnoterm numnat">n</sub></span></code></pre>
+			  </div>
+			  <p>donde n es el <span class="noterm">natural</span> asociado a <span class="var_exp">num_position</span>.</p>
+			</div>
+			<aside class="ejemplos">
+			  <h1>Ejemplo</h1>
+			  <ol>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+					</ol>
+					<pre><code><span class="pclave">INIT</span>
+<span class="pclave">float </span><span class="nvars">foo</span><span class="simbind">;</span>
+<span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
+><span class="simbind"> = {</span><span class="numberp">51</span><span class="simbind">, </span><span class="numberp">33</span><span class="simbind">};</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">91</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">127</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = **</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span
+><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+					</ol>
+					<pre><code>1
+<span class="pclave">float </span><span class="nvars">foo</span><span class="simbind">;</span>
+<span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
+><span class="simbind"> = {</span><span class="numberp">51</span><span class="simbind">, </span><span class="numberp">33</span><span class="simbind">};</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">91</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">127</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = **</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span
+><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
+					</ol>
+					<pre><code>1
+<span class="pclave">unsigned int </span><span class="nvars">foo</span><span class="simbind">;</span>
+<span class="preproc">#define Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span> 
+<span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
+><span class="simbind"> = {</span><span class="numberp">51</span><span class="simbind">, </span><span class="numberp">33</span><span class="simbind">};</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">91</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">127</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = **</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span
+><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li>
+					</ol>
+					<pre><code>1
+<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
+<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
+<span class="preproc">#define Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span> 
+<span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
+><span class="simbind"> = {</span><span class="numberp">51</span><span class="simbind">, </span><span class="numberp">33</span><span class="simbind">};</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">91</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">127</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = **</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span
+><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
+					</ol>
+					<pre><code>1
+<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
+<span class="preproc">#define Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span> 
+<span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
+><span class="simbind"> = {</span><span class="numberp">51</span><span class="simbind">, </span><span class="numberp">33</span><span class="simbind">};</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">91</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">127</span><span class="simbind">;</span>
+<span class="simbexp">Y<sub class="numbers">1</sub></span><span class="simbind"> = **</span><span class="nvars">bar</span><span class="simbind">[</span
+><span class="numberp">1</span><span class="simbind">]</span
+><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+					</ol>
+					<pre><code>1
+<span class="preproc">#define Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span> 
+<span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
+><span class="simbind"> = {</span><span class="numberp">51</span><span class="simbind">, </span><span class="numberp">33</span><span class="simbind">};</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">91</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">127</span><span class="simbind">;</span>
+<span class="simbexp">Y<sub class="numbers">1</sub></span><span class="simbind"> = **</span><span class="nvars">bar</span><span class="simbind">[</span
+><span class="numberp">1</span><span class="simbind">]</span
+><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <div>
+					<ol>
+					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>
+					</ol>
+					<pre><code>1
+<span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
+><span class="simbind"> = {</span><span class="numberp">51</span><span class="simbind">, </span><span class="numberp">33</span><span class="simbind">};</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">91</span><span class="simbind">;</span>
+<span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
+><span class="numberp">127</span><span class="simbind">;</span>
+<span class="simbexp">F<sub class="numbers">1</sub></span><span class="simbind"> = **</span><span class="nvars">bar</span><span class="simbind">[</span
+><span class="numberp">1</span><span class="simbind">]</span
+><span class="simbind">;</span></code></pre>
+				  </div>
+				</li>
+				<li>
+				  <p class="puntitos"></p>
+				</li>
+			  </ol>
+			</aside>
+			<div class="macro">
+			  <pre><code><span class="nnoterm">type vari</span><span class="term">,</span> <span class="nnoterm">list_inic</span><span class="term">;</span></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code><span class="nnoterm">type vari</span><span class="term">;</span>
+<span class="nnoterm">type list_inic</span><span class="term">;</span></code></pre>
+			</div>
+			<div class="macro">
+			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term"> = </span><span class="nnoterm">lit</span><span class="term">;</span></code></pre>
+			  <div class="flecha"></div>
+			<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">;</span>
+<span class="noterm">stars</span><span class="nnoterm">enombre</span><span class="term"> = </span><span class="nnoterm">lit</span><span class="term">;</span></code></pre>
+			</div>
+		  <aside class="ejemplos">
+		  <h1>Ejemplo</h1>
+		  <ol>
+			<li>
+			  <div><pre><code><span class="pclave">unsigned int</span><span class="nvars"> foo</span><span class="simbind"> = </span
+><span class="numberp">7</span><span class="simbind">,</span><span class="nvars"> bar</span
+><span class="simbind">[</span><span class="numberp">3</span><span class="simbind">]</span><span class="simbind"> = </span><span class="simbind">{</span
+><span class="numberp">5</span><span class="simbind">, </span><span class="numberp">23</span><span class="simbind">, </span><span class="numberp"
+>17</span><span class="simbind">}</span><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="pclave">unsigned int</span><span class="nvars"> foo</span><span class="simbind"> = </span
+><span class="numberp">7</span><span class="simbind">;</span>
+<span class="pclave">unsigned int </span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">3</span
+><span class="simbind">]</span><span class="simbind"> = </span><span class="simbind">{</span><span class="numberp">5</span><span class="simbind"
+>, </span><span class="numberp">23</span><span class="simbind">, </span><span class="numberp">17</span><span class="simbind">}</span
+><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="pclave">unsigned int</span><span class="nvars"> foo</span><span class="simbind">;</span>
+<span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">7</span><span class="simbind">;</span>
+<span class="pclave">unsigned int </span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">3</span
+><span class="simbind">]</span><span class="simbind"> = </span><span class="simbind">{</span><span class="numberp">5</span><span class="simbind"
+>, </span><span class="numberp">23</span><span class="simbind">, </span><span class="numberp">17</span><span class="simbind">}</span
+><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <p class="puntitos"></p>
+			</li>
+		  </ol>
+		</aside>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[1];</span></code></pre>
+			<div class="flecha"></div>
+<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">;</span></code></pre>
+		  </div>
+		  <div class="mmacro">
+			<div class="macro">
+			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">n</span>];</span></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">m</span>];</span>
+<span class="nnoterm">type enombre</span><span class="term">$<span class="nnoterm">n</span>;</span></code></pre>
+			</div>
+			<p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind"
+>[</span><span class="numberp">3</span><span class="simbind">]</span><span class="simbind">;</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="simbind">*</span><span class="nvars">foo</span
+><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind">;</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="simbind">*</span><span class="nvars">foo</span
+><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind">;</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind">;</span></code></pre></div>
+			  </li>
+			  <li>
+			  <p class="puntitos"></p>
+			</li>
+			</ol>
+		  </aside>
+		  <div class="macro">
+			  <pre><code><span class="nnoterm">type enombre</span><span class="term">[<span class="term">1</span>] = </span
+><span class="term">{</span><span class="nnoterm">lit</span><span class="term">};</span></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code><span class="nnoterm">type enombre</span><span class="term"> = </span><span class="nnoterm">lit</span><span class="term">;</span></code></pre>
+		  </div>
+		  <div class="mmacro">
+			<div class="macro">
+			  <pre><code><span class="nnoterm">type enombre</span><span class="term">[<span class="nnoterm">n</span>] = {</span
+><span class="nnoterm">list_lit</span><sub>1</sub><span class="term">, </span><span class="nnoterm">lit</span><sub>1</sub><span class="term">};</span></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code><span class="nnoterm">type enombre</span><span class="term">[<span class="nnoterm">n</span>] = {</span
+><span class="nnoterm">list_lit</span><sub>1</sub><span class="term">};</span>
+<span class="nnoterm">type enombre</span><span class="term">$</span><span class="nnoterm">n</span><span class="term"> = </span><span class="nnoterm">lit</span
+><sub>1</sub><span class="term">;</span></code></pre>
+			</div><p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo</span><span class="simbind">[</span><span class="numberp">3</span
+><span class="simbind">] = {</span><span class="numberp">5</span><span class="simbind">, </span><span class="numberp">23</span><span class="simbind">, </span
+><span class="numberp">17</span><span class="simbind">};</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo</span><span class="simbind">[</span><span class="numberp">2</span
+><span class="simbind">] = {</span><span class="numberp">5</span><span class="simbind">, </span><span class="numberp">23</span><span class="simbind">};</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = <span class="numberp">17</span>;</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo</span><span class="simbind">[</span><span class="numberp">1</span
+><span class="simbind">] = {</span><span class="numberp">5</span><span class="simbind">};</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2</span><span class="simbind"> = <span class="numberp">23</span>;</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = <span class="numberp">17</span>;</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">5</span><span class="simbind">;</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2</span><span class="simbind"> = <span class="numberp">23</span>;</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = <span class="numberp">17</span>;</span></code></pre></div>
+			  </li>
+			  <li>
+				<p class="puntitos"></p>
+			  </li>
+		   </ol>
+		 </aside>
+		 <div class="mmacro">
+		   <div class="macro">
+			 <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">n</span>]</span
+><span class="term">[<span class="nnoterm">m</span>]</span></code></pre>
+			 <div class="flecha"></div>
+	<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre<span class="term">$</span>m</span><span class="term">[<span class="nnoterm">p</span>]</span></code></pre>
+		   </div>
+		   <p>donde <span class="nnoterm">p</span> = <span class="nnoterm">m<span class="term"> * </span>n</span> es verdad.</p>
+		 </div>
+		 <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo</span><span class="simbind">[</span><span class="numberp">4</span
+><span class="simbind">][</span><span class="numberp">2</span><span class="simbind">][</span><span class="numberp">2</span><span class="simbind">] = {</span
+><span class="numberp">13<span class="simbind">, </span>11<span class="simbind">, </span>8<span class="simbind">, </span>3<span class="simbind">, </span></span>
+                     <span class="numberp">19<span class="simbind">, </span>53<span class="simbind">, </span>1<span class="simbind">, </span>32<span class="simbind">, </span></span>
+                     <span class="numberp">12<span class="simbind">, </span>82<span class="simbind">, </span>13<span class="simbind">, </span>13<span class="simbind">, </span></span>
+                     <span class="numberp">9<span class="simbind">, </span>2<span class="simbind">, </span>1<span class="simbind">, </span>54</span><span class="simbind">};</span
+></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2</span><span class="simbind">[</span><span class="numberp">8</span
+><span class="simbind">][</span><span class="numberp">2</span><span class="simbind">] = {</span
+><span class="numberp">13<span class="simbind">, </span>11<span class="simbind">, </span>8<span class="simbind">, </span>3<span class="simbind">, </span></span>
+                    <span class="numberp">19<span class="simbind">, </span>53<span class="simbind">, </span>1<span class="simbind">, </span>32<span class="simbind">, </span></span>
+                    <span class="numberp">12<span class="simbind">, </span>82<span class="simbind">, </span>13<span class="simbind">, </span>13<span class="simbind">, </span></span>
+                    <span class="numberp">9<span class="simbind">, </span>2<span class="simbind">, </span>1<span class="simbind">, </span>54</span><span class="simbind">};</span
+></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2<span class="simbexp2">$</span>2</span><span class="simbind">[</span
+><span class="numberp">16</span><span class="simbind">] = {</span
+><span class="numberp">13<span class="simbind">, </span>11<span class="simbind">, </span>8<span class="simbind">, </span>3<span class="simbind">, </span></span>
+                   <span class="numberp">19<span class="simbind">, </span>53<span class="simbind">, </span>1<span class="simbind">, </span>32<span class="simbind">, </span></span>
+                   <span class="numberp">12<span class="simbind">, </span>82<span class="simbind">, </span>13<span class="simbind">, </span>13<span class="simbind">, </span></span>
+                   <span class="numberp">9<span class="simbind">, </span>2<span class="simbind">, </span>1<span class="simbind">, </span>54</span><span class="simbind">};</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2<span class="simbexp2">$</span>3</span><span class="simbind">[</span
+><span class="numberp">15</span><span class="simbind">] = {</span
+><span class="numberp">13<span class="simbind">, </span>11<span class="simbind">, </span>8<span class="simbind">, </span>3<span class="simbind">, </span></span>
+                   <span class="numberp">19<span class="simbind">, </span>53<span class="simbind">, </span>1<span class="simbind">, </span>32<span class="simbind">, </span></span>
+                   <span class="numberp">12<span class="simbind">, </span>82<span class="simbind">, </span>13<span class="simbind">, </span>13<span class="simbind">, </span></span>
+                   <span class="numberp">9<span class="simbind">, </span>2<span class="simbind">, </span>1</span><span class="simbind">};</span>
+<span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2<span class="simbexp2">$</span>3<span class="simbexp2">$</span>16</span
+><span class="simbind"> = </span><span class="numberp">54</span></code></pre></div>
+			  </li>
+			  <li>
+				<p class="puntitos"></p>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2<span class="simbexp2">$</span>3</span><span class="simbind">[</span
+><span class="numberp">1</span><span class="simbind">] = {</span><span class="numberp">13</span><span class="simbind">};</span>
+<span class="puntitos"></span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">int </span><span class="nvars">foo<span class="simbexp2">$</span>2<span class="simbexp2">$</span>3</span><span class="simbind"> = </span
+><span class="numberp">13</span><span class="simbind">;</span>
+<span class="puntitos"></span></code></pre></div>
+			  </li>
+			  <li>
+				<p class="puntitos"></p>
+			  </li>
+		   </ol>
+		 </aside>
+
+		</main><!--***********************-->
+	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>
