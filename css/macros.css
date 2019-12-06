@@ -438,6 +438,10 @@ dl.expansor dt.flechita::before{
 	margin-bottom:0.55em;
 }
 
+.postulado .discos li{
+	list-style-type:disc;
+}
+
 .flechita{
 	font-size:0.7em;
 	position:absolute;
