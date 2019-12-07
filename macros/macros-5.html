@@ -170,13 +170,13 @@
 		  </aside>
 		  <div class="mmacro_exp">
 			<div class="macro">
-			  <pre><code><span class="term">#define</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>2</sub></code></pre>
+			  <pre><code><span class="term">#define</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>1<span class="marcsub">’</span></sub></code></pre>
 			  <div class="flecha"></div>
 			  <pre><code>ε</code></pre>
 			</div>
 			<div class="secundario">
 			  <h1>Efecto secundario</h1>
-			  <p>Se sustituye ‘<span class="nnoterm">cadena</span><sub>1</sub>’ por <span class="nnoterm">cadena</span><sub>2</sub>’,
+			  <p>Se sustituye ‘<span class="nnoterm">cadena</span><sub>1</sub>’ por <span class="nnoterm">cadena</span><sub>1<span class="marcsub">’</span></sub>’,
 			  siempre que ‘<span class="nnoterm">cadena</span><sub>1</sub>’ no forme parte de un ‘<span class="nnoterm">enombre</span>’ mayor.</p>
 			</div>
 		  </div>
@@ -222,10 +222,10 @@
 			</dl>
 			<div class="mmacro">
 			  <div class="macro">
-				<pre><code><span class="term">unsigned int </span><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">dims</span>;</code></pre>
+				<pre><code><span class="term">unsigned int </span><span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre<sub>1</sub></span><span class="noterm">dims<sub>1</sub></span>;</code></pre>
 				<div class="flecha"></div>
-				<pre><code><span class="term">#define </span><span class="nnoterm">nombre </span><span class="term">Y<sub class="nnoterm numnat">n</sub></span><span class="noterm">dims</span>
-<span class="term">#define </span><span class="nnoterm">nombre</span><span class="noterm">dims</span><span class="term"> Y<sub class="nnoterm numnat">n</sub></span></code></pre>
+				<pre><code><span class="term">#define </span><span class="nnoterm">nombre<sub>1</sub> </span><span class="term">Y<sub class="nnoterm numnat">n</sub></span><span class="noterm">dims<sub>1</sub></span>
+<span class="term">#define </span><span class="nnoterm">nombre<sub>1</sub></span><span class="noterm">dims<sub>1</sub></span><span class="term"> Y<sub class="nnoterm numnat">n</sub></span></code></pre>
 			  </div>
 			  <p>donde n es el <span class="noterm">natural</span> asociado a <span class="var_exp">num_position</span>.
 			</div>
@@ -290,18 +290,18 @@
 			  </ol>
 			</aside>
 			<div class="macro">
-				<pre><code><span class="nnoterm">signed </span><span class="term">int </span><span class="noterm">stars</span
-><span class="nnoterm">nombre</span><span class="noterm">dims</span>;</code></pre>
+				<pre><code><span class="nnoterm">signed </span><span class="term">int </span><span class="noterm">stars<sub>1</sub></span
+><span class="nnoterm">nombre<sub>1</sub></span><span class="noterm">dims<sub>1</sub></span>;</code></pre>
 				<div class="flecha"></div>
-				<pre><code><span class="term">float </span><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">dims</span>;</code></pre>
+				<pre><code><span class="term">float </span><span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre<sub>1</sub></span><span class="noterm">dims<sub>1</sub></span>;</code></pre>
 			  </div>
 			<div class="mmacro">
 			  <div class="macro">
-				<pre><code><span class="term">float </span><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">dims</span>;</code></pre>
+				<pre><code><span class="term">float </span><span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre<sub>1</sub></span><span class="noterm">dims<sub>1</sub></span>;</code></pre>
 				<div class="flecha"></div>
-				<pre><code><span class="term">unsigned int </span><span class="noterm">stars</span><span class="nnoterm">nombre</span><span class="noterm">dims</span>;
-<span class="term">#define </span><span class="term"><span class="noterm">stars</span>Y<sub class="nnoterm numnat">n</sub></span
-><span class="term"> <span class="noterm">stars</span>F<sub class="nnoterm numnat">n</sub></span></code></pre>
+				<pre><code><span class="term">unsigned int </span><span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre<sub>1</sub></span><span class="noterm">dims<sub>1</sub></span>;
+<span class="term">#define </span><span class="term"><span class="noterm">stars<sub>1</sub></span>Y<sub class="nnoterm numnat">n</sub></span
+><span class="term"> <span class="noterm">stars<sub>1</sub></span>F<sub class="nnoterm numnat">n</sub></span></code></pre>
 			  </div>
 			  <p>donde n es el <span class="noterm">natural</span> asociado a <span class="var_exp">num_position</span>.</p>
 			</div>
@@ -439,16 +439,17 @@
 			  </ol>
 			</aside>
 			<div class="macro">
-			  <pre><code><span class="nnoterm">type vari</span><span class="term">,</span> <span class="nnoterm">list_inic</span><span class="term">;</span></code></pre>
+			  <pre><code><span class="nnoterm">type<sub>1</sub> vari<sub>1</sub></span><span class="term">,</span> <span class="nnoterm">list_inic<sub>1</sub></span><span class="term">;</span></code></pre>
 			  <div class="flecha"></div>
-			  <pre><code><span class="nnoterm">type vari</span><span class="term">;</span>
-<span class="nnoterm">type list_inic</span><span class="term">;</span></code></pre>
+			  <pre><code><span class="nnoterm">type<sub>1</sub> vari<sub>1</sub></span><span class="term">;</span>
+<span class="nnoterm">type list_inic<sub>1</sub></span><span class="term">;</span></code></pre>
 			</div>
 			<div class="macro">
-			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term"> = </span><span class="nnoterm">lit</span><span class="term">;</span></code></pre>
+			  <pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term"> = </span
+><span class="nnoterm">lit<sub>1</sub></span><span class="term">;</span></code></pre>
 			  <div class="flecha"></div>
-			<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">;</span>
-<span class="nnoterm">enombre</span><span class="term"> = </span><span class="nnoterm">lit</span><span class="term">;</span></code></pre>
+			<pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">;</span>
+<span class="nnoterm">enombre<sub>1</sub></span><span class="term"> = </span><span class="nnoterm">lit<sub>1</sub></span><span class="term">;</span></code></pre>
 			</div>
 		  <aside class="ejemplos">
 		  <h1>Ejemplo</h1>
@@ -482,16 +483,16 @@
 		  </ol>
 		</aside>
 		  <div class="macro">
-			<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[1];</span></code></pre>
+			<pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">[1];</span></code></pre>
 			<div class="flecha"></div>
-<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">;</span></code></pre>
+<pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">;</span></code></pre>
 		  </div>
 		  <div class="mmacro">
 			<div class="macro">
-			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">n</span>];</span></code></pre>
+			  <pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">[<span class="nnoterm">n<sub>1</sub></span>];</span></code></pre>
 			  <div class="flecha"></div>
-			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">m</span>];</span>
-<span class="nnoterm">type enombre</span><span class="term">$<span class="nnoterm">n</span>;</span></code></pre>
+			  <pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">[<span class="nnoterm">m</span>];</span>
+<span class="nnoterm">type<sub>1</sub> enombre<sub>1</sub></span><span class="term">$<span class="nnoterm">n<sub>1</sub></span>;</span></code></pre>
 			</div>
 			<p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
 		  </div>
@@ -524,20 +525,21 @@
 			</ol>
 		  </aside>
 		  <div class="macro">
-			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="term">1</span>] = </span
-><span class="term">{</span><span class="nnoterm">lit</span><span class="term">};</span></code></pre>
+			  <pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">[<span class="term">1</span>] = </span
+><span class="term">{</span><span class="nnoterm">lit<sub>1</sub></span><span class="term">};</span></code></pre>
 			  <div class="flecha"></div>
-			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term"> = </span><span class="nnoterm">lit</span><span class="term">;</span></code></pre>
+			  <pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span
+><span class="term"> = </span><span class="nnoterm">lit<sub>1</sub></span><span class="term">;</span></code></pre>
 		  </div>
 		  <div class="mmacro">
 			<div class="macro">
-			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">n</span>] = {</span
-><span class="nnoterm">list_lit</span><sub>1</sub><span class="term">, </span><span class="nnoterm">lit</span><sub>1</sub><span class="term">};</span></code></pre>
+			  <pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">[<span class="nnoterm">n<sub>1</sub></span>] = {</span
+><span class="nnoterm">list_lit<sub>1</sub></span><span class="term">, </span><span class="nnoterm">lit<sub>1</sub></span><span class="term">};</span></code></pre>
 			  <div class="flecha"></div>
-			  <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">m</span>] = {</span
-><span class="nnoterm">list_lit</span><sub>1</sub><span class="term">};</span>
-<span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">$</span><span class="nnoterm">n</span><span class="term"> = </span><span class="nnoterm">lit</span
-><sub>1</sub><span class="term">;</span></code></pre>
+			  <pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">[<span class="nnoterm">m</span>] = {</span
+><span class="nnoterm">list_lit<sub>1</sub></span><span class="term">};</span>
+<span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">$</span
+><span class="nnoterm">n<sub>1</sub></span><span class="term"> = </span><span class="nnoterm">lit<sub>1</sub></span><span class="term">;</span></code></pre>
 			</div><p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
 		  </div>
 		  <aside class="ejemplos noult">
@@ -833,10 +835,10 @@
 <span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind"> = </span><span class="numberp">5</span><span class="simbind">;</span>
 <span class="preproc">#define **Y<sub>3</sub> **F<sub>3</sub></span>
 <span class="simbexp">Y<sub class="numbers">3</sub></span><span class="simbind"> = </span><span class="numberp">0</span><span class="simbind">;</span>
-<span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
-><span class="numberp">91</span><span class="simbind">;</span>
-<span class="simbind">*</span><span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
-><span class="numberp">127</span><span class="simbind">;</span>
+<span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span
+><span class="simbind"> = </span><span class="numberp">91</span><span class="simbind">;</span>
+<span class="simbind">*</span><span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span
+><span class="simbind">]</span><span class="simbind"> = </span><span class="numberp">127</span><span class="simbind">;</span>
 <span class="simbexp">F<sub class="numbers">1</sub></span><span class="simbind"> = **</span><span class="simbexp">F<sub class="numbers">2</sub></span><span class="simbind">[</span
 ><span class="numberp">1</span><span class="simbind">]</span
 ><span class="simbind">;</span></code></pre>
@@ -852,11 +854,10 @@
 <span class="simbexp">Y<sub class="numbers">3</sub></span><span class="simbind"> = </span><span class="numberp">0</span><span class="simbind">;</span>
 <span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
 ><span class="numberp">91</span><span class="simbind">;</span>
-<span class="simbind">*</span><span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
-><span class="numberp">127</span><span class="simbind">;</span>
+<span class="simbind">*</span><span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span
+><span class="simbind">]</span><span class="simbind"> = </span><span class="numberp">127</span><span class="simbind">;</span>
 <span class="simbexp">F<sub class="numbers">1</sub></span><span class="simbind"> = **</span><span class="simbexp">F<sub class="numbers">2</sub></span><span class="simbind">[</span
-><span class="numberp">1</span><span class="simbind">]</span
-><span class="simbind">;</span></code></pre>
+><span class="numberp">1</span><span class="simbind">]</span><span class="simbind">;</span></code></pre>
 				  </div>
 				</li>
 				<li>
@@ -866,10 +867,11 @@
 			</aside>
 		  <div class="mmacro">
 			<div class="macro">
-			 <pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre</span><span class="term">[<span class="nnoterm">n</span>]</span
-><span class="term">[<span class="nnoterm">m</span>]</span></code></pre>
+			 <pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub></span><span class="term">[<span class="nnoterm">n</span>]</span
+><span class="term">[<span class="nnoterm">m<sub>1</sub></span>]</span></code></pre>
 			 <div class="flecha"></div>
-	<pre><code><span class="nnoterm">type <span class="noterm">stars</span>enombre<span class="term">$</span>m</span><span class="term">[<span class="nnoterm">p</span>]</span></code></pre>
+			 <pre><code><span class="nnoterm">type<sub>1</sub> <span class="noterm">stars<sub>1</sub></span>enombre<sub>1</sub><span class="term">$</span>m<sub>1</sub></span
+><span class="term">[<span class="nnoterm">p</span>]</span></code></pre>
 		   </div>
 		   <p>donde <span class="nnoterm">p</span> = <span class="nnoterm">m<span class="term"> * </span>n</span> es verdad.</p>
 		 </div>

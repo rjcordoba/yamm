@@ -24,6 +24,14 @@ sub, sup{
 	margin-bottom:3.7em !important;
 }
 
+sub .marcsub{
+	font-weight: bold;
+    font-size: 1.35em;
+    margin-left: -0.1em;
+    position: relative;
+    top: 0.2em;
+}
+
 .postulado h1, .expansor h1, dl.expansor dt{
 	padding:0.35em 1.6em 0.3em 0.65em;
 	width:fit-content;
@@ -52,7 +60,7 @@ aside.aclarcn{
 	width:fit-content;
 	width:-moz-fit-content;
 	padding:1em;
-	border:solid 1px #e1e2e2;
+	border:solid 1px #c2c5c5;
 	border-radius:0.12em;
 }
 
@@ -157,6 +165,16 @@ sub{
 	font-style:normal;
 }
 
+.macro .numnat{
+	margin-left:-0.25em;
+	font-size: 0.65em;
+    font-weight: bold;
+}
+
+.macro sub{
+	font-size: 0.45em;
+}
+
 .comilla span{
 	position:relative;
 	left:-0.1em;
@@ -185,6 +203,21 @@ sub{
 .mmacro > p{
 	margin-left:1.6em;
 	font-size:0.9em;
+}
+
+.mmacro .macrodond{
+	margin-left:2.6em;
+	font-size:0.85em;
+}
+
+.mmacro .macrodond ul{
+	margin:0.6em 0 0 0.4em;
+	margin-left:1em;
+}
+
+.mmacro .macrodond li{
+	margin-bottom:0.55em;
+	list-style: disc;
 }
 
 .macro{
@@ -512,10 +545,6 @@ dl.expansor dt.flechita::before{
 
 .macro .pos_puntos::before{
 	bottom:0;
-}
-
-.numnat{
-	margin-left:-0.25em;
 }
 
 /* colores gramática */

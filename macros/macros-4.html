@@ -34,7 +34,7 @@
 		<h1>Lenguaje C--</h1>
 		<h2>Macros y utilidades</h2>
 		<main><!--***********************-->
-		  <div class="gramat">
+		  <div class="gramat glue">
 			<ol>
 			  <li>
 				<div class="noterm">natc</div>
@@ -83,7 +83,7 @@
 			  <h1>Postulado 1’’’’’’’’</h1>
 			  <p>0 = <span class="nnoterm">n</span> + 1 no es verdad.</p>
 			</div>
-			<div class="postulado">
+			<div class="postulado glue">
 			  <h1>Postulado 1’’’’’’’’’</h1>
 			  <p>𝖆 = <span class="nnoterm">n</span> + <span class="nnoterm">m</span> es verdad si y sólo si:</p>
 			  <ol>
@@ -96,7 +96,7 @@
 				</li>
 			  </ol>
 			</div>
-			<div class="gramat">
+			<div class="gramat glue">
 			<ol>
 			  <li>
 				<div class="nnoterm">A</div>
@@ -218,7 +218,7 @@
 			  <h1>Postulado 1’’’’’’’’’’’’’’’’’’</h1>
 			  <p>Si 𝖆 = <span class="nnoterm">m</span> * 1 es verdad, 𝖇 = <span class="nnoterm">m</span> * 1 es verdad si y sólo si 𝖆 y 𝖇 son el mismo <span class="noterm">natc</span>.</p>
 			</div>
-			<div class="postulado">
+			<div class="postulado glue">
 			  <h1>Postulado 1’’’’’’’’’’’’’’’’’’’</h1>
 			  <p>𝖆 = <span class="nnoterm">m</span> * <span class="nnoterm">n</span> es verdad si y sólo si una de las siguientes afirmaciones se cumple:</p>
 			  <ol>
@@ -232,144 +232,123 @@
 				</li>
 			  </ol>
 			</div>
-			<div class="gramat">
-			<ol>
-			  <li>
-				<div class="noterm">octd</div>
-				<div class="flechag"></div>
-				<ul class="term">
-				  <li>0</li>
-				  <li>1</li>
-				  <li>2</li>
-				  <li>3</li>
-				  <li>4</li>
-				  <li>5</li>
-				  <li>6</li>
-				  <li>7</li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">octal</div>
-				<div class="flechag"></div>
+			<div class="gramat glue">
+			  <ol>
+				<li>
+				  <div class="noterm">octd</div>
+				  <div class="flechag"></div>
+				  <ul class="term">
+					<li>0</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+				  </ul>
+				</li>
+				<li>
+				  <div class="noterm">octal</div>
+				  <div class="flechag"></div>
+				  <ul>
+					<li><span class="noterm">octal</span></li>
+					<li><span class="noterm">octd</span><span class="noterm">octal</span></li>
+				  </ul>
+				</li>			  
+				<li>
+				  <div class="noterm">ndc</div>
+				  <div class="flechag"></div>
+				  <ul>
+					<li><span class="noterm">octd</span></li>
+					<li><span class="term">8</span></li>
+					<li><span class="term">9</span></li>
+				  </ul>
+				</li>
+				<li>
+				  <div class="noterm">exad</div>
+				  <div class="flechag"></div>
+				  <ul>
+					<li><span class="noterm">ndc</span></li>
+					<li><span class="noterm">exal</span></li>
+				  </ul>
+				</li>
+				<li>
+				  <div class="noterm">exa</div>
+				  <div class="flechag"></div>
+				  <ul>
+					<li><span class="noterm">exad</span></li>
+					<li><span class="noterm">exad</span><span class="noterm">exa</span></li>				  
+				  </ul>
+				</li>
+				<li>
+				  <div class="noterm">nat</div>
+				  <div class="flechag"></div>
+				  <ul>
+					<li><span class="noterm">natural</span></li>
+					<li><span class="term">0</span><span class="noterm">octal</span></li>
+					<li><span class="term">0x</span><span class="noterm">exa</span></li>
+					<li><span class="term">0X</span><span class="noterm">exa</span></li>
+				  </ul>
+				</li>		  
+			  </ol>
+			</div>
+			<div class="macro">
+			  <pre><code>Z<sub>&Omega;</sub> = <span class="term">0</span><span class="noterm">octd<sub>1</sub></span></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code>Z<sub>&Omega;</sub> = <span class="term">[$</span><span class="noterm">octd<sub>1</sub></span><span class="term">]</span></code></pre>
+			</div>
+			<div class="mmacro">
+			  <div class="macro">
+				<pre><code><span class="term">[$</span><span class="noterm">natc<sub>1</sub></span><span class="term">]</span><span class="noterm">octd<sub>1</sub></span></code></pre>
+				<div class="flecha"></div>
+				<pre><code><span class="term">[$</span><span class="noterm">natc<sub>2</sub></span><span class="term">]</span></code></pre>
+			  </div>
+			  <div class="macrodond">
+				<p>donde es verdad:</p>
 				<ul>
-				  <li><span class="noterm">octal</span></li>
-				  <li><span class="noterm">octd</span><span class="noterm">octal</span></li>
+				  <li><span class="noterm">natc<sub>3</sub></span> = <span class="noterm">natc<sub>1</sub></span> * 8</li>
+				  <li><span class="noterm">natc<sub>2</sub></span> = <span class="noterm">natc<sub>3</sub></span> * <span class="noterm">octd<sub>1</sub></span></li>
 				</ul>
-			  </li>
-			  <li>
-				<div class="nnoterm">A</div>
-				<div class="flechag"></div>
-				<ul class="term">
-				  <li>a</li>
-				  <li>A</li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="nnoterm">B</div>
-				<div class="flechag"></div>
-				<ul class="term">
-				  <li>b</li>
-				  <li>B</li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="nnoterm">C</div>
-				<div class="flechag"></div>
-				<ul class="term">
-				  <li>c</li>
-				  <li>C</li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="nnoterm">D</div>
-				<div class="flechag"></div>
-				<ul class="term">
-				  <li>d</li>
-				  <li>D</li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="nnoterm">E</div>
-				<div class="flechag"></div>
-				<ul class="term">
-				  <li>e</li>
-				  <li>E</li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="nnoterm">A</div>
-				<div class="flechag"></div>
-				<ul class="term">
-				  <li>f</li>
-				  <li>F</li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">exal</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="nnoterm">A</span></li>
-				  <li><span class="nnoterm">B</span></li>
-				  <li><span class="nnoterm">C</span></li>
-				  <li><span class="nnoterm">D</span></li>
-				  <li><span class="nnoterm">E</span></li>
-				  <li><span class="nnoterm">F</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">ndc</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="noterm">octd</span></li>
-				  <li><span class="term">8</span></li>
-				  <li><span class="term">9</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">exad</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="noterm">ndc</span></li>
-				  <li><span class="noterm">exal</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">exa</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="noterm">exad</span></li>
-				  <li><span class="noterm">exad</span><span class="noterm">exa</span></li>				  
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">nat</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="noterm">natural</span></li>
-				  <li><span class="term">0</span><span class="noterm">octal</span></li>
-				  <li><span class="term">0x</span><span class="noterm">exa</span></li>
-				  <li><span class="term">0X</span><span class="noterm">exa</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">natc</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="term">0</span></li>
-				  <li><span class="noterm">natural</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<ul>
-				  <li>𝖆</li>
-				  <li>𝖇</li>
-				  <li>𝖈</li>
-				</ul>
-				<div class="flechag"></div>
-				<div class="noterm">natc</div>
-			  </li>
-			</ol>
-		  </div>
+			  </div>
+			</div>
+			<div class="macro">
+			  <pre><code>Z<sub>&Omega;</sub> = <span class="term">[$</span><span class="noterm">natc<sub>1</sub></span><span class="term">];</span></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code>Z<sub>&Omega;</sub> = <span class="noterm">natc<sub>1</sub></span><span class="term">;</span></code></pre>
+			</div>
+			<aside class="ejemplos noult">
+		  <h1>Ejemplo 1</h1>
+		  <ol>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = </span><span class="numberp">05308</span><span class="simbind">;</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = [</span><span class="simbexp2">$</span><span class="numberp">5</span
+><span class="simbind">]</span><span class="numberp">308</span><span class="simbind">;</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = [</span><span class="simbexp2">$</span><span class="numberp">43</span
+><span class="simbind">]</span><span class="numberp">08</span><span class="simbind">;</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = [</span><span class="simbexp2">$</span><span class="numberp">344</span
+><span class="simbind">]</span><span class="numberp">8</span><span class="simbind">;</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = [</span><span class="simbexp2">$</span><span class="numberp">2752</span
+><span class="simbind">];</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = </span><span class="numberp">2752</span
+><span class="simbind">;</span></code></pre></div></li>
+		  </ol>
+			</aside>
+			<aside class="ejemplos">
+		  <h1>Ejemplo 1’</h1>
+		  <ol>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = </span><span class="numberp">0003</span><span class="simbind">;</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = [</span><span class="simbexp2">$</span><span class="numberp">0</span
+><span class="simbind">]</span><span class="numberp">003</span><span class="simbind">;</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = [</span><span class="simbexp2">$</span><span class="numberp">0</span
+><span class="simbind">]</span><span class="numberp">03</span><span class="simbind">;</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = [</span><span class="simbexp2">$</span><span class="numberp">0</span
+><span class="simbind">]</span><span class="numberp">3</span><span class="simbind">;</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = [</span><span class="simbexp2">$</span><span class="numberp">3</span
+><span class="simbind">];</span></code></pre></div></li>
+			<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = </span><span class="numberp">3</span
+><span class="simbind">;</span></code></pre></div></li>
+		  </ol>
+		</aside>
 		</main><!--***********************-->
 	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
 	</div>
