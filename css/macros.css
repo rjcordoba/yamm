@@ -387,7 +387,7 @@ sub{
 
 .expansor{
 	font-size:0.9em;
-	margin:3.5em 0 1.9em;
+	margin:3.5em 0 3.9em;
 	max-width:60em;
 	line-height: 1.7em;
 }
@@ -395,7 +395,7 @@ sub{
 #cont-principal dl.expansor dt, .expansor h1{
 	font-size: 1.45em;
     color: var(--color-exp);
-    border-left: solid 0.25m var(--color-exp);
+    border-left: solid 0.25em var(--color-exp);
     background-color: rgba(3, 88, 181, 0.04);
 }
 
