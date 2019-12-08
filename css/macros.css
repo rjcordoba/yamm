@@ -363,7 +363,7 @@ sub{
 	color:#eee;
 	padding:0.7em;
 	min-width:6em;
-	width:100%;
+	/* width:100%; */
 }
 
 .ejemplos div.flech{
@@ -548,6 +548,10 @@ dl.expansor dt.flechita::before{
 }
 
 /* colores gramática */
+
+.gramtexto{
+	color:#540d0d;
+}
 
 .numbers{
 	color:#83f5fd;
