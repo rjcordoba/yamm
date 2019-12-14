@@ -235,7 +235,7 @@ sub{
 
 .mmacro .macrodond li::before{
 	content:"•";
-	color:#344035;
+	color:#3c4a3d;
 	margin-right:0.4em;
 	font-wight:normal;
 }
