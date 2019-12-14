@@ -4,7 +4,7 @@ main{
 }
 
 h3{
-	font-size:1.22em;
+	font-size:1.35em;
     margin:0 1em 1.8em 0;
     border-bottom:solid 1px;
     padding:0 0.5em 0 0.2em;
@@ -161,18 +161,27 @@ sub{
 	font-size:0.55em;
 }
 
-.noterm sub, .nnoterm sub, .noterm sup, .nnoterm sup{
+.noterm sub, .noterm sup{
 	font-style:normal;
 }
 
 .macro .numnat{
 	margin-left:-0.25em;
 	font-size: 0.65em;
-    font-weight: bold;
+}
+
+.macro .numnatt{
+	margin-left:-0.1em;
+	font-size: 0.65em;
+}
+
+.gramat .suby{
+	margin-left:-0.15em;
+	font-size:0.7em;
 }
 
 .macro sub{
-	font-size: 0.45em;
+	font-size:0.45em;
 }
 
 .comilla span{
@@ -207,17 +216,28 @@ sub{
 
 .mmacro .macrodond{
 	margin-left:2.6em;
-	font-size:0.85em;
+	font-size:0.9em;
+}
+
+.mmacro .macrodond, .mmacro p{
+	color:#3c4a3d;
 }
 
 .mmacro .macrodond ul{
-	margin:0.6em 0 0 0.4em;
-	margin-left:1em;
+	margin:0.4em 0 0 0.2em;
+	list-style-type:none;
+	font-size:0.9em;
 }
 
 .mmacro .macrodond li{
 	margin-bottom:0.55em;
-	list-style: disc;
+}
+
+.mmacro .macrodond li::before{
+	content:"•";
+	color:#344035;
+	margin-right:0.4em;
+	font-wight:normal;
 }
 
 .macro{
@@ -438,7 +458,7 @@ dl.expansor dt.flechita::before{
 	font-size:0.85em;
 	margin-bottom:0.9em;
 	padding:1.1em;
-	border:solid 1px #e1e6e1;
+	border:solid 1px #ced6ce;
 	border-radius:0.2em;
 	max-width:44em;
 }
