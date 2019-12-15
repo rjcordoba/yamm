@@ -170,6 +170,10 @@ sub{
 	font-size: 0.65em;
 }
 
+.macro .vacento, .gramat .vacento{
+	margin-left:-0.95em;
+}
+
 .macro .numnatt{
 	margin-left:-0.1em;
 	font-size: 0.65em;
@@ -178,6 +182,10 @@ sub{
 .gramat .suby{
 	margin-left:-0.15em;
 	font-size:0.7em;
+}
+
+.gramat .vacento{
+	margin-left:-0.5em;
 }
 
 .macro sub{
@@ -363,7 +371,7 @@ sub{
 .ejemplos li > div{
 	border:solid 2px #767888;
 	border-radius:4px;
-	line-height:1.6em;
+	line-height:1.75em;
 	position:relative;
 	display:flex;
 }
@@ -504,8 +512,11 @@ dl.expansor dt.flechita::before{
 
 .flechita::before{
 	content:"←";
-	padding-left:0.4em;
 	font-weight:normal;
+}
+
+pre .flechita::before{
+	padding-left:0.4em;
 }
 
 .ejemplos .flechita::before{
@@ -517,8 +528,12 @@ dl.expansor dt.flechita::before{
 	color:var(--color-exp);
 }
 
-.ejemplos .pos_puntos{
+.ejemplos .pos_puntos, .ejemplos .var_exp{
 	color:#77aeea;
+}
+
+.ejemplos .var_exp{
+	font-size:0.95em;
 }
 
 .pos_puntos, .var_exp{
@@ -556,7 +571,6 @@ dl.expansor dt.flechita::before{
 .expansor .flechita::before{
 	position:relative;
 	bottom:0.1em;
-	padding:0;
 }
 
 .expansor .ppuntos .flechita::before{
