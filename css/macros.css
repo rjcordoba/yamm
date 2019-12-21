@@ -20,6 +20,10 @@ sub, sup{
 	margin-bottom:2.7em !important;
 }
 
+.glueg{
+	margin-bottom:4.4em !important;
+}
+
 .expansor.glue{
 	margin-bottom:3.7em !important;
 }
@@ -153,6 +157,10 @@ code .noterm::before, code .noterm::after{
 
 sup{
 	vertical-align:super;
+	font-size:0.65em;
+}
+
+.gramat sup{
 	font-size:0.55em;
 }
 
@@ -189,7 +197,7 @@ sub{
 }
 
 .macro sub{
-	font-size:0.45em;
+	font-size:0.55em;
 }
 
 .comilla span{
@@ -280,7 +288,7 @@ sub{
 }
 
 .mmacro_exp h1{
-	color:#627164;
+	color:#4e5f50;
 	width:fit-content;
 	width:-moz-fit-content;
 	font-size:1.11em;
@@ -579,6 +587,19 @@ pre .flechita::before{
 
 .macro .pos_puntos::before{
 	bottom:0;
+}
+
+
+sub .comil{
+	position:relative;
+	font-size:1.6em;
+    top:0.2em;
+    left:-0.1em;
+}
+
+
+pre sub .comil{
+    left:-0.2em;
 }
 
 /* colores gramática */
