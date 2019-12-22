@@ -166,7 +166,11 @@ sup{
 
 sub{
 	vertical-align:sub;
-	font-size:0.55em;
+	font-size:0.7em;
+}
+
+.ejemplos sub{
+	font-size:0.65em;
 }
 
 .noterm sub, .noterm sup{
@@ -319,6 +323,19 @@ sub{
 
 .macro > *:first-child, .flecha{
 	margin-top:var(--margin-arriba);
+}
+
+.macro.larga{
+	flex-direction:column;
+}
+
+.macro.larga pre, .macro.larga .flecha{
+	text-align:center;
+}
+
+.macro.larga .flecha{
+	font-size:1.2em;
+	transform:rotate(90deg);
 }
 
 .flecha::before{
