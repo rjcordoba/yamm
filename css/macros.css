@@ -12,6 +12,18 @@ h3{
 	width:-moz-fit-content;
 }
 
+.warn{
+	font-size:1.5em;
+	margin:0 0.2em 0 0.5em;
+	position:relative;
+	top:0.15em;
+	color:#3a3c4e;
+}
+
+.expansor .warn{
+	color:#080e56;
+}
+
 sub, sup{
 	line-height:0;
 }
@@ -36,12 +48,12 @@ sub, sup{
 	margin-left:-0.35em;
 }
 
-.acercarsub{
-	margin-right:-0.15em;
-}
-
 .alejarsup{
 	margin-left:0.15em;
+}
+
+.noterm sub{
+	margin-right:-0.15em;
 }
 
 sub.subp{
@@ -49,10 +61,10 @@ sub.subp{
 }
 
 sub .marcsub{
-	font-weight: bold;
-    font-size: 1.35em;
-    margin-left: -0.1em;
-    position: relative;
+	font-weight:bold;
+    font-size:1.35em;
+    margin-left:-0.1em;
+    position:relative;
     top: 0.2em;
 }
 
@@ -76,7 +88,7 @@ aside.aclarcn{
 	font-size: 0.8em;
     line-height: 1.5;
 	border-left:solid 5px #e1e2e2;
-	padding:0.8em 0.8em;
+	padding:0.5em 0.8em;
 	margin:1.6em 0 4.5em;
 	background-color:rgb(225,226,226,0.18);
 	width:fit-content;
@@ -85,7 +97,7 @@ aside.aclarcn{
 
 .expansor aside.aclarcn{
 	border:1px solid #e7eefd;
-	background-color:rgb(206, 234, 255, 0.18);
+	background-color:rgba(222, 229, 234, 0.18);
 	font-size: 0.9em;
 	margin-bottom:1em;
 }
