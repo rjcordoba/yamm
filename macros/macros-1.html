@@ -279,24 +279,37 @@
 		  Tres puntos (...) representa cualquier instrucción o cualquier expansión de instrucciones.
 		</aside>
 		<dl class="expansor glue">
-		  <dt class="flechita"><span class="pos_puntos nnoterm">⟨natural⟩</span></dt>
-		  <dd><p class="mimp">Marcas que pone el expansor de instrucciones, apuntando a una instrucción.</p>
-			<ol>
-			  <li  class="ppuntos">La primera marca que pone es <span class="flechita"><span class="pos_puntos term">1</span></span>.</li>
+		  <dt class="flechita"><span class="pos_puntos">⟨<span class="nnoterm">natural</span><span>⟩</span></span></dt>
+		  <dd>
+			<p class="mimp">Marcas que pone el expansor de instrucciones, apuntando a una instrucción.</p>
+			<ol class="discos gluepar">
+			  <li>La primera marca que pone es <span class="flechita"><span class="pos_puntos term pbajo">1</span></span>.</li>
 			  <li>Si pone una marca <span class="flechita"><span class="pos_puntos nnoterm pbajo">m</span></span>, la siguiente marca será
 				<span class="flechita"><span class="pos_puntos nnoterm pbajo">n</span></span>, donde n = m + 1 es verdad.</li>
   			</ol>
+			<p class="mimp">Las asociación de marcas a instrucciones es:</p>
+			<ol class="discos gluepar">
+			  <li>si la marca apunta a una <span class="noterm">preinstrucción</span> queda ligada a esa <span class="noterm">preinstrucción</span>.</li>
+			  <li>si la marca apunta a una macroinstrucción, y <span class="nnoterm">texto</span><sub class="subp">1</sub> es el resultado de expandir esta macroinstrucción, después
+			  de la expansión apuntará a la primera macroinstrucción o <span class="noterm">preinstrucción</span> en <span class="nnoterm">texto</span><sub class="subp">1</sub>.</li>
+  			</ol>
 		  </dd>
 		</dl>
+		<div class="macro">
+		  <pre><code>INIT</code></pre>
+		  <div class="flecha"></div>
+		  <pre><code>1</code></pre>
+		</div>
 		<div class="macro">
 		  <pre><code>JUMP</code></pre>
 		  <div class="flecha"></div>
 		  <pre><code>=</code></pre>
 		</div>
 		<div class="macro">
-		  <pre><code>INIT</code></pre>
+		  <pre><code>NADA</code></pre>
 		  <div class="flecha"></div>
-		  <pre><code>1</code></pre>
+		  <pre><code>JUMP
+1</code></pre>
 		</div>
 		<div class="macro">
 		  <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Omega;</sub>;</code></pre>
@@ -307,7 +320,7 @@
 		  <div class="macro flech">
 			<pre><code>Z<sub>1</sub> = Z<sub>&Omega;</sub>;</code></pre>
 			<div class="flecha"></div>
-			<pre><code>Z<sub>1</sub> = 0;</span>
+			<pre><code>Z<sub>1</sub> = 0;
 JUMP
 1<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
 =<sup>&Omega;</sup>
@@ -319,7 +332,7 @@ JUMP
 		  <div class="macro flech">
 			<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub>;</code></pre>
 			<div class="flecha"></div>
-			<pre><code>Z<sub>1</sub> = Z<sub>&Phi;</sub>;</span>
+			<pre><code>Z<sub>1</sub> = Z<sub>&Phi;</sub>;
 0<sup>&Omega;</sup>
 JUMP
 1<sup>&Omega;</sup><span class="flechita"><span class="pos_puntos nnoterm">i</span></span>

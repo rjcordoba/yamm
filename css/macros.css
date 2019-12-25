@@ -24,8 +24,28 @@ sub, sup{
 	margin-bottom:4.4em !important;
 }
 
+.gluepar{
+	margin-bottom:1.3em !important;
+}
+
 .expansor.glue{
 	margin-bottom:3.7em !important;
+}
+
+.acercar{
+	margin-left:-0.35em;
+}
+
+.acercarsub{
+	margin-right:-0.15em;
+}
+
+.alejarsup{
+	margin-left:0.15em;
+}
+
+sub.subp{
+	font-size:0.6em;
 }
 
 sub .marcsub{
@@ -41,8 +61,15 @@ sub .marcsub{
 	width:fit-content;
 	width:-moz-fit-content;
 	margin-bottom:0.8em;
-	font-weight: bold;
+	font-weight:bold;
 	border-left:solid 0.15em;
+}
+
+.expansor .noexp{
+	font-weight:normal;
+	color:inherit;
+	font-size:0.9em;
+	margin:0 0.2em 0 0.3em;
 }
 
 aside.aclarcn{
@@ -54,6 +81,13 @@ aside.aclarcn{
 	background-color:rgb(225,226,226,0.18);
 	width:fit-content;
 	width:-moz-fit-content;
+}
+
+.expansor aside.aclarcn{
+	border:1px solid #e7eefd;
+	background-color:rgb(206, 234, 255, 0.18);
+	font-size: 0.9em;
+	margin-bottom:1em;
 }
 
 .gramat{
@@ -88,7 +122,6 @@ aside.aclarcn{
 
 .nnoterm, .noterm{
 	font-style:italic;
-	padding-right:0.1em;
 }
 
 .gramat .term{
@@ -142,8 +175,12 @@ aside.aclarcn{
 	line-height:0;
 }
 
-code .noterm::before, code .noterm::after{
+code .noterm::before, code .nnnoterm::after{
 	margin:0 -0.2em 0 -0.1em
+}
+
+.llavec{
+	margin-left:-0.1em;
 }
 
 .gramat .flechag::before{
@@ -157,7 +194,7 @@ code .noterm::before, code .noterm::after{
 
 sup{
 	vertical-align:super;
-	font-size:0.65em;
+	font-size:0.6em;
 }
 
 .gramat sup{
@@ -182,8 +219,19 @@ sub{
 }
 
 .macro .numnat{
-	margin-left:-0.35em;
-	font-size: 0.65em;
+	margin-left:-0.2em;
+}
+
+.macro .numnaty{
+	margin-left:-0.25em;
+}
+
+.macro .numnatf{
+	margin-left:-0.3em;
+}
+
+.macro .numnatv{
+	margin-left:-0.1em;
 }
 
 .macro .vacento, .gramat .vacento{
@@ -205,7 +253,7 @@ sub{
 }
 
 .macro sub{
-	font-size:0.55em;
+	font-size:0.6em;
 }
 
 .comilla span{
@@ -216,7 +264,7 @@ sub{
 
 .comilla.comgr span{
     font-size:1.3em;
-	top:0.15em;
+	top:0.1em;
 }
 
 .comilla.comletra span{
@@ -321,6 +369,10 @@ sub{
 	padding-right:2em;
 }
 
+.macro.flechn{
+	padding-right:3em;
+}
+
 .macro > *:first-child, .flecha{
 	margin-top:var(--margin-arriba);
 }
@@ -400,7 +452,7 @@ sub{
 .ejemplos li > div{
 	border:solid 2px #767888;
 	border-radius:4px;
-	line-height:1.75em;
+	line-height:2em;
 	position:relative;
 	display:flex;
 }
@@ -420,7 +472,6 @@ sub{
 	color:#eee;
 	padding:0.7em;
 	min-width:6em;
-	/* width:100%; */
 }
 
 .ejemplos div.flech{
@@ -447,6 +498,8 @@ sub{
 	margin:3.5em 0 3.9em;
 	max-width:60em;
 	line-height: 1.7em;
+	border-bottom:dotted 1px #c8d5d8;
+    padding-bottom:0.6em;
 }
 
 #cont-principal dl.expansor dt, .expansor h1{
@@ -474,7 +527,7 @@ dl.expansor dt.flechita::before{
 }
 
 .expansor > ol, .expansor dd ol{
-	margin-top:0.8em;
+	margin-top:0.5em;
 }
 
 .expansor li{
@@ -576,6 +629,10 @@ pre .flechita::before{
 	color:#f536c0;
 }
 
+.macro .pos_puntos::before{
+	margin-right:-0.13em;
+}
+
 .pos_puntos::before{
 	position: relative;
     bottom:0.1em;
@@ -610,6 +667,9 @@ pre .flechita::before{
 	bottom:0;
 }
 
+.discos li{
+	list-style-type:disc !important;
+}
 
 sub .comil{
 	position:relative;

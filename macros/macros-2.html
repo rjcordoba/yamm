@@ -241,12 +241,12 @@
 		  <div class="macro flech">
 			<pre><code>Z<sub>&Omega;</sub> += &lambda;;</code></pre>
 			<div class="flecha"></div>
-			<pre><code>Z<sub>.posf</sub> = &lambda;;
+			<pre><code>Z<sub>.opi</sub> = &lambda;;
 Z<sub>1</sub> = 0;
 ＊<sup class="pos_puntos nnoterm">j</sup>
 1<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
 1<sup>&Omega;</sup>
-=<sup>.posf</sup><span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
+=<sup>.opi</sup><span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
 ＊<sup class="pos_puntos nnoterm">i</sup></code></pre>
 		</div>
 		<div class="macro">
@@ -278,19 +278,22 @@ Z<sub>&Omega;</sub>++;
 ＊<sup class="pos_puntos nnoterm">k</sup>
 <span class="puntitos"></span><span class="flechita"><span class="pos_puntos nnoterm">j</span></span></code></pre>
 		</div>
-		<div class="macro">
-		  <pre><code>Z<sub>&Omega;</sub> -= &lambda;</code></pre>
-			<div class="flecha"></div>
-<pre><code>Z<sub>.sum1</sub> = Z<sub>&Omega;</sub>;
-Z<sub>.sum2</sub> = &lambda;;
-Z<sub>&Omega;</sub> = Z<sub>.sum1</sub> + Z<sub>.sum2</sub>;</code></pre>
-		</div>
-		<div class="macro">
+		
+		<div class="macro flech">
 		  <pre><code>Z<sub>&Omega;</sub>--;</code></pre>
 			<div class="flecha"></div>
-<pre><code>Z<sub>.sum1</sub> = Z<sub>&Omega;</sub>;
-Z<sub>.sum2</sub> = 1;
-Z<sub>&Omega;</sub> = Z<sub>.sum1</sub> - Z<sub>.sum2</sub>;</code></pre>
+<pre><code>Z<sub>1</sub> = 0;
+=<sup>&Omega;</sup>
+JUMP
+＊<sup class="pos_puntos nnoterm">i</sup>
+Z<sub>.opi</sub>= Z<sub>&Omega;</sub>;
+Z<sub>&Omega;</sub> = 0;
+JUMP
+Z<sub>&Omega;</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
+Z<sub>1</sub>++;
+=<sup>.opi</sup>
+＊<sup class="pos_puntos nnoterm">j</sup>
+...<span class="flechita"><span class="pos_puntos nnoterm">i</span></span></code></pre>
 		</div>
 		</main><!--***********************-->
 	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html"><< ant</a></p><p><a href="./cmacros-2.html">sig >></a></p></div>
@@ -304,16 +307,4 @@ Z<sub>&Omega;</sub> = Z<sub>.sum1</sub> - Z<sub>.sum2</sub>;</code></pre>
 	  </div>
     </footer>
   </body>
-      <script>
-		var pantallas = document.querySelectorAll(".ejemplos pre");
-var l = pantallas.length;
-var max=0;
-for(var i=0;i<l;i++){
-	if(pantallas[i].offsetWidth > max) max = pantallas[i].offsetWidth;
-}
-for(i=0;i<l;i++){
-pantallas[i].style.width = max + "px";
-}
-	</script>
-
 </html>
