@@ -218,7 +218,7 @@ sub{
 	font-size:0.7em;
 }
 
-.ejemplos sub{
+.ejemplos sub, .ejemplos sup{
 	font-size:0.65em;
 }
 
@@ -469,6 +469,14 @@ sub{
 	display:flex;
 }
 
+.ejemplos.complicado li > div{
+	line-height:2.5em;
+}
+
+pre.complicado{
+	line-height:2em;
+}
+
 .ejemplos li ol{
 	display:flex;
 	flex-direction:column;
@@ -512,6 +520,15 @@ sub{
 	line-height: 1.7em;
 	border-bottom:dotted 1px #c8d5d8;
     padding-bottom:0.6em;
+}
+
+/* .expansor.simple{ */
+/* 	border-bottom:none; */
+/* 	padding-bottom:0; */
+/* } */
+
+#cont-principal .expansor .ejemplos h1{
+	margin:2em 0 1.6em 1.5em;
 }
 
 #cont-principal dl.expansor dt, .expansor h1{
