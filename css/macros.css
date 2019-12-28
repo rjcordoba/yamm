@@ -77,6 +77,10 @@ sub .marcsub{
 	border-left:solid 0.15em;
 }
 
+.expansor .titpeq{
+	font-size:1.25em;
+}
+
 .expansor .noexp{
 	font-weight:normal;
 	color:inherit;
