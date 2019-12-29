@@ -52,6 +52,10 @@ sub, sup{
 	margin-left:0.15em;
 }
 
+.acercarsup{
+	margin-left:-0.15em;
+}
+
 .noterm sub{
 	margin-right:-0.15em;
 }
@@ -60,13 +64,13 @@ sub.subp{
 	font-size:0.6em;
 }
 
-sub .marcsub{
-	font-weight:bold;
-    font-size:1.35em;
-    margin-left:-0.1em;
-    position:relative;
-    top: 0.2em;
-}
+/* sub .marcsub{ */
+/* 	font-weight:bold; */
+/*     font-size:1.35em; */
+/*     margin-left:-0.1em; */
+/*     position:relative; */
+/*     top: 0.2em; */
+/* } */
 
 .postulado h1, .expansor h1, dl.expansor dt{
 	padding:0.35em 1.6em 0.3em 0.65em;
@@ -573,6 +577,11 @@ dl.expansor dt.flechita::before{
 	font-size:0.95em;
 }
 
+.expansor .interior li{
+	margin-left:1.2em;
+	list-style-type:circle;
+}
+
 .expansor .mimp{
 	font-size:1.1em;
 }
@@ -700,7 +709,7 @@ pre .flechita::before{
 	bottom:0;
 }
 
-.discos li{
+.discos > li{
 	list-style-type:disc !important;
 }
 

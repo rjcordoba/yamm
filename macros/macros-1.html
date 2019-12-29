@@ -290,8 +290,17 @@
 			<p class="mimp">Las asociación de marcas a instrucciones es:</p>
 			<ol class="discos gluepar">
 			  <li>si la marca apunta a una <span class="noterm">preinstrucción</span> queda ligada a esa <span class="noterm">preinstrucción</span>.</li>
-			  <li>si la marca apunta a una macroinstrucción, y <span class="nnoterm">texto</span><sub class="subp">1</sub> es el resultado de expandir esta macroinstrucción, después
-			  de la expansión apuntará a la primera macroinstrucción o <span class="noterm">preinstrucción</span> en <span class="nnoterm">texto</span><sub class="subp">1</sub>.</li>
+			  <li>
+				<p>si la marca apunta a una macroinstrucción, y <span class="nnoterm">texto</span><sub class="subp">1</sub> es el resultado de expandir
+				  esta macroinstrucción, después de la expansión apuntará:</p>
+				<ul class="interior">
+				  <li>a la siguiente macroinstrucción o <span class="noterm">preinstrucción</span> si <span class="nnoterm">texto</span><sub class="subp">1</sub> es &epsilon;.</li>
+				  <li>
+					a la primera macroinstrucción o <span class="noterm">preinstrucción</span> en <span class="nnoterm">texto</span><sub class="subp">1</sub>
+					si <span class="nnoterm">texto</span><sub class="subp">1</sub> no es &epsilon;.
+				  </li>
+				</ul>				
+			  </li>
   			</ol>
 		  </dd>
 		</dl>
