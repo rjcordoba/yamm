@@ -33,6 +33,186 @@
 		<h2>Macros y utilidades</h2>
 		<main><!--***********************-->
 		  <h3>Reserva de posiciones</h3>
+		  <!-- <aside class="aclarcn glue"> -->
+		  <!-- 	<div class="enlin"><p><span class="nnoterm">cadena</span> representa una sucesión de símbolos sin espacios.</p> -->
+		  <!-- 	<p><span class="nnoterm">texto</span> representa una sucesión de símbolos y espacios.</p></div> -->
+			<!-- </aside> -->
+		  <div class="gramat glue">
+			<ol>
+			  <li>
+				<div class="noterm">simb</div>
+				<div class="flechag"></div>
+				<div class="gramtexto">cualquier símbolo</div>
+			  </li>
+			  <li>
+				<div class="noterm">esp</div>
+				<div class="flechag"></div>
+				<div class="gramtexto">espacio sin símbolos</div>
+			  </li>
+			  <li>
+				<div class="noterm">rcadena</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="noterm">simb</span><span class="noterm">rcadena</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">cadena</div>
+				<div class="flechag"></div>
+				<div><span class="noterm">simb</span><span class="noterm">rcadena</span></div>
+			  </li>
+			  <li>
+				<div class="noterm">simb_esp</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="noterm">simb</span></li>
+				  <li><span class="noterm">esp</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">rlínea</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="noterm">simb_esp</span><span class="noterm">rlínea</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">línea</div>
+				<div class="flechag"></div>
+				<div><span class="noterm">simb</span><span class="noterm">rlínea</span></div>
+			  </li>
+			  <li>
+				<div class="nnoterm">texto</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="noterm">línea</span><span class="nnoterm">texto</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="nnoterm">EOF</div>
+				<div class="flechag"></div>
+				<div class="gramtexto">final de texto</div>
+			  </li>
+			</ol>
+		  </div>
+		  <div class="mmacro_exp">
+			<div class="macro">
+			  <pre><code><span class="term">#define</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>2</sub></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code>ε</code></pre>
+			</div>
+			<div class="secundario">
+			  <h1>Efecto secundario</h1>
+			  <p>Hasta <span class="nnoterm">EOF</span>, cualquier aparición de <span class="nnoterm">cadena</span> se sustituye ‘<span class="nnoterm">cadena</span><sub>1</sub>’ por
+				‘<span class="nnoterm">cadena</span><sub>2</sub>’, siempre que ‘<span class="nnoterm">cadena</span><sub>1</sub>’ no forme parte de un ‘<span class="nnoterm">enombre</span>’ mayor.</p>
+			</div>
+		  </div>
+		  <aside class="ejemplos">
+		  <h1>Ejemplo</h1>
+		  <ol>
+			<li>
+			  <div><pre><code><span class="preproc">#define foo bar</span>
+<span class="preproc">#define baz 5</span>
+
+<span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">foo</span><span class="simbind">;</span>
+<span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">foo<span class="simbind"> + </span
+>baz</span><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="preproc">#define baz 5</span>
+
+<span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">bar</span><span class="simbind">;</span>
+<span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">bar<span class="simbind"> + </span
+>baz</span><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">bar</span><span class="simbind">;</span>
+<span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">bar</span><span class="simbind"> + </span
+><span class="numberp">5</span><span class="simbind">;</span></code></pre></div>
+			</li>
+		  </ol>
+		  </aside>
+		  <div class="mmacro_exp">
+			<div class="macro">
+			  <pre><code><span class="term">#definec</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>2</sub></code></pre>
+			  <div class="flecha"></div>
+			  <pre><code>ε</code></pre>
+			</div>
+			<div class="secundario">
+			  <h1>Efecto secundario</h1>
+			  <p>Se sustituye igual que en #define menos en <span class="nnoterm">texto</span><sub>1</sub> en las siguientes situaciones:</p>
+			  <div class="casos">
+				<pre>){
+   <span class="nnoterm">texto</span><sub>1</sub>
+}</pre>
+<p>ó</p>
+				  <pre>:{
+   <span class="nnoterm">texto</span><sub>1</sub>
+}</pre>
+			  </div>
+			</div>
+		  </div>
+		  <aside class="ejemplos noult">
+		  <h1>Ejemplo 1</h1>
+		  <ol>
+			<li>
+			  <div><pre><code><span class="preproc">#define foo bar</span>
+<span class="var_exp">def_subp</span><span class="simbind">{</span>
+   <span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">20</span><span class="simbind">;</span>
+   ...
+<span class="simbind">}</span>
+<span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">9</span><span class="simbind">;</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="var_exp">def_subp</span><span class="simbind">{</span>
+   <span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">20</span><span class="simbind">;</span>
+   ...
+<span class="simbind">}</span>
+<span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">9</span><span class="simbind">;</span></code></pre></div>
+			</li>
+		  </ol>
+		  </aside>
+		  <aside class="ejemplos">
+		  <h1>Ejemplo 1'</h1>
+		  <ol>
+			<li>
+			  <div><pre><code><span class="preproc">#define bar qux</span>
+<span class="nvars">foo</span><span class="simbind">(){</span>
+   <span class="preproc">#define bar quux</span>
+   <span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">26</span><span class="simbind">;</span>
+   ...
+<span class="simbind">}</span>
+<span class="nvars">baz</span><span class="simbind">(){</span>
+   <span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">9</span><span class="simbind">;</span>
+   ...
+<span class="simbind">}</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="nvars">foo</span><span class="simbind">(){</span>
+   <span class="preproc">#define bar quux</span>
+   <span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">26</span><span class="simbind">;</span>
+   ...
+<span class="simbind">}</span>
+<span class="nvars">baz</span><span class="simbind">(){</span>
+   <span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">9</span><span class="simbind">;</span>
+   ...
+<span class="simbind">}</span></code></pre></div>
+			</li>
+			<li>
+			  <div><pre><code><span class="nvars">foo</span><span class="simbind">(){</span>
+   <span class="nvars">quux</span><span class="simbind"> = </span><span class="numberp">26</span><span class="simbind">;</span>
+   ...
+<span class="simbind">}</span>
+<span class="nvars">baz</span><span class="simbind">(){</span>
+   <span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">9</span><span class="simbind">;</span>
+   ...
+<span class="simbind">}</span></code></pre></div>
+			</li>
+		  </ol>
+		  </aside>
 		  <div class="gramat">
 			<ol>
 			  <li>
@@ -168,47 +348,6 @@
 			</dl>
 		  </aside>
 		  </div>
-		  <aside class="aclarcn glue">
-			<p><span class="nnoterm">cadena</span> representa una sucesión de símbolos sin espacios.</p>
-			<p><span class="nnoterm">texto</span> representa una sucesión de símbolos y espacios.</p>
-		  </aside>
-		  <div class="mmacro_exp">
-			<div class="macro">
-			  <pre><code><span class="term">#define</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>1<span class="marcsub">’</span></sub></code></pre>
-			  <div class="flecha"></div>
-			  <pre><code>ε</code></pre>
-			</div>
-			<div class="secundario">
-			  <h1>Efecto secundario</h1>
-			  <p>Se sustituye ‘<span class="nnoterm">cadena</span><sub>1</sub>’ por ‘<span class="nnoterm">cadena</span><sub>2</sub>’,
-			  siempre que ‘<span class="nnoterm">cadena</span><sub>1</sub>’ no forme parte de un ‘<span class="nnoterm">enombre</span>’ mayor.</p>
-			</div>
-		  </div>
-		  <aside class="ejemplos">
-		  <h1>Ejemplo</h1>
-		  <ol>
-			<li>
-			  <div><pre><code><span class="preproc">#define foo bar</span>
-<span class="preproc">#define baz 5</span>
-
-<span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">foo</span><span class="simbind">;</span>
-<span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">foo<span class="simbind"> + </span
->baz</span><span class="simbind">;</span></code></pre></div>
-			</li>
-			<li>
-			  <div><pre><code><span class="preproc">#define baz 5</span>
-
-<span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">bar</span><span class="simbind">;</span>
-<span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">bar<span class="simbind"> + </span
->baz</span><span class="simbind">;</span></code></pre></div>
-			</li>
-			<li>
-			  <div><pre><code><span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">bar</span><span class="simbind">;</span>
-<span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">bar</span><span class="simbind"> + </span
-><span class="numberp">5</span><span class="simbind">;</span></code></pre></div>
-			</li>
-		  </ol>
-		  </aside>
 		  <div class="macro">
 			<pre><code><span class="term">signed</span></code></pre>
 			<div class="flecha"></div>

@@ -12,13 +12,35 @@ h3{
 	width:-moz-fit-content;
 }
 
-.warn{
+aside.aclarcn{
+	display:flex;
+	align-items:center;
+	font-size: 0.8em;
+    line-height: 1.5;
+	border-left:solid 5px #e1e2e2;
+	padding:0.5em 0.8em;
+	margin:1.6em 0 4.5em;
+	background-color:rgb(225,226,226,0.18);
+    max-width:50em;
+	width:fit-content;
+	width:-moz-fit-content;
+}
+
+.aclarcn::before{
+	content:"✎";
 	font-size:1.5em;
-	margin:0 0.2em 0 0.5em;
+	margin:0 0.45em 0 0.15em;
 	position:relative;
-	top:0.15em;
 	color:#3a3c4e;
 }
+
+/* .warn{ */
+/* 	font-size:1.5em; */
+/* 	margin:0 0.2em 0 0.5em; */
+/* 	position:relative; */
+/* 	top:0.15em; */
+/* 	color:#3a3c4e; */
+/* } */
 
 .expansor .warn{
 	color:#080e56;
@@ -46,6 +68,10 @@ sub, sup{
 
 .acercar{
 	margin-left:-0.35em;
+}
+
+.alejar{
+	margin-right:0.15em;
 }
 
 .alejarsup{
@@ -90,17 +116,6 @@ sub.subp{
 	color:inherit;
 	font-size:0.9em;
 	margin:0 0.2em 0 0.3em;
-}
-
-aside.aclarcn{
-	font-size: 0.8em;
-    line-height: 1.5;
-	border-left:solid 5px #e1e2e2;
-	padding:0.5em 0.8em;
-	margin:1.6em 0 4.5em;
-	background-color:rgb(225,226,226,0.18);
-	width:fit-content;
-	width:-moz-fit-content;
 }
 
 .expansor aside.aclarcn{
@@ -361,6 +376,20 @@ sub{
 	border:solid 1px #e8ead7;
 	border-radius:0.15em;
 	padding:0.4em;
+}
+
+.mmacro_exp .secundario .casos{
+	display:flex;
+	align-items:center;
+}
+
+.mmacro_exp .secundario .casos p{
+	margin:0 2em;
+}
+
+.mmacro_exp .secundario .casos  pre{
+	margin:1em 1em 1em 1.5em;
+	font-size:0.8em;
 }
 
 .mmacro_exp h1{
@@ -713,12 +742,12 @@ pre .flechita::before{
 	list-style-type:disc !important;
 }
 
-sub .comil{
-	position:relative;
-	font-size:1.6em;
-    top:0.2em;
-    left:-0.1em;
-}
+/* sub .comil{ */
+/* 	position:relative; */
+/* 	font-size:1.6em; */
+/*     top:0.2em; */
+/*     left:-0.1em; */
+/* } */
 
 pre sub .comil{
     left:-0.2em;
