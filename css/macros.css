@@ -34,14 +34,6 @@ aside.aclarcn{
 	color:#3a3c4e;
 }
 
-/* .warn{ */
-/* 	font-size:1.5em; */
-/* 	margin:0 0.2em 0 0.5em; */
-/* 	position:relative; */
-/* 	top:0.15em; */
-/* 	color:#3a3c4e; */
-/* } */
-
 .expansor .warn{
 	color:#080e56;
 }
@@ -89,14 +81,6 @@ sub, sup{
 sub.subp{
 	font-size:0.6em;
 }
-
-/* sub .marcsub{ */
-/* 	font-weight:bold; */
-/*     font-size:1.35em; */
-/*     margin-left:-0.1em; */
-/*     position:relative; */
-/*     top: 0.2em; */
-/* } */
 
 .postulado h1, .expansor h1, dl.expansor dt{
 	padding:0.35em 1.6em 0.3em 0.65em;
@@ -242,7 +226,7 @@ sub{
 }
 
 .ejemplos sub, .ejemplos sup{
-	font-size:0.65em;
+	font-size:0.6em;
 }
 
 .noterm sub, .noterm sup{

@@ -100,7 +100,7 @@
 		  </div>
 		  <div class="mmacro_exp">
 			<div class="macro">
-			  <pre><code><span class="term">#define</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>2</sub></code></pre>
+			  <pre><code><span class="term">#definec</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>2</sub></code></pre>
 			  <div class="flecha"></div>
 			  <pre><code>ε</code></pre>
 			</div>
@@ -114,15 +114,15 @@
 		  <h1>Ejemplo</h1>
 		  <ol>
 			<li>
-			  <div><pre><code><span class="preproc">#define foo bar</span>
-<span class="preproc">#define baz 5</span>
+			  <div><pre><code><span class="preproc">#definec foo bar</span>
+<span class="preproc">#definec baz 5</span>
 
 <span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">foo</span><span class="simbind">;</span>
 <span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">foo<span class="simbind"> + </span
 >baz</span><span class="simbind">;</span></code></pre></div>
 			</li>
 			<li>
-			  <div><pre><code><span class="preproc">#define baz 5</span>
+			  <div><pre><code><span class="preproc">#definec baz 5</span>
 
 <span class="nvars">fooz</span><span class="simbind"> = *</span><span class="nvars">bar</span><span class="simbind">;</span>
 <span class="nvars">foo<span class="simbexp2">$</span>3</span><span class="simbind"> = </span><span class="nvars">bar<span class="simbind"> + </span
@@ -137,13 +137,13 @@
 		  </aside>
 		  <div class="mmacro_exp">
 			<div class="macro">
-			  <pre><code><span class="term">#definec</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>2</sub></code></pre>
+			  <pre><code><span class="term">#definecc</span><span class="nnoterm"> cadena</span><sub>1</sub><span class="nnoterm"> cadena</span><sub>2</sub></code></pre>
 			  <div class="flecha"></div>
 			  <pre><code>ε</code></pre>
 			</div>
 			<div class="secundario">
 			  <h1>Efecto secundario</h1>
-			  <p>Se sustituye igual que en #define menos en <span class="nnoterm">texto</span><sub>1</sub> en las siguientes situaciones:</p>
+			  <p>Se sustituye igual que en #definec menos en <span class="nnoterm">texto</span><sub>1</sub> en las siguientes situaciones:</p>
 			  <div class="casos">
 				<pre>){
    <span class="nnoterm">texto</span><sub>1</sub>
@@ -159,7 +159,7 @@
 		  <h1>Ejemplo 1</h1>
 		  <ol>
 			<li>
-			  <div><pre><code><span class="preproc">#define foo bar</span>
+			  <div><pre><code><span class="preproc">#definecc foo bar</span>
 <span class="var_exp">def_subp</span><span class="simbind">{</span>
    <span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">20</span><span class="simbind">;</span>
    ...
@@ -179,9 +179,9 @@
 		  <h1>Ejemplo 1'</h1>
 		  <ol>
 			<li>
-			  <div><pre><code><span class="preproc">#define bar qux</span>
+			  <div><pre><code><span class="preproc">#definecc bar qux</span>
 <span class="nvars">foo</span><span class="simbind">(){</span>
-   <span class="preproc">#define bar quux</span>
+   <span class="preproc">#definecc bar quux</span>
    <span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">26</span><span class="simbind">;</span>
    ...
 <span class="simbind">}</span>
@@ -192,7 +192,7 @@
 			</li>
 			<li>
 			  <div><pre><code><span class="nvars">foo</span><span class="simbind">(){</span>
-   <span class="preproc">#define bar quux</span>
+   <span class="preproc">#definecc bar quux</span>
    <span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">26</span><span class="simbind">;</span>
    ...
 <span class="simbind">}</span>
@@ -375,12 +375,12 @@
 				<pre><code><span class="term">unsigned int </span><span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre</span
 ><sub>1</sub><span class="noterm">dims<sub>1</sub></span>;</code></pre>
 				<div class="flecha"></div>
-				<pre><code><span class="term">#define </span><span class="nnoterm">nombre</span><sub>1</sub> <span class="term">Y<sub class="nnoterm numnat">n</sub></span
+				<pre><code><span class="term">#definec </span><span class="nnoterm">nombre</span><sub>1</sub> <span class="term">Y<sub class="nnoterm numnat">n</sub></span
 ><span class="noterm">dims<sub>1</sub></span>
-<span class="term">#define </span><span class="nnoterm">nombre</span><sub>1</sub><span class="noterm">dims<sub>1</sub></span
+<span class="term">#definec </span><span class="nnoterm">nombre</span><sub>1</sub><span class="noterm">dims<sub>1</sub></span
 ><span class="term"> Y<sub class="nnoterm numnat">n</sub></span></code></pre>
 			  </div>
-			  <p>donde n es el <span class="noterm">natural</span> asociado a <span class="var_exp">num_position</span>.
+			  <p>donde <span class="nnoterm">n</span> es el <span class="noterm">natural</span> asociado a <span class="var_exp">num_position</span>.
 			</div>
 			<aside class="ejemplos">
 			  <h1>Ejemplo</h1>
@@ -415,8 +415,8 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
 					</ol>
 					<pre><code>1
-<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
-<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
+<span class="preproc">#definec foo Y<sub class="numnat">1</sub></span>
+<span class="preproc">#definec foo Y<sub class="numnat">1</sub></span>
 <span class="pclave">unsigned int </span><span class="nvars">bar</span><span class="simbind">;</span>
 <span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">47</span><span class="simbind">;</span>
 <span class="nvars">bar</span><span class="simbind"> = </span><span class="simbind">*</span><span class="nvars">foo</span><span class="simbind">;</span></code></pre>
@@ -431,8 +431,8 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
 					</ol>
 					<pre><code>1
-<span class="preproc">#define bar Y<sub class="numnat">2</sub></span>
-<span class="preproc">#define bar Y<sub class="numnat">2</sub></span>
+<span class="preproc">#definec bar Y<sub class="numnat">2</sub></span>
+<span class="preproc">#definec bar Y<sub class="numnat">2</sub></span>
 <span class="simbexp">Y<sub class="numbers">1</sub></span><span class="simbind"> = </span><span class="numberp">47</span><span class="simbind">;</span>
 <span class="nvars">bar</span><span class="simbind"> = </span><span class="simbind">*</span><span class="simbexp">Y<sub class="numbers">1</sub></span><span class="simbind">;</span></code></pre>
 				  </div>
@@ -447,7 +447,7 @@
 				<pre><code><span class="term">float </span><span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre</span><sub>1</sub><span class="noterm">dims<sub>1</sub></span>;</code></pre>
 				<div class="flecha"></div>
 				<pre><code><span class="term">unsigned int </span><span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre</span><sub>1</sub><span class="noterm">dims<sub>1</sub></span>;
-<span class="term">#define </span><span class="term"><span class="noterm">stars<sub>1</sub></span>Y<sub class="nnoterm numnat">n</sub></span
+<span class="term">#definec </span><span class="term"><span class="noterm">stars<sub>1</sub></span>Y<sub class="nnoterm numnat">n</sub></span
 ><span class="term"> <span class="noterm">stars<sub>1</sub></span>F<sub class="nnoterm numnat">n</sub></span></code></pre>
 			  </div>
 			  <p>donde n es el <span class="noterm">natural</span> asociado a <span class="var_exp">num_position</span>.</p>
@@ -496,7 +496,7 @@
 					</ol>
 					<pre><code>1
 <span class="pclave">unsigned int </span><span class="nvars">foo</span><span class="simbind">;</span>
-<span class="preproc">#define Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span>
+<span class="preproc">#definec Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span>
 <span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
 ><span class="simbind">;</span>
 <span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
@@ -513,9 +513,9 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li>
 					</ol>
 					<pre><code>1
-<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
-<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
-<span class="preproc">#define Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span>
+<span class="preproc">#definec foo Y<sub class="numnat">1</sub></span>
+<span class="preproc">#definec foo Y<sub class="numnat">1</sub></span>
+<span class="preproc">#definec Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span>
 <span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
 ><span class="simbind">;</span>
 <span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
@@ -532,8 +532,8 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
 					</ol>
 					<pre><code>1
-<span class="preproc">#define foo Y<sub class="numnat">1</sub></span>
-<span class="preproc">#define Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span>
+<span class="preproc">#definec foo Y<sub class="numnat">1</sub></span>
+<span class="preproc">#definec Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span>
 <span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
 ><span class="simbind">;</span>
 <span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
@@ -551,7 +551,7 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
 					</ol>
 					<pre><code>1
-<span class="preproc">#define Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span>
+<span class="preproc">#definec Y<sub class="numnat">1</sub> F<sub class="numnat">1</sub></span>
 <span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">]</span
 ><span class="simbind">;</span>
 <span class="nvars">bar</span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
@@ -914,7 +914,7 @@
 					</ol>
 					<pre><code>1
 <span class="pclave">unsigned int </span><span class="simbind">**</span><span class="nvars">bar</span><span class="simbind">;</span>
-<span class="preproc">#define **Y<sub>2</sub> **F<sub>2</sub></span>
+<span class="preproc">#definec **Y<sub>2</sub> **F<sub>2</sub></span>
 <span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">5</span><span class="simbind">;</span>
 <span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar<span class="simbexp2">$$</span>2</span><span class="simbind"> = {</span
 ><span class="numberp">12</span><span class="simbind">};</span>
@@ -933,9 +933,9 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
 					</ol>
 					<pre><code>1
-<span class="preproc">#define bar Y<sub>2</sub></span>
-<span class="preproc">#define bar Y<sub>2</sub></span>
-<span class="preproc">#define **Y<sub>2</sub> **F<sub>2</sub></span>
+<span class="preproc">#definec bar Y<sub>2</sub></span>
+<span class="preproc">#definec bar Y<sub>2</sub></span>
+<span class="preproc">#definec **Y<sub>2</sub> **F<sub>2</sub></span>
 <span class="nvars">bar</span><span class="simbind"> = </span><span class="numberp">5</span><span class="simbind">;</span>
 <span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar<span class="simbexp2">$$</span>2</span><span class="simbind"> = {</span
 ><span class="numberp">12</span><span class="simbind">};</span>
@@ -954,8 +954,8 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li>
 					</ol>
 					<pre><code>1
-<span class="preproc">#define bar Y<sub>2</sub></span>
-<span class="preproc">#define **Y<sub>2</sub> **F<sub>2</sub></span>
+<span class="preproc">#definec bar Y<sub>2</sub></span>
+<span class="preproc">#definec **Y<sub>2</sub> **F<sub>2</sub></span>
 <span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind"> = </span><span class="numberp">5</span><span class="simbind">;</span>
 <span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar<span class="simbexp2">$$</span>2</span><span class="simbind"> = {</span
 ><span class="numberp">12</span><span class="simbind">};</span>
@@ -974,7 +974,7 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
 					</ol>
 					<pre><code>1
-<span class="preproc">#define **Y<sub>2</sub> **F<sub>2</sub></span>
+<span class="preproc">#definec **Y<sub>2</sub> **F<sub>2</sub></span>
 <span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind"> = </span><span class="numberp">5</span><span class="simbind">;</span>
 <span class="pclave">float </span><span class="simbind">**</span><span class="nvars">bar<span class="simbexp2">$$</span>2</span><span class="simbind"> = {</span
 ><span class="numberp">12</span><span class="simbind">};</span>
@@ -1105,9 +1105,9 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li>
 					</ol>
 					<pre><code>...
-<span class="preproc">#define bar Y<sub>4</sub>$1</span>
-<span class="preproc">#define bar$1 Y<sub>4</sub></span>
-<span class="preproc">#define **Y<sub>4</sub> **F<sub>4</sub></span>
+<span class="preproc">#definec bar Y<sub>4</sub>$1</span>
+<span class="preproc">#definec bar$1 Y<sub>4</sub></span>
+<span class="preproc">#definec **Y<sub>4</sub> **F<sub>4</sub></span>
 <span class="nvars">bar<span class="simbexp2">$</span>1</span><span class="simbind"> = </span
 ><span class="numberp">0</span><span class="simbind">;</span>
 <span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
@@ -1125,8 +1125,8 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>
 					</ol>
 					<pre><code>...
-<span class="preproc">#define bar$1 Y<sub>4</sub></span>
-<span class="preproc">#define **Y<sub>4</sub> **F<sub>4</sub></span>
+<span class="preproc">#definec bar$1 Y<sub>4</sub></span>
+<span class="preproc">#definec **Y<sub>4</sub> **F<sub>4</sub></span>
 <span class="nvars">bar<span class="simbexp2">$</span>1</span><span class="simbind"> = </span
 ><span class="numberp">0</span><span class="simbind">;</span>
 <span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
@@ -1144,7 +1144,7 @@
 					  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
 					</ol>
 					<pre><code>...
-<span class="preproc">#define **Y<sub>4</sub> **F<sub>4</sub></span>
+<span class="preproc">#definec **Y<sub>4</sub> **F<sub>4</sub></span>
 <span class="simbexp">Y<sub class="numbers">4</sub></span><span class="simbind"> = </span><span class="numberp">0</span><span class="simbind">;</span>
 <span class="simbexp">Y<sub class="numbers">2</sub></span><span class="simbind">[</span><span class="numberp">1</span><span class="simbind">]</span><span class="simbind"> = </span
 ><span class="numberp">91</span><span class="simbind">;</span>
