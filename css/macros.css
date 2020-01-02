@@ -74,7 +74,7 @@ sub, sup{
 	margin-left:-0.15em;
 }
 
-.noterm sub{
+.noterm sub, .acercarder{
 	margin-right:-0.15em;
 }
 
