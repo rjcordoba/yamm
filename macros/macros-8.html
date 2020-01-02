@@ -1,0 +1,401 @@
+ <!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
+	<script src="../js/macros.js" defer></script>
+
+    <style></style>
+
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura">
+		<h1>Lenguaje C--</h1>
+		<h2>Macros y utilidades</h2>
+		<main><!--***********************-->
+		  <h3>Declaración de subprogramas</h3>
+		  <div class="gramat glueg">
+			<ol>
+			  <li>
+				<div class="noterm">vindf</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="noterm">nat</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">indf</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="term">[</span><span class="noterm">vindf</span><span class="term">]</span><span class="noterm">indf</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">parid</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="nnoterm">nombre</span><span class="noterm">indf</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">param</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="nnoterm">type</span> <span class="noterm">stars</span><span class="noterm">parid</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">rest_params</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="term">,</span> <span class="noterm">param</span><span class="noterm">rest_params</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">params</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="noterm">param</span><span class="noterm">rest_params</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">tpar</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="term">$Y</span></li>
+				  <li><span class="term">$F</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">tpars</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li>&epsilon;</li>
+				  <li><span class="noterm">tpar</span><span class="noterm">tpars</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">ftype</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="nnoterm">type</span></li>
+				  <li><span class="term">void</span></li>
+				</ul>
+			  </li>
+			  <li>
+				<div class="noterm">fnombre</div>
+				<div class="flechag"></div>
+				<ul>
+				  <li><span class="nnoterm">nombre</span><span class="noterm">tpars</span></li>
+				</ul>
+			  </li>
+			</ol>
+		  </div>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">nombre</span><sub>1</sub><span class="term">(</span><span class="noterm">param<sub>1</sub></span
+><span class="noterm">rest_params<sub>1</sub></span><span class="term">);</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="nnoterm">nombre</span><sub>1</sub><span class="term">$</span><span class="noterm">param<sub>1</sub></span
+><span class="term">(</span><span class="noterm">rest_params<sub>1</sub></span><span class="term">);</span></code></pre>
+		  </div>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$</span><span class="nnoterm">V</span><span class="term">(,</span
+><span class="noterm">param<sub>1</sub></span><span class="noterm">rest_params<sub>1</sub></span><span class="term">);</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$</span><span class="nnoterm">V</span><span class="term">,$</span
+><span class="noterm">param<sub>1</sub></span><span class="term">(</span><span class="noterm">rest_params<sub>1</sub></span><span class="term">);</span></code></pre>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo</span><span class="simbind">(</span><span class="pclave">unsigned int **</span><span class="simbind">,</span
+> <span class="pclave">float</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo<span class="simbexp2">$</span></span><span class="pclave">unsigned int **</span><span class="simbind">(</span
+><span class="simbind">,</span> <span class="pclave">float</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			</ol>
+		  </aside>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$</span><span class="noterm">type<sub>1</sub></span><span class="noterm">stars<sub>1</sub></span
+><span class="nnoterm">nombre</span><span class="term">[</span><span class="noterm">vindf</span><span class="term">]</span><span class="noterm">indf</span><span class="term">(</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$</span><span class="noterm">type<sub>1</sub></span><span class="noterm">stars<sub>1</sub></span
+><span class="term">*(</span></code></pre>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">unsigned int</span> <span class="nvars">foo</span><span class="simbind">(</span><span class="pclave">float *</span><span class="nvars">bar</span><span class="simbind">[</span
+><span class="numberp">3</span><span class="simbind">]</span><span class="simbind">,</span> <span class="pclave">float</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">unsigned int</span> <span class="nvars">foo</span><span class="simbexp2">$</span><span class="pclave">float *</span><span class="nvars">bar</span><span class="simbind">[</span
+><span class="numberp">3</span><span class="simbind">]</span><span class="simbind">(</span><span class="simbind">,</span> <span class="pclave">float</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">unsigned int</span> <span class="nvars">foo</span><span class="simbexp2">$</span><span class="pclave">float **</span
+><span class="simbind">(</span><span class="simbind">,</span> <span class="pclave">float</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			</ol>
+		  </aside>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$</span><span class="noterm">type<sub>1</sub></span><span class="noterm">stars<sub>1</sub></span
+><span class="nnoterm">nombre</span><span class="term">(</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$</span><span class="noterm">type<sub>1</sub></span><span class="noterm">stars<sub>1</sub></span
+><span class="term">(</span></code></pre>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo</span><span class="simbind">(</span><span class="pclave">float</span> <span class="nvars">bar</span
+><span class="simbind">,</span> <span class="pclave">float</span><span class="nvars"> baz</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo</span><span class="simbexp2">$</span><span class="pclave">float</span> <span class="nvars">bar</span
+><span class="simbind">(</span><span class="simbind">,</span> <span class="pclave">float</span><span class="nvars"> baz</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo</span><span class="simbexp2">$</span><span class="pclave">float</span><span class="simbind">(</span
+><span class="simbind">,</span> <span class="pclave">float</span><span class="nvars"> baz</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			</ol>
+		  </aside>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$</span><span class="noterm">type<sub>1</sub></span><span class="noterm">stars<sub>1</sub></span
+><span class="term">*(</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$Y(</span></code></pre>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo</span><span class="simbexp2">$</span><span class="pclave">float **</span
+><span class="simbind">(</span><span class="simbind">,</span> <span class="pclave">float</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo<span class="simbexp2">$</span>Y</span><span class="simbind">(</span><span class="simbind">,</span
+> <span class="pclave">float</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			</ol>
+		  </aside>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$</span><span class="term">unsigned int</span><span class="term">(</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$Y(</span></code></pre>
+		  </div>
+		  <div class="macro">
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$</span><span class="term">float</span><span class="term">(</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="nnoterm">fnombre</span><sub>1</sub><span class="term">$F(</span></code></pre>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo</span><span class="simbind">(</span><span class="pclave">float</span> <span class="nvars">bar</span><span class="simbind">,</span
+> <span class="pclave">unsigned int</span> <span class="nvars">baz</span><span class="simbind">,</span> <span class="pclave">float</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<p class="puntitos"></p>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo<span class="simbexp2">$</span>F<span class="simbexp2">$</span>Y</span><span class="simbexp2">$</span
+><span class="simbind">(</span><span class="simbind">,</span> <span class="pclave">float</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo<span class="simbexp2">$</span>F<span class="simbexp2">$</span>Y</span
+><span class="simbexp2">$</span><span class="pclave">float</span><span class="simbind">(</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">foo<span class="simbexp2">$</span>F<span class="simbexp2">$</span>Y<span class="simbexp2">$</span>F</span
+><span class="simbind">(</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			</ol>
+		  </aside>
+		  <div class="macro">
+			<pre><code><span class="term">void</span> <span class="noterm">stars</span><span class="term">**</span><span class="nnoterm">nombre</span
+><sub>1</sub><span class="noterm">tpars<sub>1</sub></span>();</code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">void</span> <span class="term">*</span><span class="nnoterm">nombre</span
+><sub>1</sub><span class="noterm">tpars<sub>1</sub></span>();</code></pre>
+		  </div>
+		  <div class="macro">
+			<pre><code><span class="term">void</span> <span class="term">*</span><span class="nnoterm">nombre</span
+><sub>1</sub><span class="noterm">tpars<sub>1</sub></span>();</code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">#define </span><span class="nnoterm">nombre</span><sub>1</sub> <span class="term">Y</span><sub><span class="numnat"
+>:</span><span class="nnoterm">nombre</span><sub>1</sub></sub><span class="noterm">tpars<sub>1</sub></span></code></pre>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">void</span> <span class="simbind">***</span><span class="nvars">foo<span class="simbexp2">$</span>F<span class="simbexp2">$</span>F</span
+><span class="simbind">(</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">void</span> <span class="simbind">*</span><span class="nvars">foo<span class="simbexp2">$</span>F<span class="simbexp2">$</span>F</span
+><span class="simbind">(</span><span class="simbind">);</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="preproc">#define foo Y<sub class="acercar">:foo</sub>$F$F</span></code></pre></div>
+			  </li>
+			</ol>
+		  </aside>
+		  <div class="macro">
+			<pre><code><span class="term">void</span> <span class="nnoterm">nombre</span
+><sub>1</sub><span class="noterm">tpars<sub>1</sub></span>();</code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">#define </span><span class="nnoterm">nombre</span><sub>1</sub> <span class="term">N</span><sub><span class="numnat"
+>:</span><span class="nnoterm">nombre</span><sub>1</sub></sub><span class="noterm">tpars<sub>1</sub></span></code></pre>
+		  </div>
+		  <div class="macro">
+			<pre><code><span class="term">unsigned int </span><span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre</span
+><sub>1</sub><span class="noterm">tpars<sub>1</sub></span>();</code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">#define </span><span class="nnoterm">nombre</span><sub>1</sub> <span class="term">Y</span><sub><span class="numnat"
+>:</span><span class="nnoterm">nombre</span><sub>1</sub></sub><span class="noterm">tpars<sub>1</sub></span></code></pre>
+		  </div>
+		  <div class="macro">
+			<pre><code><span class="term">float</span> <span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre</span
+><sub>1</sub><span class="noterm">tpars<sub>1</sub></span><span class="term">();</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">#define </span><span class="nnoterm">nombre</span><sub>1</sub> <span class="term">Y</span><sub><span class="numnat"
+>:</span><span class="nnoterm">nombre</span><sub>1</sub></sub><span class="noterm">tpars<sub>1</sub></span>
+<span class="term">#define </span><span class="noterm">stars<sub>1</sub></span><span class="term">Y</span><sub><span class="numnat"
+>:</span><span class="nnoterm">nombre</span><sub>1</sub></sub> <span class="noterm">stars<sub>1</sub></span><span class="term">F</span><sub><span class="numnat"
+>:</span><span class="nnoterm">nombre</span><sub>1</sub></sub></code></pre>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="simbind">*</span><span class="nvars">foo<span class="simbexp2">$</span>Y</span
+><span class="simbind">(</span><span class="simbind">);</span>
+...
+<span class="nvars">bar</span><span class="simbind"> = *</span><span class="nvars">foo</span><span class="simbind">();</span>
+<span class="nvars">baz</span><span class="simbind"> = </span><span class="nvars">foo</span><span class="simbind">();</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="preproc">#define foo Y<sub class="acercar">:foo</sub>$Y</span>
+<span class="preproc">#define *Y<sub class="acercar">:foo</sub> *F<sub class="acercar">:foo</sub></span>
+...
+<span class="nvars">bar</span><span class="simbind"> = *</span><span class="nvars">foo</span><span class="simbind">();</span>
+<span class="nvars">baz</span><span class="simbind"> = </span><span class="nvars">foo</span><span class="simbind">();</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="preproc">#define *Y<sub class="acercar">:foo</sub> *F<sub class="acercar">:foo</sub></span>
+...
+<span class="nvars">bar</span><span class="simbind"> = *</span><span class="simbexp">Y</span><sub class="pos_puntos acercar">foo</sub><span class="simbexp2">$</span><span class="nvars">Y</span
+><span class="simbind">();</span>
+<span class="nvars">baz</span><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="pos_puntos acercar">foo</sub><span class="simbexp2">$</span><span class="nvars">Y</span
+><span class="simbind">();</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code>...
+<span class="nvars">bar</span><span class="simbind"> = *</span><span class="simbexp">F</span><sub class="pos_puntos acercar">foo</sub><span class="simbexp2">$</span><span class="nvars">Y</span
+><span class="simbind">();</span>
+<span class="nvars">baz</span><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="pos_puntos acercar">foo</sub><span class="simbexp2">$</span><span class="nvars">Y</span
+><span class="simbind">();</span></code></pre></div>
+			  </li>
+			</ol>
+		  </aside>
+		  		  <div class="macro">
+			<pre><code><span class="nnoterm">ftype</span> <span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre<sub>1</sub></span><span class="term">(</span
+><span class="noterm">params<sub>1</sub></span><span class="term">){</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="nnoterm">type</span> <span class="noterm">stars<sub>1</sub></span><span class="nnoterm">nombre<sub>1</sub></span><span class="term">(</span
+><span class="noterm">params<sub>1</sub></span><span class="term">);</span>
+<span class="nnoterm">nombre<sub>1</sub></span><span class="term">(</span><span class="noterm">params<sub>1</sub></span><span class="term">){</span></code></pre>
+		  </div>
+		  <aside class="ejemplos">
+			<h1>Ejemplo</h1>
+			<ol>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">power</span><span class="simbind">(</span><span class="pclave">float</span> <span class="nvars">base</span><span class="simbind">,</span
+> <span class="pclave">float</span> <span class="nvars">n</span><span class="simbind">){</span>
+   <span class="pclave">float</span> <span class="nvars">i</span><span class="simbind">,</span> <span class="nvars">p</span><span class="simbind">;</span>
+   <span class="nvars">p</span><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span>
+   <span class="pclave">for</span><span class="simbind">(</span><span class="nvars">i</span><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span
+> <span class="nvars">i</span><span class="simbind"> <= </span><span class="nvars">n</span><span class="simbind">;</span
+><span class="simbind"> ++</span><span class="nvars">i</span><span class="simbind">){</span>
+      <span class="nvars">p</span><span class="simbind"> = </span><span class="nvars">p</span> <span class="simbind">*</span> <span class="nvars">base</span><span class="simbind">;</span>
+   <span class="simbind">}</span>
+   <span class="pclave">return</span> <span class="nvars">p</span><span class="simbind">;
+}</span></code></pre></div>
+			  </li>
+			  <li>
+				<div><pre><code><span class="pclave">float</span> <span class="nvars">power</span><span class="simbind">(</span><span class="pclave">float</span> <span class="nvars">base</span><span class="simbind">,</span
+> <span class="pclave">float</span> <span class="nvars">n</span><span class="simbind">);</span>
+<span class="nvars">power</span><span class="simbind">(</span><span class="pclave">float</span> <span class="nvars">base</span><span class="simbind">,</span
+> <span class="pclave">float</span> <span class="nvars">n</span><span class="simbind">){</span>
+   <span class="pclave">float</span> <span class="nvars">i</span><span class="simbind">,</span> <span class="nvars">p</span><span class="simbind">;</span>
+   <span class="nvars">p</span><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span>
+   <span class="pclave">for</span><span class="simbind">(</span><span class="nvars">i</span><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span
+> <span class="nvars">i</span><span class="simbind"> <= </span><span class="nvars">n</span><span class="simbind">;</span
+><span class="simbind"> ++</span><span class="nvars">i</span><span class="simbind">){</span>
+      <span class="nvars">p</span><span class="simbind"> = </span><span class="nvars">p</span> <span class="simbind">*</span> <span class="nvars">base</span><span class="simbind">;</span>
+   <span class="simbind">}</span>
+   <span class="pclave">return</span> <span class="nvars">p</span><span class="simbind">;
+}</span></code></pre></div>
+			  </li>
+			  <li>
+				<p class="puntitos"></p>
+			  </li>
+			  <li>
+				<div><pre><code><span class="simbexp">F</span><sub class="pos_puntos acercar">power</sub><span class="simbexp2">$</span><span class="nvars">F</span><span class="simbexp2">$</span
+><span class="nvars">F</span><span class="simbind">(</span><span class="pclave">float</span> <span class="nvars">base</span><span class="simbind">,</span
+> <span class="pclave">float</span> <span class="nvars">n</span><span class="simbind">){</span>
+   <span class="pclave">float</span> <span class="nvars">i</span><span class="simbind">,</span> <span class="nvars">p</span><span class="simbind">;</span>
+   <span class="nvars">p</span><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span>
+   <span class="pclave">for</span><span class="simbind">(</span><span class="nvars">i</span><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span
+> <span class="nvars">i</span><span class="simbind"> <= </span><span class="nvars">n</span><span class="simbind">;</span
+><span class="simbind"> ++</span><span class="nvars">i</span><span class="simbind">){</span>
+      <span class="nvars">p</span><span class="simbind"> = </span><span class="nvars">p</span> <span class="simbind">*</span> <span class="nvars">base</span><span class="simbind">;</span>
+   <span class="simbind">}</span>
+   <span class="pclave">return</span> <span class="nvars">p</span><span class="simbind">;
+}</span></code></pre></div>
+			  </li>
+			</ol>
+		  </aside>
+		</main><!--***********************-->
+	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>
