@@ -176,6 +176,87 @@
 		  </li>
 		</ol>
 	  </aside>
+	  <div class="macro">
+		  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span>&gamma;<span class="term"> || </span
+>&delta;<span class="term"> ||</span></code></pre>
+		  <div class="flecha"></div>
+		  <pre><code><span class="term">Z</span><sub>.or</sub><span class="term"> = </span>&gamma;<span class="term"> || </span>&delta;<span class="term">;</span>
+<span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z</span><sub>.or</sub><span class="term"> ||</span></code></pre>
+	  </div>
+	  <aside class="ejemplos">
+		<h1>Ejemplo</h1>
+		<ol>
+		  <li>
+			<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">F</span><sub class="numbers">12</sub
+><span class="simbind"> &lt; </span><span class="simbexp">Y</span><sub class="numbers">4</sub><span class="booleano"> || </span><span class="simbexp">Y</span><sub class="numbers">5</sub
+><span class="simbind"> < </span><span class="numberp">19</span><span class="booleano"> || </span><span class="simbexp">Y</span><sub class="numbers">5</sub
+><span class="simbind"> &gt; </span><span class="numberp">23</span><span class="simbind">;</span></code></pre></div>
+		  </li>
+		  <li>
+			<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.or</sub><span class="simbind"> = </span><span class="simbexp">F</span><sub class="numbers">12</sub
+><span class="simbind"> &lt; </span><span class="simbexp">Y</span><sub class="numbers">4</sub><span class="booleano"> || </span><span class="simbexp">Y</span><sub class="numbers">5</sub
+><span class="simbind"> < </span><span class="numberp">19</span><span class="simbind">;</span>
+<span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.or</sub><span class="booleano"> || </span
+><span class="simbexp">Y</span><sub class="numbers">5</sub><span class="simbind"> &gt; </span><span class="numberp">23</span><span class="simbind">;</span></code></pre></div>
+		  </li>
+		</ol>
+	  </aside>
+	  <div class="macro">
+		  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span>&gamma;<span class="term"> || </span>&delta;<span class="term"> && </span>&eta;</code></pre>
+		  <div class="flecha"></div>
+		  <pre><code><span class="term">Z</span><sub>.and</sub><span class="term"> = </span>&delta;<span class="term"> && </span>&eta;<span class="term">;</span>
+<span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span>&gamma;<span class="term"> || </span><span class="term">Z</span><sub>.and</sub></code></pre>
+	  </div>
+	  <aside class="ejemplos">
+		<h1>Ejemplo</h1>
+		<ol>
+		  <li>
+			<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">F</span><sub class="numbers">12</sub
+><span class="simbind"> &lt; </span><span class="simbexp">Y</span><sub class="numbers">4</sub><span class="booleano"> || </span><span class="simbexp">F</span><sub class="numbers">12</sub
+><span class="simbind"> == </span><span class="numberp">11</span><span class="booleano"> && </span><span class="simbexp">F</span><sub class="numbers">33</sub
+><span class="simbind"> &gt; </span><span class="numberp">87</span><span class="simbind">;</span></code></pre></div>
+		  </li>
+		  <li>
+			<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.and</sub><span class="simbind"> = </span><span class="simbexp">F</span><sub class="numbers">12</sub
+><span class="simbind"> == </span><span class="numberp">11</span><span class="booleano"> && </span><span class="simbexp">F</span><sub class="numbers">33</sub
+><span class="simbind"> &gt; </span><span class="numberp">87</span><span class="simbind">;</span>
+<span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">F</span><sub class="numbers">12</sub><span class="simbind"> &lt; </span
+><span class="simbexp">Y</span><sub class="numbers">4</sub><span class="booleano"> || </span><span class="simbexp">Z</span><sub class="id_exp">.and</sub><span class="simbind">;</span></code></pre></div>
+		  </li>
+		</ol>
+	  </aside>
+
+
+
+
+	  
+	  <div class="macro">
+		  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span>&gamma;<span class="term"> && </span>&delta; <span class="noterm">opdb<sub>1</sub></span></code></pre>
+		  <div class="flecha"></div>
+		  <pre><code><span class="term">Z</span><sub>.and</sub><span class="term"> = </span>&gamma;<span class="term"> && </span>&delta;<span class="term">;</span>
+<span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z</span><sub>.and</sub> <span class="noterm">opdb<sub>1</sub></span></code></pre>
+	  </div>
+	  <aside class="ejemplos">
+		<h1>Ejemplo</h1>
+		<ol>
+		  <li>
+			<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="numbers">32</sub
+><span class="simbind"> =&lt; </span><span class="numberp">5</span><span class="booleano"> && </span><span class="simbexp">Y</span><sub class="numbers">33</sub
+><span class="simbind"> &gt; </span><span class="numberp">11</span><span class="booleano"> && </span><span class="simbexp">Y</span><sub class="numbers">34</sub
+><span class="simbind"> &gt; </span><span class="numberp">20</span><span class="simbind">;</span></code></pre></div>
+		  </li>
+		  <li>
+			<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="numbers">32</sub
+><span class="simbind"> =&lt; </span><span class="numberp">5</span><span class="booleano"> && </span><span class="simbexp">Y</span><sub class="numbers">33</sub
+><span class="simbind"> &gt; </span><span class="numberp">11</span><span class="simbind">;</span>
+<span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.and</sub><span class="booleano"> && </span
+><span class="simbexp">Y</span><sub class="numbers">34</sub><span class="simbind"> &gt; </span><span class="numberp">20</span><span class="simbind">;</span></code></pre></div>
+		  </li>
+		</ol>
+	  </aside>
+
+
+
     </main><!--***********************-->
     <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
 	</div>

@@ -59,19 +59,19 @@ sub, sup{
 }
 
 .acercar{
-	margin-left:-0.35em;
+	margin-left:-0.35em !important;
 }
 
 .alejar{
-	margin-right:0.15em;
+	margin-right:0.15em !important;
 }
 
 .alejarsup{
-	margin-left:0.15em;
+	margin-left:0.15em !important;
 }
 
 .acercarsup{
-	margin-left:-0.15em;
+	margin-left:-0.15em !important;
 }
 
 .noterm sub, .acercarder{
@@ -725,13 +725,6 @@ pre .flechita::before{
 .discos > li{
 	list-style-type:disc !important;
 }
-
-/* sub .comil{ */
-/* 	position:relative; */
-/* 	font-size:1.6em; */
-/*     top:0.2em; */
-/*     left:-0.1em; */
-/* } */
 
 pre sub .comil{
     left:-0.2em;
