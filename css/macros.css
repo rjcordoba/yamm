@@ -427,7 +427,7 @@ sub{
     content:"⮕";
     font-size:0.7em;
     color:#555;
-    padding:0 0.6em;
+    padding:0 0.8em;
 	font-style:normal;
 }
 
@@ -485,7 +485,7 @@ sub{
 .ejemplos li > div{
 	border:solid 2px #767888;
 	border-radius:4px;
-	line-height:2em;
+	line-height:2.3em;
 	position:relative;
 	display:flex;
 }

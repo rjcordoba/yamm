@@ -83,10 +83,10 @@
 			<pre><code><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span>
-<span class="nnoterm">texto</span><sub>1<span class="comil">’</span></sub>
+<span class="nnoterm">texto</span><sub>2</sub>
 <span class="nnoterm">EOF</span></code></pre>
 			<div class="flecha"></div>
-			<pre><code><span class="nnoterm">texto</span><sub>1<span class="comil">’</span></sub>
+			<pre><code><span class="nnoterm">texto</span><sub>2</sub>
 <span class="term">$</span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span>
@@ -179,7 +179,7 @@
 		  <dl class="expansor glue">
 			<dt class="flechita"><span class="pos_puntos"><span class="llavea">⟨</span><span class="nnoterm">id</span><span>⟩</span></span></dt>
 			<dd>
-			  <p class="mimp">Marcas que pone el expansor.</p>
+			  <p class="mimp">Señales que pone el expansor.</p>
 			</dd>
 		  </dl>
 		  <div class="gramat">
@@ -200,7 +200,7 @@
 <span class="term">}</span></code></pre>
 			<div class="flecha"></div>
 			<pre class="complicado"><span class="term">:def_subp:{</span>
-   <span class="term">#definec &amp;R </span><span class="nnoterm">W </span>
+   <span class="term">#definec $R </span><span class="nnoterm">W </span>
    <span class="nnoterm">texto</span><sub>1</sub>
    <span class="term">Z</span><sub>:<span class=" nnoterm">i</span></sub><span class="term"> = *</span><span class="term">Y</span
 ><sub class="numnaty">:top</sub><span class="term">;</span><span class="flechita"><span class="pos_puntos">ret</span></span>
@@ -229,21 +229,48 @@
 			  </li>
 			  <li>
 				<div><pre><code><span class="var_exp">def_subp</span><span class="simbind">{</span>
-   <span class="preproc">#definec &amp;R F</span>
+   <span class="preproc">#definec $R F</span>
    <span class="pclave">float</span> <span class="nvars">base</span><span class="simbind">;</span>
    ...
          <span class="nvars">p</span><span class="simbind"> = </span><span class="nvars">p</span> <span class="simbind">*</span> <span class="nvars">base</span><span class="simbind">;</span>
    <span class="simbind">}</span>
    <span class="pclave">return</span> <span class="nvars">p</span><span class="simbind">;</span>
-   <span class="simbexp">F</span><sub class="pos_puntos">19</sub><span class="simbind"> = *</span><span class="simbexp">Y</span
-><sub class="pos_puntos">top</sub><span class="simbind">;</span><span class="flechita"><span class="pos_puntos term">ret</span></span>
-   <span class="var_exp">restaurar_vals</span>
-   ＊<span class="flechita"><span class="pos_puntos term">19</span></span>
+   <span class="simbexp">Z</span><sub class="pos_puntos">67</sub><span class="simbind"> = *</span><span class="simbexp">Y</span
+><sub class="pos_puntos acercar">top</sub><span class="simbind">;</span><span class="flechita"><span class="pos_puntos term">ret</span></span>
+   <span class="var_exp">rest_vals</span>
+   ＊<span class="flechita"><span class="pos_puntos term">67</span></span>
    1<sup class="pos_puntos">np</sup><span class="flechita"><span class="pos_puntos term">npos</span></span>
 <span class="simbind">}</span></code></pre>
 				</div>
 			</ol>
 		  </aside>
+          <dl class="expansor titpeq">
+			<dt><span class="var_exp">rest_vals</span></dt>
+			<dd>
+			  <div class="macro">
+				<pre><code><span class="term">:rest_vals:</span></code></pre>
+				<div class="flecha"></div>
+				<pre class="complicado"><code><span class="term">Z<sub>:top</sub>--;</span>
+<span class="term">Z<sub>.r1</sub> = *Y<sub>:top</sub>;</span>
+<span class="term">Z<sub>:top</sub>--;</span>
+<span class="term">Z<sub>.r2</sub> = *Y<sub>:top</sub>;</span>
+<span class="term">Z<sub>:top</sub>--;</span>
+<span class="term">Z<sub>.and</sub> = *Y<sub>:top</sub>;</span>
+<span class="term">Z<sub>:top</sub>--;</span>
+<span class="term">Z<sub>.or</sub> = *Y<sub>:top</sub>;</span>
+<span class="term">Z<sub>:top</sub>--;</span>
+<span class="term">Z<sub>.ob1</sub> = *Y<sub>:top</sub>;</span>
+<span class="term">Z<sub>:top</sub>--;</span>
+<span class="term">Z<sub>.op1</sub> = *Y<sub>:top</sub>;</span>
+<span class="term">Z<sub>:top</sub>--;</span>
+<span class="term">Z<sub>.brk</sub> = *Y<sub>:top</sub>;</span>
+<span class="term">Z<sub>:top</sub>--;</span>
+<span class="term">Z<sub>.sw</sub> = *Y<sub>:top</sub>;</span>
+<span class="term">Z<sub>:top</sub>--;</span>
+<span class="term">Z<sub>:top</sub> = *Y<sub>:top</sub>;</span></code></pre>
+			</div>
+			</dd>
+		  </dl>
 		  <dl class="expansor">
 			<dt><span class="var_exp">def_subp</span>{<span class="noexp"><span class="nnoterm">texto</span><sub>1</sub></span>}</dt>
 			<dd>
@@ -251,13 +278,13 @@
 			  <ol>
 				<li>asocia 1 a <span class="var_exp pbajo">num_position</span>.</li>
 				<li>expande las macroinstrucciones en <span class="nnoterm">texto</span><sub>1</sub> hasta obtener <span class="noterm">preinstrucciones<sub>1</sub></span>.</li>
-				<li>sustituye <span class="flechita subir"><span class="pos_puntos pbajo">return</span></span> por una marca, sea
+				<li>sustituye <span class="flechita subir"><span class="pos_puntos pbajo">return</span></span> por una señal, sea
 				  <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">k</span></span>, y todas las apariciones de <span class="pos_puntos pbajo">return</span> en
 				  <span class="noterm">preinstrucciones<sub>1</sub></span> por <span class="pos_puntos nnoterm pbajo">k</span>.
 				</li>
 				<li>sustituye la última <span class="noterm">preinstrucción</span>, 1<sup class="pos_puntos">np</sup>, por 1<sup class="nnoterm">n</sup>, donde
 				  <span class="nnoterm">n</span> es el <span class="noterm">natural</span> asociado a <span class="var_exp pbajo">num_position</span>.</li>
-				<li>sustituye <span class="flechita subir"><span class="pos_puntos pbajo">npos</span></span> por una marca, sea <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">p</span></span>, y
+				<li>sustituye <span class="flechita subir"><span class="pos_puntos pbajo">npos</span></span> por una señal, sea <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">p</span></span>, y
 				  todas las apariciones de <span class="pos_puntos pbajo">npos</span> en <span class="noterm">preinstrucciones<sub>1</sub></span> por <span class="pos_puntos nnoterm pbajo">p</span>.
 				</li>
 				<li>asocia <span class="nnoterm">m</span> a <span class="var_exp pbajo">num_position</span>.</li>
@@ -270,13 +297,13 @@
 				<ol>
 				  <li>antes de añadir la <span class="noterm">preinstrucción</span> 1<sup class="pos_puntos">top</sup> añade una <span class="noterm">preinstrucción</span>
 					1<sup class="nnoterm">n</sup>, donde <span class="nnoterm">n</span> es el <span class="noterm">natural</span> asociado a <span class="var_exp pbajo">num_position</span>.</li>
-				  <li>añade una marca <span class="flechita subir"><span class="pos_puntos pbajo">$npos</span></span>. apuntando a esta <span class="noterm">preinstrucción</span>.</li>
+				  <li>añade una señal <span class="flechita subir"><span class="pos_puntos pbajo">$npos</span></span>. apuntando a esta <span class="noterm">preinstrucción</span>.</li>
 				  <li>sustituye las apariciones de <span class="pos_puntos pbajo">npos</span> en cualquier <span class="noterm">preinstrucción</span>
 					por <span class="pos_puntos pbajo">$npos</span>.</li>
 				  <li>
-					<p>por cada marca <span class="flechita subir"><span class="pos_puntos pbajo"><span class="noterm">id<sub>1</sub></span></span></span> presente:</p>
+					<p>por cada señal <span class="flechita subir"><span class="pos_puntos pbajo"><span class="noterm">id<sub>1</sub></span></span></span> presente:</p>
 					<ol>
-					  <li>la sustituye por una marca <span class="flechita subir"><span class="pos_puntos pbajo"><span class="noterm">natural</span></span></span>;
+					  <li>la sustituye por una señal <span class="flechita subir"><span class="pos_puntos pbajo"><span class="noterm">natural</span></span></span>;
 						sea ésta <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">i</span></span>.</li>
 					  <li>sustituye las apariciones de <span class="pos_puntos pbajo"><span class="noterm">id<sub>1</sub></span></span> en cualquier <span class="noterm">preinstrucción</span>
 						por <span class="pos_puntos nnoterm pbajo">i</span>.

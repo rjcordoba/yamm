@@ -44,6 +44,9 @@
 	  .exp_li_macros li{
 		  margin-top:1.4em;
 	  }
+	  #cont-principal .expansor .titpeq{
+		  font-size:1.15em;
+}
 	</style>
 
   </head>
@@ -131,7 +134,7 @@
 ><span class="term">Z</span><sub>.fp</sub><span class="term"> = </span><span class="term">Z</span><sub>:top</sub><span class="term">;</span>
 <span class="term">Z</span><sub>.fp</sub><span class="term"> += </span><span class="term">Z</span><sub>:npos</sub><span class="term">;</span>
 <span class="term">*Y</span><sub class="numnaty">.fp</sub><span class="term"> = </span><span class="term">Z</span><sub>:top</sub><span class="term">;</span>
-:guardar:
+<span class="term">:guardar_vals:</span>
 <span class="term">Z</span><sub>.fp</sub><span class="term">++;</span>
 <span class="term">*Y</span><sub class="numnaty">.fp</sub><span class="term"> = </span><span class="term">Z</span><sub>:<span class="nnoterm">i</span></sub><span class="term">;</span>
 :poner_args:<span class="noterm">tpars<sub>1</sub></span><span class="nnoterm">,</span><span class="noterm">args<sub>1</sub></span><span class="term">$</span>
@@ -148,22 +151,47 @@
 ><span class="nvars">Y</span><span class="simbind">(</span><span class="numberp">13</span><span class="simbind">,</span> <span class="numberp">53</span><span class="simbind">);</span></code></pre></div>
 			  </li>
 			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp acercar">.fp</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="pos_puntos">top</sub><span class="simbind">;</span>
-<span class="simbexp">Z</span><sub class="id_exp acercar">.fp</sub><span class="simbind"> += </span><span class="simbexp">Z</span><sub class="pos_puntos">npos</sub><span class="simbind">;</span>
+				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.fp</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="pos_puntos">top</sub><span class="simbind">;</span>
+<span class="simbexp">Z</span><sub class="id_exp">.fp</sub><span class="simbind"> += </span><span class="simbexp">Z</span><sub class="pos_puntos">npos</sub><span class="simbind">;</span>
 <span class="simbind">*</span><span class="simbexp">Y</span><sub class="id_exp acercar">.fp</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="pos_puntos">top</sub><span class="simbind">;</span>
 <span class="var_exp">guardar_vals</span>
-<span class="simbexp">Z</span><sub class="id_exp acercar">.fp</sub><span class="simbind">++;</span>
+<span class="simbexp">Z</span><sub class="id_exp">.fp</sub><span class="simbind">++;</span>
 <span class="simbind">*</span><span class="simbexp">Y</span><sub class="id_exp acercar">.fp</sub><span class="simbind"> = </span><span class="simbexp">Z</span
 ><sub class="pos_puntos">91</sub><span class="simbind">;</span>
 <span class="var_exp">poner_args</span><span class="simbexp2">$</span><span class="nvars">Y</span><span class="simbexp2">$</span><span class="nvars">Y</span><span class="simbind">,</span
 ><span class="numberp">13</span><span class="simbind">,</span> <span class="numberp">53</span><span class="simbexp2">$</span>
-<span class="simbexp">Z</span><sub class="pos_puntos">top</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp acercar">.fp</sub><span class="simbind">;</span>
+<span class="simbexp">Z</span><sub class="pos_puntos">top</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.fp</sub><span class="simbind">;</span>
 ＊<sup class="pos_puntos term">foo</sup>
 1<sup class="pos_puntos">92</sup><span class="flechita"><span class="pos_puntos">91</span></span>
 ...<span class="flechita"><span class="pos_puntos">92</span></span></code></pre>
 				</div>
 			</ol>
 		</aside>
+		<dl class="expansor">
+		  <dt class="titpeq"><span class="var_exp">guardar_vals</span></dt>
+		  <dd>
+			<div class="macro">
+			  <pre><code><span class="term">:guardar_vals:</span></code></pre>
+			  <div class="flecha"></div>
+			  <pre class="complicado"><code><span class="term">Z<sub>.fp</sub>++;</span>
+<span class="term">*Y<sub>:fp</sub> = Z<sub>.sw</sub>;</span>
+<span class="term">Z<sub>.fp</sub>++;</span>
+<span class="term">*Y<sub>:fp</sub> = Z<sub>.brk</sub>;</span>
+<span class="term">Z<sub>.fp</sub>++;</span>
+<span class="term">*Y<sub>:fp</sub> = Z<sub>.op1</sub>;</span>
+<span class="term">Z<sub>.fp</sub>++;</span>
+<span class="term">*Y<sub>:fp</sub> = Z<sub>.ob1</sub>;</span>
+<span class="term">Z<sub>.fp</sub>++;</span>
+<span class="term">*Y<sub>:fp</sub> = Z<sub>.or</sub>;</span>
+<span class="term">Z<sub>.fp</sub>++;</span>
+<span class="term">*Y<sub>:fp</sub> = Z<sub>.and</sub>;</span>
+<span class="term">Z<sub>.fp</sub>++;</span>
+<span class="term">*Y<sub>:fp</sub> = Z<sub>.r2</sub>;</span>
+<span class="term">Z<sub>.fp</sub>++;</span>
+<span class="term">*Y<sub>:fp</sub> = Z<sub>.r1</sub>;</span></code></pre>
+		    </div>
+		  </dd>
+		</dl>
 		<div class="expansor">
 		  <h1 class="gluepar titpeq"><span class="var_exp">poner_args</span></h1>
 		  <div class="macro">
