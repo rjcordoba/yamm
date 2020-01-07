@@ -209,7 +209,7 @@
 	  <div class="macro flech">
 		<pre><code><span class="term">do{</span>
    <span class="nnoterm">texto</span><sub>1</sub>
-<span class="term">}</span><span class="term">while(</span><span class="noterm">exp_b<sub>1</sub></span><span class="term">);</span></code></pre>
+<span class="term">}</span><span class="term"> while(</span><span class="noterm">exp_b<sub>1</sub></span><span class="term">);</span></code></pre>
 		<div class="flecha"></div>
 		<pre><code><span class="nnoterm">texto</span><sub>1</sub><span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
 <span class="term">if(</span><span class="noterm">exp_b<sub>1</sub></span><span class="term">){</span>
@@ -269,7 +269,7 @@
    <span class="simbexp">Y</span><sub class="numbers">3</sub><span class="simbind">++;</span>
 <span class="simbind">}</span>
 </code></pre></div>
-		  </li>		  
+		  </li>
 		</ol>
 	  </aside>
 	  <div class="gramat glueg">
@@ -293,16 +293,237 @@
 		</ol>
 	  </div>
 	  <div class="macro flech">
-		<pre><code><span class="term">switch(</span><span class="nnoterm">texto</span><sub>1</sub><span class="term">){</span>
+		<pre><code><span class="term">switch(</span>&alpha;<sub>1</sub><span class="term">){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span></code></pre>
 		<div class="flecha"></div>
-		<pre><code><span class="nnoterm">texto</span><sub>1</sub><span class="term">;</span>
-<span class="term">while(</span><span class="noterm">exp_b<sub>1</sub></span><span class="term">){</span>
-   <span class="nnoterm">texto</span><sub>3</sub>
-   <span class="nnoterm">texto</span><sub>2</sub>
-<span class="term">}</span></code></pre>
+		<pre><code><span class="term">Z</span><sub>.brk</sub><span class="term"> = Z<sub>:<span class="nnoterm">i</span></sub>;</span>
+<span class="term">F<sub>.sw</sub> = &alpha;<sub>1</sub>;</span>
+<span class="term">:swc:{$</span>
+  <span class="nnoterm">texto</span><sub>1</sub>
+<span class="term">$}</span>
+<span class="term">JUMP</span>
+1<sup>:<span class="nnoterm">j</span></sup><span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
+...<span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
+</code></pre>
 	  </div>
+	  <aside class="ejemplos">
+		<h1>Ejemplo</h1>
+		<ol>
+		  <li>
+			<div><pre><code><span class="pclave">switch</span><span class="simbind">(</span><span class="simbexp">Y</span><sub class="numbers">29</sub><span class="simbind">){</span>
+<span class="pclave">case </span><span class="simbind">'</span><span class="numberp">0</span><span class="simbind">':</span>
+   <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind">[</span><span class="numberp">0</span><span class="simbind">]</span><span class="simbind">++;</span>
+   <span class="pclave">break</span><span class="simbind">;</span>
+<span class="pclave">case </span><span class="simbind">'</span><span class="numberp">1</span><span class="simbind">':</span>
+   <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind">++;</span>
+   <span class="pclave">break</span><span class="simbind">;</span>
+<span class="simbind">}</span></code></pre></div>
+		  </li>
+		  <li>
+			<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.brk</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="pos_puntos">58</sub><span class="simbind">;</span>
+<span class="simbexp">F</span><sub class="id_exp">.sw</sub><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="numbers">29</sub><span class="simbind">;</span>
+<span class="var_exp">swc</span><span class="simbind">{</span><span class="simbexp2">$</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="numberp">0</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind">[</span><span class="numberp">0</span><span class="simbind">]</span><span class="simbind">++;</span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="numberp">1</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind">++;</span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+<span class="simbexp2">$</span><span class="simbind">}</span>
+<span class="pclave">JUMP</span>
+1<sup class="pos_puntos">59</sup><span class="flechita"><span class="pos_puntos">58</span></span>
+...<span class="flechita"><span class="pos_puntos">59</span></span></code></pre></div>
+		  </li>
+		</ol>
+	  </aside>
+	  <div class="macro flech">
+		<pre><code><span class="term">break;</span>
+<span class="term">}</span></code></pre>
+		<div class="flecha"></div>
+		<pre><code><span class="term">Z</span><sub>:<span class="nnoterm">i</span></sub><span class="term"> = Z<sub>.brk</sub>;</span>
+＊<span class="flechita"><span class="pos_puntos nnoterm">i</span></span></code></pre>
+	  </div>
+	  <aside class="ejemplos">
+		<h1>Ejemplo</h1>
+		<ol>
+		  <li>
+			<div><pre><code>...
+<span class="pclave">break</span><span class="simbind">;</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="numberp">1</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind">++;</span>
+...</code></pre></div>
+		  </li>
+		  <li>
+			<div><pre><code>...
+<span class="simbexp">Z</span><sub class="pos_puntos">47</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.brk</sub><span class="simbind">;</span>
+＊<span class="flechita"><span class="pos_puntos">47</span></span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="numberp">1</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind">++;</span>
+...</code></pre></div>
+		  </li>
+		</ol>
+	  </aside>
+	  <div class="expansor">
+		<h1 class="gluepar titpeq"><span class="var_exp">swc</span></h1>
+		<aside class="aclarcn glue">
+		  <p><span class="noterm">texto_swc</span> representa <span class="nnoterm">textoc</span> que no empieza por <span class="noterm">fin_case</span>.</p>
+		</aside>
+		<div class="macro flech">
+		  <pre><code><span class="term">:swc:{</span>
+   <span class="noterm">texto<sub>1</sub></span>
+   <span class="term">$</span>
+   <span class="term">case &alpha;<sub>1</sub>:</span>
+     <span class="noterm">texto_swc<sub>1</sub></span>
+   <span class="noterm">fin_case<sub>1</sub></span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">F<sub>.case</sub> = &alpha;<sub>1</sub>;</span>
+<span class="term">Z<sub>1</sub> = <span class="term">Z<sub>.case</sub>;</span>
+=<sup>.sw</sup>
+JUMP
+＊<sup>:<span class="nnoterm acercarsup">i</span></sup>
+<span class="term">:swc:{</span>
+  <span class="noterm">texto<sub>1</sub></span>
+  <span class="noterm">texto_swc<sub>1</sub></span><span class="flechita absoluto"><span class="pos_puntos nnoterm">i</span></span>
+  <span class="term">$</span>
+  <span class="noterm">fin_case<sub>1</sub></span></code></pre>
+		</div>
+	  <aside class="ejemplos">
+		<h1>Ejemplo</h1>
+		<ol>
+		  <li>
+			<div><pre><code><span class="var_exp">swc</span><span class="simbind">{</span><span class="simbexp2">$</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="nvars">0</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind">[</span><span class="numberp">0</span><span class="simbind">]</span><span class="simbind">++;</span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="nvars ">1</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind">++;</span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+<span class="simbexp2">$</span><span class="simbind">}</span></code></pre></div>
+		  </li>
+		  <li>
+			<div><pre><code><span class="var_exp">swc</span><span class="simbind">{</span><span class="simbexp2">$</span>
+   <span class="pclave">case </span><span class="numberp">48</span><span class="simbind">:</span>
+      <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind">[</span><span class="numberp">0</span><span class="simbind">]</span><span class="simbind">++;</span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="nvars">1</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind">++;</span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+<span class="simbexp2">$</span><span class="simbind">}</span></code></pre></div>
+		  </li>
+		  <li>
+			<div><pre><code><span class="simbexp">F</span><sub class="id_exp">.case</sub><span class="simbind"> = </span><span class="numberp">48</span><span class="simbind">;</span>
+<span class="simbexp">Z</span><sub class="numbers">1</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.case</sub><span class="simbind">;</span>
+=<sup class="id_exp">.case</sup>
+<span class="pclave">JUMP</span>
+＊<sup class="pos_puntos">65</sup>
+<span class="var_exp">swc</span><span class="simbind">{</span>
+      <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind">[</span><span class="numberp">0</span><span class="simbind">]</span
+><span class="simbind">++;</span><span class="flechita absoluto"><span class="pos_puntos">65</span></span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+   <span class="simbexp2">$</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="nvars">1</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind">++;</span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+<span class="simbexp2">$</span><span class="simbind">}</span></code></pre></div>
+		  </li>
+		</ol>
+	  </aside>
+	  <div class="macro flech">
+			<pre><code><span class="term">:swc:{</span>
+   <span class="noterm">texto<sub>1</sub></span>
+   <span class="term">$</span>
+   <span class="term">default:</span>
+     <span class="noterm">texto_swc<sub>1</sub></span>
+   <span class="noterm">fin_case<sub>1</sub></span>
+<span class="term">$}</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">:swc:{</span>
+   <span class="noterm">texto<sub>1</sub></span>
+   <span class="noterm">fin_case<sub>1</sub></span><span class="flechita absoluto"><span class="pos_puntos nnoterm">i</span></span>
+   <span class="term">break;</span>
+   <span class="term">$</span>
+   <span class="term">case Y<sub>.sw</sub>:</span>
+     ＊<sup>:<span class="nnoterm acercarsup">i</span></sup>
+<span class="term">$}</span></code></pre>
+	  </div>
+	  <aside class="ejemplos">
+		<h1>Ejemplo</h1>
+		<ol>
+		  <li>
+			<div><pre><code><span class="var_exp">swc</span><span class="simbind">{</span><span class="simbexp2">$</span>
+...
+   <span class="pclave">default</span><span class="simbind">:</span>
+     <span class="simbexp">Y</span><sub class="numbers">36</sub><span class="simbind alejarsup">++;</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="nvars ">1</span><span class="simbind">':</span>
+     <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind alejarsup">++;</span>
+     <span class="pclave">break</span><span class="simbind">;</span>
+<span class="simbexp2">$</span><span class="simbind">}</span></code></pre></div>
+		  </li>
+		  <li>
+			<div><pre><code><span class="var_exp">swc</span><span class="simbind">{</span><span class="simbexp2">$</span>
+...
+     <span class="simbexp">Y</span><sub class="numbers">36</sub><span class="simbind alejarsup">++;</span><span class="flechita absoluto"><span class="pos_puntos">127</span></span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="nvars ">1</span><span class="simbind">':</span>
+     <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind alejarsup">++;</span>
+     <span class="pclave">break</span><span class="simbind">;</span>
+     <span class="pclave">break</span><span class="simbind">;</span>
+   <span class="pclave">case </span><span class="simbexp">Y</span><sub class="id_exp">.sw</sub><span class="simbind">:</span>
+     ＊<sup class="pos_puntos">127</sup>
+<span class="simbexp2">$</span><span class="simbind">}</span></code></pre></div>
+		  </li>
+		</ol>
+	  </aside>
+	  <div class="macro">
+			<pre><code><span class="term">:swc:{</span>
+   <span class="noterm">texto<sub>1</sub></span>
+   <span class="term">$</span>
+   <span class="term">case &alpha;<sub>1</sub>:</span>
+   <span class="noterm">fin_case<sub>1</sub></span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">:swc:{</span>
+   <span class="noterm">texto<sub>1</sub></span>
+   <span class="term">$</span>
+   <span class="term">case &alpha;<sub>1</sub>:</span>
+   NADA
+   <span class="noterm">fin_case<sub>1</sub></span></code></pre>
+	  </div>
+	  <aside class="ejemplos">
+		<h1>Ejemplo</h1>
+		<ol>
+		  <li>
+			<div><pre><code><span class="var_exp">swc</span><span class="simbind">{</span><span class="simbexp2">$</span>
+   ...
+   <span class="pclave">case </span><span class="numberp">49</span><span class="simbind">:</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="nvars ">9</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind">++;</span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+<span class="simbexp2">$</span><span class="simbind">}</span></code></pre></div>
+		  </li>
+		  <li>
+			<div><pre><code><span class="var_exp">swc</span><span class="simbind">{</span>
+   ...
+   <span class="simbexp2">$</span>
+   <span class="pclave">case </span><span class="numberp">49</span><span class="simbind">:</span>
+   <span class="pclave">NADA</span>
+   <span class="pclave">case </span><span class="simbind">'</span><span class="nvars ">9</span><span class="simbind">':</span>
+      <span class="simbexp">Y</span><sub class="numbers">25</sub><span class="simbind">++;</span>
+      <span class="pclave">break</span><span class="simbind">;</span>
+<span class="simbexp2">$</span><span class="simbind">}</span></code></pre></div>
+		  </li>
+		</ol>
+	  </aside>
+	  <div class="macro">
+			<pre><code><span class="term">:swc:{</span>
+   <span class="noterm">textoc<sub>1</sub></span>
+   <span class="term">$</span>
+<span class="term">$}</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">break;</span>
+<span class="noterm">textoc<sub>1</sub></span></code></pre>
+	  </div>
+	  </div>
+	  
     </main><!--***********************-->
     <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
 	</div>
