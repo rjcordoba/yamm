@@ -1,0 +1,62 @@
+ <!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
+	<script src="../js/macros.js" defer></script>
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+	      </nav>
+	<div id="cont-principal" class="anchura">
+	  <h1>Lenguaje C--</h1>
+	  <h2>Macros y utilidades</h2>
+	  <main><!--***********************-->
+		<h3>Librería estándar 1’’</h3>
+		<div class="macro larga">
+			<pre><code>#include malloc</code></pre>
+			<div class="flecha"></div>
+			<pre class="include claro"> 
+<span class="pclave">void</span> <span class="nvars">malloc</span><span class="simbind">(</span><span class="pclave">unsigned int </span><span class="nvars">n</span><span class="simbind">){</span>   
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub> = <span class="nvars">n</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="pos_puntos">$npos</sub><span class="simbind"> += </span><span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">void</span> <span class="nvars">free</span><span class="simbind">(</span><span class="pclave">unsigned int </span><span class="nvars">n</span><span class="simbind">){</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub> = <span class="nvars">n</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="pos_puntos">$npos</sub><span class="simbind"> -= </span><span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind">;</span>
+<span class="simbind">}</span>
+			</pre>
+		</div>
+		<div class="macro">
+			<pre><code><span class="term">#include cmmstd</span></code></pre>
+			<div class="flecha"></div>
+			<pre><code><span class="term">#include arit_float</span>
+<span class="term">#include malloc</span></code></pre>
+		  </div>
+    </main><!--***********************-->
+    <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>
