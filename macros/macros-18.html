@@ -1,0 +1,143 @@
+ <!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
+	<script src="../js/macros.js" defer></script>
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+	      </nav>
+	<div id="cont-principal" class="anchura">
+	  <h1>Lenguaje C--</h1>
+	  <h2>Macros y utilidades</h2>
+	  <main><!--***********************-->
+		<h3>Librería estándar</h3>
+		<div class="macro larga">
+			<pre><code>#include arit_float</code></pre>
+			<div class="flecha"></div>
+			<pre class="include claro"> 
+<span class="preproc">#include cmmstd</span>
+
+<span class="pclave">float</span> <span class="nvars">sumaf</span><span class="simbind">(</span><span class="pclave">float </span
+><span class="nvars">n1</span><span class="simbind">, </span><span class="pclave">float </span><span class="nvars">n2</span><span class="simbind">){</span>
+    <span class="pclave">unsigned int</span> <span class="nvars">num1</span><span class="simbind">, </span><span class="nvars">num2</span></span><span class="simbind">, </span>
+                 <span class="nvars">den1</span></span><span class="simbind">, </span><span class="nvars">den2</span></span><span class="simbind">, </span>
+                 <span class="nvars">sig1</span></span><span class="simbind">, </span><span class="nvars">sig2</span
+><span class="simbind">, </span><span class="nvars">sigf</span><span class="simbind">;</span>
+    <span class="pclave">float</span> <span class="nvars">res</span><span class="simbind">;</span>
+    <span class="nvars">den1</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">3</span><span class="simbind">, </span
+><span class="nvars">n1</span><span class="simbind">);</span>
+    <span class="nvars">den2</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">3</span><span class="simbind">, </span
+><span class="nvars">n2</span><span class="simbind">);</span>
+    <span class="nvars">num1</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">5</span><span class="simbind">, </span
+><span class="nvars">n1</span><span class="simbind">) * </span><span class="nvars">den2</span><span class="simbind">;</span>
+    <span class="nvars">num2</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">5</span><span class="simbind">, </span
+><span class="nvars">n2</span><span class="simbind">) * </span><span class="nvars">den1</span><span class="simbind">;</span>
+    <span class="nvars">den2</span><span class="simbind"> += </span><span class="nvars">den1</span><span class="simbind">;</span>
+    <span class="nvars">sig1</span><span class="simbind"> = </span><span class="nvars">negp</span><span class="simbind">(</span><span class="nvars">n1</span><span class="simbind">);</span>
+    <span class="nvars">sig2</span><span class="simbind"> = </span><span class="nvars">negp</span><span class="simbind">(</span><span class="nvars">n2</span><span class="simbind">);</span>
+    <span class="nvars">sigf</span><span class="simbind"> = </span><span class="nvars">sig1</span><span class="simbind"> - </span><span class="nvars">sig2</span><span class="simbind">;</span>
+    <span class="nvars">sigf</span><span class="simbind"> += </span><span class="nvars">sig2</span><span class="simbind"> - </span><span class="nvars">sig1</span><span class="simbind">;</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind"> - </span><span class="nvars">sigf</span><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+       <span class="nvars">num2</span><span class="simbind"> += </span><span class="nvars">num1</span><span class="simbind">;</span>
+       <span class="nvars">sigf</span><span class="simbind"> = </span><span class="nvars">sig1</span><span class="simbind"> + </span><span class="nvars">sig2</span><span class="simbind">;</span>
+    <span class="simbind">}</span>
+    <span class="pclave">else</span><span class="simbind">{</span>
+       <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="nvars">num1</span><span class="simbind"> - </span><span class="nvars">num2</span><span class="simbind">;</span>
+       <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+          <span class="nvars">num2</span><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">;</span>
+          <span class="nvars">sigf</span><span class="simbind"> = </span><span class="nvars">sig1</span><span class="simbind">;</span>
+       <span class="simbind">}</span>
+       <span class="pclave">else</span><span class="simbind">){</span>
+          <span class="nvars">num2</span><span class="simbind"> -= </span><span class="nvars">num1</span><span class="simbind">;</span>
+          <span class="nvars">sigf</span><span class="simbind"> = </span><span class="nvars">sig2</span><span class="simbind">;</span>
+       <span class="simbind">}</span>
+    <span class="simbind">}</span>
+    <span class="nvars">res</span><span class="simbind"> = </span><span class="nvars">litf</span><span class="simbind">(</span><span class="nvars">num2</span><span class="simbind">, </span
+><span class="nvars">den2</span><span class="simbind">);</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="nvars">sigf</span><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+       <span class="nvars">res</span><span class="simbind"> = </span><span class="nvars">negar</span><span class="simbind">(</span><span class="nvars">res</span><span class="simbind">);</span>
+    <span class="simbind">}</span>
+    <span class="pclave">return </span><span class="nvars">res</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">float</span> <span class="nvars">restaf</span><span class="simbind">(</span><span class="pclave">float </span
+><span class="nvars">n1</span><span class="simbind">, </span><span class="pclave">float </span><span class="nvars">n2</span><span class="simbind">){</span>
+    <span class="nvars">n2</span><span class="simbind"> = </span><span class="nvars">negar</span><span class="simbind">(</span><span class="nvars">n2</span><span class="simbind">);</span>
+    <span class="pclave">return </span><span class="nvars">sumaf</span><span class="simbind">(</span><span class="nvars">n1</span><span class="simbind">, </span><span class="nvars">n2</span><span class="simbind">);</span>
+<span class="simbind">}</span>
+
+<span class="pclave">float</span> <span class="nvars">multf</span><span class="simbind">(</span><span class="pclave">float </span
+><span class="nvars">n1</span><span class="simbind">, </span><span class="pclave">float </span><span class="nvars">n2</span><span class="simbind">){</span>
+    <span class="pclave">unsigned int</span> <span class="nvars">numf</span><span class="simbind">, </span><span class="nvars">denf</span></span><span class="simbind">, </span>
+                 <span class="nvars">sig1</span></span><span class="simbind">, </span><span class="nvars">sig2</span><span class="simbind">, </span><span class="nvars">sigf</span><span class="simbind">;</span>
+    <span class="pclave">float</span> <span class="nvars">res</span><span class="simbind">;</span>
+    <span class="nvars">numf</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">5</span><span class="simbind">, </span
+><span class="nvars">n1</span><span class="simbind">) * </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">5</span><span class="simbind">, </span
+><span class="nvars">n2</span><span class="simbind">);</span>      
+    <span class="nvars">denf</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">3</span><span class="simbind">, </span
+><span class="nvars">n1</span><span class="simbind">) * </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">3</span><span class="simbind">, </span
+><span class="nvars">n2</span><span class="simbind">);</span>
+    <span class="nvars">sig1</span><span class="simbind"> = </span><span class="nvars">negp</span><span class="simbind">(</span><span class="nvars">n1</span><span class="simbind">);</span>
+    <span class="nvars">sig2</span><span class="simbind"> = </span><span class="nvars">negp</span><span class="simbind">(</span><span class="nvars">n2</span><span class="simbind">);</span>
+    <span class="nvars">res</span><span class="simbind"> = </span><span class="nvars">litf</span><span class="simbind">(</span><span class="nvars">numf</span
+><span class="simbind">, </span><span class="nvars">denf</span><span class="simbind">);</span>
+    <span class="nvars">sigf</span><span class="simbind"> = </span><span class="nvars">sig1</span><span class="simbind"> - </span><span class="nvars">sig2</span><span class="simbind">;</span>
+    <span class="nvars">sigf</span><span class="simbind"> += </span><span class="nvars">sig2</span><span class="simbind"> - </span><span class="nvars">sig1</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="nvars">sigf</span><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+       <span class="nvars">res</span><span class="simbind"> = </span><span class="nvars">negar</span><span class="simbind">(</span><span class="nvars">res</span><span class="simbind">);</span>
+    <span class="simbind">}</span>
+    <span class="pclave">return </span><span class="nvars">res</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">float </span><span class="nvars">divf</span><span class="simbind">(</span><span class="pclave">float </span
+><span class="nvars">n1</span><span class="simbind">, </span><span class="pclave">float </span><span class="nvars">n2</span><span class="simbind">){</span>
+    <span class="pclave">unsigned int</span> <span class="nvars">num</span><span class="simbind">, </span><span class="nvars">den</span></span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.op2</sub><span class="simbind"> = </span><span class="nvars">n2</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = </span><span class="numberp">2</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"
+><span class="simbind"> - </span><span class="simbexp">Z</span><sub class="id_exp">.op2</sub><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+       <span class="pclave">STOP</span>
+    <span class="simbind">}</span>
+    <span class="nvars">num</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">5</span><span class="simbind">, </span
+><span class="nvars">n2</span><span class="simbind">);</span>
+    <span class="nvars">den</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">3</span><span class="simbind">, </span
+><span class="nvars">n2</span><span class="simbind">);</span>
+    <span class="nvars">n2</span><span class="simbind"> = </span><span class="nvars">litf</span><span class="simbind">(</span><span class="nvars">den</span><span class="simbind">, </span
+><span class="nvars">num</span><span class="simbind">);</span>
+    <span class="pclave">return </span><span class="nvars">multf</span><span class="simbind">(</span><span class="nvars">n1</span><span class="simbind">, </span
+><span class="nvars">n2</span><span class="simbind">);</span>
+<span class="simbind">}</span>
+  </pre>
+  </div>
+    </main><!--***********************-->
+    <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>
