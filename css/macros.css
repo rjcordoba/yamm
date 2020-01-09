@@ -547,11 +547,6 @@ pre.complicado{
     padding-bottom:0.6em;
 }
 
-/* .expansor.simple{ */
-/* 	border-bottom:none; */
-/* 	padding-bottom:0; */
-/* } */
-
 #cont-principal .expansor .ejemplos h1{
 	margin:2em 0 1.6em 1.5em;
 }
@@ -739,6 +734,7 @@ pre sub .comil{
     left:-0.2em;
 }
 
+
 /*macros del expansor*/
 
 .resaltart{
@@ -817,4 +813,32 @@ pre sub .comil{
 
 .booleano{
 	color:#19b102;
+}
+
+.claro .nvars{
+	color:#32842a;
+}
+
+.claro .numberp{
+	color:#8953ca;
+}
+
+.claro .pclave{
+	color:#2730d4;
+}
+
+.claro .simbexp{
+	color:#da4c4c;
+}
+
+.claro .id_exp{
+	color:#dc691f;
+}
+
+.claro .simbind{
+	color:#828130;
+}
+.macro pre.include{
+	font-size:0.9em;
+	text-align:left;
 }
