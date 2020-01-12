@@ -4,9 +4,12 @@ const sel_clara = document.getElementById("sel_clara");
 const sel_oscura = document.getElementById("sel_oscura");
 const editor = document.getElementById("editor");
 
+editor.className = "oscuro";
+sel_oscura.className = "seleccionado";
+
 function cambiar_color(){
 	if(editor.className == "oscuro"){
-		editor.className = "";
+		editor.className = "claro";
 		sel_oscura.className = "";
 		sel_clara.className = "seleccionado";
 		sel_oscura.addEventListener("click", cambiar_color, false);
@@ -21,7 +24,7 @@ function cambiar_color(){
 	}		
 }
 
-sel_oscura.addEventListener("click", cambiar_color, false);
+sel_clara.addEventListener("click", cambiar_color, false);
 
 cont_pizarra.addEventListener("scroll", () => {
 	cont_números.scrollTop = cont_pizarra.scrollTop;}, false);

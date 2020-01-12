@@ -27,57 +27,58 @@
       </ul>
     </nav>
 	<div id="cont-principal" class="anchura">
+	  <h1>Lenguaje C--</h1>
+	  <h2>Definición</h2>
 	  <main><!--***********************-->
-		<h1>Lenguaje C--</h1>
 		<p id="explic">El lenguaje define cómo colocar y eliminar marcas y el símbolo «1» en distintas posiciones.
 		  Las instrucciones se colocan en posiciones consecutivas, empezando por la primera posición y en el orden en que aparecen en el programa.
 		Las instrucciones se ejecutan una detrás de otra empezando por la situada en la primera posición.</p>
 		<h2>Instrucciones</h2>
 		<ul id="lis_ins">
 		  <li>
-			<p><span class="inst">marcar</span><span class="simb">1</span> | <span class="expsi">marcar</span><span class="simb">'</span></p>
+			<p><span class="inst">marcar</span><span class="simb">1</span> | <span class="expsi">marcar</span><span class="marca">'</span></p>
 			<div>
 			  <p>Se pone 1 en la posición si no hay nada o una marca si la posición no está vacía. La posición referida es:</p>
 			  <ol>
-				<li><span class="expsi simb">1</span>: primera posición.</li>
-				<li><span class="expsi">marcar</span><span class="simb">'</span>: siguiente posición de la referida por
+				<li><span class="simb">1</span>: primera posición.</li>
+				<li><span class="expsi">marcar</span><span class="marca">'</span>: siguiente posición de la referida por
 				  <span class="expsi">marcar</span>.</li>
 			  </ol>
 			</div>
 		  </li>
 		  <li>
-			<p><span class="inst">borrar</span><span class="simb">0</span> | <span class="expsi">borrar</span><span class="simb">'</span></p>
+			<p><span class="inst">borrar</span><span class="simb">0</span> | <span class="expsi">borrar</span><span class="marca">'</span></p>
 			<div>
 			  <p>Se quitan todas las marcas de la posición y el símbolo «1» si lo hubiera. La posición referida es:</p>
 			  <ol>
-				<li><span class="expsi simb">0</span>: primera posición.</li>
-				<li><span class="expsi">borrar</span><span class="simb">'</span>: siguiente posición de la referida por
+				<li><span class="simb">0</span>: primera posición.</li>
+				<li><span class="expsi">borrar</span><span class="marca">'</span>: siguiente posición de la referida por
 				  <span class="expsi">borrar</span>.</li>
 			  </ol>
 			</div>
 		  </li>
 		  <li>
-			<p><span class="inst">comparar</span><span class="simb">=</span> | <span class="expsi">comparar</span><span class="simb">'</span></p>
+			<p><span class="inst">igual</span><span class="simb">=</span> | <span class="expsi">igual</span><span class="marca">'</span></p>
 			<div>
 			  <p>Si el contenido de la posición referida es igual que el de la primera posición se salta la siguiente instrucción, no se ejecuta.
 				En caso contrario la ejecución de instrucciones sigue normalmente. La posición referida es:</p>
 			  <ol>
-			  <li><span class="expsi simb">=</span>: primera posición.</li>
-			  <li><span class="expsi">comparar</span><span class="simb">'</span>: siguiente posición de la referida por <span class="expsi">comparar</span>.</li>
-			  <p id="cont_igual">El contenido de dos posiciones es igual si y sólo si:</p>
-			  <ol>
+			  <li><span class="simb">=</span>: primera posición.</li>
+			  <li><span class="expsi">comparar</span><span class="marca">'</span>: siguiente posición de la referida por <span class="expsi">comparar</span>.</li>
+			  <p id="cont_igual">El contenido de dos posiciones es igual si y sólo si una de las siguientes afirmaciones es cierta:</p>
+			  <ol class="soniguales">
 				<li>En cada posición no hay nada.</li>
 				<li>En cada posición hay solamente un símbolo.</li>
 				<li>El contenido de dos posiciones es igual y se añade una marca a cada una.</li>
 			  </ol>
 			</div>
 		  <li>
-			<p><span class="inst">saltar</span><span class="simb">*</span> | <span class="expsi">saltar</span><span class="simb">'</span></p>
+			<p><span class="inst">saltar</span><span class="simb">＊</span> | <span class="expsi">saltar</span><span class="marca">'</span></p>
 			<div>
 			  <p>En vez de ejecutarse la siguiente instrucción se ejecuta la intrucción en la posición referida. La posición referida es:</p>
 			  <ol>
-				<li><span class="expsi simb">*</span>: primera posición.</li>
-				<li><span class="expsi">saltar</span><span class="simb">'</span>: siguiente posición de la referida por <span class="expsi">saltar</span>.</li>
+				<li><span class="simb">＊</span>: primera posición.</li>
+				<li><span class="expsi">saltar</span><span class="marca">'</span>: siguiente posición de la referida por <span class="expsi">saltar</span>.</li>
 			  </ol>
 			</div>
 		  </li>

@@ -466,7 +466,10 @@ sub{
 	display:flex;
 	font-size:0.85em;
 	flex-wrap:wrap;
-	font-family:Consola, Monaco, monospace;
+}
+
+pre code{
+	font-family:Consolas, Monaco, monospace;
 }
 
 .ejemplos > ol > li{
@@ -815,12 +818,17 @@ pre sub .comil{
 	color:#19b102;
 }
 
+.comentarioc{
+	color:#AAA;
+	font-size:0.85em;
+}
+
 .claro .nvars{
 	color:#32842a;
 }
 
 .claro .numberp{
-	color:#8953ca;
+	color:#9848f9;
 }
 
 .claro .pclave{
@@ -836,8 +844,21 @@ pre sub .comil{
 }
 
 .claro .simbind{
-	color:#6d6c25;
+	color:#3c3801;
 }
+
+.claro .preproc{
+	color:#b953ca;
+}
+
+.claro .booleano{
+	color:#3fa3b5;
+}
+
+.claro .comentarioc{
+	color:#666;
+}
+
 .macro pre.include{
 	font-size:0.9em;
 	text-align:left;

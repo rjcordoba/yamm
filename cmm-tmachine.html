@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Intérprete de C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+	<link rel="stylesheet" type="text/css" href="css/maqc.css"><!--***********************-->
+        <link rel="stylesheet" type="text/css" href="css/macros.css">
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li><li><a href="./tlenguaje.html">Lenguaje Turing</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura"><!--***********************-->
+	  <main>
+		<h1>Lenguaje Turing</h1>
+		<h2>Ejemplo máquina de Turing en C--</h2>
+		<div id="editor" class="">
+		  <div id="sel_color">Color:<ul><li id="sel_clara"></li><li id="sel_oscura"></li></ul></div>
+			<div id="pantalla" class="screen">
+			  <div><ul id="nums"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li
+>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li
+>20</li><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li><li>28</li><li>29</li><li
+>30</li><li>31</li><li>32</li><li>33</li><li>34</li><li>35</li><li>36</li><li>37</li><li>38</li><li>39</li><li
+>40</li><li>41</li><li>42</li><li>43</li><li>44</li><li>45</li><li>46</li><li>47</li><li>48</li><li>49</li><li
+>50</li><li>51</li><li>52</li><li>53</li><li>54</li><li>55</li><li>56</li></ul></div>
+			  <div><span class="comentarioc">/*   Programa en C-- para ejecutar un procedimiento definido
+*    como máquina de Turing. La máquina se define con quíntuplas.
+*
+*    {mc, s, s2, m, mcf} donde:
+*      mc - m-configuration actual.
+*      s - símbolo leído.
+*      s2 - símbolo escrito.
+*      m - movimiento.
+*      mcf - m-configuración a la que se pasa.
+*/</span>
+<span class="preproc">#include cmmstd</span>
+
+<span class="preproc">#define MOVE 1</span>
+
+<span class="comentarioc">/*Definición de la máquina. Este ejemplo ejecuta la primera máquina
+de la sección 3 del 'On computable numbers' del maestro Turing,
+que computa la secuencia 010101...</span>
+<span class="pclave">unsigned int</span><span class="nvars"> tmachine</span><span class="simbind">[] = {</span><span class="numberp">1</span><span class="simbind">, </span><span class="numberp">0</span
+><span class="simbind">, '</span><span class="nvars">0</span><span class="simbind">', '</span><span class="nvars">R</span><span class="simbind">', </span><span class="numberp">2</span><span class="simbind">,</span>
+                                  <span class="numberp">2</span><span class="simbind">, </span><span class="numberp">0</span
+><span class="simbind">, '</span><span class="nvars">0</span><span class="simbind">', '</span><span class="nvars">R</span><span class="simbind">', </span><span class="numberp">3</span><span class="simbind">,</span>
+                                  <span class="numberp">3</span><span class="simbind">, </span><span class="numberp">0</span
+><span class="simbind">, '</span><span class="nvars">1</span><span class="simbind">', '</span><span class="nvars">R</span><span class="simbind">', </span><span class="numberp">4</span><span class="simbind">,</span>
+                                  <span class="numberp">4</span><span class="simbind">, </span><span class="numberp">0</span
+><span class="simbind">, '</span><span class="nvars">0</span><span class="simbind">', '</span><span class="nvars">R</span><span class="simbind">', </span><span class="numberp">1</span><span class="simbind">}</span>
+
+<span class="comentarioc">/* Guarda la cantidad de configuraciones.*/</span>
+<span class="pclave">unsigned int</span><span class="nvars"> configurations</span><span class="simbind"> = </span><span class="numberp">4</span><span class="simbind">;</span>
+<span class="comentarioc">/* m-configuración actual.*/</span>
+<span class="pclave">unsigned int</span><span class="nvars"> m_configuration</span><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span>
+<span class="comentarioc">/* Símbolo escaneado.*/</span>
+<span class="pclave">unsigned int</span><span class="nvars"> scanned</span><span class="simbind"> = </span><span class="numberp">0</span><span class="simbind">;</span>
+<span class="comentarioc">/* Fila que se comprueba de la tabla de definición.*/</span>
+<span class="pclave">unsigned int</span><span class="nvars"> row</span><span class="simbind">;</span>
+<span class="comentarioc">/* Posiciones que representan la cinta.*/</span>
+<span class="pclave">unsigned int</span><span class="nvars"> tape</span><span class="simbind">;</span>
+
+<span class="pclave">while</span><span class="simbind">(</span><span class="nvars">MOVE</span><span class="simbind">){</span>
+    <span class="nvars">row</span><span class="simbind"> = </span><span class="numberp">0</span><span class="simbind">;</span>
+    <span class="pclave">while</span><span class="simbind">(</span><span class="nvars">row</span><span class="simbind"> &lt; </span><span class="nvars">configurations</span><span class="simbind">){</span>
+        <span class="pclave">if</span><span class="simbind">(</span><span class="nvars">tmachine</span><span class="simbind">[</span><span class="nvars">row</span><span class="simbind">]</span
+><span class="simbind">[</span><span class="numberp">0</span><span class="simbind">] != </span><span class="nvars">m_configuration</span><span class="booleano"> || </span>
+            <span class="nvars">tmachine</span><span class="simbind">[</span><span class="nvars">row</span><span class="simbind">]</span><span class="simbind">[</span><span class="numberp">1</span
+><span class="simbind">] != </span><span class="nvars">tape</span><span class="simbind">[</span><span class="nvars">scanned</span
+><span class="simbind">]){</span>
+            <span class="nvars">row</span><span class="simbind">++;</span>
+        <span class="simbind">}</span>
+        <span class="pclave">else</span><span class="simbind">{</span>
+            <span class="nvars">tape</span><span class="simbind">[</span><span class="nvars">scanned</span><span class="simbind">] = </span><span class="nvars">tmachine</span><span class="simbind">[</span
+><span class="nvars">row</span><span class="simbind">]</span><span class="simbind">[</span><span class="numberp">2</span><span class="simbind">];</span>
+            <span class="pclave">switch</span><span class="simbind">(</span><span class="nvars">tmachine</span><span class="simbind">[</span><span class="nvars">row</span><span class="simbind">]</span
+><span class="simbind">[</span><span class="numberp">3</span><span class="simbind">]){</span>
+                <span class="pclave">case </span><span class="simbind">'</span><span class="nvars">R</span><span class="simbind">':</span>
+                    <span class="nvars">scanned</span><span class="simbind">++;</span>
+                <span class="pclave">case </span><span class="simbind">'</span><span class="nvars">L</span><span class="simbind">':</span>
+                    <span class="nvars">scanned</span><span class="simbind">--;</span>
+            <span class="simbind">}</span>
+            <span class="nvars">mconfiguration</span><span class="simbind"> = </span><span class="nvars">tmachine</span><span class="simbind">[</span><span class="nvars">row</span
+><span class="simbind">][</span><span class="numberp">4</span><span class="simbind">];</span>
+            <span class="nvars">row</span><span class="simbind"> = </span><span class="nvars">configurations</span><span class="simbind"> + </span><span class="numberp">1</span><span class="simbind">;</span>
+        <span class="simbind">}</span>
+    <span class="simbind">}</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="nvars">row</span><span class="simbind"> == </span><span class="nvars">configurations</span><span class="simbind">){</span>
+        <span class="pclave">STOP</span>
+    <span class="simbind">}</span>
+<span class="simbind">}</span></div>
+			</div>
+		  </div>
+	  </main><!--***********************-->
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+  <script src="./js/maqc.js"></script><!--***********************-->
+</html>
