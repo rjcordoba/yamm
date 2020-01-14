@@ -1,10 +1,5 @@
-@font-face {
-  font-family:flechas;
-  src: url(../fuentes/flechas.ttf);
-}
-
 #cont-principal{
-	font-size:0.83em;
+	/* font-size:0.83em; */
 	--textocolor:#333;
 	color:var(--textocolor);
 }
@@ -34,40 +29,6 @@ main h2#ej{
 	margin-top:1em;
 }
 
-#gram_cont{
-	overflow:auto;
-	width:100%;
-}
-
-#gramar li{
-	padding:0.12em 0;
-	white-space: pre;
-}
-
-#gramar em{
-	font-weight:bold;
-	font-style: normal;
-	color:#293aca;
-}
-
-#gramar em.expl{
-	font-style:italic;
-	font-weight:normal;
-	color:var(--textocolor);
-}
-
-#gramar .cabecera{
-	color:#0765ad;
-}
-
-#gramar .cabecera::after{
-	content:"K";
-	font-family:flechas;
-	font-size:1.3em;
-	color:black;
-	padding:0 0.4em;
-}
-
 aside.gram_ac{
 	line-height:1.55em;
 	font-size:0.86em;
@@ -78,8 +39,20 @@ aside.gram_ac{
 	width: fit-content;
 }
 
-#gram_ac p{
-	margin:0.2em 0;
+.gramat{
+	font-size:1em;
+}
+
+.gramat > ol > li{
+	margin:1em 0;
+}
+
+.gramat ol > li:last-child{
+    margin-bottom:0.5em !important;
+}
+
+.gramat ol > li:first-child{
+    margin-top:0.5em;
 }
 
 dl{
@@ -123,11 +96,11 @@ dl span{
 	background-color:#fff;
 	padding:0.5em 0.5em;
 	width:35%;
-	overflow:auto;
+	overflow-x:auto;
 }
 
 #ejtrozos pre.mal{
-border-color:#870202;	
+	border-color:#870202;	
 }
 
 #ejtrozos span.error{

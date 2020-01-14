@@ -113,91 +113,6 @@ sub.subp{
 	margin-bottom:1em;
 }
 
-.gramat{
-	font-family:"Times New Roman", Times, serif;
-	font-size:0.95em;
-	margin:1.4em 0 1.5em 0;
-	background-color:#f4f4f5;
-	width:fit-content;
-	width:-moz-fit-content;
-	padding:1em;
-	border:solid 1px #c2c5c5;
-	border-radius:0.12em;
-}
-
-.gramat aside{
-	font-size:0.8em;
-	line-height:1.6em;
-	border:solid 1px #e1e2e2;
-	border-left-width:3px;
-	padding:0.5em 0.8em;
-	margin:1.6em -0.5em 0 -0.55em;
-	background-color:#f6f6f9;
-}
-
-.gramat aside dl{
-	margin-top:0.2em;
-}
-
-.gramat aside dt{
-	text-decoration: underline;
-}
-
-.nnoterm, .noterm{
-	font-style:italic;
-}
-
-.gramat .term{
-	font-weight:bold;
-}
-
-.term{
-	font-style:normal;
-}
-
-.gramat ol > li{
-	display:flex;
-	margin-bottom:0.67em;
-}
-
-.gramat ol > li:last-child{
-	margin-bottom:0;
-}
-.gramat ul > li{
-	display:inline-block;
-}
-
-.separador, .estrella{
-	line-height:0;
-}
-
-.estrella{
-	font-size:0.92em;
-}
-
-.gramat ul > li::before{
-	content:"\｜  ";
-	line-height:0;
-	font-weight:normal;
-}
-
-.gramat ul > li:first-child::before{
-	content:none;
-}
-
-.noterm::before{
-	content:"⟨";
-}
-
-.noterm::after{
-	content:"⟩";
-}
-
-.noterm::before, .noterm::after{
-	font-style: normal;
-	line-height:0;
-}
-
 code .noterm::before, code .nnnoterm::after{
 	margin:0 -0.2em 0 -0.1em
 }
@@ -206,22 +121,9 @@ code .noterm::before, code .nnnoterm::after{
 	margin-left:-0.1em;
 }
 
-.gramat .flechag::before{
-    content:"→";
-	line-height:0;
-    font-size:1.4em;
-    color:#929191;
-    padding:0 0.17em;
-	font-style:normal;
-}
-
 sup{
 	vertical-align:super;
 	font-size:0.6em;
-}
-
-.gramat sup{
-	font-size:0.55em;
 }
 
 sub{
@@ -772,10 +674,6 @@ pre sub .comil{
 }
 
 /* colores gramática */
-
-.gramtexto{
-	color:#540d0d;
-}
 
 .numbers{
 	color:#83f5fd;

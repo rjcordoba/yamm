@@ -6,13 +6,14 @@
     <meta name="author" content="R. Córdoba García">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/general.css">
+	<link rel="stylesheet" type="text/css" href="css/gramat.css">
     <link rel="stylesheet" type="text/css" href="css/tlenguaje.css"><!--***********************-->
 
     <script>
 	</script>
 
     <style></style>
-    
+
   </head>
   <body>
     <header>
@@ -21,7 +22,7 @@
         <img src="imgs/letras.svg" alt="letras">
 	  </div>
     </header>
-    <nav>     
+    <nav>
 	  <ul class="anchura">
 	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
       </ul>
@@ -30,30 +31,250 @@
 	  <main><!--***********************-->
 		<h1>Lenguaje Turing</h1>
 		<h2>Gramática</h2>
-		<div id="gram_cont">
-		  <ul id="gramar">
-			<li><span class="cabecera">comentario</span><em>;</em><em class="expl">cualquier cosa</em></li>
-			<li><span class="cabecera">table</span>table-inst*</li>
-			<li><span class="cabecera">nl</span>salto de línea</li>
-			<li><span class="cabecera">sp</span>espacio</li>
-			<li><span class="cabecera">table-inst</span>configuration behaviour | mconfig nl* <em>{</em> nl+ (sp+ symbol behaviour)* nl* <em>}</em></li>
-			<li><span class="cabecera">configuration</span>mconfig symbol</li>
-			<li><span class="cabecera">mconfig</span>name | mfunction</li>
-			<li><span class="cabecera">mfunction</span>name<em>(</em>cs-variables<em>)</em></li>
-			<li><span class="cabecera">symbol-var</span><em class="expl">letra griega minúscula</em></li>
-			<li><span class="cabecera">mconfig-var</span>[<em>A-Z</em>] | <em>Ä</em> | <em>Ö</em> | <em>Ü</em> | <em>ẞ</em></li>
-			<li><span class="cabecera">symbol-vars</span>symbol-var | symbol-var<em>,</em> symbol-vars</li>
-			<li><span class="cabecera">mconf-vars</span>mconf-vars | mconf-vars<em>,</em> mconf-vars</li>
-			<li><span class="cabecera">cs-variables</span>mconf-vars | symbol-vars | mconf-vars<em>,</em> symbol-vars</li>
-			<li><span class="cabecera">behaviour</span>operations mcfinal | mcfinal</li>
-			<li><span class="cabecera">operations</span>operation | operation<em>,</em> operations</li>
-			<li><span class="cabecera">operation</span><em>L</em> | <em>R</em> | <em>E</em> | <em>P</em>symbol</li>
-			<li><span class="cabecera">mcfinal</span>nombre | nombre<em>(</em>mcfinal-vars<em>)</em></li>
-			<li><span class="cabecera">mcfinal-vars</span>skeleton-uses | <em>;</em>symbols | skeleton-uses<em>;</em> symbols</li>
-			<li><span class="cabecera">skeleton-uses</span>mcfinal | mcfinal<em>,</em> skeleton-uses</li>
-			<li><span class="cabecera">symbols</span>symbol | symbol<em>,</em> symbols</li>
-		  </ul>
+		<div class="gramat">
+		  <ol>
+			<li>
+			  <div class="noterm">nl</div>
+			  <div class="flechag"></div>
+			  <div class="gramtexto">salto de línea</div>
+			</li>
+			<li>
+			  <div class="noterm">nls</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li>&epsilon;</li>
+				<li><span class="noterm">nl</span><span class="noterm">nls</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">sp</div>
+			  <div class="flechag"></div>
+			  <div class="gramtexto">espacio</div>
+			</li>
+			<li>
+			  <div class="noterm">sps</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">sp</span></li>
+				<li><span class="noterm">sp</span><span class="noterm">sps</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">symbol</div>
+			  <div class="flechag"></div>
+			  <div class="gramtexto">Unicode character</div>
+			</li>
+			<li>
+			  <div class="noterm">symbols</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">symbol</span></li>
+				<li><span class="noterm">symbol</span><span class="term">, </span><span class="noterm">symbols</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">letterL</div>
+			  <div class="flechag"></div>
+			  <div class="gramtexto">letra minúscula del alfabeto latino</div>
+			</li>
+			<li>
+			  <div class="noterm">letterU</div>
+			  <div class="flechag"></div>
+			  <div class="gramtexto">letra mayúscula del alfabeto latino</div>
+			</li>
+			<li>
+			  <div class="noterm">symbol-var</div>
+			  <div class="flechag"></div>
+			  <div class="gramtexto">letra griega minúscula</div>
+			</li>
+			<li>
+			  <div class="noterm">symbol-vars</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">symbol-var</span></li>
+				<li><span class="noterm">symbol-var</span><span class="term">, </span><span class="noterm">symbol-vars</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">mconfig-var</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">letterU</span></li>
+				<li><span class="term">Ä</span></li>
+				<li><span class="term">Ö</span></li>
+				<li><span class="term">Ü</span></li>
+				<li><span class="term">ẞ</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">mconfig-vars</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">mconfig-var</span></li>
+				<li><span class="noterm">mconfig-var</span><span class="term">, </span><span class="noterm">mconfig-vars</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">name</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">letterL</span></li>
+				<li><span class="noterm">letterL</span><span class="noterm">name</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">mfunction</div>
+			  <div class="flechag"></div>
+			  <div><span class="noterm">name</span><span class="term">(</span><span class="noterm">cs-variables</span><span class="term">)</span></div>
+			</li>
+			<li>
+			  <div class="noterm">cs-variables</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">mconf-vars</span></li>
+				<li><span class="noterm">symbol-vars</span></li>
+				<li><span class="noterm">mconf-vars</span><span class="term">, </span><span class="noterm">symbol-vars</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">mconfig</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">name</span></li>
+				<li><span class="noterm">mfunction</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">configuration</div>
+			  <div class="flechag"></div>
+			  <div><span class="noterm">mconfig</span><span class="noterm">sps</span><span class="noterm">symbol</span></div>
+			</li>
+			<li>
+			  <div class="noterm">operation</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="term">L</span></li>
+				<li><span class="term">R</span></li>
+				<li><span class="term">E</span></li>
+				<li><span class="term">P</span><span class="noterm">symbol</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">operations</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">operation</span></li>
+				<li><span class="noterm">operation</span><span class="term">, </span><span class="noterm">operations</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">behaviour</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">operations</span><span class="noterm">mcfinal</span></li>
+				<li><span class="noterm">mcfinal</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">skeleton-uses</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">mcfinal</span></li>
+				<li><span class="noterm">mcfinal</span><span class="noterm">skeleton-uses</span><span class="term">, </span><span class="noterm">skeleton-uses</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">mcfinal-vars</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">skeleton-uses</span><span class="noterm">mcfinal</span></li>
+				<li><span class="term">;</span><span class="noterm">symbols</span></li>
+				<li><span class="noterm">skeleton-uses</span><span class="term">;</span><span class="noterm">symbols</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">mcfinal</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">name</span></li>
+				<li><span class="noterm">name</span><span class="term">(</span><span class="noterm">mcfinal-vars</span><span class="term">)</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">symb-behav</div>
+			  <div class="flechag"></div>
+			  <div><span class="noterm">sps</span><span class="noterm">symbol</span><span class="noterm">behaviour</span></div>
+			</li>
+			<li>
+			  <div class="noterm">symb-behavs</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">symb-behav</span></li>
+				<li><span class="noterm">symb-behav</span><span class="noterm">nls</span><span class="noterm">symb-behavs</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">table-inst</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">configuration</span><span class="noterm">behaviour</span></li>
+				<li><span class="noterm">mconfig</span><span class="noterm">nls</span><span class="term">{</span><span class="noterm">nl</span><span class="noterm">nls</span><span class="noterm">symb-behav</span>
+				  <span class="noterm">nls</span><span class="term">}</span>
+				</li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">instructions</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="noterm">table-inst</span></li>
+				<li><span class="noterm">table-inst</span><span class="noterm">instructions</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">table</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li>&epsilon;</li>
+				<li><span class="noterm">instructions</span></li>
+			  </ul>
+			</li>
+		  </ol>
+		  <aside>
+			<p>No terminales entre ‘⟨⟩’ y en cursiva.</p>
+			<p>Terminales en negrita.</p>
+			<p>ε ‒ cadena vacía.</p>
+			<p>| ‒ alternativas entre entidades.</p>
+		  </aside>
 		</div>
+		<!-- <div id="gram_cont"> -->
+		<!--   <ul id="gramar"> -->
+		<!-- 	<li><span class="cabecera">table-inst</span>configuration behaviour | mconfig nl* <em>{</em> nl+ (sp+ symbol behaviour)* nl* <em>}</em></li> -->
+			
+			
+		<!-- 	<li><span class="cabecera">mcfinal</span>nombre | nombre<em>(</em>mcfinal-vars<em>)</em></li> -->
+		<!-- 	<li><span class="cabecera">mcfinal-vars</span>skeleton-uses | <em>;</em>symbols | skeleton-uses<em>;</em> symbols</li> -->
+		<!-- 	<li><span class="cabecera">skeleton-uses</span>mcfinal | mcfinal<em>,</em> skeleton-uses</li> -->
+
+
+		<!-- 	<\!-- <li><span class="cabecera">symbol-vars</span>symbol-var | symbol-var<em>,</em> symbol-vars</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">mconf-vars</span>mconf-vars | mconf-vars<em>,</em> mconf-vars</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">cs-variables</span>mconf-vars | symbol-vars | mconf-vars<em>,</em> symbol-vars</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">symbol-var</span><em class="expl">letra griega minúscula</em></li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">mconfig-var</span>[<em>A-Z</em>] | <em>Ä</em> | <em>Ö</em> | <em>Ü</em> | <em>ẞ</em></li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">mfunction</span>name<em>(</em>cs-variables<em>)</em></li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">mconfig</span>name | mfunction</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">operation</span><em>L</em> | <em>R</em> | <em>E</em> | <em>P</em>symbol</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">configuration</span>mconfig symbol</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">symbols</span>symbol | symbol<em>,</em> symbols</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">behaviour</span>operations mcfinal | mcfinal</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">operations</span>operation | operation<em>,</em> operations</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">comentario</span><em>;</em><em class="expl">cualquier cosa</em></li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">table</span>table-inst*</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">nl</span>salto de línea</li> -\-> -->
+		<!-- 	<\!-- <li><span class="cabecera">sp</span>espacio</li> -\-> -->
+		<!--   </ul> -->
+		<!-- </div> -->
 		<aside class="gram_ac">
 		  <p>
 			<em>symbol-var</em> puede ser una letra griega o su nombre, p. ej. &alpha; o alfa. Si se escribe el nombre se traduce a su símbolo.
@@ -172,7 +393,7 @@ cr(B, alfa)    ...    cr(cr(B, alfa), re(B, a, alfa), alfa)</pre>
 			  Pasa de una m-configuration a otra con cualquier símbolo y sin símbolo.</p>
 </li>
 		</ul>
-<a href="./maqc.html">Máquina ejecutora de C--</a>		
+<a href="./maqc.html">Máquina ejecutora de C--</a>
 	  </main><!--***********************-->
 	</div>
     <footer>

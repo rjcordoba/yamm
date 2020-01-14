@@ -1,7 +1,7 @@
 p#explic{
 	margin:1em 0 1em;
 	line-height:1.45em;
-	max-width:49em;	
+	max-width:50em;	
 }
 
 #lis_ins{
@@ -16,14 +16,8 @@ p#explic{
 
 #lis_ins > li{
 	display:flex;
-	/* margin:1em 0; */
-	border-color:#041435;
-	border-style:solid;
-	border-bottom-width:2px;
-	border-right:none;
-	border-top:none;
-	border-left:none;
-	padding:2.1em 1em;
+	border-bottom:solid 2px #041435;
+	padding:1.1em 1em;
 }
 
 #lis_ins > li:last-child{
@@ -31,21 +25,21 @@ p#explic{
 }
 
 #lis_ins > li > p{
-	width:32%;
+	width:20em;
 	font-size:1.24em;
 }
 
 #lis_ins > li > div{
-	width:68%;
+	width:45em;
 	font-size:0.91em;
 	line-height:1.5em;
 }
 
 .inst{
-	color:#025798;
+	color:#0b385a;
 }
 
-.expsi{
+.expsi, .inst{
 	font-style:italic;
 }
 
@@ -60,10 +54,6 @@ span.marca{
 	font-size:1.3em;
 	margin:0 0.1em;
 }
-
-/* span.simb::before{ */
-/* 	content:"'"; */
-/* } */
 
 #lis_ins ol{
 	list-style-type:none;
