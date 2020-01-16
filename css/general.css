@@ -1,14 +1,11 @@
 html{
     background-color:#060813;
-    font-size:10px;
     --color-nav:#050427;
 }
 
 body{
-    margin:0;
-    padding:0;
     font-family: Roboto,Helvetica,Arial,sans-serif;
-    font-size:1.2em;
+    font-size:20px;
 	background-color:#f7f5f1;
 }
 
@@ -23,46 +20,45 @@ img{
     height:auto;
 }
 
+#cont-principal{
+	color:#333;
+}
+
 .anchura{
     max-width:1400px;
 	margin:0 auto;
 	box-sizing:border-box;
 }
 
-#cont-principal{
-	color:#333;
+body  > header{
+    background-color:#333;
+    padding:0.3em 2em 0;
 }
 
 header .anchura{
-    position:relative;
-    padding:0.3em 0.3% 0;
-}
-
-body  > header{
-    background-color:#333;
+	position:relative;
 }
 
 header img[src*="icono"]{
-    width:21%;
+    width:15em;
     transform: rotate(-20deg);
     position:absolute;
-    top:1.4em;
+    top:1.8em;
+	left:3em;
 }
 
 header img[src*="letras"]{
-    margin-left:21%;
+    margin-left:18.5em;
     width:15%;
 }
 
 body > nav{
     font-size:1em;
-	padding:0.4em 0;
-	color:#fff;    
-    çlist-style:none;
+	color:#fff;
     background: linear-gradient(to bottom, #065896 0%,#1e3975 54%,#464c6b 100%);
     border-style:solid;
     border-color:var(--color-nav);
-    border-width:1px 0; 
+    border-width:1px 0;
     font-weight:bold;
 }
 
@@ -71,17 +67,42 @@ body > nav a, body > nav a:visited{
 	color:#fff;
 }
 
-body > nav li:first-child{
-    margin-left:16%;
+body > nav > ul{
+    padding-left:14.5em;
 }
 
-body > nav li{
+body > nav > ul > li{
     display:inline-block;
-    padding:0;
+	position:relative;
+	padding:0.4em 0;
     text-shadow: 0px 0px 2px var(--color-nav);
 }
 
-body > nav li::before{
+body > nav li > ul{
+	position:absolute;
+	top:94%;
+	left:-0.55em;
+	/* display:none; */
+	background-color:#213b73;
+	font-size:0.85em;
+	width:10em;
+	color:#fff;
+	text-shadow: 0px 0px 2px #01091b;
+}
+
+body > nav li > ul li{
+	padding:0.5em 0.7em;
+	border-bottom:solid 1px #415165;
+	border-top:solid 1px #34405f;
+	box-shadow:inset 0 0.3em 0.3em 0 #253767;
+}
+
+body > nav li > ul li:hover{
+	background-color:#384c7f;
+	box-shadow:none;
+}
+
+body > nav >ul > li::before{
     content:"|";
     margin:0 1em;
     font-weight:normal;
@@ -129,7 +150,7 @@ body > footer{
 }
 
 #autor{
-    margin:0.1em 0 0.4em 2.4em;    
+    margin:0.1em 0 0.4em 2.4em;
 }
 
 #autor > p:first-child{
@@ -142,17 +163,6 @@ body > footer{
     color:#8d928d;
 }
 
-@media (min-width:1400px){
-    body{
-		font-size:2em;
-    }
-	/*  body  > div:first-child > header{ */
-	/* padding-top:0.5%; */
-	/*  } */
-    header img[src*="icono"]{
-		top:1.98em;
-    }
-}
 
 @media (min-width:1100px) and (max-width:1399px){
     body{

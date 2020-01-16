@@ -17,7 +17,7 @@ aside.aclarcn, aside.warning{
 	align-items:center;
 	font-size: 0.8em;
     line-height: 1.5;
-	border-left:solid 5px #e1e2e2;
+	border-left:solid 0.25em #e1e2e2;
 	padding:0.5em 0.8em;
 	margin:1.6em 0 4.5em;
 	background-color:rgb(225,226,226,0.18);
@@ -620,7 +620,7 @@ pre .flechita::before{
 
 .expansor .flechita::before{
 	position:relative;
-	bottom:0.1em;
+	bottom:0.15em;
 }
 
 .expansor .ppuntos .flechita::before{
