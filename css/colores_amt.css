@@ -1,0 +1,73 @@
+#editor .mcnombre{
+	color:#c12222;
+}
+
+#editor .var_mc{
+	color:#b7780b;
+}
+
+#editor .var_simb{
+	color:#0699e2;
+}
+
+#editor .simbol{
+	color:#0442b9;
+	font-family:'PT Mono', monospace;
+	/* font-weight:bold; */
+}
+
+#editor .akzioa{
+	color:#466514;
+}
+
+#editor .llave{
+	color:#000;
+}
+
+#editor .mcfinal{
+	color:#a631b9;
+}
+
+#editor .comentario{
+	color:#1fab30;
+}
+
+/*============================
+*  Colores de editor oscuro
+*=============================*/
+
+#editor.oscuro #pantalla{
+	color:#fff;
+}
+
+#editor.oscuro .var_simb{
+	color:#599cbd;
+}
+
+#editor.oscuro .var_mc{
+	color:#c38383;
+}
+
+#editor.oscuro .akzioa{
+	color:#d6d4af;
+}
+
+#editor.oscuro .llave{
+	color:#fff;
+}
+
+#editor.oscuro .mcnombre{
+	color:#ea5858;
+}
+
+#editor.oscuro .simbol{
+	color:#96b9ff;
+}
+
+#editor.oscuro .mcfinal{
+	color:#859c88;
+}
+
+#editor.oscuro .comentario{
+	color:#13ad13;
+}

@@ -22,6 +22,19 @@ img{
 
 #cont-principal{
 	color:#333;
+	min-height:90vh;
+	padding:3.7em 0 4em 10%;
+	font-size:0.95em;
+}
+
+#cont-principal #encabezado{
+	font-size:1.25em;
+	margin-bottom:2em;
+}
+
+#cont-principal #encabezado h2{
+	font-size:1.6em;
+	margin:0.7em 0 0 0.25em;
 }
 
 .anchura{
@@ -64,7 +77,7 @@ body > nav{
 
 body > nav a, body > nav a:visited{
 	text-decoration:none;
-	color:#fff;
+	color:#fff;	
 }
 
 body > nav > ul{
@@ -74,49 +87,68 @@ body > nav > ul{
 body > nav > ul > li{
     display:inline-block;
 	position:relative;
-	padding:0.4em 0;
     text-shadow: 0px 0px 2px var(--color-nav);
 }
 
-body > nav li > ul{
+body > nav > ul > li > a{
+	display:inline-block;
+	padding:0.4em 0.7em;
+}
+
+body > nav > ul > li > ul{
 	position:absolute;
-	top:94%;
-	left:-0.55em;
-	/* display:none; */
+	top:92%;
+	left:0.6em;
+	display:none;
 	background-color:#213b73;
 	font-size:0.85em;
-	width:10em;
+	white-space:nowrap;
 	color:#fff;
+	border-top:solid 1px #415165;
 	text-shadow: 0px 0px 2px #01091b;
+}
+
+body > nav li:first-child > ul{
+	left:-0.55em;
 }
 
 body > nav li > ul li{
 	padding:0.5em 0.7em;
 	border-bottom:solid 1px #415165;
 	border-top:solid 1px #34405f;
-	box-shadow:inset 0 0.3em 0.3em 0 #253767;
+	display:block;
 }
 
 body > nav li > ul li:hover{
 	background-color:#384c7f;
 	box-shadow:none;
+	box-shadow:inset 0 0.3em 0.3em 0 #314579;
 }
 
-body > nav >ul > li::before{
+body > nav > ul > li::before{
     content:"|";
-    margin:0 1em;
     font-weight:normal;
     color:#1f1b4c;
     text-shadow: 1px 1px 2px #434b6f;
 }
 
-body > nav li:first-child::before{
-    content:none;
+nav > ul > li:hover ul{
+	display:block;
 }
 
-#cont-principal main{
-	padding:1.7em 0 0 10%;
-	font-size:0.95em;
+nav ul li.con_triang{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+}
+
+nav ul li .triang{
+	float:right;
+	font-size:0.6em;
+}
+
+body > nav li:first-child::before{
+    content:none;
 }
 
 #cont-principal > h1{
@@ -143,10 +175,10 @@ main h2{
 }
 
 body > footer{
-    font-size:0.8em;
+    font-size:0.85em;
     border-top:solid 1px #000;
     background:linear-gradient(to bottom, #4c4c4c 0%,#2c2c2c 23%,#2c2c2c 10%,#2c2c2c 11%,#222222 35%,#1c1c1c 78%,#131313 100%);
-    padding:1.2% 0;
+    padding:1.8em 0;
 }
 
 #autor{

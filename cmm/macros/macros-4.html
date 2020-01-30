@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lenguaje C--</title>
+    <meta name="author" content="R. Córdoba García">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
+	<script src="../js/macros.js" defer></script>
+    <script>
+	</script>
+
+    <style>
+	  .resaltart{
+		  color:#01030a;
+	  }
+	</style>
+
+  </head>
+  <body>
+    <header>
+	  <div class="anchura">
+        <img src="imgs/icono.svg" alt="icono">
+        <img src="imgs/letras.svg" alt="letras">
+	  </div>
+    </header>
+    <nav>
+	  <ul class="anchura">
+	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
+      </ul>
+    </nav>
+	<div id="cont-principal" class="anchura">
+	  <h1>Lenguaje C--</h1>
+	  <h2>Macros y utilidades</h2>
+	  <main><!--***********************-->
+		<div class="gramat glue">
+		  <ol>
+			<li>
+			  <div class="noterm">natc</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="term">0</span></li>
+				<li><span class="noterm">natural</span></li>
+			  </ul>
+			</li>
+			<li>
+			  <ul>
+				<li>𝖆</li>
+				<li>𝖇</li>
+				<li>𝖈</li>
+			  </ul>
+			  <div class="flechag"></div>
+			  <div class="noterm">natc</div>
+			</li>
+		  </ol>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’</h1>
+		  <p>𝖆 = 0 + 0 es verdad si y sólo sí 𝖆 es 0.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’</h1>
+		  <p>1 = 1 + 0 es verdad.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’</h1>
+		  <p>Si <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 0 es verdad, <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 0 es verdad, donde:</p>
+		  <ol class="discos">
+			<li><span class="nnoterm">k</span> = <span class="nnoterm">n</span> + 1 es verdad.</li>
+			<li><span class="nnoterm">p</span> = <span class="nnoterm">m</span> + 1 es verdad.</li>
+		  </ol>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’</h1>
+		  <p>𝖆 = 0 + <span class="nnoterm">n</span> es verdad si y sólo si 𝖆 = <span class="nnoterm">n</span> + 0 es verdad.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’</h1>
+		  <p>𝖆 = <span class="nnoterm">n</span> + 0 es verdad, 𝖈 = <span class="nnoterm">n</span> + 0 si y sólo si 𝖆 y 𝖈 son el mismo <span class="noterm">natc</span>.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’</h1>
+		  <p>0 = <span class="nnoterm">n</span> + 1 no es verdad.</p>
+		</div>
+		<div class="postulado glue">
+		  <h1>Postulado 1’’’’’’’’’</h1>
+		  <p>𝖆 = <span class="nnoterm">n</span> + <span class="nnoterm">m</span> es verdad si y sólo si:</p>
+		  <ol>
+			<li><span class="nnoterm">m</span> es 1 y 𝖆 = <span class="nnoterm">n</span> + 1 es verdad.</li>
+			<li><span class="nnoterm">m</span> no es 1 y 𝖆 = <span class="nnoterm">p</span> + <span class="nnoterm">k</span> es verdad, donde:
+			  <ol>
+				<li><span class="nnoterm">p</span> = <span class="nnoterm">n</span> + 1 es verdad.</li>
+				<li><span class="nnoterm">m</span> = <span class="nnoterm">k</span> + 1 es verdad.</li>
+			  </ol>
+			</li>
+		  </ol>
+		</div>
+		<div class="gramat glue">
+		  <ol>
+			<li>
+			  <div class="nnoterm">A</div>
+			  <div class="flechag"></div>
+			  <ul class="term">
+				<li>a</li>
+				<li>A</li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="nnoterm">B</div>
+			  <div class="flechag"></div>
+			  <ul class="term">
+				<li>b</li>
+				<li>B</li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="nnoterm">C</div>
+			  <div class="flechag"></div>
+			  <ul class="term">
+				<li>c</li>
+				<li>C</li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="nnoterm">D</div>
+			  <div class="flechag"></div>
+			  <ul class="term">
+				<li>d</li>
+				<li>D</li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="nnoterm">E</div>
+			  <div class="flechag"></div>
+			  <ul class="term">
+				<li>e</li>
+				<li>E</li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="nnoterm">A</div>
+			  <div class="flechag"></div>
+			  <ul class="term">
+				<li>f</li>
+				<li>F</li>
+			  </ul>
+			</li>
+			<li>
+			  <div class="noterm">exal</div>
+			  <div class="flechag"></div>
+			  <ul>
+				<li><span class="nnoterm">A</span></li>
+				<li><span class="nnoterm">B</span></li>
+				<li><span class="nnoterm">C</span></li>
+				<li><span class="nnoterm">D</span></li>
+				<li><span class="nnoterm">E</span></li>
+				<li><span class="nnoterm">F</span></li>
+			  </ul>
+			</li>
+		  </ol>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’’’</h1>
+		  <p>Es verdad:</p>
+		  <ol>
+			<li><span class="nnoterm">A</span> = 9 + 1</li>
+			<li><span class="nnoterm">B</span> = <span class="nnoterm">A</span> + 1</li>
+			<li><span class="nnoterm">C</span> = <span class="nnoterm">B</span> + 1</li>
+			<li><span class="nnoterm">D</span> = <span class="nnoterm">C</span> + 1</li>
+			<li><span class="nnoterm">E</span> = <span class="nnoterm">D</span> + 1</li>
+			<li><span class="nnoterm">F</span> = <span class="nnoterm">E</span> + 1</li>
+		  </ol>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’’’’</h1>
+		  <p>𝖆 = 𝖇 + <span class="noterm">exal<sub>1</sub></span> es verdad si y sólo si una de las siguientes afirmaciones se cumple:</p>
+		  <ol>
+			<li><span class="noterm">exal<sub>1</sub></span> es <span class="nnoterm">A</span> y 𝖆 = 𝖈 + 9 es verdad, donde 𝖈 = 𝖇 + 1 es verdad.</li>
+			<li><span class="noterm">exal<sub>1</sub></span> no es <span class="nnoterm">A</span> y 𝖆 = 𝖈 + <span class="noterm">exal<sub>2</sub></span> es verdad, donde:
+			  <ol>
+				<li>𝖈 = 𝖇 + 1 es verdad.</li>
+				<li><span class="noterm">exal<sub>1</sub></span> = <span class="noterm">exal<sub>2</sub></span> + 1 es verdad.</li>
+			  </ol>
+			</li>
+		  </ol>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’’’’’</h1>
+		  <p>𝖆 = 0 * 0 es verdad si y sólo si 𝖆 es 0.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’’’’’’</h1>
+		  <p>0 = 1 * 0 es verdad.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’’’’’’’</h1>
+		  <p>Si 0 = <span class="nnoterm">n</span> * 0 es verdad, 0 = <span class="nnoterm">m</span> * 0 es verdad, donde
+			<span class="nnoterm">m</span> = <span class="nnoterm">n</span> + 1 es verdad.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’’’’’’’’</h1>
+		  <p>Si 𝖆 = <span class="nnoterm">n</span> * 0 es verdad, 𝖇 = <span class="nnoterm">n</span> * 0 es verdad si y sólo si 𝖆 y 𝖇 son el mismo <span class="noterm">natc</span>.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’’’’’’’’’</h1>
+		  <p>1 = 1 * 1 es verdad.</p>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’’’’’’’’’’</h1>
+		  <p>Si <span class="nnoterm">n</span> = <span class="nnoterm">m</span> * 1 <span class="nnoterm">k</span> = <span class="nnoterm">p</span> * 1 es verdad, donde:</p>
+		  <ol class="discos">
+			<li><span class="nnoterm">k</span> = <span class="nnoterm">n</span> + 1 es verdad.</li>
+			<li><span class="nnoterm">p</span> = <span class="nnoterm">m</span> + 1 es verdad.</li>
+		  </ol>
+		</div>
+		<div class="postulado">
+		  <h1>Postulado 1’’’’’’’’’’’’’’’’’’</h1>
+		  <p>Si 𝖆 = <span class="nnoterm">m</span> * 1 es verdad, 𝖇 = <span class="nnoterm">m</span> * 1 es verdad si y sólo si 𝖆 y 𝖇 son el mismo <span class="noterm">natc</span>.</p>
+		</div>
+		<div class="postulado glue">
+		  <h1>Postulado 1’’’’’’’’’’’’’’’’’’’</h1>
+		  <p>𝖆 = <span class="nnoterm">m</span> * <span class="nnoterm">n</span> es verdad si y sólo si una de las siguientes afirmaciones se cumple:</p>
+		  <ol>
+			<li><span class="nnoterm">n</span> es 1 y 𝖆 = <span class="nnoterm">m</span> * 1 es verdad.</li>
+			<li><span class="nnoterm">n</span> no es 1 y es verdad:
+			  <ol>
+				<li><span class="nnoterm">n</span> = <span class="nnoterm">k</span> + 1.</li>
+				<li>𝖇 = <span class="nnoterm">m</span> + <span class="nnoterm">k</span>.</li>
+				<li>𝖆 = 𝖇 + <span class="nnoterm">m</span>.</li>
+			  </ol>
+			</li>
+		  </ol>
+		</div>
+	  </main><!--***********************-->
+	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
+	</div>
+    <footer>
+	  <div class="anchura">
+		<div id="autor">
+		  <p>R. Córdoba García</p>
+		  <address>rcordoba77@gmail.com</address>
+		</div>
+	  </div>
+    </footer>
+  </body>
+</html>

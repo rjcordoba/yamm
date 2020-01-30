@@ -1,0 +1,81 @@
+.numbers{
+	color:#83f5fd;
+}
+
+.numberp{
+	color:#bd8cf9;
+}
+
+.simbind{
+	color:#e06161;
+}
+
+.simbexp{
+	color:#fdaab9;
+}
+
+.simbexp2{
+	color:#77aeea;
+}
+
+.pclave{
+	color:#f3e3a5;
+}
+
+.nvars{
+	color:#9cda96;
+}
+
+.ejemplos .id_exp{
+	color:#fba26a;
+	font-size: 0.6em;
+}
+
+.preproc{
+	color:#e778f9;
+}
+
+.booleano{
+	color:#19b102;
+}
+
+.comentarioc{
+	color:#AAA;
+	font-size:0.85em;
+}
+
+.claro .nvars{
+	color:#32842a;
+}
+
+.claro .numberp{
+	color:#9848f9;
+}
+
+.claro .pclave{
+	color:#2730d4;
+}
+
+.claro .simbexp{
+	color:#da4c4c;
+}
+
+.claro .id_exp{
+	color:#dc691f;
+}
+
+.claro .simbind{
+	color:#3c3801;
+}
+
+.claro .preproc{
+	color:#b953ca;
+}
+
+.claro .booleano{
+	color:#3fa3b5;
+}
+
+.claro .comentarioc{
+	color:#666;
+}

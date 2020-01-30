@@ -58,40 +58,6 @@ src: url(../fuentes/Kleist-Fraktur.ttf);
 	font-size:1.1em;
 }
 
-#pizarra .mcnombre{
-	color:#c12222;
-}
-
-#pizarra .var_mc{
-	color:#b7780b;
-}
-
-#pizarra .var_simb{
-	color:#0699e2;
-}
-
-#pizarra .simbol{
-	color:#0442b9;
-	font-family:'PT Mono', monospace;
-	/* font-weight:bold; */
-}
-
-#pizarra .akzioa{
-	color:#466514;
-}
-
-#pizarra .llave{
-	color:#000;
-}
-
-#pizarra .mcfinal{
-	color:#a631b9;
-}
-
-#pizarra .comentario{
-	color:#1fab30;
-}
-
 /*============================
 *  Colores de editor oscuro
 *=============================*/
@@ -120,36 +86,4 @@ src: url(../fuentes/Kleist-Fraktur.ttf);
 
 #editor.oscuro #pizarra, #editor.oscuro #minib{
 	color:#DDD;
-}
-
-#editor.oscuro .var_simb{
-	color:#599cbd;
-}
-
-#editor.oscuro .var_mc{
-	color:#c38383;
-}
-
-#editor.oscuro .akzioa{
-	color:#d6d4af;
-}
-
-#editor.oscuro .llave{
-	color:#fff;
-}
-
-#editor.oscuro .mcnombre{
-	color:#ea5858;
-}
-
-#editor.oscuro .simbol{
-	color:#96b9ff;
-}
-
-#editor.oscuro .mcfinal{
-	color:#859c88;
-}
-
-#editor.oscuro .comentario{
-	color:#13ad13;
 }
