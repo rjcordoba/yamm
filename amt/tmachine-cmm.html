@@ -32,10 +32,10 @@
 ><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span>
      <span class="simbol">a</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">sum</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span
 >; <span class="simbol">α</span><span class="mcfinal">)</span>
-     <span class="simbol">b</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">nil</span><span class="mcfinal">(</span>; <span class="simbol"></span><span class="mcfinal">)</span
->; <span class="simbol"></span><span class="mcfinal">)</span>
-     <span class="simbol">c</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">comp</span><span class="mcfinal">(</span>; <span class="simbol"></span><span class="mcfinal">)</span
->; <span class="simbol"></span><span class="mcfinal">)</span>
+     <span class="simbol">b</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">nil</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span
+>; <span class="simbol">α</span><span class="mcfinal">)</span>
+     <span class="simbol">c</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">comp</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span
+>; <span class="simbol">α</span><span class="mcfinal">)</span>
      <span class="simbol">d</span>    <span class="mcfinal">ir</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span>
 <span class="llave">}</span>
 
@@ -90,11 +90,11 @@
      <span class="simbol">0</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span><span class="simbol">f</span>    <span class="mcfinal">buscop</span><sub class="mcfinal">3</sub><span class="mcfinal">(</span
 >; <span class="simbol">α</span>, <span class="simbol">f</span><span class="mcfinal">)</span>
      <span class="simbol">=</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span><span class="simbol">g</span
->    <span class="mcfinal">buscop</span><sub class="mcfinal">3</sub><span class="mcfinal">(</span>; <span class="simbol"></span>, <span class="simbol">g</span><span class="mcfinal">)</span>
+>    <span class="mcfinal">buscop</span><sub class="mcfinal">3</sub><span class="mcfinal">(</span>; <span class="simbol">α</span>, <span class="simbol">g</span><span class="mcfinal">)</span>
      <span class="simbol">*</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span><span class="simbol">h</span>    <span class="mcfinal">buscop</span
-><sub class="mcfinal">3</sub><span class="mcfinal">(</span>; <span class="simbol"></span>, <span class="simbol">h</span><span class="mcfinal">)</span>
+><sub class="mcfinal">3</sub><span class="mcfinal">(</span>; <span class="simbol">α</span>, <span class="simbol">h</span><span class="mcfinal">)</span>
      <span class="simbol">-</span>    <span class="akzioa">E</span
->, <span class="akzioa">P</span><span class="simbol">z</span>    <span class="mcfinal">buscop</span><sub class="mcfinal">3</sub><span class="mcfinal">(</span>; <span class="simbol"></span>, <span class="simbol">z</span
+>, <span class="akzioa">P</span><span class="simbol">z</span>    <span class="mcfinal">buscop</span><sub class="mcfinal">3</sub><span class="mcfinal">(</span>; <span class="simbol">α</span>, <span class="simbol">z</span
 ><span class="mcfinal">)</span>
      <span class="simbol">None</span>    <span class="akzioa">P</span><span class="simbol">z</span>    <span class="mcfinal">buscop</span
 ><sub class="mcfinal">3</sub><span class="mcfinal">(</span>; <span class="simbol">α</span>, <span class="simbol">z</span><span class="mcfinal">)</span>
@@ -109,12 +109,12 @@
 <span class="mcnombre">buscop</span><sub class="mcnombre">4</sub><span class="mcnombre">(</span><span class="var_simb">α</span>,<span class="var_simb"> β</span
 ><span class="mcnombre">)</span><span class="llave">{</span>
      <span class="simbol">|</span>    <span class="akzioa">R</span>    <span class="mcfinal">buscop</span><sub class="mcfinal">4</sub><span class="mcfinal">(</span
->; <span class="simbol"></span>, <span class="simbol"></span><span class="mcfinal">)</span>
+>; <span class="simbol">α</span>, <span class="simbol">β</span><span class="mcfinal">)</span>
      <span class="simbol">'</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span
-><span class="simbol">1</span>    <span class="mcfinal">buscop</span><sub class="mcfinal">5</sub><span class="mcfinal">(</span>; <span class="simbol"></span>, <span class="simbol"></span><span class="mcfinal">)</span>
-     not <span class="simbol">|</span> nor <span class="simbol">'</span>    <span class="akzioa">L</span>    <span class="mcfinal">encop</span><span class="mcfinal">(</span>; <span class="simbol"></span
+><span class="simbol">|</span>    <span class="mcfinal">buscop</span><sub class="mcfinal">5</sub><span class="mcfinal">(</span>; <span class="simbol">α</span>, <span class="simbol">β</span><span class="mcfinal">)</span>
+     not <span class="simbol">|</span> nor <span class="simbol">'</span>    <span class="akzioa">L</span>    <span class="mcfinal">encop</span><span class="mcfinal">(</span>; <span class="simbol">β</span
 ><span class="mcfinal">)</span>
-     <span class="simbol">None</span>    <span class="akzioa">L</span>    <span class="mcfinal">encop</span><span class="mcfinal">(</span>; <span class="simbol"></span><span class="mcfinal">)</span>
+     <span class="simbol">None</span>    <span class="akzioa">L</span>    <span class="mcfinal">encop</span><span class="mcfinal">(</span>; <span class="simbol">β</span><span class="mcfinal">)</span>
 <span class="llave">}</span>
 
 <span class="mcnombre">buscop</span><sub class="mcnombre">5</sub><span class="mcnombre">(</span><span class="var_simb">α</span>, <span class="var_simb">β</span><span class="mcnombre">)</span
@@ -162,7 +162,7 @@
 <span class="mcnombre">qmarc</span><span class="mcnombre">(</span><span class="var_simb">α</span><span class="mcnombre">)</span><span class="llave">{</span>
      <span class="simbol">'</span>    <span class="akzioa">E</span>, <span class="akzioa">R</span>    <span class="mcfinal">cerhueco</span><span class="mcfinal">(</span
 ><span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">d</span><span class="mcfinal">(</span><span class="mcfinal">qmarc</span
-><span class="mcfinal">)</span><span class="mcfinal">)</span>; <span class="simbol">α</span><span class="mcfinal">)</span>
+><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span><span class="mcfinal">)</span>; <span class="simbol">α</span><span class="mcfinal">)</span><span class="mcfinal">)</span>
      not <span class="simbol">'</span>    <span class="akzioa">L</span>    <span class="mcfinal">rest</span><span class="mcfinal">(</span><span class="mcfinal">ini</span><span class="mcfinal">(</span
 ><span class="mcfinal">sigin</span><span class="mcfinal">)</span><span class="mcfinal">)</span>
      <span class="simbol">None</span>    <span class="akzioa">L</span>    <span class="mcfinal">rest</span><span class="mcfinal">(</span><span class="mcfinal">ini</span><span class="mcfinal">(</span
