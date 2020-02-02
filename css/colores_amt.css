@@ -1,3 +1,7 @@
+#editor #pantalla{
+	color:#656464;
+}
+
 #editor .mcnombre{
 	color:#c12222;
 }
@@ -13,15 +17,10 @@
 #editor .simbol{
 	color:#0442b9;
 	font-family:'PT Mono', monospace;
-	/* font-weight:bold; */
 }
 
 #editor .akzioa{
-	color:#466514;
-}
-
-#editor .llave{
-	color:#000;
+	color:#192702
 }
 
 #editor .mcfinal{
@@ -37,7 +36,7 @@
 *=============================*/
 
 #editor.oscuro #pantalla{
-	color:#fff;
+	color:#d6d4af;
 }
 
 #editor.oscuro .var_simb{
@@ -49,11 +48,11 @@
 }
 
 #editor.oscuro .akzioa{
-	color:#d6d4af;
+	color:#eae3e3;
 }
 
 #editor.oscuro .llave{
-	color:#fff;
+	color:#d6d4af;
 }
 
 #editor.oscuro .mcnombre{

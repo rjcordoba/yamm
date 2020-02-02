@@ -1,0 +1,402 @@
+<main>
+  <div class="gramat">
+	<ol>
+	  <li>
+		<div class="noterm">nd</div>
+		<div class="flechag"></div>
+		<ul class="term">
+		  <li>1</li>
+		  <li>2</li>
+		  <li>3</li>
+		  <li>4</li>
+		  <li>5</li>
+		  <li>6</li>
+		  <li>7</li>
+		  <li>8</li>
+		  <li>9</li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="noterm">ndc</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="term">0</span></li>
+		  <li><span class="noterm">nd</span></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="noterm">ndcc</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span>ε</span></li>
+		  <li><span class="noterm">ndc</span><span class="noterm">ndcc</span></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="noterm">natural</div>
+		<div class="flechag"></div>
+		<div><span class="noterm">nd</span><span class="noterm">ndcc</span></div>
+	  </li>
+	  <li>
+		<div><span class="nnoterm gramtexto">letra minúscula</span></div>
+		<div class="flechag"></div>
+		<div class="noterm">natural</div>
+	  </li>
+	  <li>
+		<div class="noterm">id</div>
+		<div class="flechag"></div>
+		<div class="gramtexto">cadena de caracteres</div>
+	  </li>
+	  <li>
+		<ul><li>&Omega;</li><li>&Phi;</li><li>&Psi;</li></ul>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="noterm">natural</span></li>
+		  <li><span class="term">.</span><span class="noterm">id</span></li>
+		  <li><span class="term">:</span><span class="noterm">id</span></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="nnoterm">x</div>
+		<div class="flechag"></div>
+		<ul class="term">
+		  <li>1</li>
+		  <li>0</li>
+		  <li>=</li>
+		  <li class="estrella">&#xFF0A;</li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="noterm">preinstrucción</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="nnoterm">x</span><sup>&Omega;</sup></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="noterm">preinstrucciones</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li>&epsilon;</li>
+		  <li><span class="noterm">preinstrucción</span><span class="noterm">preinstrucciones</span></li
+																									  </ul>
+	  </li>
+	</ol>
+	<aside>
+	  <p>No terminales en cursiva, entre ‘⟨⟩’ o no, o letra griega.</p>
+	  <p>Terminales en negrita.</p>
+	  <p>ε ‒ cadena vacía.</p>
+	  <p>| ‒ alternativas entre entidades.</p>
+	  <dl>
+		<dt class="nnoterm gramtexto">Letra minúscula</dt>
+		<dd>Letras minúsculas de alfabeto español (a, b, ..., z).</dd>
+		<dt class="nnoterm gramtexto">cadena de caracteres</dt>
+		<dd>Concatenación de más de una <span class="nnoterm">letra minúscula</span> y/o número.</dd>
+	  </dl>
+	</aside>
+  </div>
+  <div class="postulado">
+	<h1>Postulado 1</h1>
+	<p>Es verdad:</p>
+	<ol>
+	  <li>2 = 1 + 1</li><li>3 = 2 + 1</li><li>4 = 3 + 1</li><li>5 = 4 + 1</li>
+	  <li>6 = 5 + 1</li><li>7 = 6 + 1</li><li>8 = 7 + 1</li><li>9 = 8 + 1</li>
+	</ol>
+  </div>
+  <div class="postulado">
+	<h1>Postulado 1’</h1>
+	<p>Si <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad, <span class="nnoterm">k</span> = <span class="nnoterm">m</span> + 1
+	  es verdad si y sólo si <span class="nnoterm">n</span> y <span class="nnoterm">k</span> son el mismo <span class="noterm">natural</span>.</p>
+  </div>
+  <div class="postulado">
+	<h1>Postulado 1’’</h1>
+	<p><span class="nnoterm">n</span><span class="noterm">ndc<sub>1</sub></span> = <span class="nnoterm">m</span><span class="noterm">ndc<sub>2</sub></span> + 1
+	  es verdad si y sólo si una de las siguientes afirmaciones es verdad:</p>
+	<ol>
+	  <li><span class="nnoterm">n</span> y <span class="nnoterm">m</span> son el mismo <span class="noterm">natural</span>,
+		<span class="noterm">ndc<sub>1</sub></span> es 1 y <span class="noterm">ndc<sub>2</sub></span> es 0.</li>
+	  <li><span class="nnoterm">n</span> y <span class="nnoterm">m</span> son el mismo <span class="noterm">natural</span>,
+		<span class="noterm">ndc<sub>1</sub></span> no es 0, <span class="noterm">ndc<sub>2</sub></span> no es 0 y
+		<span class="noterm">ndc<sub>1</sub></span> = <span class="noterm">ndc<sub>2</sub></span> + 1 es verdad.</li>
+	  <li><span class="noterm">ndc<sub>1</sub></span> es 0, <span class="noterm">ndc<sub>2</sub></span> es 9, y
+		<span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</li>
+	</ol>
+  </div>
+  <aside class="aclarcn glue">
+	<p>No terminales con un <span class="noterm">natural</span> como subíndice (p.ej. <span class="noterm">ndc<sub>1</sub></span>,
+	  <span class="nnoterm">m</span><sub>1</sub>) representan una cadena concreta, que puede ser cualquiera, que se pueda derivar de ese no terminal.</p>
+  </aside>
+  <div class="macro">
+	<pre><code><span class="nnoterm">x</span><sup>1</sup></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="nnoterm">x</span></code></pre>
+  </div>
+  <div class="mmacro">
+	<div class="macro">
+	  <pre><code><span class="nnoterm">x</span><sup class="nnoterm">n</sup></code></pre>
+	  <div class="flecha"></div>
+	  <pre><code><span class="nnoterm">x</span><sup class="nnoterm">m</sup><span class="comilla comletra"><span>’</span></span></code></pre>
+	</div>
+	<p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
+  </div>
+  <aside class="ejemplos">
+	<h1>Ejemplo</h1>
+	<ol>
+	  <li><div><pre><code>＊<sup class="numbers">3</sup></code></pre></div></li>
+	  <li><div><pre><code>＊<sup class="numbers">2</sup><span class="comilla comgr"><span>’</span></span></code></pre></div></li>
+	  <li><div><pre><code>＊<sup class="numbers">1</sup><span class="comilla comgr"><span>’</span><span>’</span></span></code></pre></div></li>
+	  <li><div><pre><code>＊<span class="comilla comgr"><span>’</span><span>’</span></span></code></pre></div></li>
+	</ol>
+  </aside>
+  <h3>Asignaciones</h3>
+  <div class="macro">
+	<pre><code>Z<sub>&Omega;</sub> = 0;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>0<sup>&Omega;</sup></code></pre>
+  </div>
+  <div class="macro">
+	<pre><code>Z<sub>&Omega;</sub> = 1;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>0<sup>&Omega;</sup>1<sup>&Omega;</sup></code></pre>
+  </div>
+  <div class="mmacro">
+	<div class="macro">
+	  <pre><code>Z<sub>&Omega;</sub> = <span class="nnoterm">n</span>;</code></pre>
+	  <div class="flecha"></div>
+	  <pre><code>Z<sub>&Omega;</sub> = <span class="nnoterm">m</span>;
+		  1<sup>&Omega;</sup></code></pre>
+	</div>
+	<p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
+  </div>
+  <aside class="ejemplos">
+	<h1>Ejemplo</h1>
+	<ol>
+	  <li>
+		<div>
+		  <ol>
+			<li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
+		  </ol>
+		  <pre><code>...
+<span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"> = </span><span class="numberp">3</span><span class="simbind">;</span></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div>
+		  <ol>
+			<li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
+		  </ol>
+		  <pre><code>...
+<span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"> = </span><span class="numberp">2</span><span class="simbind">;</span>
+1<sup><span class="numbers">29</span></sup></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div>
+		  <ol>
+			<li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
+		  </ol>
+		  <pre><code>...
+<span class="simbexp">Z</span><sub class="numbers">29</sub><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span>
+1<sup><span class="numbers">29</span></sup>
+1<sup><span class="numbers">29</span></sup></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div>
+		  <ol>
+			<li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
+		  </ol>
+		  <pre><code>...
+0<sup class="numbers">29</sup>
+1<sup class="numbers">29</sup>
+1<sup><span class="numbers">29</span></sup>
+1<sup><span class="numbers">29</span></sup></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<p class="puntitos"></p>
+	  </li>
+	</ol>
+  </aside>
+  <aside class="aclarcn glue">
+	Tres puntos (...) representa cualquier instrucción o cualquier expansión de instrucciones.
+  </aside>
+  <dl class="expansor glue">
+	<dt class="flechita"><span class="pos_puntos">⟨<span class="nnoterm">natural</span><span>⟩</span></span></dt>
+	<dd>
+	  <p class="mimp">Señals que pone el expansor de instrucciones, apuntando a una instrucción.</p>
+	  <ol class="discos gluepar">
+		<li>La primera señal que pone es <span class="flechita"><span class="pos_puntos term pbajo">1</span></span>.</li>
+		<li>Si pone una señal <span class="flechita"><span class="pos_puntos nnoterm pbajo">m</span></span>, la siguiente señal será
+		  <span class="flechita"><span class="pos_puntos nnoterm pbajo">n</span></span>, donde n = m + 1 es verdad.</li>
+  	  </ol>
+	  <p class="mimp">Las asociación de señales a instrucciones es:</p>
+	  <ol class="discos gluepar">
+		<li>si la señal apunta a una <span class="noterm">preinstrucción</span> queda ligada a esa <span class="noterm">preinstrucción</span>.</li>
+		<li>
+		  <p>si la señal apunta a una macroinstrucción, y <span class="nnoterm">texto</span><sub class="subp">1</sub> es el resultado de expandir
+			esta macroinstrucción, después de la expansión apuntará:</p>
+		  <ul class="interior">
+			<li>a la siguiente macroinstrucción o <span class="noterm">preinstrucción</span> si <span class="nnoterm">texto</span><sub class="subp">1</sub> es &epsilon;.</li>
+			<li>
+			  a la primera macroinstrucción o <span class="noterm">preinstrucción</span> en <span class="nnoterm">texto</span><sub class="subp">1</sub>
+			  si <span class="nnoterm">texto</span><sub class="subp">1</sub> no es &epsilon;.
+			</li>
+		  </ul>				
+		</li>
+  	  </ol>
+	</dd>
+  </dl>
+  <div class="macro">
+	<pre><code>INIT</code></pre>
+	<div class="flecha"></div>
+	<pre><code>1</code></pre>
+  </div>
+  <div class="macro">
+	<pre><code>JUMP</code></pre>
+	<div class="flecha"></div>
+	<pre><code>=</code></pre>
+  </div>
+  <div class="macro">
+	<pre><code>NADA</code></pre>
+	<div class="flecha"></div>
+	<pre><code>JUMP
+		1</code></pre>
+  </div>
+  <div class="macro">
+	<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Omega;</sub>;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>ε</code></pre>
+  </div>
+  <div class="mmacro">
+	<div class="macro flech">
+	  <pre><code>Z<sub>1</sub> = Z<sub>&Omega;</sub>;</code></pre>
+	  <div class="flecha"></div>
+	  <pre><code>Z<sub>1</sub> = 0;
+		  JUMP
+		  1<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
+		  =<sup>&Omega;</sup>
+		  ＊<sup class="pos_puntos nnoterm">i</sup></code></pre>
+	</div>
+	<p>con &Omega; distinto de 1.</p>
+  </div>
+  <div class="mmacro">
+	<div class="macro flech">
+	  <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub>;</code></pre>
+	  <div class="flecha"></div>
+	  <pre><code>Z<sub>1</sub> = Z<sub>&Phi;</sub>;
+0<sup>&Omega;</sup>
+JUMP
+1<sup>&Omega;</sup><span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
+=<sup>&Omega;</sup>
+＊<sup class="pos_puntos nnoterm">i</sup></code></pre>
+	</div>
+	<p>con &Omega; distinto de &Phi;.</p>
+  </div>
+  <aside class="ejemplos">
+	<h1>Ejemplo</h1>
+	<ol>
+	  <li>
+		<div>
+		  <ol>
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+		  </ol>
+		  <pre><code><span class="pclave">INIT</span>
+<span class="simbexp">Z</span><sub class="numbers">13</sub><span class="simbind"> = </span><span class="simbexp"
+>Z</span><sub class="numbers">17</sub><span class="simbind">;</span></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <ol>
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+		  </ol>
+		  <pre><code>1
+<span class="simbexp">Z</span><sub class="numbers">1</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="numbers">17</sub><span class="simbind">;</span>
+0<sup class="numbers">13</sup>
+<span class="pclave">JUMP</span>
+1<sup class="numbers">13</sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers">13</sup>
+＊<sup class="pos_puntos">1</sup></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <ol>
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+		  </ol>
+		  <pre><code>1
+<span class="simbexp">Z</span><sub class="numbers">1</sub><span class="simbind"> = </span><span class="numberp">0</span><span class="simbind">;</span>
+<span class="pclave">JUMP</span>
+1<span class="flechita"><span class="pos_puntos">2</span></span>
+=<sup class="numbers">17</sup>
+＊<sup class="pos_puntos">2</sup>
+0<sup class="numbers">13</sup>
+<span class="pclave">JUMP</span>
+1<sup class="numbers">13</sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers">13</sup>
+＊<sup class="pos_puntos">1</sup></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <ol>
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+		  </ol>
+		  <pre><code>1
+0
+=
+1<span class="flechita"><span class="pos_puntos">2</span></span>
+=<sup class="numbers">17</sup>
+＊<sup class="pos_puntos">2</sup>
+0<sup class="numbers">13</sup>
+=
+1<sup class="numbers">13</sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers">13</sup>
+＊<sup class="pos_puntos">1</sup></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <ol>
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+		  </ol>
+		  <pre><code>1
+0
+=
+1<span class="flechita">4</span>
+=<sup class="numbers">17</sup>
+＊<sup class="numbers">4</sup>
+0<sup class="numbers">13</sup>
+=
+1<sup class="numbers">13</sup><span class="flechita">9</span>
+=<sup class="numbers">13</sup>
+＊<sup class="numbers">9</sup></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <ol>
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+		  </ol>
+		  <pre><code>1
+0
+=
+1
+=<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+＊<span class="comilla"><span>’</span><span>’</span><span>’</span></span>
+0<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span></span>
+=
+1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span></span>
+=<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span></span>
+＊<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+></span></code></pre>
+		</div>
+	  </li>
+	</ol>
+  </aside>
+</main>

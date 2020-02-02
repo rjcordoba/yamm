@@ -10,19 +10,6 @@ pre{
 	color:var(--textocolor);
 }
 
-/* #cont-principal h1{ */
-/* 	padding-bottom:0.4em; */
-/* 	font-size:2em; */
-/* } */
-
-/* main h2{ */
-/* 	margin:0.3em 0 0.6em; */
-/* 	padding:0 1em 0 0.3em; */
-/* 	display:inline-block; */
-/* 	border-bottom:1px solid; */
-/* 	font-size:1.6em; */
-/* } */
-
 #sel_color{
 	display:flex;
 	padding:0.3em 1% 0.3em 0;
@@ -75,11 +62,9 @@ pre{
 }
 
 #pantalla{
-	--heigth-pantalla:90em;
     display:flex;
     align-items:stretch;
     line-height:1.6em;
-    height:60em;
 }
 
 #pantalla > div{
@@ -109,26 +94,47 @@ pre{
 	padding-left:0.3em;
 }
 
-#pantalla #pizarra{
-    /* display:inline-block; */
-    min-height:97%;
-    /* min-width:100%; */
-    box-sizing:border-box;
+#pantalla > div:last-child::selection{
+  color:#ddd; 
+  background-color:#6b5b02;
 }
 
-/* #pantalla #pizarra p, #pantalla #nums li{ */
-/*     padding:1px 0; */
-/* } */
-
-#pizarra span{
+#pantalla > div:last-child span,
+#pantalla > div:last-child sup,
+#pantalla > div:last-child sub{
 	line-height:0;
 }
 
-/* #pizarra p:empty::before{ */
-/*     content:"\200b"; */
-/* } */
+@media print{
+	#sel_color{
+		display:none;
+	}
 
-/* @media max-width:799px{ */
-/* #cont-principal main{ */
-/* 	margin-left:6%; */
-/* } */
+	#pantalla > div:first-child{
+		background-color:#fff;
+		border:none;
+	}
+
+	#pantalla > div:last-child{
+		padding-left:0.5em;
+	}
+
+	#editor, #editor .screen, #pantalla > div:first-child{
+		border:none !important;
+	}
+
+	#editor{
+		width:120%;
+		height:100%;
+	}
+
+	#editor{
+		width:100%;
+		margin:0;
+		padding:0;
+	}
+
+	*{
+		overflow:hidden !important;
+	}
+}

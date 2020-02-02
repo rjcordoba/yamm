@@ -9,7 +9,6 @@ $orria = "./";
 $estilos = array();
 $encabezado = NULL;
 $js = NULL;
-$kodea = NULL;
 
 $ruta = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
@@ -40,9 +39,11 @@ switch($ruta[2]){
 				break;
 			case "macros":
 				$encabezado[1] = "Macros y utilidades";
-				$orria = "./orriak/macros.php";
-				$orria2 = "./cmm/macros/" . $ruta[4];
+				$orria = "./cmm/macros.php";
+				$orria2 = "./cmm/macros/" . $ruta[4] . ".html";
 				if(!file_exists($orria2)) error();
+				$macro = $ruta[4];
+				$macros_ruta = $ruta[1] . "/cmm/macros/";				
 				$estilos = array("macros", "gramat");
 				$js = array("macros");
 				break;

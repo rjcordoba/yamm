@@ -3,6 +3,10 @@ main{
 	--color-exp:#034ea0;
 }
 
+.hojas li{
+	display:inline-block;
+}
+
 h3{
 	font-size:1.35em;
     margin:0 1em 1.8em 0;
