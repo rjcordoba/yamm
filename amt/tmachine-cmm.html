@@ -1,3 +1,8 @@
+<span class="comentario">; Máquina que ejecuta un programa C-- escrito en la cinta.
+; Si hay posiciones vacías en medio de otras posiciones
+; se indican con un símbolo ‘-’.
+; El lector debe estar al inicio en alguna posición con símbolos.</span>
+
 <span class="comentario">;buscar símbolo</span>
 <span class="mcnombre">f</span><span class="mcnombre">(</span><span class="var_mc">A</span>,<span class="var_simb"> α</span><span class="mcnombre">)</span><span class="llave">{</span>
      <span class="simbol">α</span>    <span class="mcfinal">A</span>
@@ -30,13 +35,13 @@
 <span class="mcnombre">encop</span><span class="mcnombre">(</span><span class="var_simb">α</span><span class="mcnombre">)</span><span class="llave">{</span>
      <span class="simbol">|</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span><span class="simbol">'</span>, <span class="akzioa">L</span>    <span class="mcfinal">encop</span
 ><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span>
-     <span class="simbol">a</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">sum</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span
+     <span class="simbol">a</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">marcar</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span
 >; <span class="simbol">α</span><span class="mcfinal">)</span>
-     <span class="simbol">b</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">nil</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span
+     <span class="simbol">b</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">borrar</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span
 >; <span class="simbol">α</span><span class="mcfinal">)</span>
      <span class="simbol">c</span>    <span class="mcfinal">f</span><span class="mcfinal">(</span><span class="mcfinal">comp</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span
 >; <span class="simbol">α</span><span class="mcfinal">)</span>
-     <span class="simbol">d</span>    <span class="mcfinal">ir</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span>
+     <span class="simbol">d</span>    <span class="mcfinal">saltar</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span>
 <span class="llave">}</span>
 
 <span class="comentario">;m-configuration inicial</span>
@@ -123,7 +128,7 @@
 ><span class="mcfinal">)</span><span class="mcfinal">)</span>; <span class="simbol">β</span><span class="mcfinal">)</span>
 
 <span class="comentario">;operación para *</span>
-<span class="mcnombre">ir</span><span class="mcnombre">(</span><span class="var_simb">α</span><span class="mcnombre">)</span><span class="llave">{</span>
+<span class="mcnombre">saltar</span><span class="mcnombre">(</span><span class="var_simb">α</span><span class="mcnombre">)</span><span class="llave">{</span>
      <span class="simbol">α</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span><span class="simbol">*</span>    <span class="mcfinal">selin</span>
      not <span class="simbol">α</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span><span class="simbol">*</span>    <span class="mcfinal">f</span
 ><span class="mcfinal">(</span><span class="mcfinal">rest</span><span class="mcfinal">(</span><span class="mcfinal">selin</span><span class="mcfinal">)</span
@@ -131,7 +136,7 @@
 <span class="llave">}</span>
 
 <span class="comentario">;operación para 1</span>
-<span class="mcnombre">sum</span><span class="mcnombre">(</span><span class="var_simb">α</span><span class="mcnombre">)</span><span class="llave">{</span>
+<span class="mcnombre">marcar</span><span class="mcnombre">(</span><span class="var_simb">α</span><span class="mcnombre">)</span><span class="llave">{</span>
      <span class="simbol">z</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span><span class="simbol">1</span>    <span class="mcfinal">ini</span><span class="mcfinal">(</span
 ><span class="mcfinal">sigin</span><span class="mcfinal">)</span>
      not <span class="simbol">z</span>    <span class="mcfinal">final</span><span class="mcfinal">(</span><span class="mcfinal">marc</span
@@ -150,7 +155,7 @@
 >, <span class="akzioa">L</span>, <span class="akzioa">L</span>    <span class="mcfinal">marc</span><span class="mcfinal">(</span>; <span class="simbol">α</span><span class="mcfinal">)</span>
 
 <span class="comentario">;operación para 0</span>
-<span class="mcnombre">nil</span><span class="mcnombre">(</span><span class="var_simb">α</span><span class="mcnombre">)</span><span class="llave">{</span>
+<span class="mcnombre">borrar</span><span class="mcnombre">(</span><span class="var_simb">α</span><span class="mcnombre">)</span><span class="llave">{</span>
      <span class="simbol">z</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span><span class="simbol">-</span>    <span class="mcfinal">ini</span><span class="mcfinal">(</span
 ><span class="mcfinal">sigin</span><span class="mcfinal">)</span>
      <span class="simbol">e</span>    <span class="akzioa">E</span>, <span class="akzioa">P</span><span class="simbol">z</span>    <span class="mcfinal">d</span><span class="mcfinal">(</span

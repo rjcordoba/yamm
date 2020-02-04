@@ -43,7 +43,6 @@ switch($ruta[2]){
 				$orria2 = "./cmm/macros/" . $ruta[4] . ".html";
 				if(!file_exists($orria2)) error();
 				$macro = $ruta[4];
-				$macros_ruta = $ruta[1] . "/cmm/macros/";				
 				$estilos = array("macros", "gramat");
 				$js = array("macros");
 				break;

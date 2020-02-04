@@ -110,13 +110,21 @@ pre{
 		display:none;
 	}
 
+	#editor{
+		font-size:1.3em;
+	}
+
+	#nums{
+		color:#eee;
+	}
+
 	#pantalla > div:first-child{
 		background-color:#fff;
 		border:none;
 	}
 
 	#pantalla > div:last-child{
-		padding-left:0.5em;
+		padding-left:0;
 	}
 
 	#editor, #editor .screen, #pantalla > div:first-child{

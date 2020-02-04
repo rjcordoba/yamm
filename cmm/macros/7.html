@@ -1,239 +1,179 @@
- <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <title>Lenguaje C--</title>
-    <meta name="author" content="R. Córdoba García">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/general.css">
-    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
-	<script src="../js/macros.js" defer></script>
-
-    <style>
-	  .resaltart{
-		  color:#01030a;
-	  }
-	  .flechita.subir::before{
-		  bottom:0.15em;
-	  }
-	  .seaadj pre{
-		  border:1px #e7edef solid;
-		  margin:0.3em 0 0.6em 1em;
-		  border-radius:0.25em;
-		  padding:0.6em 2em 0.3em 2em;
-		  width: fit-content;
-		  width: -moz-fit-content;
-	  }
-	  .expansor .macro{
-		  background-color:#eef2f7;
-		  border-color:#d5e2e2;
-		  font-size:0.9em;
-		  margin:1em 0 1em 1em;
-		  position:relative;
-	  }
-	  #ajustar .flechita{
-		  font-size: 0.7em;
-		  position: absolute;
-		  left: 100%;
-		  font-weight: bold;
-	  }
-	  .exp_li_macros li{
-		  margin-top:1.4em;
-	  }
-	</style>
-
-  </head>
-  <body>
-    <header>
-	  <div class="anchura">
-        <img src="imgs/icono.svg" alt="icono">
-        <img src="imgs/letras.svg" alt="letras">
-	  </div>
-    </header>
-    <nav>
-	  <ul class="anchura">
-	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
-      </ul>
-    </nav>
-	<div id="cont-principal" class="anchura">
-		<h1>Lenguaje C--</h1>
-		<h2>Macros y utilidades</h2>
-		<main><!--***********************-->
-		  <div class="gramat">
-			<ol>
-			  <li>
-				<div class="noterm">opd</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="term">++</span></li>
-				  <li><span class="term">--</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">yd</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="noterm">opd</span><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub></li>
-				  <li><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub><span class="noterm">opd</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">vindx</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="noterm">natural</span></li>
-				  <li><span class="term">Z</span><sub>&Omega;</sub></li>
-				  <li><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub></li>
-				  <li><span class="noterm">yd</span></li>
-				  <li><span class="term">0</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">indx</div>
-				<div class="flechag"></div>
-				<div><span class="term">[</span><span class="noterm">vindx</span><span class="term">]</span></div>
-			  </li>
-			  <li>
-				<div class="noterm">indxs</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span>&epsilon;</span></li>
-				  <li><span class="noterm">indx</span><span class="noterm">indxs</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="nnoterm">V</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="term">Y</span></li>
-				  <li><span class="term">F</span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="nnoterm">V’<sub class="suby vacento">n</sub></div>
-				<div class="flechag"></div>
-				<div><span class="noterm">stars</span><span class="nnoterm">V<sub class="suby">n</sub></span><span class="noterm">dims</span><span class="noterm">indxs</span></div>
-			  </li>
-			  <li>
-				<div class="noterm">preinstrucción</div>
-				<div class="flechag"></div>
-				<div><span class="nnoterm">x</span><sup class="alejarsup">&Omega;</sup></div>
-			  </li>
-			  <li>			  
-				<div class="noterm">preinstrucciones</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span>&epsilon;</span></li>
-				  <li><span class="nnoterm">x</span><sup class="alejarsup">&Omega;</sup><span class="noterm">preinstrucciones</span></li>
-				</ul>
-			  </li>
-			</ol>			
-		  </div>
-		  <div class="expansor">
-			<h1>Expansiones finales 1’</h1>
-			<p class="mimp">Cuando se usan macros de la forma ‘<span class="resaltart"><span class="nnoterm">unsigned int
-				  <span class="noterm">stars</span>nombre</span><span class="noterm">dims</span></span>’
-			  el expansor, en las expansiones finales:</p>
-				<ol>
-				  <li>después de agregar las instrucciones ‘1’, añade al final una nueva instrucción 1<sup class="pos_puntos pbajo">top</sup> con una marca
-					<span class="flechita subir"><span class="pos_puntos nnoterm pbajo">i</span></span> apuntando a ella.</li>
-				  <li>sustituye todas las apariciones de <span class="pos_puntos pbajo">top</span> por <span class="pos_puntos nnoterm pbajo">i</span>
-					en todas las <span class="nnoterm">x</span><sup class="pos_puntos pbajo">top</sup>.</li>
-				</ol>
-		  </div>		  
-		  <div class="macro">
-			<pre><code><span class="nnoterm">V<sub class="numnatv">.<span class="noterm">id</span></sub></span><span class="term"> = </span><span class="term">Z</span><sub>&Omega;</sub><span class="term">;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Z<sub>.<span class="noterm">id</span></sub></span><span class="term"> = </span><span class="term">Z</span><sub>&Omega;</sub><span class="term">;</span></code></pre>
-		  </div>
-		  <div class="macro">
-			<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="nnoterm">V<sub class="numnatv">.<span class="noterm">id</span></sub></span><span class="term">;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z<sub>.<span class="noterm">id</span></sub></span><span class="term">;</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.opr</sub><span class="simbind"> = </span><span class="simbexp">Y</span
+<main>
+  <div class="gramat">
+	<ol>
+	  <li>
+		<div class="noterm">opd</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="term">++</span></li>
+		  <li><span class="term">--</span></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="noterm">yd</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="noterm">opd</span><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub></li>
+		  <li><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub><span class="noterm">opd</span></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="noterm">vindx</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="noterm">natural</span></li>
+		  <li><span class="term">Z</span><sub>&Omega;</sub></li>
+		  <li><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub></li>
+		  <li><span class="noterm">yd</span></li>
+		  <li><span class="term">0</span></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="noterm">indx</div>
+		<div class="flechag"></div>
+		<div><span class="term">[</span><span class="noterm">vindx</span><span class="term">]</span></div>
+	  </li>
+	  <li>
+		<div class="noterm">indxs</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span>&epsilon;</span></li>
+		  <li><span class="noterm">indx</span><span class="noterm">indxs</span></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="nnoterm">V</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="term">Y</span></li>
+		  <li><span class="term">F</span></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="nnoterm">V’<sub class="suby vacento">n</sub></div>
+		<div class="flechag"></div>
+		<div><span class="noterm">stars</span><span class="nnoterm">V<sub class="suby">n</sub></span><span class="noterm">dims</span><span class="noterm">indxs</span></div>
+	  </li>
+	  <li>
+		<div class="noterm">preinstrucción</div>
+		<div class="flechag"></div>
+		<div><span class="nnoterm">x</span><sup class="alejarsup">&Omega;</sup></div>
+	  </li>
+	  <li>			  
+		<div class="noterm">preinstrucciones</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span>&epsilon;</span></li>
+		  <li><span class="nnoterm">x</span><sup class="alejarsup">&Omega;</sup><span class="noterm">preinstrucciones</span></li>
+		</ul>
+	  </li>
+	</ol>			
+  </div>
+  <div class="expansor">
+	<h1>Expansiones finales 1’</h1>
+	<p class="mimp">Cuando se usan macros de la forma ‘<span class="resaltart"><span class="nnoterm">unsigned int
+		  <span class="noterm">stars</span>nombre</span><span class="noterm">dims</span></span>’
+	  el expansor, en las expansiones finales:</p>
+	<ol>
+	  <li>después de agregar las instrucciones ‘1’, añade al final una nueva instrucción 1<sup class="pos_puntos pbajo">top</sup> con una marca
+		<span class="flechita subir"><span class="pos_puntos nnoterm pbajo">i</span></span> apuntando a ella.</li>
+	  <li>sustituye todas las apariciones de <span class="pos_puntos pbajo">top</span> por <span class="pos_puntos nnoterm pbajo">i</span>
+		en todas las <span class="nnoterm">x</span><sup class="pos_puntos pbajo">top</sup>.</li>
+	</ol>
+  </div>		  
+  <div class="macro">
+	<pre><code><span class="nnoterm">V<sub class="numnatv">.<span class="noterm">id</span></sub></span><span class="term"> = </span><span class="term">Z</span><sub>&Omega;</sub><span class="term">;</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="term">Z<sub>.<span class="noterm">id</span></sub></span><span class="term"> = </span><span class="term">Z</span><sub>&Omega;</sub><span class="term">;</span></code></pre>
+  </div>
+  <div class="macro">
+	<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="nnoterm">V<sub class="numnatv">.<span class="noterm">id</span></sub></span><span class="term">;</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z<sub>.<span class="noterm">id</span></sub></span><span class="term">;</span></code></pre>
+  </div>
+  <aside class="ejemplos">
+	<h1>Ejemplo</h1>
+	<ol>
+	  <li>
+		<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.opr</sub><span class="simbind"> = </span><span class="simbexp">Y</span
 ><sub class="id_exp">.op1</sub><span class="simbind">;</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.opr</sub><span class="simbind"> = </span><span class="simbexp">Z</span
+	  </li>
+	  <li>
+		<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.opr</sub><span class="simbind"> = </span><span class="simbexp">Z</span
 ><sub class="id_exp">.op1</sub><span class="simbind">;</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <div class="macro">
-			<pre><code><span class="nnoterm">V</span><sub class="numnatv">&Omega;</sub><span class="term"> = </span><span class="nnoterm">V</span
+	  </li>
+	</ol>
+  </aside>
+  <div class="macro">
+	<pre><code><span class="nnoterm">V</span><sub class="numnatv">&Omega;</sub><span class="term"> = </span><span class="nnoterm">V</span
 ><sub class="numnatv">&Omega;</sub><span class="term">;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code>&epsilon;</code></pre>
-		  </div>
+	<div class="flecha"></div>
+	<pre><code>&epsilon;</code></pre>
+  </div>
 <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp">F</span><sub class="id_exp">.opf</sub><span class="simbind"> = </span><span class="simbexp">F</span
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbexp">F</span><sub class="id_exp">.opf</sub><span class="simbind"> = </span><span class="simbexp">F</span
 ><sub class="id_exp">.opf</sub><span class="simbind">;</span>
 <span class="simbexp">F</span><span class="simbind">--;</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">F</span><span class="simbind">--;</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <div class="macro">
-			<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span><span class="term">;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z<sub>:top</sub></span><span class="term">;</span>
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">F</span><span class="simbind">--;</span></code></pre></div>
+	</li>
+  </ol>
+</aside>
+<div class="macro">
+  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span><span class="term">;</span></code></pre>
+  <div class="flecha"></div>
+  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z<sub>:top</sub></span><span class="term">;</span>
 <span class="term">Z</span><sub>&Omega;</sub><span class="term"> += </span><span class="nnoterm">n</span><span class="term">;</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = &</span><span class="simbexp">Y</span
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = &</span><span class="simbexp">Y</span
 ><sub class="numbers">8</sub><span class="simbind">;</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = </span><span class="simbexp">Z</span
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = </span><span class="simbexp">Z</span
 ><sub class="pos_puntos">top</sub><span class="simbind">;</span>
 <span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> += </span><span class="numberp">8</span><span class="simbind">;</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <div class="macro">
-			<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span
+	</li>
+  </ol>
+</aside>
+<div class="macro">
+  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span
 ><span class="term">[</span><span class="noterm">vindx<sub class="acercarsub">1</sub></span><span class="term">];</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Z</span><sub class="term">.indr</sub><span class="term"> = </span><span class="noterm">vindx<sub class="acercarsub">1</sub></span><span class="term">;</span>
+  <div class="flecha"></div>
+  <pre><code><span class="term">Z</span><sub class="term">.indr</sub><span class="term"> = </span><span class="noterm">vindx<sub class="acercarsub">1</sub></span><span class="term">;</span>
 <span class="term">Z</span><sub>&Omega;</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span><span class="term">;</span>
 <span class="term">Z</span><sub>&Omega;</sub><span class="term"> += Z</span><sub class="term">.indr</sub><span class="term">;</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = &</span><span class="simbexp">Y</span
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = &</span><span class="simbexp">Y</span
 ><sub class="numbers">8</sub><span class="simbind">[</span><span class="numberp">13</span><span class="simbind">];</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.indr</sub><span class="simbind"> = </span><span class="numberp">13</span><span class="simbind">;</span>
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.indr</sub><span class="simbind"> = </span><span class="numberp">13</span><span class="simbind">;</span>
 <span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = &</span><span class="simbexp">Y</span
 ><sub class="numbers">8</sub><span class="simbind">;</span>
 <span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> += </span><span class="simbexp">Z</span
 ><sub class="id_exp">.indr</sub><span class="simbind">;</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <div class="macro">
-			<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span><span class="term">$</span
+	</li>
+  </ol>
+</aside>
+<div class="macro">
+  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span><span class="term">$</span
 ><span class="nnoterm">k</span><sub class="acercarsub">1</sub><span class="noterm">dims<sub class="acercarsub">1</sub></span
 ><span class="term">[</span><span class="nnoterm">&lambda;</span><sub class="acercarsub">1</sub><span class="term">]</span
 ><span class="term">[</span><span class="nnoterm">&lambda;</span><sub>2</sub><span class="term">]</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Z</span><sub class="term">.ind1</sub><span class="term"> = </span><span class="nnoterm">k</span><sub>1</sub><span class="term">;</span>
+  <div class="flecha"></div>
+  <pre><code><span class="term">Z</span><sub class="term">.ind1</sub><span class="term"> = </span><span class="nnoterm">k</span><sub>1</sub><span class="term">;</span>
 <span class="term">Z</span><sub class="term">.ind2</sub><span class="term"> = </span><span class="nnoterm">&lambda;</span><sub>1</sub><span class="term">;</span>
 <span class="term">Z<sub>.indr</sub></span><span class="term"> = <span class="term">Z</span><sub>.ind1</sub></span><span class="term"> * </span
 ><span class="term">Z<sub>.ind2</sub></span><span class="term">;</span>
@@ -241,17 +181,17 @@
 <span class="term">Z<sub>.indr</sub></span><span class="term"> += </span><span class="term">Z<sub>.ind1</sub></span><span class="term">;</span>
 <span class="term">Z</span><sub>&Omega;</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span><span class="noterm">dims<sub class="acercarsub">1</sub></span
 ><span class="term">[</span><span class="term">Z<sub>.indr</sub></span><span class="term">]</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = &</span><span class="nvars">foo<span class="simbexp2">$</span
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = &</span><span class="nvars">foo<span class="simbexp2">$</span
 >12<span class="simbexp2">$</span>15</span><span class="simbind">[</span><span class="numberp">7</span><span class="simbind">][</span
 ><span class="simbexp">Y<sub class="numbers">23</sub></span><span class="simbind">][</span><span class="numberp">4</span><span class="simbind">];</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.ind1</sub><span class="simbind"> = </span><span class="numberp">12</span><span class="simbind">;</span>
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.ind1</sub><span class="simbind"> = </span><span class="numberp">12</span><span class="simbind">;</span>
 <span class="simbexp">Z</span><sub class="id_exp">.ind2</sub><span class="simbind"> = </span><span class="numberp">7</span><span class="simbind">;</span>
 <span class="simbexp">Z</span><sub class="id_exp">.indr</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.ind1</sub><span class="simbind"> * </span
 ><span class="simbexp">Z</span><sub class="id_exp">.ind2</sub><span class="simbind">;</span>
@@ -260,12 +200,12 @@
 <span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = &</span><span class="nvars">foo<span class="simbexp2">$</span>15</span><span class="simbind">[</span
 ><span class="simbexp">Z</span><sub class="id_exp">.indr</sub><span class="simbind">]</span><span class="simbind">[</span><span class="numberp">4</span><span class="simbind">];</span>
 </code></pre></div>
-			  </li>
-			  <li>
-				<p class="puntitos"></p>
-			  </li>
-			  <li>
-				<div><pre><code>...
+	</li>
+	<li>
+	  <p class="puntitos"></p>
+	</li>
+	<li>
+	  <div><pre><code>...
 <span class="simbexp">Z</span><sub class="id_exp">.ind1</sub><span class="simbind"> = </span><span class="numberp">15</span><span class="simbind">;</span>
 <span class="simbexp">Z</span><sub class="id_exp">.ind2</sub><span class="simbind"> = <span class="simbexp">Z</span><sub class="id_exp">.indr</sub><span class="simbind">;</span>
 <span class="simbexp">Z</span><sub class="id_exp">.indr</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.ind1</sub><span class="simbind"> * </span
@@ -275,166 +215,166 @@
 <span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = &</span><span class="nvars">foo</span><span class="simbind">[</span
 ><span class="simbexp">Z</span><sub class="id_exp">.indr</sub><span class="simbind">];</span>
 </code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <div class="mmacro_exp">
-			<div class="macro">
-			  <pre><code><span class="term acercarder">'</span><span class="noterm">simb<sub>1</sub></span><span class="term acercarsup">'</span></code></pre>
-			  <div class="flecha"></div>
-			  <pre><code><span class="nnoterm acercarsup">c</span></code></pre>
-			</div>
-			<div class="secundario">
-			  <p>donde <span class="nnoterm">c</span> es el <span class="noterm">natural</span> que representa el código del símbolo Unicode <span class="noterm">simb<sub>1</sub></span>.</p>
-			</div>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="nvars">foo</span><span class="simbind"> = '</span><span class="numberp">G</span><span class="simbind">';</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">71</span><span class="simbind">;</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <dl id="ajustar" class="expansor">
-		  <dt><span class="var_exp">ajustar</span></dt>
-		  <dd>
-			<div class="seaadj">
-			  <p>Sea</p>
-			  <pre><span class="var_exp">ajustar</span>{
+	</li>
+  </ol>
+</aside>
+<div class="mmacro_exp">
+  <div class="macro">
+	<pre><code><span class="term acercarder">'</span><span class="noterm">simb<sub>1</sub></span><span class="term acercarsup">'</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="nnoterm acercarsup">c</span></code></pre>
+  </div>
+  <div class="secundario">
+	<p>donde <span class="nnoterm">c</span> es el <span class="noterm">natural</span> que representa el código del símbolo Unicode <span class="noterm">simb<sub>1</sub></span>.</p>
+  </div>
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="nvars">foo</span><span class="simbind"> = '</span><span class="numberp">G</span><span class="simbind">';</span></code></pre></div>
+	</li>
+	<li>
+	  <div><pre><code><span class="nvars">foo</span><span class="simbind"> = </span><span class="numberp">71</span><span class="simbind">;</span></code></pre></div>
+	</li>
+  </ol>
+</aside>
+<dl id="ajustar" class="expansor">
+  <dt><span class="var_exp">ajustar</span></dt>
+  <dd>
+	<div class="seaadj">
+	  <p>Sea</p>
+	  <pre><span class="var_exp">ajustar</span>{
   <span class="nnoterm">texto</span><sub>1</sub>
 }</pre>
-			  <p>y &Xi; cualquier &Omega; distinto de <span class="pos_puntos">change</span>.</p>
-			</div>
-			<ul class="exp_li_macros">
-			  <li>
-				<p>Si <span class="nnoterm">texto</span><sub>1</sub> no es <span class="noterm">preinstrucciones</span>:</p>
-				<div class="macro">
-			<pre><code>:ajustar:{
+	  <p>y &Xi; cualquier &Omega; distinto de <span class="pos_puntos">change</span>.</p>
+	</div>
+	<ul class="exp_li_macros">
+	  <li>
+		<p>Si <span class="nnoterm">texto</span><sub>1</sub> no es <span class="noterm">preinstrucciones</span>:</p>
+		<div class="macro">
+		  <pre><code>:ajustar:{
   <span class="nnoterm">texto</span><sub>1</sub>
 }</code></pre>
-			<div class="flecha"></div>
-			<pre><code>:ajustar:{
+		  <div class="flecha"></div>
+		  <pre><code>:ajustar:{
   <span class="nnoterm">texto</span><sub>2</sub>
 }</code></pre>
-				</div>
-				<p>donde <span class="nnoterm">texto</span><sub>2</sub> es <span class="noterm">preinstrucciones</span>,
-				resultado de expandir macroinstrucciones en <span class="nnoterm">texto</span><sub>1</sub>.</p>
-			  </li>
-			  <li>
-				<p>Si <span class="nnoterm">texto</span><sub>1</sub> es <span class="noterm">preinstrucciones</span>:</p>
-				<div class="macro">
-				  <pre><code>:ajustar:{
+		</div>
+		<p>donde <span class="nnoterm">texto</span><sub>2</sub> es <span class="noterm">preinstrucciones</span>,
+		  resultado de expandir macroinstrucciones en <span class="nnoterm">texto</span><sub>1</sub>.</p>
+	  </li>
+	  <li>
+		<p>Si <span class="nnoterm">texto</span><sub>1</sub> es <span class="noterm">preinstrucciones</span>:</p>
+		<div class="macro">
+		  <pre><code>:ajustar:{
 }</code></pre>
-				  <div class="flecha"></div>
-				  <pre>&epsilon;</pre>
-				</div>
-				<div class="macro">
-				  <pre><code>:ajustar:{
+		  <div class="flecha"></div>
+		  <pre>&epsilon;</pre>
+		</div>
+		<div class="macro">
+		  <pre><code>:ajustar:{
   <span class="noterm">preinstrucciones<sub>1</sub></span>
   <span class="nnoterm">x</span><sup class="alejarsup">&Xi;</sup>
 }</code></pre>
-				  <div class="flecha"></div>
-			<pre><code>:ajustar:{
+		  <div class="flecha"></div>
+		  <pre><code>:ajustar:{
   <span class="noterm">preinstrucciones<sub class="acercarsub">1</sub></span>
   }
 <span class="nnoterm">x</span><sup class="alejarsup">&Xi;</sup></code></pre>
-				</div>
-				<div class="macro flech">
-				  <pre><code>:ajustar:{
+		</div>
+		<div class="macro flech">
+		  <pre><code>:ajustar:{
   <span class="noterm">preinstrucciones<sub class="acercarsub">1</sub></span>
   <span class="nnoterm">x</span><sup class="alejarsup">:change</sup>
 }</code></pre>
-				  <div class="flecha"></div>
-			<pre><code><span class="term">Z</span><sub>:<span class="nnoterm">i</span></sub><span class="term"> = Z<sub>.posf</sub></span>
+		  <div class="flecha"></div>
+		  <pre><code><span class="term">Z</span><sub>:<span class="nnoterm">i</span></sub><span class="term"> = Z<sub>.posf</sub></span>
 :ajustar:{
   <span class="noterm">preinstrucciones<sub class="acercarsub">1</sub></span>
 }
 <span class="nnoterm">x</span><span class="flechita"><span class="pos_puntos nnoterm">i</span></span></code></pre>
-				</div>
-			  </li>
-  			</ul>
-		  </dd>
-		</dl>
-		  <div class="macro">
-			<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="nnoterm">V<sub class="numnat">n</sub></span
+		</div>
+	  </li>
+  	</ul>
+  </dd>
+</dl>
+<div class="macro">
+  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="nnoterm">V<sub class="numnat">n</sub></span
 ><span class="noterm">dims<sub class="acercarsub">1</sub></span><span class="noterm">indxs<sub class="acercarsub">1</sub></span><span class="term">;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Z</span><sub>.adjp</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span
+  <div class="flecha"></div>
+  <pre><code><span class="term">Z</span><sub>.adjp</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span
 ><span class="noterm">dims<sub class="acercarsub">1</sub></span><span class="noterm">indxs<sub class="acercarsub">1</sub></span><span class="term">;</span>
 <span class="term">:ajustar:{</span>
    <span class="term">Z<sub>&Omega;</sub> = </span><span class="term">Z<sub>.change</sub>;</span>
 <span class="term">}</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op2</sub><span class="simbind"> = </span><span class="simbexp">Y<sub class="numbers">7</sub></span
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op2</sub><span class="simbind"> = </span><span class="simbexp">Y<sub class="numbers">7</sub></span
 ><span class="simbind">;</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = &</span><span class="simbexp">Y<sub class="numbers">7</sub></span
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = &</span><span class="simbexp">Y<sub class="numbers">7</sub></span
 ><span class="simbind">;</span>
 <span class="var_exp">ajustar</span><span class="simbind">{</span>
    <span class="simbexp">Z</span><sub class="id_exp">.op2</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.change</sub><span class="simbind">;</span>
 <span class="simbind">}</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <div class="macro">
-			<pre><code><span class="nnoterm">V<sub class="numnat">n</sub></span><span class="noterm">dims<sub class="acercarsub">1</sub></span><span class="noterm">indxs<sub class="acercarsub">1</sub></span
+	</li>
+  </ol>
+</aside>
+<div class="macro">
+  <pre><code><span class="nnoterm">V<sub class="numnat">n</sub></span><span class="noterm">dims<sub class="acercarsub">1</sub></span><span class="noterm">indxs<sub class="acercarsub">1</sub></span
 ><span class="term"> = </span><span class="term">Z</span><sub>&Omega;</sub><span class="term">;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Z</span><sub>.adjp</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span
+  <div class="flecha"></div>
+  <pre><code><span class="term">Z</span><sub>.adjp</sub><span class="term"> = &</span><span class="nnoterm">V<sub class="numnat">n</sub></span
 ><span class="noterm">dims<sub class="acercarsub">1</sub></span><span class="noterm">indxs<sub class="acercarsub">1</sub></span><span class="term">;</span>
 <span class="term">:ajustar:{</span>
    <span class="term">Z<sub>.change</sub></span><span class="term"> = </span><span class="term">Z<sub>&Omega;</sub>;</span>
 <span class="term">}</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp">F<sub class="numbers">7</sub></span><span class="simbind">[</span><span class="numberp">13</span><span class="simbind">] = </span
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbexp">F<sub class="numbers">7</sub></span><span class="simbind">[</span><span class="numberp">13</span><span class="simbind">] = </span
 ><span class="simbexp">Z</span><sub class="id_exp">.res1</sub><span class="simbind">;</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = &</span><span class="simbexp">F<sub class="numbers">7</sub></span
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = &</span><span class="simbexp">F<sub class="numbers">7</sub></span
 ><span class="simbind">[</span><span class="numberp">13</span><span class="simbind">];</span>
 <span class="var_exp">ajustar</span><span class="simbind">{</span>
    <span class="simbexp">Z</span><sub class="id_exp">.change</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.res1</sub><span class="simbind">;</span>
 <span class="simbind">}</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <div class="macro">
-			<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = *</span><span class="nnoterm">V’</span><sub class="numnat vacento">&Phi;</sub><span class="term">;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Z</span><sub>.adjp</sub><span class="term"> = </span><span class="nnoterm">V’</span><sub class="numnat vacento">&Phi;</sub><span class="term">;</span>
+	</li>
+  </ol>
+</aside>
+<div class="macro">
+  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = *</span><span class="nnoterm">V’</span><sub class="numnat vacento">&Phi;</sub><span class="term">;</span></code></pre>
+  <div class="flecha"></div>
+  <pre><code><span class="term">Z</span><sub>.adjp</sub><span class="term"> = </span><span class="nnoterm">V’</span><sub class="numnat vacento">&Phi;</sub><span class="term">;</span>
 <span class="term">:ajustar:{</span>
    <span class="term">Z<sub>&Omega;</sub> = </span><span class="term">Z<sub>.change</sub>;</span>
 <span class="term">}</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op2</sub><span class="simbind"> = **</span><span class="simbexp">Y<sub class="numbers">7</sub></span
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op2</sub><span class="simbind"> = **</span><span class="simbexp">Y<sub class="numbers">7</sub></span
 ><span class="simbind">;</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = *</span><span class="simbexp">Y<sub class="numbers">7</sub></span
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = *</span><span class="simbexp">Y<sub class="numbers">7</sub></span
 ><span class="simbind">;</span>
 <span class="var_exp">ajustar</span><span class="simbind">{</span>
    <span class="simbexp">Z</span><sub class="id_exp">.op2</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.change</sub><span class="simbind">;</span>
 <span class="simbind">}</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = </span><span class="simbexp">Y<sub class="numbers">7</sub></span
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = </span><span class="simbexp">Y<sub class="numbers">7</sub></span
 ><span class="simbind">;</span>
 <span class="var_exp">ajustar</span><span class="simbind">{</span>
    <span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.change</sub><span class="simbind">;</span>
@@ -442,45 +382,33 @@
 <span class="var_exp">ajustar</span><span class="simbind">{</span>
    <span class="simbexp">Z</span><sub class="id_exp">.op2</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.change</sub><span class="simbind">;</span>
 <span class="simbind">}</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <div class="macro">
-			<pre><code><span class="term">*</span><span class="nnoterm">V</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z</span
+	</li>
+  </ol>
+</aside>
+<div class="macro">
+  <pre><code><span class="term">*</span><span class="nnoterm">V</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z</span
 ><sub>&Phi;</sub><span class="term">;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Z</span><sub>.adjp</sub><span class="term"> = </span><span class="nnoterm">V’</span
+  <div class="flecha"></div>
+  <pre><code><span class="term">Z</span><sub>.adjp</sub><span class="term"> = </span><span class="nnoterm">V’</span
 ><sub class="vacento">&Omega;</sub> <span class="noterm">dims<sub class="acercarsub">1</sub></span><span class="noterm">indxs<sub class="acercarsub">1</sub></span><span class="term">;</span>
 <span class="term">:ajustar:{</span>
    <span class="term">Z<sub>.change</sub></span><span class="term"> = </span><span class="term">Z<sub>&Phi;</sub>;</span>
 <span class="term">}</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbind">*</span><span class="simbexp">F<sub class="numbers">7</sub></span><span class="simbind">[</span><span class="numberp">13</span
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbind">*</span><span class="simbexp">F<sub class="numbers">7</sub></span><span class="simbind">[</span><span class="numberp">13</span
 ><span class="simbind">] = </span><span class="simbexp">Z</span><sub class="id_exp">.res1</sub><span class="simbind">;</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = </span><span class="simbexp">F<sub class="numbers">7</sub></span
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.adjp</sub><span class="simbind"> = </span><span class="simbexp">F<sub class="numbers">7</sub></span
 ><span class="simbind">[</span><span class="numberp">13</span><span class="simbind">];</span>
 <span class="var_exp">ajustar</span><span class="simbind">{</span>
    <span class="simbexp">Z</span><sub class="id_exp">.change</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.res1</sub><span class="simbind">;</span>
 <span class="simbind">}</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		</main><!--***********************-->
-	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
-	</div>
-    <footer>
-	  <div class="anchura">
-		<div id="autor">
-		  <p>R. Córdoba García</p>
-		  <address>rcordoba77@gmail.com</address>
-		</div>
-	  </div>
-    </footer>
-  </body>
-</html>
+	</li>
+  </ol>
+</aside>
+</main>

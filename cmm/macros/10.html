@@ -1,102 +1,38 @@
- <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <title>Lenguaje C--</title>
-    <meta name="author" content="R. Córdoba García">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/general.css">
-    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
-	<script src="../js/macros.js" defer></script>
-
-    <style>
-	  .resaltart{
-		  color:#01030a;
-	  }
-	  .flechita.subir::before{
-		  bottom:0.15em;
-	  }
-	  .seaadj pre{
-		  border:1px #e7edef solid;
-		  margin:0.3em 0 0.6em 1em;
-		  border-radius:0.25em;
-		  padding:0.6em 2em 0.3em 2em;
-		  width: fit-content;
-		  width: -moz-fit-content;
-	  }
-	  .expansor .macro{
-		  background-color:#eef2f7;
-		  border-color:#d5e2e2;
-		  font-size:0.9em;
-		  margin:1em 0 1em 1em;
-		  position:relative;
-	  }
-	  #ajustar{
-		  border-bottom:dotted 1px #dae4e6;
-		  padding-bottom:0.6em;
-	  }
-	  #ajustar .flechita{
-		  font-size: 0.7em;
-		  position: absolute;
-		  left: 100%;
-		  font-weight: bold;
-	  }
-	  .exp_li_macros li{
-		  margin-top:1.4em;
-	  }
-	</style>
-
-  </head>
-  <body>
-    <header>
-	  <div class="anchura">
-        <img src="imgs/icono.svg" alt="icono">
-        <img src="imgs/letras.svg" alt="letras">
-	  </div>
-    </header>
-    <nav>
-	  <ul class="anchura">
-	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
-      </ul>
-    </nav>
-	<div id="cont-principal" class="anchura">
-		<h1>Lenguaje C--</h1>
-		<h2>Macros y utilidades</h2>
-		<main><!--***********************-->
-		  <h3>Definición de subprogramas 1'</h3>
-		  <div class="macro">
-			<pre><code><span class="nnoterm">type </span><span class="noterm">stars</span><span class="term">*</span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Y</span><sub class="numnaty">:nombre</sub><span class="term">(){</span></code></pre>
-		  </div>
-		  <div class="macro">
-			<pre><code><span class="term">unsigned int </span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">Y</span><sub class="numnaty">:nombre</sub><span class="term">(){</span></code></pre>
-		  </div>
-		  <div class="macro">
-			<pre><code><span class="term">float </span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">F</span><sub class="numnatf">:nombre</sub><span class="term">(){</span></code></pre>
-		  </div>
-		  <div class="macro">
-			<pre><code><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span>
+<main>
+  <h3>Definición de subprogramas 1'</h3>
+  <div class="macro">
+	<pre><code><span class="nnoterm">type </span><span class="noterm">stars</span><span class="term">*</span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="term">Y</span><sub class="numnaty">:nombre</sub><span class="term">(){</span></code></pre>
+  </div>
+  <div class="macro">
+	<pre><code><span class="term">unsigned int </span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="term">Y</span><sub class="numnaty">:nombre</sub><span class="term">(){</span></code></pre>
+  </div>
+  <div class="macro">
+	<pre><code><span class="term">float </span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="term">F</span><sub class="numnatf">:nombre</sub><span class="term">(){</span></code></pre>
+  </div>
+  <div class="macro">
+	<pre><code><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span>
 <span class="nnoterm">texto</span><sub>2</sub>
 <span class="nnoterm">EOF</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="nnoterm">texto</span><sub>2</sub>
+	<div class="flecha"></div>
+	<pre><code><span class="nnoterm">texto</span><sub>2</sub>
 <span class="term">$</span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span>
 <span class="nnoterm">EOF</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp">F</span><sub class="pos_puntos">power</sub><span class="simbind">(</span><span class="simbind">){</span>
+  </div>
+  <aside class="ejemplos">
+	<h1>Ejemplo</h1>
+	<ol>
+	  <li>
+		<div><pre><code><span class="simbexp">F</span><sub class="pos_puntos">power</sub><span class="simbind">(</span><span class="simbind">){</span>
    <span class="pclave">float</span> <span class="nvars">base</span><span class="simbind">;</span>
    <span class="pclave">float</span> <span class="nvars">n</span><span class="simbind">;</span>
    <span class="pclave">float</span> <span class="nvars">i</span><span class="simbind">,</span> <span class="nvars">p</span><span class="simbind">;</span>
@@ -109,9 +45,9 @@
    <span class="pclave">return</span> <span class="nvars">p</span><span class="simbind">;
 }</span>
 ...</code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code>...
+	  </li>
+	  <li>
+		<div><pre><code>...
 <span class="simbexp2">$</span><span class="simbexp">F</span><sub class="pos_puntos">power</sub><span class="simbind">(</span><span class="simbind">){</span>
    <span class="pclave">float</span> <span class="nvars">base</span><span class="simbind">;</span>
    <span class="pclave">float</span> <span class="nvars">n</span><span class="simbind">;</span>
@@ -124,82 +60,82 @@
    <span class="simbind">}</span>
    <span class="pclave">return</span> <span class="nvars">p</span><span class="simbind">;
 }</span></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <div class="gramat">
-			<ol>
-			  <li>
-				<div class="noterm">retvp</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="nnoterm">lit</span></li>
-				  <li><span class="nnoterm">V’<sub class="suby vacento">n</sub></span></li>
-				</ul>
-			  </li>
-			  <li>
-				<div class="noterm">retv</div>
-				<div class="flechag"></div>
-				<div><span class="noterm">sign</span><span class="noterm">retvp</span></div>
-			  </li>
-			</ol>
-		  </div>
-		  <div class="macro">
-			<pre><code><span class="term">return;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">＊</span><sup>:ret</sup></code></pre>
-		  </div>
-		  <div class="macro">
-			<pre><code><span class="term">return</span> <span class="noterm">retv<sub>1</sub></span><span class="term">;</span></code></pre>
-			<div class="flecha"></div>
-			<pre><code><span class="term">&R</span><sub>:ret</sub><span class="term"> = </span
+	  </li>
+	</ol>
+  </aside>
+  <div class="gramat">
+	<ol>
+	  <li>
+		<div class="noterm">retvp</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="nnoterm">lit</span></li>
+		  <li><span class="nnoterm">V’<sub class="suby vacento">n</sub></span></li>
+		</ul>
+	  </li>
+	  <li>
+		<div class="noterm">retv</div>
+		<div class="flechag"></div>
+		<div><span class="noterm">sign</span><span class="noterm">retvp</span></div>
+	  </li>
+	</ol>
+  </div>
+  <div class="macro">
+	<pre><code><span class="term">return;</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="term">＊</span><sup>:ret</sup></code></pre>
+  </div>
+  <div class="macro">
+	<pre><code><span class="term">return</span> <span class="noterm">retv<sub>1</sub></span><span class="term">;</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="term">&R</span><sub>:ret</sub><span class="term"> = </span
 ><span class="noterm">retv<sub>1</sub></span><span class="term">;</span>
 <span class="term">return;</span></code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="pclave">return</span> <span class="numberp">13</span><span class="term">;</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="simbexp2">$</span><span class="simbexp">R</span><sub class="id_exp">.ret</sub><span class="simbind"> = </span
+  </div>
+  <aside class="ejemplos">
+	<h1>Ejemplo</h1>
+	<ol>
+	  <li>
+		<div><pre><code><span class="pclave">return</span> <span class="numberp">13</span><span class="term">;</span></code></pre></div>
+	  </li>
+	  <li>
+		<div><pre><code><span class="simbexp2">$</span><span class="simbexp">R</span><sub class="id_exp">.ret</sub><span class="simbind"> = </span
 ><span class="numberp">13</span><span class="term">;</span>
 <span class="pclave">return</span><span class="term">;</span></code></pre></div>
-			  </li>
-			  <li>
-				<p class="puntitos"></p>
-			  </li>
-			  <li>
-				<div><pre><code>...
+	  </li>
+	  <li>
+		<p class="puntitos"></p>
+	  </li>
+	  <li>
+		<div><pre><code>...
 ＊<sup class="pos_puntos">ret</sup></code></pre></div>
-			  </li>
-			</ol>
-		  </aside>
-		  <dl class="expansor glue">
-			<dt class="flechita"><span class="pos_puntos"><span class="llavea">⟨</span><span class="nnoterm">id</span><span>⟩</span></span></dt>
-			<dd>
-			  <p class="mimp">Señales que pone el expansor.</p>
-			</dd>
-		  </dl>
-		  <div class="gramat">
-			<ol>
-			  <li>
-				<div class="nnoterm">W</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="nnoterm">V</span></li>
-				  <li><span class="term">N</span></li>
-				</ul>
-			  </li>
-			</ol>
-		  </div>
-		  <div class="macro flechn">
-			<pre><code><span class="term">$</span><span class="nnoterm">W</span><sub>:<span class="nnoterm">nombre</span></sub><span class="term">(){</span>
+	  </li>
+	</ol>
+  </aside>
+  <dl class="expansor glue">
+	<dt class="flechita"><span class="pos_puntos"><span class="llavea">⟨</span><span class="nnoterm">id</span><span>⟩</span></span></dt>
+	<dd>
+	  <p class="mimp">Señales que pone el expansor.</p>
+	</dd>
+  </dl>
+  <div class="gramat">
+	<ol>
+	  <li>
+		<div class="nnoterm">W</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="nnoterm">V</span></li>
+		  <li><span class="term">N</span></li>
+		</ul>
+	  </li>
+	</ol>
+  </div>
+  <div class="macro flechn">
+	<pre><code><span class="term">$</span><span class="nnoterm">W</span><sub>:<span class="nnoterm">nombre</span></sub><span class="term">(){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span></code></pre>
-			<div class="flecha"></div>
-			<pre class="complicado"><span class="term">:def_subp:{</span>
+	<div class="flecha"></div>
+	<pre class="complicado"><span class="term">:def_subp:{</span>
    <span class="term">#definec $R </span><span class="nnoterm">W </span>
    <span class="nnoterm">texto</span><sub>1</sub>
    <span class="term">Z</span><sub>:<span class=" nnoterm">i</span></sub><span class="term"> = *</span><span class="term">Y</span
@@ -209,12 +145,12 @@
    1<sup>:np</sup><span class="flechita"><span class="pos_puntos term">npos</span></span>
 <span class="term">}</span>
 </code></pre>
-		  </div>
-		  <aside class="ejemplos">
-			<h1>Ejemplo</h1>
-			<ol>
-			  <li>
-				<div><pre><code><span class="simbexp2">$</span><span class="simbexp">F</span><sub class="pos_puntos">power</sub><span class="simbind">(</span><span class="simbind">){</span>
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbexp2">$</span><span class="simbexp">F</span><sub class="pos_puntos">power</sub><span class="simbind">(</span><span class="simbind">){</span>
    <span class="pclave">float</span> <span class="nvars">base</span><span class="simbind">;</span>
    <span class="pclave">float</span> <span class="nvars">n</span><span class="simbind">;</span>
    <span class="pclave">float</span> <span class="nvars">i</span><span class="simbind">,</span> <span class="nvars">p</span><span class="simbind">;</span>
@@ -226,9 +162,9 @@
    <span class="simbind">}</span>
    <span class="pclave">return</span> <span class="nvars">p</span><span class="simbind">;
 }</span></code></pre></div>
-			  </li>
-			  <li>
-				<div><pre><code><span class="var_exp">def_subp</span><span class="simbind">{</span>
+	</li>
+	<li>
+	  <div><pre><code><span class="var_exp">def_subp</span><span class="simbind">{</span>
    <span class="preproc">#definec $R F</span>
    <span class="pclave">float</span> <span class="nvars">base</span><span class="simbind">;</span>
    ...
@@ -241,16 +177,16 @@
    ＊<span class="flechita"><span class="pos_puntos term">67</span></span>
    1<sup class="pos_puntos">np</sup><span class="flechita"><span class="pos_puntos term">npos</span></span>
 <span class="simbind">}</span></code></pre>
-				</div>
-			</ol>
-		  </aside>
-          <dl class="expansor titpeq">
-			<dt><span class="var_exp">rest_vals</span></dt>
-			<dd>
-			  <div class="macro">
-				<pre><code><span class="term">:rest_vals:</span></code></pre>
-				<div class="flecha"></div>
-				<pre class="complicado"><code><span class="term">Z<sub>:top</sub>--;</span>
+	  </div>
+  </ol>
+</aside>
+<dl class="expansor titpeq">
+  <dt><span class="var_exp">rest_vals</span></dt>
+  <dd>
+	<div class="macro">
+	  <pre><code><span class="term">:rest_vals:</span></code></pre>
+	  <div class="flecha"></div>
+	  <pre class="complicado"><code><span class="term">Z<sub>:top</sub>--;</span>
 <span class="term">Z<sub>.r1</sub> = *Y<sub>:top</sub>;</span>
 <span class="term">Z<sub>:top</sub>--;</span>
 <span class="term">Z<sub>.r2</sub> = *Y<sub>:top</sub>;</span>
@@ -268,60 +204,48 @@
 <span class="term">Z<sub>.sw</sub> = *Y<sub>:top</sub>;</span>
 <span class="term">Z<sub>:top</sub>--;</span>
 <span class="term">Z<sub>:top</sub> = *Y<sub>:top</sub>;</span></code></pre>
-			</div>
-			</dd>
-		  </dl>
-		  <dl class="expansor">
-			<dt><span class="var_exp">def_subp</span>{<span class="noexp"><span class="nnoterm">texto</span><sub>1</sub></span>}</dt>
-			<dd>
-			  <p class="mimp">Sea <span class="nnoterm">m</span> el <span class="noterm">natural</span> asociado a <span class="var_exp pbajo">num_position</span>. El expansor:</p>
-			  <ol>
-				<li>asocia 1 a <span class="var_exp pbajo">num_position</span>.</li>
-				<li>expande las macroinstrucciones en <span class="nnoterm">texto</span><sub>1</sub> hasta obtener <span class="noterm">preinstrucciones<sub>1</sub></span>.</li>
-				<li>sustituye <span class="flechita subir"><span class="pos_puntos pbajo">return</span></span> por una señal, sea
-				  <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">k</span></span>, y todas las apariciones de <span class="pos_puntos pbajo">return</span> en
-				  <span class="noterm">preinstrucciones<sub>1</sub></span> por <span class="pos_puntos nnoterm pbajo">k</span>.
-				</li>
-				<li>sustituye la última <span class="noterm">preinstrucción</span>, 1<sup class="pos_puntos">np</sup>, por 1<sup class="nnoterm">n</sup>, donde
-				  <span class="nnoterm">n</span> es el <span class="noterm">natural</span> asociado a <span class="var_exp pbajo">num_position</span>.</li>
-				<li>sustituye <span class="flechita subir"><span class="pos_puntos pbajo">npos</span></span> por una señal, sea <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">p</span></span>, y
-				  todas las apariciones de <span class="pos_puntos pbajo">npos</span> en <span class="noterm">preinstrucciones<sub>1</sub></span> por <span class="pos_puntos nnoterm pbajo">p</span>.
-				</li>
-				<li>asocia <span class="nnoterm">m</span> a <span class="var_exp pbajo">num_position</span>.</li>
-			  </ol>
-			</dd>
-		  </dl>
-		  <div class="expansor">
-			<h1>Expansiones finales 1’’</h1>
-			<p class="mimp">Si se usan macroinstrucciones <span class="var_exp">def_subp</span>, el expansor, en las expansiones finales:</p>
-				<ol>
-				  <li>antes de añadir la <span class="noterm">preinstrucción</span> 1<sup class="pos_puntos">top</sup> añade una <span class="noterm">preinstrucción</span>
-					1<sup class="nnoterm">n</sup>, donde <span class="nnoterm">n</span> es el <span class="noterm">natural</span> asociado a <span class="var_exp pbajo">num_position</span>.</li>
-				  <li>añade una señal <span class="flechita subir"><span class="pos_puntos pbajo">$npos</span></span>. apuntando a esta <span class="noterm">preinstrucción</span>.</li>
-				  <li>sustituye las apariciones de <span class="pos_puntos pbajo">npos</span> en cualquier <span class="noterm">preinstrucción</span>
-					por <span class="pos_puntos pbajo">$npos</span>.</li>
-				  <li>
-					<p>por cada señal <span class="flechita subir"><span class="pos_puntos pbajo"><span class="noterm">id<sub>1</sub></span></span></span> presente:</p>
-					<ol>
-					  <li>la sustituye por una señal <span class="flechita subir"><span class="pos_puntos pbajo"><span class="noterm">natural</span></span></span>;
-						sea ésta <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">i</span></span>.</li>
-					  <li>sustituye las apariciones de <span class="pos_puntos pbajo"><span class="noterm">id<sub>1</sub></span></span> en cualquier <span class="noterm">preinstrucción</span>
-						por <span class="pos_puntos nnoterm pbajo">i</span>.
-					  </li>
-					</ol>
-				  </li>
-				</ol>
-		  </div>
-		</main><!--***********************-->
-	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html">&lt;&lt; ant</a></p><p><a href="./cmacros-2.html">sig &gt;&gt;</a></p></div>
 	</div>
-    <footer>
-	  <div class="anchura">
-		<div id="autor">
-		  <p>R. Córdoba García</p>
-		  <address>rcordoba77@gmail.com</address>
-		</div>
-	  </div>
-    </footer>
-  </body>
-</html>
+  </dd>
+</dl>
+<dl class="expansor">
+  <dt><span class="var_exp">def_subp</span>{<span class="noexp"><span class="nnoterm">texto</span><sub>1</sub></span>}</dt>
+  <dd>
+	<p class="mimp">Sea <span class="nnoterm">m</span> el <span class="noterm">natural</span> asociado a <span class="var_exp pbajo">num_position</span>. El expansor:</p>
+	<ol>
+	  <li>asocia 1 a <span class="var_exp pbajo">num_position</span>.</li>
+	  <li>expande las macroinstrucciones en <span class="nnoterm">texto</span><sub>1</sub> hasta obtener <span class="noterm">preinstrucciones<sub>1</sub></span>.</li>
+	  <li>sustituye <span class="flechita subir"><span class="pos_puntos pbajo">return</span></span> por una señal, sea
+		<span class="flechita subir"><span class="pos_puntos nnoterm pbajo">k</span></span>, y todas las apariciones de <span class="pos_puntos pbajo">return</span> en
+		<span class="noterm">preinstrucciones<sub>1</sub></span> por <span class="pos_puntos nnoterm pbajo">k</span>.
+	  </li>
+	  <li>sustituye la última <span class="noterm">preinstrucción</span>, 1<sup class="pos_puntos">np</sup>, por 1<sup class="nnoterm">n</sup>, donde
+		<span class="nnoterm">n</span> es el <span class="noterm">natural</span> asociado a <span class="var_exp pbajo">num_position</span>.</li>
+	  <li>sustituye <span class="flechita subir"><span class="pos_puntos pbajo">npos</span></span> por una señal, sea <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">p</span></span>, y
+		todas las apariciones de <span class="pos_puntos pbajo">npos</span> en <span class="noterm">preinstrucciones<sub>1</sub></span> por <span class="pos_puntos nnoterm pbajo">p</span>.
+	  </li>
+	  <li>asocia <span class="nnoterm">m</span> a <span class="var_exp pbajo">num_position</span>.</li>
+	</ol>
+  </dd>
+</dl>
+<div class="expansor">
+  <h1>Expansiones finales 1’’</h1>
+  <p class="mimp">Si se usan macroinstrucciones <span class="var_exp">def_subp</span>, el expansor, en las expansiones finales:</p>
+  <ol>
+	<li>antes de añadir la <span class="noterm">preinstrucción</span> 1<sup class="pos_puntos">top</sup> añade una <span class="noterm">preinstrucción</span>
+	  1<sup class="nnoterm">n</sup>, donde <span class="nnoterm">n</span> es el <span class="noterm">natural</span> asociado a <span class="var_exp pbajo">num_position</span>.</li>
+	<li>añade una señal <span class="flechita subir"><span class="pos_puntos pbajo">$npos</span></span>. apuntando a esta <span class="noterm">preinstrucción</span>.</li>
+	<li>sustituye las apariciones de <span class="pos_puntos pbajo">npos</span> en cualquier <span class="noterm">preinstrucción</span>
+	  por <span class="pos_puntos pbajo">$npos</span>.</li>
+	<li>
+	  <p>por cada señal <span class="flechita subir"><span class="pos_puntos pbajo"><span class="noterm">id<sub>1</sub></span></span></span> presente:</p>
+	  <ol>
+		<li>la sustituye por una señal <span class="flechita subir"><span class="pos_puntos pbajo"><span class="noterm">natural</span></span></span>;
+		  sea ésta <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">i</span></span>.</li>
+		<li>sustituye las apariciones de <span class="pos_puntos pbajo"><span class="noterm">id<sub>1</sub></span></span> en cualquier <span class="noterm">preinstrucción</span>
+		  por <span class="pos_puntos nnoterm pbajo">i</span>.
+		</li>
+	  </ol>
+	</li>
+  </ol>
+</div>
+</main>

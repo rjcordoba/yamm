@@ -30,9 +30,9 @@ sel_clara.addEventListener("click", cambiar_color, false);
 cont_pizarra.addEventListener("scroll", () => {
 	cont_números.scrollTop = cont_pizarra.scrollTop;}, false);
 
-const lins = cont_pizarra.textContent.split(/\r\n|\r|\n/).length - 1;
+const lins = cont_pizarra.textContent.split(/\r\n|\r|\n/).length;
 const item = document.createElement("li");
-for(let i = 1; i <= lins; i++){
+for(let i = 1; i < lins; i++){
 	var número = item.cloneNode(false);
 	número.textContent = i;
 	nums.appendChild(número);

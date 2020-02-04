@@ -1,94 +1,46 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-	<html lang="es">
-    <title>Lenguaje C--</title>
-    <meta name="author" content="R. Córdoba García">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/general.css">
-    <link rel="stylesheet" type="text/css" href="../css/macros.css"><!--***********************-->
-
-
-
-    <style>
-	  .expansor > ol > li{
-		  margin-bottom:1.3em;
-	  }
-
-	  .id_exp{
-		  color:#e48608;
-	  }
-
-	  .expansor sup{
-		  font-size:0.8em;
-	  }
-
-	  .ejemplos .resalt_nums{
-		  color:#77aeea;
-	  }
-
-	</style>
-
-  </head>
-  <body>
-    <header>
-	  <div class="anchura">
-        <img src="imgs/icono.svg" alt="icono">
-        <img src="imgs/letras.svg" alt="letras">
-	  </div>
-    </header>
-    <nav>
-	  <ul class="anchura">
-	    <li><a href="./clenguaje.html">C--</a></li><li><a href="./index.html">Máquinas</a></li>
-      </ul>
-    </nav>
-	<div id="cont-principal" class="anchura">
-		<h1>Lenguaje C--</h1>
-		<h2>Macros y utilidades</h2>
-		<main><!--***********************-->		  
-		  <div class="expansor">
-			<h1>Expansiones finales</h1>
-			<p class="mimp">Cuando sólo quedan <span class="noterm">preinstrucciones</span>, el expansor:</p>
-			<ol>
-			  <li>Por cada <span class="noterm">id</span> que aparezca en alguna <span class="noterm">preinstrucción</span> <span class="nnoterm">x</span><sup>.<span class="noterm">id</span></sup>:
-				<ol>
-				  <li>añade al final una nueva instrucción ‘1’ y una señal <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> apuntando a esta instrucción.</li>
-				  <li>sustituye todas las apariciones de .<span class="noterm">id</span> por <span class="pos_puntos nnoterm pbajo">i</span>.</li>
-				</ol>
-			  </li>
-			  <li>Asocia un <span class="noterm">natural</span> a cada <span class="noterm">preinstrucción</span> en el orden en que aparecen:
-				<ol>
-				  <li>a la primera <span class="noterm">preinstrucción</span> le asocia 1.</li>
-				  <li>si a una <span class="noterm">preinstrucción</span> le asocia <span class="nnoterm">m</span>,
-					a la siguiente le asociará <span class="nnoterm">n</span>, donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</li>
-				</ol>
-			  </li>
-			  <li>
-				Por cada señal <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> sustituye en <span class="noterm">macroinstrucciones</span> todas las apariciones de
-				<span class="pos_puntos nnoterm pbajo">i</span> por <span class="nnoterm">n</span>, donde <span class="nnoterm">n</span> es el <span class="noterm">natural</span>
-				asociado a la <span class="noterm">preinstrucción</span> a la que apunta <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span>.
-			  </li>			  
-			  <li>Expande las <span class="noterm">preinstrucción</span> de la forma <span class="nnoterm">x</span><sup class="nnoterm">n</sup>.</li>
-			</ol>
-		  </div>
-		  <aside class="ejemplos">
-		  <h1>Ejemplo</h1>
-		  <ol>
-			<li>
-			  <div>
-				<pre><code><span class="pclave">INIT</span>
+<main>
+  <div class="expansor">
+	<h1>Expansiones finales</h1>
+	<p class="mimp">Cuando sólo quedan <span class="noterm">preinstrucciones</span>, el expansor:</p>
+	<ol>
+	  <li>Por cada <span class="noterm">id</span> que aparezca en alguna <span class="noterm">preinstrucción</span> <span class="nnoterm">x</span><sup>.<span class="noterm">id</span></sup>:
+		<ol>
+		  <li>añade al final una nueva instrucción ‘1’ y una señal <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> apuntando a esta instrucción.</li>
+		  <li>sustituye todas las apariciones de .<span class="noterm">id</span> por <span class="pos_puntos nnoterm pbajo">i</span>.</li>
+		</ol>
+	  </li>
+	  <li>Asocia un <span class="noterm">natural</span> a cada <span class="noterm">preinstrucción</span> en el orden en que aparecen:
+		<ol>
+		  <li>a la primera <span class="noterm">preinstrucción</span> le asocia 1.</li>
+		  <li>si a una <span class="noterm">preinstrucción</span> le asocia <span class="nnoterm">m</span>,
+			a la siguiente le asociará <span class="nnoterm">n</span>, donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</li>
+		</ol>
+	  </li>
+	  <li>
+		Por cada señal <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> sustituye en <span class="noterm">macroinstrucciones</span> todas las apariciones de
+		<span class="pos_puntos nnoterm pbajo">i</span> por <span class="nnoterm">n</span>, donde <span class="nnoterm">n</span> es el <span class="noterm">natural</span>
+		asociado a la <span class="noterm">preinstrucción</span> a la que apunta <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span>.
+	  </li>
+	  <li>Expande las <span class="noterm">preinstrucción</span> de la forma <span class="nnoterm">x</span><sup class="nnoterm">n</sup>.</li>
+	</ol>
+  </div>
+  <aside class="ejemplos">
+	<h1>Ejemplo</h1>
+	<ol>
+	  <li>
+		<div>
+		  <pre><code><span class="pclave">INIT</span>
 <span class="simbexp">Z</span><sub class="id_exp">.sum1</sub><span class="simbind"> = </span><span class="numberp">2</span><span class="simbind">;</span>
 <span class="simbexp">Z</span><sub class="id_exp">.resa</sub><span class="simbind"> = </span><span class="simbexp"
 >Z</span><sub class="id_exp">.sum1</sub>;</code></pre>
-			  </div>
-			</li>
-			<li>
-			  <p class="puntitos"></p>
-			</li>
-			<li>
-			  <div class="flech">
-				<pre><code>1
+		</div>
+	  </li>
+	  <li>
+		<p class="puntitos"></p>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <pre><code>1
 0<sup class="id_exp">.sum1</sup>
 1<sup class="id_exp">.sum1</sup>
 1<sup class="id_exp">.sum1</sup>
@@ -102,11 +54,11 @@
 1<sup class="id_exp">.resa</sup><span class="flechita"><span class="pos_puntos">1</span></span>
 =<sup class="id_exp">.resa</sup>
 ＊<sup class="pos_puntos">1</sup></code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div class="flech">
-				<pre><code>1
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <pre><code>1
 0<sup class="pos_puntos">3</sup>
 1<sup class="pos_puntos">3</sup>
 1<sup class="pos_puntos">3</sup>
@@ -121,11 +73,11 @@
 =<sup class="id_exp">.resa</sup>
 ＊<sup class="pos_puntos">1</sup>
 1<span class="flechita"><span class="pos_puntos">3</span></span></code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div class="flech">
-				<pre><code>1
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <pre><code>1
 0<sup class="pos_puntos">3</sup>
 1<sup class="pos_puntos">3</sup>
 1<sup class="pos_puntos">3</sup>
@@ -141,15 +93,15 @@
 ＊<sup class="pos_puntos">1</sup>
 1<span class="flechita"><span class="pos_puntos">3</span></span>
 1<span class="flechita"><span class="pos_puntos">4</span></span></code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div class="flech">
-				<ol class="resalt_nums">
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
-				</ol>
-				<pre><code>1
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <ol class="resalt_nums">
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
+>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
+		  </ol>
+		  <pre><code>1
 0<sup class="pos_puntos">3</sup>
 1<sup class="pos_puntos">3</sup>
 1<sup class="pos_puntos">3</sup>
@@ -165,15 +117,15 @@
 ＊<sup class="pos_puntos">1</sup>
 1<span class="flechita"><span class="pos_puntos">3</span></span>
 1<span class="flechita"><span class="pos_puntos">4</span></span></code></pre>
-			  </div>
-			</li>			
-			<li>
-			  <div>
-				<ol class="resalt_nums">
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
-				</ol>
-				<pre><code>1
+		</div>
+	  </li>
+	  <li>
+		<div>
+		  <ol class="resalt_nums">
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
+>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
+		  </ol>
+		  <pre><code>1
 0<sup class="numbers">15</sup>
 1<sup class="numbers">15</sup>
 1<sup class="numbers">15</sup>
@@ -189,15 +141,15 @@
 ＊<sup class="numbers">12</sup>
 1
 1</code></pre>
-			  </div>
-			</li>
-			<li>
-			  <div>
-				<ol class="resalt_nums">
-				  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
-                  >9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
-				</ol>
-				<pre><code>1
+		</div>
+	  </li>
+	  <li>
+		<div>
+		  <ol class="resalt_nums">
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
+>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
+		  </ol>
+		  <pre><code>1
 0<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
 ><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
 1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
@@ -221,49 +173,49 @@
 ><span>’</span><span>’</span></span>
 1
 1</code></pre>
-			  </div>
-			</li>
-		  </ol>
-		  </aside>
-		  <div class="gramat glue">
-			<ol>
-			  <li>
-				<div class="nnoterm">&lambda;</div>
-				<div class="flechag"></div>
-				<ul>
-				  <li><span class="noterm">natural</span></li>
-				  <li>Z<sub>&Omega;</sub></li>
-				</ul>
-			  </li>
-			</ol>
-		  </div>
-		  <h3>Op. Aritméticas 1</h3>
-		  <div class="macro flech">
-			<pre><code>Z<sub>&Omega;</sub> += &lambda;;</code></pre>
-			<div class="flecha"></div>
-			<pre><code>Z<sub>.opi</sub> = &lambda;;
+		</div>
+	  </li>
+	</ol>
+  </aside>
+  <div class="gramat glue">
+	<ol>
+	  <li>
+		<div class="nnoterm">&lambda;</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="noterm">natural</span></li>
+		  <li>Z<sub>&Omega;</sub></li>
+		</ul>
+	  </li>
+	</ol>
+  </div>
+  <h3>Op. Aritméticas 1</h3>
+  <div class="macro flech">
+	<pre><code>Z<sub>&Omega;</sub> += &lambda;;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>Z<sub>.opi</sub> = &lambda;;
 Z<sub>1</sub> = 0;
 ＊<sup class="pos_puntos nnoterm">j</sup>
 1<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
 1<sup>&Omega;</sup>
 =<sup>.opi</sup><span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
 ＊<sup class="pos_puntos nnoterm">i</sup></code></pre>
-		</div>
-		<div class="macro">
-		  <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> + Z<sub>&Psi;</sub>;</code></pre>
-			<div class="flecha"></div>
+  </div>
+  <div class="macro">
+	<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> + Z<sub>&Psi;</sub>;</code></pre>
+	<div class="flecha"></div>
 <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub>;
 Z<sub>&Omega;</sub> += Z<sub>&Psi;</sub>;</code></pre>
-		</div>
-		<div class="macro">
-		  <pre><code>Z<sub>&Omega;</sub>++;</code></pre>
-		  <div class="flecha"></div>
-		  <pre><code>1<sup>&Omega;</sup>;</code></pre>
-		</div>
-		<div class="macro flech">
-		  <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> - Z<sub>&Psi;</sub>;</code></pre>
-			<div class="flecha"></div>
-			<pre><code>Z<sub>&Omega;</sub> = 0;
+  </div>
+  <div class="macro">
+	<pre><code>Z<sub>&Omega;</sub>++;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>1<sup>&Omega;</sup>;</code></pre>
+  </div>
+  <div class="macro flech">
+	<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> - Z<sub>&Psi;</sub>;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>Z<sub>&Omega;</sub> = 0;
 Z<sub>1</sub> = 0;
 JUMP
 Z<sub>1</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
@@ -277,11 +229,10 @@ Z<sub>&Omega;</sub>++;
 =<sup>&Phi;</sup>
 ＊<sup class="pos_puntos nnoterm">k</sup>
 <span class="puntitos"></span><span class="flechita"><span class="pos_puntos nnoterm">j</span></span></code></pre>
-		</div>
-		
-		<div class="macro flech">
-		  <pre><code>Z<sub>&Omega;</sub>--;</code></pre>
-			<div class="flecha"></div>
+  </div>
+  <div class="macro flech">
+	<pre><code>Z<sub>&Omega;</sub>--;</code></pre>
+	<div class="flecha"></div>
 <pre><code>Z<sub>1</sub> = 0;
 =<sup>&Omega;</sup>
 JUMP
@@ -294,17 +245,5 @@ Z<sub>1</sub>++;
 =<sup>.opi</sup>
 ＊<sup class="pos_puntos nnoterm">j</sup>
 ...<span class="flechita"><span class="pos_puntos nnoterm">i</span></span></code></pre>
-		</div>
-		</main><!--***********************-->
-	  <div class="nav_pag nav_pag2"><p><a href="./clenguaje.html"><< ant</a></p><p><a href="./cmacros-2.html">sig >></a></p></div>
-	</div>
-    <footer>
-	  <div class="anchura">
-		<div id="autor">
-		  <p>R. Córdoba García</p>
-		  <address>rcordoba77@gmail.com</address>
-		</div>
-	  </div>
-    </footer>
-  </body>
-</html>
+  </div>
+</main>
