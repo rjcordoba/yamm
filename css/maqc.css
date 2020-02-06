@@ -4,10 +4,8 @@ pre{
 	font-family:escribir;
 }
 
-#cont-principal{
+main{
 	font-size:0.83em;
-	--textocolor:#333;
-	color:var(--textocolor);
 }
 
 #sel_color{
@@ -55,7 +53,7 @@ pre{
 #editor{
 	width:46em;
 	max-width:100%;
-	margin:2em 1% 5em;
+	margin:2em 0 5em;
 	padding:0.47em;
 	border-radius:5px;
 	font-size:1.1em;
