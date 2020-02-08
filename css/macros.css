@@ -15,28 +15,16 @@
 	color:#77aeea;
 }
 
-
-
-
-
-
-
-
 /* 4 */
 .resaltart{
 	color:#01030a;
 }
 
-
-
-
 /* 7 */
-.resaltart{
-	color:#01030a;
-}
 .flechita.subir::before{
 	bottom:0.15em;
 }
+
 .seaadj pre{
 	border:1px #e7edef solid;
 	margin:0.3em 0 0.6em 1em;
@@ -62,15 +50,24 @@
 	margin-top:1.4em;
 }
 
-
-
 main{
 	--glue-macro:1.7em;
 	--color-exp:#034ea0;
 }
 
-nav.hojas{
-	margin:2em 0;
+.hojas{
+	display:flex;
+	margin:2em 1em 3em 1em;
+}
+
+.main > *:first-child{
+	margin-top:0;
+}
+
+.hojas > span{
+	margin:0.25em 0.5em 0 0;
+	font-size: 0.9em;
+	color:#636764
 }
 
 .hojas a, li.actual{
@@ -739,7 +736,7 @@ pre .flechita::before{
 
 .expansor .flechita::before{
 	position:relative;
-	bottom:0.15em;
+	bottom:0.1em;
 }
 
 .expansor .ppuntos .flechita::before{

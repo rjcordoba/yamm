@@ -1,69 +1,68 @@
-<main>
-  <h3>Llamada a subprogramas</h3>
-  <div class="gramat glueg">
-	<ol>
-	  <li>
-		<div class="noterm">argp_y</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">natural</span></li>
-		  <li><span class="term">0</span></li>
-		  <li><span class="term">Y</span>’<sub class="vacento nnoterm">n</sub></li>
-		  <li><span class="term">&amp;</span><span class="nnoterm">V</span><sub class="nnoterm">n</sub><span class="noterm">indf</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">arg_y</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">argp_y</span></li>
-		  <li><span class="term">+</span><span class="noterm">argp_y</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">argp_f</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">racional</span></li>
-		  <li><span class="term">F</span>’<sub class="vacento nnoterm">n</sub></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">arg_f</div>
-		<div class="flechag"></div>
-		<div><span class="noterm">signo</span><span class="noterm">argp_f</span></div>
-	  </li>			
-	  <li>
-		<div class="noterm">arg</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">arg_y</span></li>
-		  <li><span class="noterm">arg_f</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">rest_args</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li>&epsilon;</li>
-		  <li><span class="term">,</span><span class="noterm">arg</span><span class="noterm">rest_args</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">args</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li>&epsilon;</li>
-		  <li><span class="noterm">arg</span><span class="noterm">rest_args</span></li>
-		</ul>
-	  </li>
-	</ol>
-  </div>
-  <div class="macro flech">
-	<pre><code><span class="nnoterm">W</span><sub>:<span class="nnoterm">nombre</span></sub><span class="noterm">tpars<sub>1</sub></span
+<h3>Llamada a subprogramas</h3>
+<div class="gramat glueg">
+  <ol>
+	<li>
+	  <div class="noterm">argp_y</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">natural</span></li>
+		<li><span class="term">0</span></li>
+		<li><span class="term">Y</span>’<sub class="vacento nnoterm">n</sub></li>
+		<li><span class="term">&amp;</span><span class="nnoterm">V</span><sub class="nnoterm">n</sub><span class="noterm">indf</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">arg_y</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">argp_y</span></li>
+		<li><span class="term">+</span><span class="noterm">argp_y</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">argp_f</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">racional</span></li>
+		<li><span class="term">F</span>’<sub class="vacento nnoterm">n</sub></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">arg_f</div>
+	  <div class="flechag"></div>
+	  <div><span class="noterm">signo</span><span class="noterm">argp_f</span></div>
+	</li>			
+	<li>
+	  <div class="noterm">arg</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">arg_y</span></li>
+		<li><span class="noterm">arg_f</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">rest_args</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="term">,</span><span class="noterm">arg</span><span class="noterm">rest_args</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">args</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="noterm">arg</span><span class="noterm">rest_args</span></li>
+	  </ul>
+	</li>
+  </ol>
+</div>
+<div class="macro flech">
+  <pre><code><span class="nnoterm">W</span><sub>:<span class="nnoterm">nombre</span></sub><span class="noterm">tpars<sub>1</sub></span
 ><span class="term">(</span><span class="noterm">args<sub>1</sub></span><span class="term">);</span></code></pre>
-	<div class="flecha"></div>
-	<pre><code
+  <div class="flecha"></div>
+  <pre><code
 ><span class="term">Z</span><sub>.fp</sub><span class="term"> = </span><span class="term">Z</span><sub>:top</sub><span class="term">;</span>
 <span class="term">Z</span><sub>.fp</sub><span class="term"> += </span><span class="term">Z</span><sub>:npos</sub><span class="term">;</span>
 <span class="term">*Y</span><sub class="numnaty">.fp</sub><span class="term"> = </span><span class="term">Z</span><sub>:top</sub><span class="term">;</span>
@@ -260,4 +259,3 @@
 	  </ol>
 	</aside>
   </div>
-</main>

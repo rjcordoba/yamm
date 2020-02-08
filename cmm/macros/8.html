@@ -1,96 +1,95 @@
-<main>
-  <h3>Comentarios</h3>
-  <div class="macro">
-	<pre><code><span class="term">/*</span><span class="nnoterm"> texto </span><span class="term">*/</span></code></pre>
-	<div class="flecha"></div>
-	<pre><code>&epsilon;</code></pre>
-  </div>
-  <h3>Declaración de subprogramas</h3>
-  <div class="gramat glueg">
-	<ol>
-	  <li>
-		<div class="noterm">vindf</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li>&epsilon;</li>
-		  <li><span class="noterm">nat</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">indf</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li>&epsilon;</li>
-		  <li><span class="term">[</span><span class="noterm">vindf</span><span class="term">]</span><span class="noterm">indf</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">parid</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li>&epsilon;</li>
-		  <li><span class="nnoterm">nombre</span><span class="noterm">indf</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">param</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li>&epsilon;</li>
-		  <li><span class="nnoterm">type</span> <span class="noterm">stars</span><span class="noterm">parid</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">rest_params</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li>&epsilon;</li>
-		  <li><span class="term">,</span> <span class="noterm">param</span><span class="noterm">rest_params</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">params</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li>&epsilon;</li>
-		  <li><span class="noterm">param</span><span class="noterm">rest_params</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">tpar</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="term">$Y</span></li>
-		  <li><span class="term">$F</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">tpars</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li>&epsilon;</li>
-		  <li><span class="noterm">tpar</span><span class="noterm">tpars</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">ftype</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="nnoterm">type</span></li>
-		  <li><span class="term">void</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">fnombre</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="nnoterm">nombre</span><span class="noterm">tpars</span></li>
-		</ul>
-	  </li>
-	</ol>
-  </div>
-  <div class="macro">
-	<pre><code><span class="nnoterm">nombre</span><sub>1</sub><span class="term">(</span><span class="noterm">param<sub>1</sub></span
+<h3>Comentarios</h3>
+<div class="macro">
+  <pre><code><span class="term">/*</span><span class="nnoterm"> texto </span><span class="term">*/</span></code></pre>
+  <div class="flecha"></div>
+  <pre><code>&epsilon;</code></pre>
+</div>
+<h3>Declaración de subprogramas</h3>
+<div class="gramat glueg">
+  <ol>
+	<li>
+	  <div class="noterm">vindf</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="noterm">nat</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">indf</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="term">[</span><span class="noterm">vindf</span><span class="term">]</span><span class="noterm">indf</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">parid</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="nnoterm">nombre</span><span class="noterm">indf</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">param</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="nnoterm">type</span> <span class="noterm">stars</span><span class="noterm">parid</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">rest_params</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="term">,</span> <span class="noterm">param</span><span class="noterm">rest_params</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">params</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="noterm">param</span><span class="noterm">rest_params</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">tpar</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="term">$Y</span></li>
+		<li><span class="term">$F</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">tpars</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="noterm">tpar</span><span class="noterm">tpars</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">ftype</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="nnoterm">type</span></li>
+		<li><span class="term">void</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">fnombre</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="nnoterm">nombre</span><span class="noterm">tpars</span></li>
+	  </ul>
+	</li>
+  </ol>
+</div>
+<div class="macro">
+  <pre><code><span class="nnoterm">nombre</span><sub>1</sub><span class="term">(</span><span class="noterm">param<sub>1</sub></span
 ><span class="noterm">rest_params<sub>1</sub></span><span class="term">);</span></code></pre>
 	<div class="flecha"></div>
 	<pre><code><span class="nnoterm">nombre</span><sub>1</sub><span class="term">$</span><span class="noterm">param<sub>1</sub></span
@@ -363,4 +362,3 @@
 	  </li>
 	</ol>
   </aside>
-</main>

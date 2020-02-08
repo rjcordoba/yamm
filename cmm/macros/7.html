@@ -1,110 +1,109 @@
-<main>
-  <div class="gramat">
-	<ol>
-	  <li>
-		<div class="noterm">opd</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="term">++</span></li>
-		  <li><span class="term">--</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">yd</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">opd</span><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub></li>
-		  <li><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub><span class="noterm">opd</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">vindx</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">natural</span></li>
-		  <li><span class="term">Z</span><sub>&Omega;</sub></li>
-		  <li><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub></li>
-		  <li><span class="noterm">yd</span></li>
-		  <li><span class="term">0</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">indx</div>
-		<div class="flechag"></div>
-		<div><span class="term">[</span><span class="noterm">vindx</span><span class="term">]</span></div>
-	  </li>
-	  <li>
-		<div class="noterm">indxs</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span>&epsilon;</span></li>
-		  <li><span class="noterm">indx</span><span class="noterm">indxs</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="nnoterm">V</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="term">Y</span></li>
-		  <li><span class="term">F</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="nnoterm">V’<sub class="suby vacento">n</sub></div>
-		<div class="flechag"></div>
-		<div><span class="noterm">stars</span><span class="nnoterm">V<sub class="suby">n</sub></span><span class="noterm">dims</span><span class="noterm">indxs</span></div>
-	  </li>
-	  <li>
-		<div class="noterm">preinstrucción</div>
-		<div class="flechag"></div>
-		<div><span class="nnoterm">x</span><sup class="alejarsup">&Omega;</sup></div>
-	  </li>
-	  <li>			  
-		<div class="noterm">preinstrucciones</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span>&epsilon;</span></li>
-		  <li><span class="nnoterm">x</span><sup class="alejarsup">&Omega;</sup><span class="noterm">preinstrucciones</span></li>
-		</ul>
-	  </li>
-	</ol>			
-  </div>
-  <div class="expansor">
-	<h1>Expansiones finales 1’</h1>
-	<p class="mimp">Cuando se usan macros de la forma ‘<span class="resaltart"><span class="nnoterm">unsigned int
-		  <span class="noterm">stars</span>nombre</span><span class="noterm">dims</span></span>’
-	  el expansor, en las expansiones finales:</p>
-	<ol>
-	  <li>después de agregar las instrucciones ‘1’, añade al final una nueva instrucción 1<sup class="pos_puntos pbajo">top</sup> con una marca
-		<span class="flechita subir"><span class="pos_puntos nnoterm pbajo">i</span></span> apuntando a ella.</li>
-	  <li>sustituye todas las apariciones de <span class="pos_puntos pbajo">top</span> por <span class="pos_puntos nnoterm pbajo">i</span>
-		en todas las <span class="nnoterm">x</span><sup class="pos_puntos pbajo">top</sup>.</li>
-	</ol>
-  </div>		  
-  <div class="macro">
-	<pre><code><span class="nnoterm">V<sub class="numnatv">.<span class="noterm">id</span></sub></span><span class="term"> = </span><span class="term">Z</span><sub>&Omega;</sub><span class="term">;</span></code></pre>
-	<div class="flecha"></div>
-	<pre><code><span class="term">Z<sub>.<span class="noterm">id</span></sub></span><span class="term"> = </span><span class="term">Z</span><sub>&Omega;</sub><span class="term">;</span></code></pre>
-  </div>
-  <div class="macro">
-	<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="nnoterm">V<sub class="numnatv">.<span class="noterm">id</span></sub></span><span class="term">;</span></code></pre>
-	<div class="flecha"></div>
-	<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z<sub>.<span class="noterm">id</span></sub></span><span class="term">;</span></code></pre>
-  </div>
-  <aside class="ejemplos">
-	<h1>Ejemplo</h1>
-	<ol>
-	  <li>
-		<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.opr</sub><span class="simbind"> = </span><span class="simbexp">Y</span
+<div class="gramat">
+  <ol>
+	<li>
+	  <div class="noterm">opd</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="term">++</span></li>
+		<li><span class="term">--</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">yd</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">opd</span><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub></li>
+		<li><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub><span class="noterm">opd</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">vindx</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">natural</span></li>
+		<li><span class="term">Z</span><sub>&Omega;</sub></li>
+		<li><span class="noterm">stars</span><span class="term">Y</span><sub class="nnoterm suby">n</sub></li>
+		<li><span class="noterm">yd</span></li>
+		<li><span class="term">0</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">indx</div>
+	  <div class="flechag"></div>
+	  <div><span class="term">[</span><span class="noterm">vindx</span><span class="term">]</span></div>
+	</li>
+	<li>
+	  <div class="noterm">indxs</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span>&epsilon;</span></li>
+		<li><span class="noterm">indx</span><span class="noterm">indxs</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="nnoterm">V</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="term">Y</span></li>
+		<li><span class="term">F</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="nnoterm">V’<sub class="suby vacento">n</sub></div>
+	  <div class="flechag"></div>
+	  <div><span class="noterm">stars</span><span class="nnoterm">V<sub class="suby">n</sub></span><span class="noterm">dims</span><span class="noterm">indxs</span></div>
+	</li>
+	<li>
+	  <div class="noterm">preinstrucción</div>
+	  <div class="flechag"></div>
+	  <div><span class="nnoterm">x</span><sup class="alejarsup">&Omega;</sup></div>
+	</li>
+	<li>			  
+	  <div class="noterm">preinstrucciones</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span>&epsilon;</span></li>
+		<li><span class="nnoterm">x</span><sup class="alejarsup">&Omega;</sup><span class="noterm">preinstrucciones</span></li>
+	  </ul>
+	</li>
+  </ol>			
+</div>
+<div class="expansor">
+  <h1>Expansiones finales 1’</h1>
+  <p class="mimp">Cuando se usan macros de la forma ‘<span class="resaltart"><span class="nnoterm">unsigned int
+		<span class="noterm">stars</span>nombre</span><span class="noterm">dims</span></span>’
+	el expansor, en las expansiones finales:</p>
+  <ol>
+	<li>después de agregar las instrucciones ‘1’, añade al final una nueva instrucción 1<sup class="pos_puntos pbajo">top</sup> con una marca
+	  <span class="flechita subir"><span class="pos_puntos nnoterm pbajo">i</span></span> apuntando a ella.</li>
+	<li>sustituye todas las apariciones de <span class="pos_puntos pbajo">top</span> por <span class="pos_puntos nnoterm pbajo">i</span>
+	  en todas las <span class="nnoterm">x</span><sup class="pos_puntos pbajo">top</sup>.</li>
+  </ol>
+</div>		  
+<div class="macro">
+  <pre><code><span class="nnoterm">V<sub class="numnatv">.<span class="noterm">id</span></sub></span><span class="term"> = </span><span class="term">Z</span><sub>&Omega;</sub><span class="term">;</span></code></pre>
+  <div class="flecha"></div>
+  <pre><code><span class="term">Z<sub>.<span class="noterm">id</span></sub></span><span class="term"> = </span><span class="term">Z</span><sub>&Omega;</sub><span class="term">;</span></code></pre>
+</div>
+<div class="macro">
+  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="nnoterm">V<sub class="numnatv">.<span class="noterm">id</span></sub></span><span class="term">;</span></code></pre>
+  <div class="flecha"></div>
+  <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z<sub>.<span class="noterm">id</span></sub></span><span class="term">;</span></code></pre>
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.opr</sub><span class="simbind"> = </span><span class="simbexp">Y</span
 ><sub class="id_exp">.op1</sub><span class="simbind">;</span></code></pre></div>
-	  </li>
-	  <li>
-		<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.opr</sub><span class="simbind"> = </span><span class="simbexp">Z</span
+	</li>
+	<li>
+	  <div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.opr</sub><span class="simbind"> = </span><span class="simbexp">Z</span
 ><sub class="id_exp">.op1</sub><span class="simbind">;</span></code></pre></div>
-	  </li>
-	</ol>
-  </aside>
-  <div class="macro">
+	</li>
+  </ol>
+</aside>
+<div class="macro">
 	<pre><code><span class="nnoterm">V</span><sub class="numnatv">&Omega;</sub><span class="term"> = </span><span class="nnoterm">V</span
 ><sub class="numnatv">&Omega;</sub><span class="term">;</span></code></pre>
 	<div class="flecha"></div>
@@ -411,4 +410,3 @@
 	</li>
   </ol>
 </aside>
-</main>

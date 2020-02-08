@@ -1,70 +1,69 @@
-<main>
-  <h3>Operaciones aritméticas 1</h3>
-  <div class="gramat glueg">
-	<ol>
-	  <li>
-		<div><span class="nnoterm">V’’</span></div>
-		<div class="flechag"></div>
-		<div><span class="nnoterm">V</span><sub>.<span class="noterm">id</span></sub><span class="noterm">tpars</span><span class="term">(</span><span class="noterm">args</span><span class="term">)</span></div>
-	  </li>
-	  <li>
-		<div class="noterm">valp_y</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">natural</span></li>
-		  <li><span class="term">0</span></li>
-		  <li><span class="nnoterm">Y</span><span class="alejarsup">’</span><sub class="vacento">&Omega;</sub></li>
-		  <li><span class="noterm">stars</span><span class="nnoterm">Y</span><span class="alejarsup">’’</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">val_y</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">valp_y</span></li>
-		  <li><span class="term">+</span><span class="noterm">valp_y</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">valp_f</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">racional</span></li>
-		  <li><span class="nnoterm">F</span>’<sub class="vacento">&Omega;</sub></li>
-		  <li><span class="noterm">stars</span><span class="nnoterm">F</span>’’ </li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">val_f</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">signo</span><span class="noterm">valp_f</span></li>
-		  <li><span class="term">-</span><span class="noterm">valp_y</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<div class="noterm">valp</div>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">valp_f</span></li>
-		  <li><span class="noterm">valp_y</span></li>
-		</ul>
-	  </li>
-	  <li>
-		<ul><li>&alpha;</li><li>&beta;</li></ul>
-		<div class="flechag"></div>
-		<ul>
-		  <li><span class="noterm">val_y</span></li>
-		  <li><span class="noterm">val_f</span></li>
-		</ul>
-	  </li>
-	</ol>
-  </div>
-  <div class="macro">
-	<pre><code><span class="term">Z<sub>&Omega;</sub></span><span class="term"> = </span><span class="noterm">stars<sub>1</sub></span
+<h3>Operaciones aritméticas 1</h3>
+<div class="gramat glueg">
+  <ol>
+	<li>
+	  <div><span class="nnoterm">V’’</span></div>
+	  <div class="flechag"></div>
+	  <div><span class="nnoterm">V</span><sub>.<span class="noterm">id</span></sub><span class="noterm">tpars</span><span class="term">(</span><span class="noterm">args</span><span class="term">)</span></div>
+	</li>
+	<li>
+	  <div class="noterm">valp_y</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">natural</span></li>
+		<li><span class="term">0</span></li>
+		<li><span class="nnoterm">Y</span><span class="alejarsup">’</span><sub class="vacento">&Omega;</sub></li>
+		<li><span class="noterm">stars</span><span class="nnoterm">Y</span><span class="alejarsup">’’</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">val_y</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">valp_y</span></li>
+		<li><span class="term">+</span><span class="noterm">valp_y</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">valp_f</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">racional</span></li>
+		<li><span class="nnoterm">F</span>’<sub class="vacento">&Omega;</sub></li>
+		<li><span class="noterm">stars</span><span class="nnoterm">F</span>’’ </li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">val_f</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">signo</span><span class="noterm">valp_f</span></li>
+		<li><span class="term">-</span><span class="noterm">valp_y</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">valp</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">valp_f</span></li>
+		<li><span class="noterm">valp_y</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <ul><li>&alpha;</li><li>&beta;</li></ul>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">val_y</span></li>
+		<li><span class="noterm">val_f</span></li>
+	  </ul>
+	</li>
+  </ol>
+</div>
+<div class="macro">
+  <pre><code><span class="term">Z<sub>&Omega;</sub></span><span class="term"> = </span><span class="noterm">stars<sub>1</sub></span
 ><span class="nnoterm">V</span><span>’</span><span class="acercar">’</span><span class="term">;</span></code></pre>
-	<div class="flecha"></div>
-	<pre><code><span class="nnoterm">V</span><span>’</span><span class="acercar">’</span><span class="term">;</span>
+  <div class="flecha"></div>
+  <pre><code><span class="nnoterm">V</span><span>’</span><span class="acercar">’</span><span class="term">;</span>
 <span class="term">Z<sub>&Omega;</sub></span><span class="term"> = </span><span class="noterm">stars<sub>1</sub></span
 ><span class="term">V<sub class="acercarsup">.ret</sub></span><span class="term">;</span></code></pre>
   </div>
@@ -248,4 +247,3 @@
 	  </li>
 	</ol>
   </aside>
-</main>

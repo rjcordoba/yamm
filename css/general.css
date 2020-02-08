@@ -234,7 +234,7 @@ body > footer{
     }
 }
 
-@media (min-width:800px) and (max-width:1099px){
+@media (min-width:888px) and (max-width:1099px){
     body{
 		font-size:16px;
     }
@@ -249,9 +249,9 @@ body > footer{
     }
 }
 
-@media (max-width:799px){
+@media (max-width:889px){
 	body{
-		font-size:14px;
+		font-size:15px;
     }
 	#cont-principal main{
 		margin-left:6%;
@@ -277,6 +277,20 @@ body > footer{
 	}
 }
 
+@media (max-width:660px){
+	#logop{
+		margin:5px auto;
+	}
+	#logop img[src*="icono"]{
+    width:130%;
+    transform:rotate(90deg);
+    position:absolute;
+    top:80%;
+	left:50%;
+	transform:translate(-50%);
+}
+
+}
 @media print{
 	body > footer, body > header, body > nav, #encabezado h1{
 		display:none;
