@@ -23,15 +23,19 @@
 	  </div>
     </header>
 	<div id="navegadorp">
-	  <div id="hamburguesa">☰</div>
-      <nav class="anchura">
-		<ul>
-	      <li>
-			<h1><a href="./es/cmm/clenguaje">C--</a></h1>
-			<ul>
-			  <li><a href="/es/cmm/clenguaje">lenguaje</a></li>
-			  <li class="con_triang"><a href="/es/cmm/macros/1">macros</a><span class="triang">►</span>
-				<ul>
+	  <div id="nav-resp" class="anchura">
+		<div id="men-hamburguesa">
+		  <span>Menú</span>
+		  <div id="hamburguesa"><div></div></div>
+		</div>
+		<nav id="navprinc">
+		  <ul>
+			<li>
+			  <h1><a href="./es/cmm/clenguaje">C--</a></h1>
+			  <ul>
+				<li><a href="/es/cmm/clenguaje">lenguaje</a></li>
+				<li class="con_triang"><a href="/es/cmm/macros/1">macros</a><span class="triang"></span>
+				  <ul>
 					<?php
 					define("NUMMACROS", 19);
 					define("NUMOPCM", 5);
@@ -39,22 +43,23 @@
 					for($i = 1;$i < NUMMACROS;$i += $long_pasos) echo "<li><a href='/es/cmm/macros/{$i}'>macros {$i}</a></li>";
 					echo "<li><a href='/es/cmm/macros/" . NUMMACROS . "'>macros " . NUMMACROS . "</a></li>";
 					?>
-				</ul>
-			  </li>
-			  <li><a href="/es/cmm/tmachine">ejemplo Turing</a></li>
-			  <li><a href="/es/cmm/recursive">ejemplo recursión</a></li>
-			</ul>
-		  </li>
-		  <li>
-			<h1><a href="/index.html">Máquinas</a></h1>
-			<ul>
-		  	  <li><a href="/es/amt/lenguaje">lenguaje</a></li>
-		  	  <li><a href="/es/amt/tmachine-cmm">ejemplo C--</a></li>
-		  	  <li class="por_hacer">simulador</li>
-			</ul>
-		  </li>
-		</ul>
-      </nav>
+				  </ul>
+				</li>
+				<li><a href="/es/cmm/tmachine">ejemplo Turing</a></li>
+				<li><a href="/es/cmm/recursive">ejemplo recursión</a></li>
+			  </ul>
+			</li>
+			<li>
+			  <h1><a href="/index.html">Máquinas</a></h1>
+			  <ul>
+		  		<li><a href="/es/amt/lenguaje">lenguaje</a></li>
+		  		<li><a href="/es/amt/tmachine-cmm">ejemplo C--</a></li>
+		  		<li class="por_hacer">simulador</li>
+			  </ul>
+			</li>
+		  </ul>
+		</nav>
+	  </div>
 	</div>
 	<div id="flex_central">
 	  <div id="cont-principal" class="anchura">
