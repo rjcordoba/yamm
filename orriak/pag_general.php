@@ -9,6 +9,7 @@
 	<?php foreach($estilos as $est): ?>
 	<link rel="stylesheet" type="text/css" href="/css/<?= $est ?>.css">
 	<?php endforeach ?>
+	<script defer src="/js/principal.js"></script>
 	<?php foreach($js as $js): ?>
 	<script defer src="/js/<?= $js ?>.js"></script>
 	<?php endforeach ?>
@@ -34,7 +35,7 @@
 			  <h1><a href="./es/cmm/clenguaje">C--</a></h1>
 			  <ul>
 				<li><a href="/es/cmm/clenguaje">lenguaje</a></li>
-				<li class="con_triang"><a href="/es/cmm/macros/1">macros</a><span class="triang"></span>
+				<li id="macros_nums" class="con_triang"><a href="/es/cmm/macros/1">macros</a><span class="triang">►</span><span id="ext_macros">+</span>
 				  <ul>
 					<?php
 					define("NUMMACROS", 19);

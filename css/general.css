@@ -198,8 +198,8 @@ body > header{
 		font-size:0.6em;
 	}
 
-	#navprinc .triang::before{
-		content:"►";
+	.ext_macros{
+		display:none;
 	}
 
 	#navprinc li:first-child::before{
@@ -246,6 +246,11 @@ body > footer{
 
 #autor address{
     color:#8d928d;
+}
+
+.por_hacer{
+	text-shadow:none;
+	color:#606c96;
 }
 
 @media (min-width:1100px) and (max-width:1399px){
@@ -300,48 +305,12 @@ body > footer{
 	#navegadorp{
 		background:#223c75;
 	}
-	
-	#nav-resp nav{
-		display:none;
+
+	body.panel-menu{
+		overflow:hidden;
 	}
 
-	#men-hamburguesa{
-		display:flex;
-		align-items:center;
-		float:right;
-		padding:0.1em;
-		margin:0.5em 2em;
-		--color-menu:#dadee6;
-	}
-
-	#men-hamburguesa > span{
-		color:var(--color-menu);
-		margin-right:0.4em;
-	}
-
-	#hamburguesa{
-		border:solid 2px var(--color-menu);
-		border-radius:4px;
-		padding:0.05em 0;
-	}
-
-	#hamburguesa:hover{
-		cursor:context-menu;
-	}
-
-	#hamburguesa div, #hamburguesa:before, #hamburguesa:after{
-		width:1.2em;
-		height:0.15em;
-		margin:5px;
-		background-color:var(--color-menu);
-	}
-
-	#hamburguesa::before, #hamburguesa::after{
-		content:"";
-		display:block;
-	}
-
-	#nav-resp{
+	.panel-menu #nav-resp{
 		position:fixed;
 		z-index:10;
 		background-color:#010615;
@@ -352,29 +321,89 @@ body > footer{
 		background:linear-gradient(to right,  rgba(9,21,48,1) 0%,rgba(13,37,84,1) 69%,rgba(13,19,68,1) 100%);
 	}
 
-	body.panel-menu{
-		overflow:hidden;
-	}	
+	#navprinc{
+		display:none;
+	}
 
-	#nav-resp nav{
+	.panel-menu #navprinc{
 		display:block;
 		font-size:1.3em;
-		width: 15em;
+		width:15em;
 		height:97%;
 		overflow:auto;
-	}
-	
-	.panel-menu #men-hamburguesa{
-		margin-top:1.5em;
-	}
-
-	#navprinc{
 		margin:1em 0 2% 16%;
 		text-shadow:1px 1px 2px #58628c;
 	}
 
-	#navprinc > ul ul ul{
-		display:none;
+	#men-hamburguesa{
+		display:flex;
+		align-items:center;
+		float:right;
+		padding:0.1em;
+		margin:0.5em 6% 0.5em 0;
+		--color-menu:#dadee6;
+	}
+
+	#men-hamburguesa > span{
+		color:var(--color-menu);
+		margin-right:0.4em;
+		font-size:1.1em;
+	}
+
+	#hamburguesa{
+		/* border:solid 2px var(--color-menu); */
+		/* border-radius:4px; */
+		/* padding:0.05em 0; */
+		position:relative;
+		width:1.6em;
+		/* height:1.6em; */
+	}
+
+	#hamburguesa:hover{
+		cursor:context-menu;
+	}
+
+	#hamburguesa div, #hamburguesa:before, #hamburguesa:after{
+		content:"";
+		display:block;
+		width:1.3em;
+		height:0.15em;
+		margin:0;
+		background-color:var(--color-menu);
+		transition:transform ease 0.5s,
+				   opacity ease 0.5s,
+				   margin 0s ease 0.5s;
+	}
+
+	.panel-menu #hamburguesa div{
+		margin:0;
+	}
+
+	#hamburguesa div{
+		margin:0.25em 0;
+	}
+
+	.panel-menu #hamburguesa div{
+		opacity:0;
+	}
+
+	.panel-menu #hamburguesa:before,
+	.panel-menu #hamburguesa:after{
+		top:50%;
+		position:absolute;
+		transform:translateY(-50%);
+	}
+
+	.panel-menu #hamburguesa:before{
+		transform:rotate(45deg);
+	}
+
+	.panel-menu #hamburguesa:after{
+		transform:rotate(-45deg);
+	}
+
+	.panel-menu #men-hamburguesa{
+		margin-top:1.5em;
 	}
 
 	#navprinc > ul > li > h1{
@@ -387,17 +416,62 @@ body > footer{
 		font-size:1.1em;
 	}
 
-	#navprinc .triang::before{
-		content:"+";
-		font-size:1.3em;
-		line-height:0;
-		color:#e4dcd9;
+	#navprinc li.con_triang{
+		display:block;
+		position:relative;
 	}
+
+	.triang{
+		display:none;
+	}
+
+	/* #navprinc #macros_nums ul{ */
+	/* 	font-size:0.8em; */
+	/* 	padding:0.5em 0 0.2em 0.5em; */
+	/* } */
+
+	#macros_nums ul{
+		display:none;
+		font-size:0.8em;
+		padding:0.5em 0 0.2em 0.5em;
+		/* overflow:hidden; */
+		/* height:1px; */
+		/* transition:height 3s ease 0s; */
+	}	
+
+	#macros_nums.extendido ul{
+		display:block;
+		/* height:200px; */
+	}
+
+	#navprinc #ext_macros{
+		font-size:0.7em;
+		color:#e4dcd9;
+		padding: 0.05em 0.3em 0;
+		border-radius: 0.1em;
+		border: solid 1px #e4dcd9;
+		text-shadow:none;
+		position:absolute;
+		top:0.2em;
+		right:0.5em;
+	}
+
+	#macros_nums.extendido #ext_macros{
+		padding:0 0.4em;
+	}
+
+	#navprinc #macros_nums li{
+		margin-bottom:0.5em;
+	}
+
+	/* #macros_nums{ */
+	/* 	display:none; */
+	/* } */
 
 	#navprinc li li a, #navprinc li li a:visited{
 		color:#ccbab2;
 	}
-}	
+}
 
 @media (max-width:700px){
 	#logop{
