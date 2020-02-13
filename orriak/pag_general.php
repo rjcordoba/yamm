@@ -35,7 +35,7 @@
 			  <h1><a href="./es/cmm/clenguaje">C--</a></h1>
 			  <ul>
 				<li><a href="/es/cmm/clenguaje">lenguaje</a></li>
-				<li id="macros_nums" class="con_triang"><a href="/es/cmm/macros/1">macros</a><span class="triang">►</span><span id="ext_macros">+</span>
+				<li id="macros_nums" class="con_triang"><a href="/es/cmm/macros/1">macros</a><span class="triang">►</span><span id="ext_macros"></span>
 				  <ul>
 					<?php
 					define("NUMMACROS", 19);

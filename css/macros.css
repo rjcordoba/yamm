@@ -369,6 +369,7 @@ sub{
 	border-radius:0.15em;
 	line-height:1.7em;
 	margin-bottom:var(--glue-macro);
+	overflow-x:auto;
 	--margin-arriba: 0.2em;
 }
 
@@ -545,22 +546,27 @@ pre.complicado{
 	min-width:6em;
 }
 
-.ejemplos div.flech{
-	margin-right:1em;
-}
+/* .ejemplos div.flech{ */
+/* 	margin-right:1em; */
+/* } */
 
 .ejemplos .puntitos{
-	display:flex;
-	align-items:center;
+	/* display:flex; */
+	/* align-items:center; */
 	font-size:1.5em;
+	width:100%;
 }
 
-.ejemplos pre .puntitos{
-	display:inline;
-	padding-left:0.2em;
+/* .ejemplos pre .puntitos{ */
+/* 	display:inline; */
+/* 	padding-left:0.2em; */
+/* } */
+
+.puntitos > p{
+	text-align:center;
 }
 
-.puntitos::before{
+.puntitos > p::before{
 	content:"...";
 }
 
@@ -597,7 +603,7 @@ dl.expansor dt.flechita::before{
 	font-weight: bold;
 }
 
-.expansor ol{
+.expansor ol, .expansor ul{
 	margin-left:1.6em;
 }
 
@@ -883,3 +889,48 @@ pre sub .comil{
 	text-align:left;
 }
 
+@media (max-width:740px){
+	main .gramat ol > li{
+		margin-bottom:1.1em;
+	}
+
+	.macro{
+		flex-direction:column;
+		align-items:center;
+		padding:0.33em 0.4em;
+		font-size:1.3em;
+		/* background-color:transparent; */
+	}
+
+	.macro > *:first-child, .flecha {
+		margin-top:0;
+	}
+
+	.flecha::before{
+		content:"⬇";
+	}
+
+	.ejemplos{
+		margin-bottom:4.5em;
+	}
+
+	.ejemplos ol{
+		width: fit-content;
+		flex-direction:column;
+		align-items:flex-start;
+	}
+
+	.ejemplos > ol > li{
+		flex-direction:column;
+		margin-bottom:0;
+		font-size:1.3em;
+	}
+
+	.ejemplos > ol > li::after {
+		content: "⇓";
+		margin:0.7em auto;
+    /* display: flex; */
+    /* align-items: center; */
+    /* font-size: 2em; */
+}
+}

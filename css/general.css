@@ -51,7 +51,7 @@ img{
 
 body > header{
     background-color:#333;
-    padding:0.3em 2em 0;
+    padding-top:0.3em;
 }
 
 #logop{
@@ -76,6 +76,7 @@ body > header{
 #navprinc a, #navprinc a:visited{
 	text-decoration:none;
 	color:#fff;
+	display:block;
 }
 
 @media (min-width:888px){
@@ -95,10 +96,6 @@ body > header{
 
 	#men-hamburguesa{
 		display:none;
-	}
-
-	#navprinc a{
-		display:block;
 	}
 
 	#navprinc > ul{
@@ -198,7 +195,7 @@ body > header{
 		font-size:0.6em;
 	}
 
-	.ext_macros{
+	#ext_macros{
 		display:none;
 	}
 
@@ -284,9 +281,9 @@ body > footer{
 		padding-top:0.3em;
     }
 
-	#cont-principal{
-		padding-left:5%;
-	}
+/* 	#cont-principal{ */
+/* 		padding-left:5%; */
+/* 	} */
 }
 
 @media (max-width:887px){
@@ -294,9 +291,13 @@ body > footer{
 		/* font-size:15px; */
     }
 
-	#cont-principal main{
-		/* margin-left:6%; */
+	#cont-principal{
+		padding-left:5%;
 	}
+
+	/* #cont-principal main{ */
+	/* 	margin-left:5%; */
+	/* } */
 
 	#logop{
 		margin-left:34.5%;
@@ -310,29 +311,19 @@ body > footer{
 		overflow:hidden;
 	}
 
+	/* #navprinc a, #navprinc a:visited{ */
+	/* 	color:#d2d2d2; */
+	/* } */
+
 	.panel-menu #nav-resp{
 		position:fixed;
 		z-index:10;
 		background-color:#010615;
-		width:100vw;
-		height:100vh;
 		top:0;
 		left:0;
+		right:0;
+		bottom:0;
 		background:linear-gradient(to right,  rgba(9,21,48,1) 0%,rgba(13,37,84,1) 69%,rgba(13,19,68,1) 100%);
-	}
-
-	#navprinc{
-		display:none;
-	}
-
-	.panel-menu #navprinc{
-		display:block;
-		font-size:1.3em;
-		width:15em;
-		height:97%;
-		overflow:auto;
-		margin:1em 0 2% 16%;
-		text-shadow:1px 1px 2px #58628c;
 	}
 
 	#men-hamburguesa{
@@ -370,13 +361,9 @@ body > footer{
 		height:0.15em;
 		margin:0;
 		background-color:var(--color-menu);
-		transition:transform ease 0.5s,
-				   opacity ease 0.5s,
-				   margin 0s ease 0.5s;
-	}
-
-	.panel-menu #hamburguesa div{
-		margin:0;
+		transition:transform ease 0.3s,
+				   opacity ease 0s 0.3s,
+				   margin 0.3s ease 0.3s;
 	}
 
 	#hamburguesa div{
@@ -385,25 +372,40 @@ body > footer{
 
 	.panel-menu #hamburguesa div{
 		opacity:0;
-	}
-
-	.panel-menu #hamburguesa:before,
-	.panel-menu #hamburguesa:after{
-		top:50%;
-		position:absolute;
-		transform:translateY(-50%);
+		margin:-0.15em 0;
+		transition:margin 0.3s;
 	}
 
 	.panel-menu #hamburguesa:before{
 		transform:rotate(45deg);
+		transition-delay:0.3s;
 	}
 
 	.panel-menu #hamburguesa:after{
 		transform:rotate(-45deg);
+		transition-delay:0.3s;
 	}
 
 	.panel-menu #men-hamburguesa{
 		margin-top:1.5em;
+	}
+
+	#navprinc{
+		/* display:none; */
+		margin-left:-15%;
+		height:0;
+		overflow:hidden;
+	}
+
+	.panel-menu #navprinc{
+		/* display:block; */
+		height:auto;
+		font-size:1.2em;
+		width:15em;
+		height:97%;
+		overflow:auto;
+		margin:1em 0 2% 16%;
+		transition:margin-left ease 0.3s;
 	}
 
 	#navprinc > ul > li > h1{
@@ -430,38 +432,57 @@ body > footer{
 	/* 	padding:0.5em 0 0.2em 0.5em; */
 	/* } */
 
-	#macros_nums ul{
-		display:none;
-		font-size:0.8em;
-		padding:0.5em 0 0.2em 0.5em;
-		/* overflow:hidden; */
-		/* height:1px; */
-		/* transition:height 3s ease 0s; */
-	}	
-
-	#macros_nums.extendido ul{
-		display:block;
-		/* height:200px; */
-	}
-
 	#navprinc #ext_macros{
 		font-size:0.7em;
 		color:#e4dcd9;
-		padding: 0.05em 0.3em 0;
-		border-radius: 0.1em;
-		border: solid 1px #e4dcd9;
+		padding:0.05em 0.3em 0;
+		border-radius:0.1em;
+		border:solid 1px #e4dcd9;
 		text-shadow:none;
 		position:absolute;
 		top:0.2em;
 		right:0.5em;
 	}
 
+	#ext_macros::before{
+		content:"+";
+	}
+
+	.extendido #ext_macros::before{
+		content:"-";
+	}
+
 	#macros_nums.extendido #ext_macros{
-		padding:0 0.4em;
+		padding:0 0.45em 0.1em;		
+	}
+
+	#macros_nums ul{
+		max-height:0;
+		overflow:hidden;
+		/* display:none; */
+		font-size:0.8em;
+		padding-left:0.45em;
+		margin-left:0.15em;
+		border-left:solid 1px #66737d;
+		transition:max-height ease 1s;
+	}	
+
+	#macros_nums.extendido ul{
+		max-height:100vh;
+		transition:max-height ease 2s;
+		/* height:200px; */
+	}
+
+	#macros_nums ul li:first-child{
+		padding-top:0.5em;
 	}
 
 	#navprinc #macros_nums li{
 		margin-bottom:0.5em;
+	}
+
+	#navprinc #macros_nums.extendido{
+		margin-bottom:0.9em;
 	}
 
 	/* #macros_nums{ */
@@ -470,10 +491,15 @@ body > footer{
 
 	#navprinc li li a, #navprinc li li a:visited{
 		color:#ccbab2;
+		text-shadow:1px 1px 2px #58628c;
 	}
 }
 
-@media (max-width:700px){
+@media (max-width:740px){
+	body{
+		font-size:25px;
+	}
+
 	#logop{
 		margin:0 auto;
 		position:relative;
@@ -497,7 +523,7 @@ body > footer{
 	}
 
 	#cont-principal{
-		padding:2em 1.3em;
+		padding:2em 3%;
 	}
 
 	#navprinc > ul {

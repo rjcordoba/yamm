@@ -8,6 +8,7 @@
 	padding:1em;
 	border:solid 1px #c2c5c5;
 	border-radius:0.12em;
+	overflow-x:auto;
 }
 
 .gramat aside{
@@ -49,7 +50,7 @@
 	margin-bottom:0;
 }
 .gramat ul > li{
-	display:inline-block;
+	display:inline;
 }
 
 .separador, .estrella{
@@ -99,4 +100,11 @@
 .gramtexto{
 	color:#540d0d;
 	font-style:italic;	
+}
+
+@media (max-width:740px){
+	.gramat{
+		width:auto;
+		white-space:nowrap;
+	}
 }
