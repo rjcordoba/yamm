@@ -49,8 +49,8 @@
 .gramat ol > li:last-child{
 	margin-bottom:0;
 }
-.gramat ul > li{
-	display:inline;
+.gramat ul li{
+	display:inline-block;
 }
 
 .separador, .estrella{
@@ -62,7 +62,7 @@
 }
 
 .gramat ul > li::before{
-	content:"\｜  ";
+	content:"｜  ";
 	line-height:0;
 	font-weight:normal;
 }
@@ -105,6 +105,22 @@
 @media (max-width:740px){
 	.gramat{
 		width:auto;
+	}
+
+	.gramat ol > li{
+		margin-bottom:0.9em;
+	}
+
+	.gramat ul li{
 		white-space:nowrap;
+		margin:0 0.4em 0.5em 0;
+	}
+
+	.gramat .flechag + div{
+		margin-bottom:0.5em;
+	}
+
+	.gramat ul > li::before{
+		margin-left:-0.4em;
 	}
 }

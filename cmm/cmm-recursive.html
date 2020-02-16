@@ -37,9 +37,9 @@
 <span class="preproc">#define function unsigned int</span>
 <span class="preproc">#define var unsigned int</span>
 
-<span class="comentarioc">/********************</span>
+<span class="comentarioc">/******************************/</span>
 <span class="comentarioc">    Funciones básicas.</span>
-<span class="comentarioc">/********************/</span>
+<span class="comentarioc">/******************************/</span>
 <span class="pclave">function</span><span class="nvars"> cero</span><span class="simbind">(){</span>
     <span class="pclave">return</span> <span class="numberp">0</span><span class="simbind">;</span>
 <span class="simbind">}</span>
@@ -75,15 +75,40 @@
     <span class="pclave">return</span> <span class="nvars">X3</span><span class="simbind">;</span>
 <span class="simbind">}</span>
 
+<span class="pclave">function</span><span class="nvars"> U5_3</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">){</span>
+    <span class="pclave">return</span> <span class="nvars">X3</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">function</span><span class="nvars"> U5_4</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">){</span>
+    <span class="pclave">return</span> <span class="nvars">X4</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">function</span><span class="nvars"> U5_5</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">){</span>
+    <span class="pclave">return</span> <span class="nvars">X5</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="comentarioc">/******************************/</span>
+
+<span class="comentarioc">/* Devuelve siempre 1. */</span>
 <span class="pclave">function</span><span class="nvars"> uno</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">){</span>
     <span class="pclave">var </span><span class="nvars">V1</span><span class="simbind"> = </span><span class="nvars">cero</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">);</span>
     <span class="pclave">return</span> <span class="nvars"> S</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
+<span class="comentarioc">/* Devuelve siempre 0. */</span>
+<span class="pclave">function</span><span class="nvars"> cero</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">){</span>
+    <span class="pclave">var </span><span class="nvars">V1</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
+    <span class="pclave">return</span> <span class="nvars"> cero</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">);</span>
+<span class="simbind">}</span>
+
 <span class="comentarioc">/* Función auxiliar para la función «suma». */</span>
 <span class="pclave">function</span><span class="nvars"> suma_aux</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span
 ><span class="nvars">X3</span><span class="simbind">){</span>
-    <span class="pclave">var </span><span class="nvars">U3_2</span><span class="simbind"> = </span><span class="nvars">U3_2</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span
+    <span class="pclave">var </span><span class="nvars">V1</span><span class="simbind"> = </span><span class="nvars">U3_2</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">){</span>
 <span class="pclave">return</span><span class="nvars"> S</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">);</span>
 <span class="simbind">}</span>
@@ -142,7 +167,7 @@
 ><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U2_2</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="nvars">X2</span><span class="simbind">);</span>
-    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span
+    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="nvars">X2</span><span class="simbind">);</span>
     <span class="pclave">return</span><span class="nvars"> resta_aux1</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span
 ><span class="nvars">V2</span><span class="simbind">);</span>
@@ -187,32 +212,137 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve 1 si X1 es menor o igual que X2; 0 en caso contrario. */</span>
-<span class="pclave">function</span><span class="nvars"> menor_igp</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">){</span>
+<span class="pclave">function</span><span class="nvars"> menor_ig</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">resta</span><span class="simbind">(</span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
     <span class="pclave">return</span><span class="nvars"> no_sg</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve 1 si X1 es mayor o igual que X2; 0 en caso contrario. */</span>
-<span class="pclave">function</span><span class="nvars"> mayor_igp</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">){</span>
+<span class="pclave">function</span><span class="nvars"> mayor_ig</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U2_2</span><span class="simbind">(</span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
     <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
-    <span class="pclave">return</span><span class="nvars"> menor_igp</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span><span class="simbind">);</span>
+    <span class="pclave">return</span><span class="nvars"> menor_ig</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve 1 si X1 es igual que X2; 0 en caso contrario. */</span>
-<span class="pclave">function</span><span class="nvars"> igualp</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">){</span>
-    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">mayor_igp</span><span class="simbind">(</span><span class="nvars">X1</span
+<span class="pclave">function</span><span class="nvars"> igual</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">){</span>
+    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">mayor_ig</span><span class="simbind">(</span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
-    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">menor_igp</span><span class="simbind">(</span><span class="nvars">X1</span
+    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">menor_ig</span><span class="simbind">(</span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
     <span class="pclave">return</span><span class="nvars"> mult</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
+<span class="comentarioc">/* . */</span>
+<span class="pclave">function</span><span class="nvars"> div_aux_mayor_ig</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">){</span>
+    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U3_3</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">U3_2</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">);</span>
+    <span class="pclave">return</span><span class="nvars"> mayor_ig</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span><span class="simbind">);</span>
+<span class="simbind">}</span>
 
-<span class="comentarioc">/* Devuelve X1 menos X2. */</span>
+<span class="comentarioc">/* Declaración para funciones que usan recursión indirecta. */</span>
+<span class="pclave">function</span><span class="nvars"> div_emp</span><span class="simbind">(</span><span class="pclave">var</span><span class="simbind">, </span><span class="pclave">var</span
+><span class="simbind">, </span><span class="pclave">var</span><span class="simbind">, </span><span class="pclave">var</span><span class="simbind">);</span>
+
+<span class="comentarioc">/* Función auxiliar para «div». */</span>
+<span class="pclave">function</span><span class="nvars"> div_aux_sig</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">){</span>
+    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U5_3</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span
+><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">);</span>
+    <span class="pclave">return</span><span class="nvars"> S</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">);</span>
+<span class="simbind">}</span>
+
+<span class="comentarioc">/* Función auxiliar para «div». */</span>
+<span class="pclave">function</span><span class="nvars"> div_aux_rt</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">){</span>
+    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U5_5</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span
+><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">U5_4</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span
+><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">);</span>
+    <span class="pclave">return</span><span class="nvars"> resta</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span><span class="simbind">);</span>
+<span class="simbind">}</span>
+
+<span class="comentarioc">/* Función auxiliar para «div». */</span>
+<span class="pclave">function</span><span class="nvars"> div_aux_rt</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">){</span>
+    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U5_5</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span
+><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">U5_4</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span
+><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">);</span>
+    <span class="pclave">return</span><span class="nvars"> resta</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span><span class="simbind">);</span>
+<span class="simbind">}</span>
+
+<span class="comentarioc">/* Función auxiliar para «div». */</span>
+<span class="pclave">function</span><span class="nvars"> div_aux2</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">){</span>
+    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">div_aux_sig</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span
+><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">U5_4</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span
+><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V3</span><span class="simbind"> = </span><span class="nvars">div_aux_rt</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span
+><span class="simbind">, </span><span class="nvars">X5</span><span class="simbind">);</span>
+    <span class="pclave">return</span><span class="nvars"> div_emp</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span
+><span class="simbind">, </span><span class="nvars">V3</span><span class="simbind">);</span>
+<span class="simbind">}</span>
+
+<span class="comentarioc">/* Función auxiliar para «div». */</span>
+<span class="pclave">function</span><span class="nvars"> div_aux1</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">){</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind"> == </span><span class="numberp">0</span><span class="simbind">){</span>
+        <span class="pclave">return</span><span class="nvars"> U3_1</span><span class="simbind">(</span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span
+><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">);</span>
+    <span class="simbind">}</span>
+    <span class="pclave">else</span><span class="simbind">{</span>
+        <span class="nvars">X1</span><span class="simbind">--;</span>
+        <span class="nvars">rr</span><span class="simbind"> = </span><span class="nvars">div_aux1</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span
+><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span><span class="nvars">X4</span><span class="simbind">);</span>
+        <span class="pclave">return</span><span class="nvars"> div_aux2</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span
+><span class="nvars">rr</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">, </span
+><span class="nvars">X4</span><span class="simbind">);</span>
+    <span class="simbind">}</span>
+<span class="simbind">}</span>
+
+<span class="comentarioc">/* Función auxiliar para «div». */</span>
+<span class="pclave">function</span><span class="nvars"> div_emp</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span
+><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">){</span>
+    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">div_aux_mayor_ig</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">U3_1</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V3</span><span class="simbind"> = </span><span class="nvars">U3_2</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V4</span><span class="simbind"> = </span><span class="nvars">U3_3</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">, </span><span class="nvars">X3</span><span class="simbind">);</span>
+    <span class="pclave">return</span><span class="nvars"> div_aux1</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span
+><span class="simbind">, </span><span class="nvars">V3</span><span class="simbind">, </span><span class="nvars">V4</span><span class="simbind">);</span>
+<span class="simbind">}</span>
+
+<span class="comentarioc">/* Devuelve n, donde n = X1/X2. */</span>
+<span class="pclave">function</span><span class="nvars"> div</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind">, </span
+><span class="nvars">X2</span><span class="simbind">){</span>
+    <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">cero</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">U2_2</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
+    <span class="pclave">var</span><span class="nvars"> V3</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span><span class="nvars">X1</span
+><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>    
+    <span class="pclave">return</span><span class="nvars"> div_emp</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span
+><span class="simbind">, </span><span class="nvars">V3</span><span class="simbind">);</span>
+<span class="simbind">}</span>
 
 </div>
     </div>

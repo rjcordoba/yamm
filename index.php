@@ -7,7 +7,7 @@ function error(){
 
 $orria = "./";
 $estilos = array();
-$encabezado = NULL;
+$encabezado = array();
 $js = NULL;
 
 $ruta = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
@@ -37,6 +37,13 @@ switch($ruta[2]){
 				$estilos = array("maqc", "colores_cmm");
 				$js = array("editor_ejemplos");
 				break;
+			case "recursive":
+				$encabezado[1] = "Programa recursivo";
+				$orria = "./orriak/editor-ejemplos.php";
+				$orria2 = "./cmm/cmm-recursive.html";
+				$estilos = array("maqc", "colores_cmm");
+				$js = array("editor_ejemplos");
+				break;
 			case "macros":
 				$encabezado[1] = "Macros y utilidades";
 				$orria = "./cmm/macros.php";
@@ -55,8 +62,8 @@ switch($ruta[2]){
         switch($ruta[3]){
 			case "lenguaje":
 				$encabezado[1] = "Lenguaje AMT";
-				$orria .= "/tclenguaje.html";
-				$estilos = array("clenguaje");
+				$orria .= "/tlenguaje.html";
+				$estilos = array("tlenguaje", "gramat");
 				break;
 			case "tmachine-cmm":
 				$encabezado[1] = "Máquina de Turing ejecutora de C--";

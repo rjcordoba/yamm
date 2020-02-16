@@ -21,34 +21,6 @@
 }
 
 /* 7 */
-.flechita.subir::before{
-	bottom:0.15em;
-}
-
-.seaadj pre{
-	border:1px #e7edef solid;
-	margin:0.3em 0 0.6em 1em;
-	border-radius:0.25em;
-	padding:0.6em 2em 0.3em 2em;
-	width: fit-content;
-	width: -moz-fit-content;
-}
-.expansor .macro{
-	background-color:#eef2f7;
-	border-color:#d5e2e2;
-	font-size:0.9em;
-	margin:1em 0 1em 1em;
-	position:relative;
-}
-#ajustar .flechita{
-	font-size: 0.7em;
-	position: absolute;
-	left: 100%;
-	font-weight: bold;
-}
-.exp_li_macros li{
-	margin-top:1.4em;
-}
 
 main{
 	--glue-macro:1.7em;
@@ -260,9 +232,9 @@ sub{
 	margin-left:-0.25em;
 }
 
-.macro > *{
-	overflow-x:auto;
-}
+/* .macro > *{ */
+/* 	overflow-x:auto; */
+/* } */
 
 .macro .numnat{
 	margin-left:-0.2em;
@@ -363,13 +335,14 @@ sub{
 	margin-left:0.1em;
 	width:fit-content;
 	width:-moz-fit-content;
+	max-width:100%;
+	box-sizing:border-box;
 	padding:0.33em 1em;
 	background-color:#ecefdd;
 	border:solid 1px #e8ead7;
 	border-radius:0.15em;
 	line-height:1.7em;
 	margin-bottom:var(--glue-macro);
-	overflow-x:auto;
 	--margin-arriba: 0.2em;
 }
 
@@ -551,10 +524,10 @@ pre.complicado{
 /* } */
 
 .ejemplos .puntitos{
-	/* display:flex; */
-	/* align-items:center; */
+	display:flex;
+	align-items:center;
 	font-size:1.5em;
-	width:100%;
+	/* width:100%; */
 }
 
 /* .ejemplos pre .puntitos{ */
@@ -562,11 +535,11 @@ pre.complicado{
 /* 	padding-left:0.2em; */
 /* } */
 
-.puntitos > p{
-	text-align:center;
-}
+/* .puntitos > p{ */
+/* 	text-align:center; */
+/* } */
 
-.puntitos > p::before{
+.puntitos::before{
 	content:"...";
 }
 
@@ -772,9 +745,11 @@ pre sub .comil{
 .resaltart{
 	  color:#01030a;
 }
+
 .flechita.subir::before{
 	  bottom:0.15em;
 }
+
 .seaadj pre{
 	  border:1px #e7edef solid;
 	  margin:0.3em 0 0.6em 1em;
@@ -783,6 +758,7 @@ pre sub .comil{
 	  width: fit-content;
 	  width: -moz-fit-content;
 }
+
 .expansor .macro{
 	  background-color:#eef2f7;
 	  border-color:#d5e2e2;
@@ -790,12 +766,14 @@ pre sub .comil{
 	  margin:1em 0 1em 1em;
 	  position:relative;
 }
+
 #ajustar .flechita{
 	  font-size: 0.7em;
 	  position: absolute;
 	  left: 100%;
 	  font-weight: bold;
 }
+
 .exp_li_macros li{
 	  margin-top:1.4em;
 }
@@ -890,20 +868,34 @@ pre sub .comil{
 }
 
 @media (max-width:740px){
-	main .gramat ol > li{
-		margin-bottom:1.1em;
-	}
-
 	.macro{
-		flex-direction:column;
-		align-items:center;
+		/* flex-direction:column; */
+		/* align-items:center; */
+		display:block;
 		padding:0.33em 0.4em;
 		font-size:1.3em;
+		/* overflow-x:auto; */
+		
 		/* background-color:transparent; */
 	}
 
+	.macro pre{
+		overflow-x:auto;
+		box-sizing:border-box;
+		max-width:100%;
+	}
+
+/* 	.macro > *{ */
+/* 		margin:0 auto; */
+/* 		width:fit-content; */
+/* } */
+
 	.macro > *:first-child, .flecha {
 		margin-top:0;
+	}
+
+	.flecha{
+		text-align:center;
 	}
 
 	.flecha::before{
@@ -914,23 +906,53 @@ pre sub .comil{
 		margin-bottom:4.5em;
 	}
 
+	.ejemplos pre{
+		overflow-x:auto;
+		box-sizing:border-box;
+		max-width:100%;
+	}
+
 	.ejemplos ol{
-		width: fit-content;
-		flex-direction:column;
-		align-items:flex-start;
+		width:fit-content;
+		display:block;
+		max-width: 100%;
+		/* flex-direction:column; */
+		/* align-items:flex-start; */
+	}
+
+	.ejemplos li > div {
+		width:fit-content;
+		box-sizing:border-box;
+		max-width:100%;
 	}
 
 	.ejemplos > ol > li{
-		flex-direction:column;
+		/* flex-direction:column; */
+		display:block;
 		margin-bottom:0;
 		font-size:1.3em;
 	}
 
+	.ejemplos .puntitos{
+		display:block;
+	}
+
+	.puntitos::before {
+		font-size:1.8em;
+		display:block;
+		text-align:center;
+		transform:rotate(90deg);
+		margin-left:0.55em;
+		/* transform:rotate(20deg); */
+	}
+
 	.ejemplos > ol > li::after {
 		content: "⇓";
-		margin:0.7em auto;
+		margin:0.7em 0;
+		text-align: center;
+		display: block;
     /* display: flex; */
     /* align-items: center; */
     /* font-size: 2em; */
-}
+	}
 }
