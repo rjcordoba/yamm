@@ -29,6 +29,7 @@ main{
 
 .hojas{
 	display:flex;
+	font-size:0.95em;
 	align-items:center;
 	margin:2em 1em 3em 1em;
 }
