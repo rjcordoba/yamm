@@ -37,6 +37,7 @@ src: url(../fuentes/Kleist-Fraktur.ttf);
 #pantalla{
     --colnums:#b0b1b3;
 	border:solid 1px var(--borde-pantalla);
+	font-size:0.9em;
 }
 
 #pantalla > div:first-child{
