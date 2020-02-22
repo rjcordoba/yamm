@@ -1,5 +1,9 @@
-<span class="comentarioc">/*
-*/</span>
+<span class="comentarioc">/* Programa usando funciones recursivas que ejecuta un programa
+ * C-- codificado. Anteriormente se explicó cómo se codifica, al igual
+ * que los términos usados en los comentarios. 
+ * En este ejemplo concreto se ejecuta el programa cuyo código 
+ * es 1415926535897932384626433832795028841 */</span>
+
 <span class="preproc">#define function unsigned int</span>
 <span class="preproc">#define var unsigned int</span>
 
@@ -585,8 +589,8 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve el resto de X1/X2, esto es, X1 mod X2.
-* X1: dividendo.
-* X2: divisor. */</span>
+ * X1: dividendo.
+ * X2: divisor. */</span>
 <span class="pclave">function</span><span class="nvars"> resto</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">div</span><span class="simbind">(</span><span class="nvars">X1</span
@@ -875,8 +879,8 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve la instrucción en la posición X1.
-* X1: posición.
-* X2: registro. */</span>
+ * X1: posición.
+ * X2: registro. */</span>
 <span class="pclave">function</span><span class="nvars"> inst</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U2_2</span><span class="simbind">(</span
@@ -897,9 +901,9 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve: 0 si no hay instrucción o ésta es ‘1’;
-* 1 si ‘0’.
-* 2 si ‘=’.
-* 3 si ‘*’. */</span>
+ * 1 si ‘0’.
+ * 2 si ‘=’.
+ * 3 si ‘*’. */</span>
 <span class="pclave">function</span><span class="nvars"> tipo_inst_aux</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span
@@ -911,11 +915,11 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve, según la instrucción en X1:
-* 0 si no hay instrucción.
-* 1 si ‘1’.
-* 2 si ‘0’.
-* 3 si ‘=’.
-* 4 si ‘*’. */</span>
+ * 0 si no hay instrucción.
+ * 1 si ‘1’.
+ * 2 si ‘0’.
+ * 3 si ‘=’.
+ * 4 si ‘*’. */</span>
 <span class="pclave">function</span><span class="nvars"> tipo_inst</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">tipo_inst_aux</span><span class="simbind">(</span
@@ -927,7 +931,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Auxiliar para «pos_inst».
-* suma 3 para que al dividir entre 4 no dé nunca 0 y dé el resultado correcto. */</span>
+ * suma 3 para que al dividir entre 4 no dé nunca 0 y dé el resultado correcto. */</span>
 <span class="pclave">function</span><span class="nvars"> pos_inst_aux</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span
@@ -973,7 +977,7 @@
 <span class="comentarioc">/* ------------------------------------------------ */</span>
 
 <span class="comentarioc">/* Devuelve el registro X2 modificado con una marca en la posición X1
-* y el puntero señalando a la siguiente posición. */</span>
+ * y el puntero señalando a la siguiente posición. */</span>
 <span class="pclave">function</span><span class="nvars"> marcar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">cuatro</span><span class="simbind">(</span
@@ -989,7 +993,7 @@
 <span class="comentarioc">/* ------------------------------------------------ */</span>
 
 <span class="comentarioc">/* Auxiliar para «borrar_aux2».
-* Resta para mantener el símbolo en la posición referida si éste no es ‘1’. */</span>
+ * Resta para mantener el símbolo en la posición referida si éste no es ‘1’. */</span>
 <span class="pclave">function</span><span class="nvars"> borrar_aux3</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span
@@ -1001,8 +1005,8 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Auxiliar para «borrar_aux».
-* X1: instrucción en posición referida.
-* X2: primo en posición referida. */</span>
+ * X1: instrucción en posición referida.
+ * X2: primo en posición referida. */</span>
 <span class="pclave">function</span><span class="nvars"> borrar_aux2</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">borrar_aux3</span><span class="simbind">(</span
@@ -1016,9 +1020,9 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve el número entre el que hay que dividir el registro X2 para
-* borrar la posición X1.
-* X1: posición referida.
-* X2: registro. */</span>
+ * borrar la posición X1.
+ * X1: posición referida.
+ * X2: registro. */</span>
 <span class="pclave">function</span><span class="nvars"> borrar_aux1</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">inst</span><span class="simbind">(</span
@@ -1030,8 +1034,8 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve el registo con la posición X1 borrada.
-* X1: posición referida.
-* X2: registro. */</span>
+ * X1: posición referida.
+ * X2: registro. */</span>
 <span class="pclave">function</span><span class="nvars"> borrar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">avanzar_inst</span><span class="simbind">(</span
@@ -1053,7 +1057,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve el número entre el que hay que dividir registro X2
-* para quitarle el puntero. */</span>
+ * para quitarle el puntero. */</span>
 <span class="pclave">function</span><span class="nvars"> quitar_puntero_aux1</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">quitar_puntero_aux2</span><span class="simbind">(</span
@@ -1078,7 +1082,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve el registro X2 con el puntero
-* señalando a la posición X1. */</span>
+ * señalando a la posición X1. */</span>
 <span class="pclave">function</span><span class="nvars"> saltar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span
@@ -1094,7 +1098,7 @@
 <span class="comentarioc">/* ------------------------------------------------ */</span>
 
 <span class="comentarioc">/* Devuelve la instrucción
-* en la primera posición de registro X2. */</span>
+ * en la primera posición de registro X2. */</span>
 <span class="pclave">function</span><span class="nvars"> inst_uno</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">uno</span><span class="simbind">(</span
@@ -1106,7 +1110,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve la posicíón referida por la instrucción
-* en la primera posición de registro X2. */</span>
+ * en la primera posición de registro X2. */</span>
 <span class="pclave">function</span><span class="nvars"> v_pos_uno</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">inst_uno</span><span class="simbind">(</span
@@ -1118,7 +1122,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve la posicíón referida por la instrucción
-* X1 de registro X2. */</span>
+ * X1 de registro X2. */</span>
 <span class="pclave">function</span><span class="nvars"> v_pos</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">inst</span><span class="simbind">(</span
@@ -1130,7 +1134,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve 1 si la posición X1 de registro X2
-* es igual que la primera; 0 en caso contrario. */</span>
+ * es igual que la primera; 0 en caso contrario. */</span>
 <span class="pclave">function</span><span class="nvars"> hay_salto</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">v_pos_uno</span><span class="simbind">(</span
@@ -1142,8 +1146,8 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve el registro X2 con el puntero señalando a
-* la siguiente posición de la actual si la posición X1 es distinta de
-* la primera posición; a la siguiente de la siguiente en caso contrario. */</span>
+ * la siguiente posición de la actual si la posición X1 es distinta de
+ * la primera posición; a la siguiente de la siguiente en caso contrario. */</span>
 <span class="pclave">function</span><span class="nvars"> comparar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">hay_salto</span><span class="simbind">(</span
@@ -1181,7 +1185,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Si X1 es 1 devuelve el registro X3 después de ejecutar la instrucción ‘marcar’
-* en la posición X2; devuelve 0 si X1 no es 1. */</span>
+ * en la posición X2; devuelve 0 si X1 no es 1. */</span>
 <span class="pclave">function</span><span class="nvars"> eval_marcar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">es_marcar</span><span class="simbind">(</span
@@ -1217,7 +1221,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Si X1 es 2 devuelve el registro X3 después de ejecutar la instrucción ‘borrar’
-* en la posición X2; devuelve 0 si X1 no es 2. */</span>
+ * en la posición X2; devuelve 0 si X1 no es 2. */</span>
 <span class="pclave">function</span><span class="nvars"> eval_borrar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">es_borrar</span><span class="simbind">(</span
@@ -1253,7 +1257,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Si X1 es 3 devuelve el registro X3 después de ejecutar la instrucción ‘comparar’
-* en la posición X2; devuelve 0 si X1 no es 3. */</span>
+ * en la posición X2; devuelve 0 si X1 no es 3. */</span>
 <span class="pclave">function</span><span class="nvars"> eval_comparar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">es_comparar</span><span class="simbind">(</span
@@ -1289,7 +1293,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Si X1 es 4 devuelve el registro X3 después de ejecutar la instrucción ‘saltar’
-* en la posición X2; devuelve 0 si X1 no es 4. */</span>
+ * en la posición X2; devuelve 0 si X1 no es 4. */</span>
 <span class="pclave">function</span><span class="nvars"> eval_saltar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">es_saltar</span><span class="simbind">(</span
@@ -1311,7 +1315,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve el registro X3 sin modificar si el tipo de instrucción X1 es 0;
-* devuelve 0 en caso contrario. */</span>
+ * devuelve 0 en caso contrario. */</span>
 <span class="pclave">function</span><span class="nvars"> eval_no_inst</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">no_inst_aux</span><span class="simbind">(</span
@@ -1333,7 +1337,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Devuelve el registro después de ejecutar la intrucción que indica X1
-* o el registro sin tocar si X1 es 0. */</span>
+ * o el registro sin tocar si X1 es 0. */</span>
 <span class="pclave">function</span><span class="nvars"> eval_registro</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">eval_marcar</span><span class="simbind">(</span
@@ -1363,8 +1367,8 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Saca el tipo de instrucción, la posición referida y llama a «ejec3».
-* X1: instrucción.
-* X2: registro. */</span>
+ * X1: instrucción.
+ * X2: registro. */</span>
 <span class="pclave">function</span><span class="nvars"> ejec2</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">tipo_inst</span><span class="simbind">(</span
@@ -1378,8 +1382,8 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Saca la instrucción y llama a «ejec2» con ésta y el registro X2.
-* X1: puntero.
-* X2: registro. */</span>
+ * X1: puntero.
+ * X2: registro. */</span>
 <span class="pclave">function</span><span class="nvars"> ejec1</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">inst</span><span class="simbind">(</span
@@ -1409,7 +1413,8 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/* Si X1 es 0 devuelve el registro y acaba la computación;
-* si es 1 ejecuta la siguiente instrucción, si la hubiera, en registro X2. */</span>
+ * si es 1 ejecuta la siguiente instrucción, si la hubiera, en registro X2, es decir,
+ * ejecuta el siguienet paso. */</span>
 <span class="pclave">function</span><span class="nvars"> evaluar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">if</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind"> == </span><span class="numberp">0</span><span class="simbind">){</span>
@@ -1435,8 +1440,9 @@
 ><span class="nvars">V2</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
-<span class="comentarioc">/* Recibe el programa y empieza la computación. En caso de terminar
-* devuelve un registro con el puntero y programa después del cómputo. */</span>
+<span class="comentarioc">/* Función recursiva primitiva que computa el mismo valor
+ * que el programa C-- que recibe como argumento; en caso de terminar
+ * devuelve un registro con el puntero y programa después del cómputo. */</span>
 <span class="pclave">function</span><span class="nvars"> computar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">dos</span><span class="simbind">(</span
 ><span class="nvars">X1</span><span class="simbind">);</span>

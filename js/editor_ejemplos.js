@@ -22,7 +22,7 @@ function cambiar_color(){
 		sel_clara.className = "";
 		sel_clara.addEventListener("click", cambiar_color, false);
 		sel_oscura.removeEventListener("click", cambiar_color, false);
-	}		
+	}
 }
 
 sel_clara.addEventListener("click", cambiar_color, false);
@@ -36,4 +36,8 @@ for(let i = 1; i < lins; i++){
 	var número = item.cloneNode(false);
 	número.textContent = i;
 	nums.appendChild(número);
+}
+
+if(lins > 225){
+	document.getElementById("pantalla").style.maxHeight = "85vh";
 }

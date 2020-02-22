@@ -6,11 +6,7 @@
 @font-face {
   font-family:alemana;
   /* src: url(../fuentes/Bertholdr_Mainzer_Fraktur.ttf); */
-src: url(../fuentes/Kleist-Fraktur.ttf);
-}
-
-#pantalla{
-	font-family:"escribir"
+  src: url(../fuentes/Kleist-Fraktur.ttf);
 }
 
 #pizarra *::selection{
@@ -35,6 +31,7 @@ src: url(../fuentes/Kleist-Fraktur.ttf);
 }
 
 #pantalla{
+	font-family:"escribir";
     --colnums:#b0b1b3;
 	border:solid 1px var(--borde-pantalla);
 	font-size:0.9em;
@@ -60,8 +57,8 @@ src: url(../fuentes/Kleist-Fraktur.ttf);
 }
 
 /*============================
-*  Colores de editor oscuro
-*=============================*/
+ *  Colores de editor oscuro
+ *=============================*/
 
 #editor.oscuro{
 	--colnums:#676565;
