@@ -1,0 +1,37 @@
+p{
+	line-height:1.5em;
+	max-width:45em;
+}
+
+h3{
+	font-size:1.7em;
+	display:inline-block;
+	color:#333f80;
+	background-color:#d5dbe861;
+	border-left:solid 0.2em #e5e5ea;
+	padding:0.1em 1.3em 0em 1em;
+	border-radius:0.1em 0 0em 0.1em;
+	margin:1em 0.1em 0.4em;
+}
+
+#encabezado + h3{
+	margin-top:0;
+}
+
+h4{
+	font-size:1.3em;
+	color:#37376b;
+	margin:0.7em 0.1em 0.25em;
+}
+
+.flecha{
+	font-size:0.6em;
+	position:relative;
+    bottom:0.1em;
+}
+
+@media (max-width:740px){
+	p{
+		max-width:100%;
+	}
+}
