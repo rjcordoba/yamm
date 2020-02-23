@@ -51,6 +51,7 @@ main{
 }
 
 #editor{
+	box-sizing:border-box;
 	width:46em;
 	max-width:100%;
 	margin:2em 0;
@@ -71,7 +72,6 @@ main{
 
 #pantalla #nums{
     list-style-type:none;
-    /* display:inline-block; */
     text-align:right;
 	padding:0 0.3em;
 }
@@ -101,6 +101,12 @@ main{
 #pantalla > div:last-child sup,
 #pantalla > div:last-child sub{
 	line-height:0;
+}
+
+@media (max-width:740px){
+	#cont-principal {
+		padding: 2em 1%;
+	}
 }
 
 @media print{

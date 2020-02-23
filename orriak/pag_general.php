@@ -71,7 +71,11 @@
 		<?php include "$orria"; ?>
 	  </div>
 	</div>
-    <footer>
+	<div id="scroll_gen">
+	  <a href="#encabezado" title="Scroll arriba">⬆</a>
+	  <a href="#pie" title="Scroll abajo">⬇</a>
+	</div>
+    <footer id="pie">
 	  <div class="anchura">
 		<div id="autor">
 		  <p>R. Córdoba García</p>

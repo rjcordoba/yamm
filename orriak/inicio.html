@@ -90,45 +90,126 @@
 		<p>
 		  Algunos de los recursos usados en la explicación son:
 		</p>
-		<ul>
+		<ul class="lista_rec">
 		  <li>
-			<h5>postulados</h5>
+			<h5 id="postulados"><span>postulados</span></h5>
 			<p>
 			  Explicación de algunas normas que sigue el traductor al transformar algunas cadenas.
 			</p>
 		  </li>
 		  <li>
-			<h5>ejemplos</h5>
+			<h5 id="ejemplos">ejemplos</h5>
 			<p>
 			  Muestran secuencias de expansiones de macros explicadas con anterioridad.
 			</p>
 		  </li>
 		  <li>
-			<h5>macros</h5>
+			<h5 id="macros">macros</h5>
 			<p>
 			  Se muestran en la forma: <i>cadena1</i> <span class="flecha">⮕</span> <i>cadena2</i>, donde <i>cadena1</i> es una cadena de símbolos
-			  que reconoce el traductor y <i>cadena2</i> son los símbolos en los que la transforma. Las sustituciones de macros se hacen,
-			  según se encuentran en el texto, de izquiera a derecha y de arriba hacia abajo.
+			  que reconoce el traductor y <i>cadena2</i> son los símbolos en los que la transforma. Las sustituciones de macros se hacen, según se
+			  encuentran en el texto, de izquiera a derecha y de arriba hacia abajo.
 			</p>
 		  </li>
 		  <li>
-			<h5>reglas gramaticales</h5>
+			<h5 id="reglas">reglas gramaticales</h5>
 			<p>
 			  Usadas para definir términos que se usarán con posterioridad.
 			</p>
 		  </li>
 		  <li>
-			<h5>sobre traductor</h5>
+			<h5 id="traductor">sobre traductor</h5>
 			<p>
 			  Definición de términos y reglas que usará el traductor para conseguir un programa C-- a partir de
 			  macroinstrucciones..
 			</p>
 		  </li>
 		</ul>
-	
-
-<h3>AMT</h3>
-<h4></h4>
+		<h4>Ejemplo Turing</h4>
+		<p>
+		  Se muestra un programa en C-- (usando macros) que ejecuta una máquina de Turing introducida como dato. Con este ejemplo se pretende
+		  demostrar que se puede imitar la computación de cualquier máquina, siendo este programa en efecto una máquina universal de Turing
+		  escrita en C--.
+		</p>
+		<h4>Ejemplo recursivo</h4>
+		<p>
+		  Se muestra un programa en C-- (usando macros), que usa una función recursiva primitiva que computa lo mismo que un programa C-- que
+		  se recibe como argumento. La función actúa pues, extrapolando la terminología de Turing, como un ejecutor universal de programas C--.
+		  El programa está escrito basándome en las definiciones de S. C. Kleene (‘<span class="oblicuo">Introduction to Metamathematics</span>’,
+		  pág. 219).
+		</p>
+		<p>
+		  El programa C-- que recibe la función debe ser codificado como un entero no negativo. El programa recursivo transforma este código en
+		  otro código representando un registro del programa y el puntero que señala las instrucciones que se van ejecutando. La codificación se
+		  hace como sigue.
+		</p>
+		<h5 class="hrecur">codificación de instrucción</h5>
+		<p>
+		  Usando la notación <i>x</i><span class="codinst"></span><i>n</i>, donde <i>x</i> es una instrucción y <i>n</i> su código:
+		</p>
+		<ol class="lrecsv">
+		  <li>
+			<p>La instrucción nula se codifica como 0.</p>
+		  </li>
+		  <li>
+			<p>‘0’<span class="codinst"></span>1; ‘=’<span class="codinst"></span>2;
+			  ‘＊’<span class="codinst"></span>3; ‘1’<span class="codinst"></span>4.
+			</p>
+		  </li>
+		  <li>
+			<p>Sea <i>x</i><span class="codinst"></span><i>n</i>; entonces <i>x</i>'<span class="codinst"></span><i>m</i>, donde <i>m</i> = <i>n</i> + 4.</p>
+		  </li>
+		</ol>
+		<h5 class="hrecur">codificación de programa</h5>
+		<p>
+		  Usando la notación <i>p</i><span class="codprog"></span><i>n</i>, donde <i>p</i> es un programa y <i>n</i> su código:
+		</p>
+		<ol class="lrecsv">
+		  <li>
+			<p>
+			  El programa sin instrucciones se codifica como 0.		
+			</p>
+		  </li>
+		  <li>
+			<p>
+			  Sea <i>p</i> un programa, <i>x</i> su única instrucción y <i>x</i><span class="codinst"></span><i>n</i>;
+			  entonces <i>p</i><span class="codprog"></span>3<sup><i>n</i></sup>.		
+			</p>
+		  </li>
+		  <li>
+			<p>
+			  Sea <i>p</i><span class="codprog"></span><i>n</i>, <i>x</i><span class="codinst"></span><i>m</i>, <i>s</i> una posición
+			  vacía en <i>p</i> y <i>q</i> el programa resultante de añadir a <i>p</i> la instrucción <i>x</i> en la posición <i>s</i>;
+			  entonces <i>q</i><span class="codprog"></span><i>n</i> × α<sup><i>m</i></sup>, donde α es un número primo y <i>s</i>
+			  el número de primos menores que α.
+			</p>
+		  </li>
+		</ol>
+		<h5 class="hrecur">codificación de registro</h5>
+		<p>
+		  Sea <i>p</i><span class="codprog"></span><i>n</i>; el registro formado por el programa <i>p</i> y el puntero que señala a la posición <i>s</i>
+		  será <i>m</i>, donde <i>m</i> = <i>n</i> × 2<sup><i>s</i></sup>.
+		</p>
+		<aside class="ejemplo">
+		  <p>
+			Por ejemplo, si el programa es la lista de instrucciones I<sub>1</sub>, I<sub>2</sub>, I<sub>3</sub>, I<sub>4</sub>, I<sub>5</sub>
+			y los respectivos códigos códigos de las instrucciones son <i>a</i>, <i>b</i>, <i>c</i>, <i>d</i>, <i>e</i>, la codificación del
+			programa será:
+		  </p>
+		  <p class="ejemp_cod">
+			3<sup><i>a</i></sup> × 5<sup><i>b</i></sup> × 7<sup><i>c</i></sup> × 11<sup><i>d</i></sup> × 13<sup><i>e</i></sup>
+		  </p>
+		  <p>La codificación del registro con el puntero señando a la primera posición será:</p>
+		  <p class="ejemp_cod">
+			2 × 3<sup><i>a</i></sup> × 5<sup><i>b</i></sup> × 7<sup><i>c</i></sup> × 11<sup><i>d</i></sup> × 13<sup><i>e</i></sup>
+		  </p>
+		</aside>
+		<h3>AMT</h3>
+		<h4>Lenguaje</h4>
+		<p>
+		
+</p>
+<h4>Ejemplo C--</h4>
 
 
 

@@ -1,33 +1,146 @@
 p{
-	line-height:1.5em;
+	line-height:1.6em;
 	max-width:45em;
+	font-size:0.95em;
+}
+
+.oblicuo{
+	font-style:oblique;
 }
 
 h3{
-	font-size:1.7em;
+	font-size:1.8em;
 	display:inline-block;
 	color:#333f80;
 	background-color:#d5dbe861;
 	border-left:solid 0.2em #e5e5ea;
+	border-bottom:solid 2px #e5e5ea;
 	padding:0.1em 1.3em 0em 1em;
 	border-radius:0.1em 0 0em 0.1em;
-	margin:1em 0.1em 0.4em;
+	margin:1em 0.1em 0.3em;
 }
 
 #encabezado + h3{
-	margin-top:0;
+	margin-top:0.3em;
 }
 
 h4{
 	font-size:1.3em;
 	color:#37376b;
-	margin:0.7em 0.1em 0.25em;
+	margin:1.2em 0.1em 0.25em;
 }
 
 .flecha{
 	font-size:0.6em;
 	position:relative;
     bottom:0.1em;
+}
+
+.lista_rec{
+	margin-left:0.5em;
+}
+
+.lista_rec li{
+	margin:1.1em 0;
+}
+
+.lista_rec h5{
+	display:inline-block;
+	padding:0.3em;
+	margin-bottom:0.5em;
+}
+
+.lista_rec h5 span{
+	display:block;
+	padding:0.35em 1.6em 0.3em 0.65em;
+}
+
+#postulados span, #traductor span{
+	font-weight:bold;
+    border-left:solid 0.15em;
+}
+
+#postulados{
+	border:solid 1px #ced6ce;
+    border-radius:0.2em;
+}
+
+#postulados span{
+	background-color:#edefed;
+	color: #474e22;
+}
+
+#ejemplos{
+	    padding: 0 1em 0 0.4em;
+    border-bottom: solid 1px;
+    border-left: solid 0.3em;
+}
+
+#macros{
+	padding:0.33em 1em;
+    background-color:#ecefdd;
+    border:solid 1px #e8ead7;
+    border-radius:0.15em;
+}
+
+#reglas{
+	font-family:"Times New Roman", Times, serif;
+	border:solid 1px #c2c5c5;
+    border-radius:0.12em;
+	background-color:#f4f4f5;
+}
+
+#traductor{
+    color:#034ea0;
+    border-left:solid 0.25em #034ea0;
+    background-color:rgba(3, 88, 181, 0.04);
+}
+
+h5.hrecur{
+	color:#326a82;;
+	margin:0.6em 0 0.5em 0.2em;
+	font-size:1em;
+	text-decoration:underline;
+}
+
+ol.lrecsv{
+	margin:0.6em 0 1.3em 1.3em;
+	font-size:0.95em;
+}
+
+ol.lrecsv li{
+	list-style-type:disc;
+	margin:0.5em 0 0.7em 0;
+}
+
+.codinst::before, .codprog::before{
+	margin:0 0.2em;
+	font-weight:bold;
+	color:#4e0f0f;
+}
+
+.codinst::before{
+	content:"⇢";
+}
+
+.codprog::before{
+	content:"=>";
+}
+
+aside.ejemplo{
+	border:solid 1px #d5d9de;
+	border-left:none;
+	border-right:none;
+	font-size:0.85em;
+	padding:0.7em 1em;
+	margin:1.7em 0;
+	width:fit-content;
+	max-width:100%;
+}
+
+.ejemp_cod{
+	margin:0.4em 0 0.4em 2em;
+	color:#2b3658;
 }
 
 @media (max-width:740px){

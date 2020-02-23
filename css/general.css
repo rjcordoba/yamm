@@ -79,6 +79,25 @@ body > header{
 	display:block;
 }
 
+#scroll_gen{
+	position:fixed;
+	bottom:1em;
+	right:1em;
+	background-color:#425094;
+	font-size:2em;
+	border-radius:0.1em;
+	box-shadow:2px 2px 6px 0px #272d58e8;
+}
+
+#scroll_gen a{
+	display:block;
+}
+
+#scroll_gen a:link, #scroll_gen a:visited{
+    color:#bbb;
+    text-decoration:none;
+}
+
 @media (min-width:888px){
 	#navegadorp{
 		font-size:1em;
@@ -175,14 +194,6 @@ body > header{
 	#navprinc ul li:hover > ul{
 		display:block;
 	}
-
-	/* nav ul li.con_triang{ */
-	/* 	display:flex; */
-	/* 	align-items:center; */
-	/* 	justify-content:space-between; */
-	/* 	padding-right:0.7em; */
-	/* 	position:relative; */
-	/* } */
 
 	#navegadorp nav ul li.con_triang ul{
 		position:absolute;
@@ -295,10 +306,6 @@ body > footer{
 		padding-left:5%;
 	}
 
-	/* #cont-principal main{ */
-	/* 	margin-left:5%; */
-	/* } */
-
 	#logop{
 		margin-left:34.5%;
 	}
@@ -310,10 +317,6 @@ body > footer{
 	body.panel-menu{
 		overflow:hidden;
 	}
-
-	/* #navprinc a, #navprinc a:visited{ */
-	/* 	color:#d2d2d2; */
-	/* } */
 
 	.panel-menu #nav-resp{
 		position:fixed;
@@ -342,12 +345,8 @@ body > footer{
 	}
 
 	#hamburguesa{
-		/* border:solid 2px var(--color-menu); */
-		/* border-radius:4px; */
-		/* padding:0.05em 0; */
 		position:relative;
 		width:1.6em;
-		/* height:1.6em; */
 	}
 
 	#hamburguesa:hover{
@@ -391,14 +390,12 @@ body > footer{
 	}
 
 	#navprinc{
-		/* display:none; */
 		margin-left:-15%;
 		height:0;
 		overflow:hidden;
 	}
 
 	.panel-menu #navprinc{
-		/* display:block; */
 		height:auto;
 		font-size:1.2em;
 		width:15em;
@@ -427,11 +424,6 @@ body > footer{
 		display:none;
 	}
 
-	/* #navprinc #macros_nums ul{ */
-	/* 	font-size:0.8em; */
-	/* 	padding:0.5em 0 0.2em 0.5em; */
-	/* } */
-
 	#navprinc #ext_macros{
 		font-size:0.7em;
 		color:#e4dcd9;
@@ -459,7 +451,6 @@ body > footer{
 	#macros_nums ul{
 		max-height:0;
 		overflow:hidden;
-		/* display:none; */
 		font-size:0.8em;
 		padding-left:0.45em;
 		margin-left:0.15em;
@@ -470,7 +461,6 @@ body > footer{
 	#macros_nums.extendido ul{
 		max-height:100vh;
 		transition:max-height ease 2s;
-		/* height:200px; */
 	}
 
 	#macros_nums ul li:first-child{
@@ -484,10 +474,6 @@ body > footer{
 	#navprinc #macros_nums.extendido{
 		margin-bottom:0.9em;
 	}
-
-	/* #macros_nums{ */
-	/* 	display:none; */
-	/* } */
 
 	#navprinc li li a, #navprinc li li a:visited{
 		color:#ccbab2;
