@@ -31,8 +31,9 @@
 		</div>
 		<nav id="navprinc">
 		  <ul>
+			<li><h1><a href="/es/inicio">Inicio</a></h1></li>
 			<li>
-			  <h1><a href="./es/cmm/lenguaje">C--</a></h1>
+			  <h1><a href="/es/cmm/lenguaje">C--</a></h1>
 			  <ul>
 				<li><a href="/es/cmm/lenguaje">lenguaje</a></li>
 				<li id="macros_nums" class="con_triang"><a href="/es/cmm/macros/1">macros</a><span class="triang">►</span><span id="ext_macros"></span>
@@ -51,7 +52,7 @@
 			  </ul>
 			</li>
 			<li>
-			  <h1><a href="/index.html">Máquinas</a></h1>
+			  <h1><a href="/index.html">AMT</a></h1>
 			  <ul>
 		  		<li><a href="/es/amt/lenguaje">lenguaje</a></li>
 		  		<li><a href="/es/amt/tmachine-cmm">ejemplo C--</a></li>
@@ -72,7 +73,7 @@
 	  </div>
 	</div>
 	<div id="scroll_gen">
-	  <a href="#encabezado" title="Scroll arriba">⬆</a>
+	  <a href="#logop" title="Scroll arriba">⬆</a>
 	  <a href="#pie" title="Scroll abajo">⬇</a>
 	</div>
     <footer id="pie">

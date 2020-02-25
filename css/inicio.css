@@ -135,12 +135,91 @@ aside.ejemplo{
 	padding:0.7em 1em;
 	margin:1.7em 0;
 	width:fit-content;
+	width:-moz-fit-content;
 	max-width:100%;
 }
 
 .ejemp_cod{
 	margin:0.4em 0 0.4em 2em;
 	color:#2b3658;
+}
+
+.regt{
+	margin:0.8em 0 0.8em 0.4em;
+}
+
+.regt li{
+	list-style-type:square;
+	margin:0.8em 0 0.8em 0.8em;
+}
+
+.comilla{
+    position: relative;
+	bottom:-0.15em;
+	font-size:1.6em;
+}
+
+#ejt{
+	font-family:Consolas, Monaco, monospace;
+	border:solid 1px #dcdcdc;
+	background-color:#f9f9f9;
+	margin:1em 0 1.6em 0.6em;
+	display:inline-block;
+	line-height:1.4em;
+}
+
+#ejt li{
+	border-bottom:solid 1px #dcdcdc;
+	padding:0.3em 2em 0.3em 0.8em;
+}
+
+#ejt li:last-child{
+	border-bottom:none;
+	padding-bottom:0.25em;
+}
+
+.comil span{
+    position:relative;
+    left:-0.1em;
+    margin-right:-0.3em;
+}
+
+#cinta{
+	background-color:#404550;
+	color:#fff;
+	display:flex;
+	font-weight:bold;
+	padding:0.3em;
+	border-radius:2px;
+	margin:1em 0 1em 0.6em;
+	max-width:100%;
+	overflow-x:auto;
+}
+
+#cinta li{
+	background-color:#000;
+	text-align:center;
+	padding:0.5em;
+	margin-right:2px;
+	width:1.2em;
+	line-height:1.3em;
+}
+
+#cinta li:last-child{
+	margin-right:0;
+}
+
+#cinta .astrsk{
+	margin:0;
+	line-height:1.3em;
+}
+
+#cinta .astrsk{
+	position:relative;
+}
+
+#cinta .astrsk + li{
+	margin-left:2px;
 }
 
 @media (max-width:740px){

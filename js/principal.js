@@ -6,6 +6,8 @@ const panel = document.getElementById("nav_resp");
 const hamb = document.getElementById("men-hamburguesa");
 const texto_hamb = hamb.getElementsByTagName("span")[0];
 const b = document.body;
+const flechas = document.getElementById("scroll_gen");
+
 // editor.className = "oscuro";
 // sel_oscura.className = "seleccionado";
 
@@ -33,6 +35,14 @@ hamb.addEventListener("click", () => {
 }, false);
 
 ext_macros.addEventListener("click", () => {macros_nums.classList.toggle("extendido");}, false);
+
+flechas.style.display = "none";
+
+window.addEventListener("scroll", () => {
+	if(window.scrollY > 100){
+		flechas.style.display = "block";
+	}
+}, false);
 
 // const lins = cont_pizarra.textContent.split(/\r\n|\r|\n/).length;
 // const item = document.createElement("li");

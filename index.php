@@ -5,29 +5,32 @@ function error(){
     $orria = "./orriak/error.html";    
 }
 
-$orria = "./";
 $estilos = array();
 $encabezado = array();
 $js = NULL;
 
 $ruta = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-if($ruta[1] == "") $ruta = array(NULL, "es", "cmm", "lenguaje");
+if($ruta[1] == "") $ruta = array(NULL, "es", "inicio");
 /*
    if(!include "./textos/{$ruta[1]}.txt"){
    error();
    }
  */
 
-$orria .= $ruta[2];
-
 switch($ruta[2]){
+	case "inicio":
+		$encabezado[0] = "Inicio";
+		$encabezado[1] = "Presentación";
+		$orria = "./orriak/inicio.html";
+		$estilos = array("inicio");
+		break;
     case "cmm":
 		$encabezado[0] = "Lenguaje C--";
         switch($ruta[3]){
 			case "lenguaje":
 				$encabezado[1] = "Definición";
-				$orria .= "/clenguaje.html";
+				$orria = "./cmm/clenguaje.html";
 				$estilos = array("clenguaje");
 				break;
 			case "tmachine":
@@ -62,7 +65,7 @@ switch($ruta[2]){
         switch($ruta[3]){
 			case "lenguaje":
 				$encabezado[1] = "Lenguaje AMT";
-				$orria .= "/tlenguaje.html";
+				$orria = "/amt/tlenguaje.html";
 				$estilos = array("tlenguaje", "gramat");
 				break;
 			case "tmachine-cmm":
@@ -74,7 +77,7 @@ switch($ruta[2]){
 				break;
 			case "simulador":
 				$encabezado[1] = "Simulador de máquinas de Turing";
-				$orria .= "/simulador.html";
+				$orria = "/amt/simulador.html";
 				$estilos = array("turings", "pantalla", "colores_amt");
 				$js = array("tokens", "interpretador", "editor");
 				break;
