@@ -1,8 +1,10 @@
 <?php
 
 function error(){
-    global $orria;
-    $orria = "./orriak/error.html";    
+    global $orria, $estilos;
+	$estilos = array("noencontrada");
+    $orria = "./orriak/error.html";
+	header("HTTP/1.0 404 Not Found");
 }
 
 $estilos = array();
@@ -48,10 +50,14 @@ switch($ruta[2]){
 				$js = array("editor_ejemplos");
 				break;
 			case "macros":
-				$encabezado[1] = "Macros y utilidades";
 				$orria = "./cmm/macros.php";
 				$orria2 = "./cmm/macros/" . $ruta[4] . ".html";
-				if(!file_exists($orria2)) error();
+				if(!file_exists($orria2)){
+					error();
+					$encabezado[0] = "";
+					break;
+				}
+				$encabezado[1] = "Macros y utilidades";
 				$macro = $ruta[4];
 				$estilos = array("macros", "gramat");
 				$js = array("macros");
@@ -88,4 +94,5 @@ switch($ruta[2]){
 	default:
 		error();
 }
+$izenburua = $encabezado[0] . " - " . $encabezado[1];
 include "./orriak/pag_general.php";
