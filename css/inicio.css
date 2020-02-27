@@ -134,6 +134,7 @@ aside.ejemplo{
 	font-size:0.85em;
 	padding:0.7em 1em;
 	margin:1.7em 0;
+	box-sizing:border-box;
 	width:fit-content;
 	width:-moz-fit-content;
 	max-width:100%;
@@ -163,7 +164,7 @@ aside.ejemplo{
 	font-family:Consolas, Monaco, monospace;
 	border:solid 1px #dcdcdc;
 	background-color:#f9f9f9;
-	margin:1em 0 1.6em 0.6em;
+	margin:1em 0 1.6em 1.5%;
 	display:inline-block;
 	line-height:1.4em;
 }
@@ -191,7 +192,7 @@ aside.ejemplo{
 	font-weight:bold;
 	padding:0.3em;
 	border-radius:2px;
-	margin:1em 0 1em 0.6em;
+	margin:1em 0 1em 1.5%;
 	max-width:100%;
 	overflow-x:auto;
 }
@@ -222,7 +223,7 @@ aside.ejemplo{
 	margin-left:2px;
 }
 
-@media (max-width:740px){
+@media (max-width:888px){
 	p{
 		max-width:100%;
 	}

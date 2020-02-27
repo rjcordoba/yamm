@@ -5,6 +5,7 @@
     <title><?= $tituloa ?></title>
     <meta name="author" content="R. Córdoba García">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icono" type="image/png" href="/imgs/icono.svg"/>
     <link rel="stylesheet" type="text/css" href="/css/general.css">
 	<?php foreach($estilos as $est): ?>
 	<link rel="stylesheet" type="text/css" href="/css/<?= $est ?>.css">
@@ -15,7 +16,7 @@
 	<?php endforeach ?>
   </head>
   <body>
-    <header>
+    <header id="cabecera">
 	  <div class="anchura">
 		<div id="logop">
 		  <img src="/imgs/icono.svg" alt="icono">
@@ -73,7 +74,7 @@
 	  </div>
 	</div>
 	<div id="scroll_gen">
-	  <a href="#logop" title="Scroll arriba">⬆</a>
+	  <a href="#cabecera" title="Scroll arriba">⬆</a>
 	  <a href="#pie" title="Scroll abajo">⬇</a>
 	</div>
     <footer id="pie">
