@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title><?= $tituloa ?></title>
+    <title><?= izenburua ?></title>
     <meta name="author" content="R. Córdoba García">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icono" type="image/png" href="/imgs/icono.svg"/>
