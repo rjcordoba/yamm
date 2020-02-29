@@ -226,7 +226,7 @@
 	<p>La llave de cierre debe ocupar una línea por sí misma, sin espacios delante.</p>
 	<p>Un comentario debe empezar la línea, sin espacios delante.</p>
   </aside>
-  <h2>Símbolos</h2>
+  <h3>Símbolos</h3>
   <p>Puede ser cualquier símbolo que se pueda representar con un codepoint Unicode; en el caso de las letras griegas
 	se puede usar su nombre. Además se pueden usar:</p>
   <dl>
@@ -243,8 +243,8 @@
 	<dt>::</dt>
 	<dd>Se considera un solo símbolo.</dd>
 	<dt>sw</dt>
-	<dd>Se sustituye por el símbolo &#x0259;.</dd>
-	<dt>0 o 1 precedido por -</dt>
+	<dd>Se sustituye por el símbolo ‘&#x0259;’.</dd>
+	<dt>‘0’ o ‘1’ precedido por ‘-’</dt>
 	<dd>El símbolo con una barra encima.</dd>
   </dl>
   <aside class="gram_ac">
@@ -253,7 +253,7 @@
 	  que se lea (ejemplo abajo).
 	</p>
   </aside>
-  <h2>Operaciones</h2>
+  <h3>Operaciones</h3>
   <p>Si no se indica ninguna operación se pasa a la siguiente m-configuration sin hacer nada. Si hay, el significado es el siguiente:</p>
   <dl id="operaciones">
 	<dt>R</dt>
@@ -265,86 +265,130 @@
 	<dt>P<span class="noterm">symbol</span></dt>
 	<dd>Se imprime en la posición actual el símbolo <span class="noterm">symbol</span>.</dd>
   </dl>
-  <h2>Nombres m-configurations</h2>
+  <h3>Nombres m-configurations</h3>
   <p>Los nombres deben estar formados por caracteres del alfabeto español o guiones, empezanado por una letra minúscula. Adicionalmente
 	pueden acabar con cualquier número de comillas simples, seguidas a su vez de cualquier número de dígitos.</p>
-  <h2 id="ej">Ejemplos</h2>
+  <h3 id="ej">Ejemplos</h3>
   <ul id="ejtrozos">
 	<li>
-	  <pre><code>b    None    P0, R    c</code></pre>
-	  <div>
+	  <div class="ejemplo">
+		<ol>
+		  <li>1</li>
+		</ol>
+		<pre><code>b    None    P0, R    c</code></pre>
+	  </div>
+	  <p>
 		En la m-configuration si no hay ningún símbolo en la posición actual se imprime «0» y se pasa a leer la posición de la derecha de la actual;
 		la siguiente m-configuration será «c».
-	  </div>
+	  </p>
 	</li>
 	<li>
+	  <div class="ejemplo">
+		<ol>
+		  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+		</ol>
 			<pre><code>b
 {
     None    P0       b
     0    R, R, P1    b
     1    R, R, P0    b
 }</code></pre>
-			<div>En la m-configuration b:
-			  <ul>
-				<li>Si no hay símbolo en la posición actual se imprime «1» y pasa a la m-configuration b.</li>
-				<li>Si se lee «0» desplaza el lector dos posiciones a la derecha, imprime «1» y pasa a la m-configuration b.</li>
-				<li>Si se lee «1» desplaza el lector dos posiciones a la derecha, imprime «0» y pasa a la m-configuration b.</li>
-			  </ul>
-			</div>
+	  </div>
+			<p>En la m-configuration b:</p>
+			<ul>
+			  <li><p>Si no hay símbolo en la posición actual se imprime «1» y pasa a la m-configuration b.</p></li>
+			  <li><p>Si se lee «0» desplaza el lector dos posiciones a la derecha, imprime «1» y pasa a la m-configuration b.</p></li>
+			  <li><p>Si se lee «1» desplaza el lector dos posiciones a la derecha, imprime «0» y pasa a la m-configuration b.</p></li>
+			</ul>
 	</li>
 	<li>
+	  <div class="ejemplo">
+		<ol>
+		  <li>1</li><li>2</li><li>3</li><li>4</li>
+		</ol>
 			<pre><code>f(C, B, alfa){
     sw    L    f1(C, B, alfa)
     not alfa    L    f(C, B, alfa)
 }</code></pre>
-			<div>Definición de un skeleton.</div>
+	  </div>
+			<p>Definición de un skeleton.</p>
 	</li>
 	<li>
-	  <pre class="mal"><code>c1(C)    beta    pe(C, beta)</code></pre>
-	  <div>
+	  <div class="ejemplo mal">
+		<ol>
+		  <li>1</li>
+		</ol>
+		<pre><code>c1(C)    beta    pe(C, beta)</code></pre>
+	  </div>
+	  <p>
 		<span class="error">Error</span><br>
 		La m-configuration inicial no debe estar precedida por ningún espacio.
-	  </div>
+	  </p>
 	</li>
 	<li>
-	  <pre><code>c1(C)    beta    pe(C, beta)</code></pre>
-	  <div>
+	  <div class="ejemplo">
+		<ol>
+		  <li>1</li>
+		</ol>
+		<pre><code>c1(C)    beta    pe(C, beta)</code></pre>
+	  </div>
+	  <p>
 		Ejemplo anterior corregido.<br>En la m-configuration c1(C) lee cualquier símbolo y pasa a la m-configuration pe(C, beta), donde beta es cualquier símbolo leído en el
 		momento de cambiar de m-configuration.
-	  </div>
+	  </p>
 	</li>
 	<li>
-	  <pre class="mal"><code>cp2(C, A, gamma)
+	  <div class="ejemplo mal">
+		<ol>
+		  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>
+		</ol>
+	  <pre><code>cp2(C, A, gamma)
  {
 gamma    C
 not gamma    A
 }</code></pre>
-	  <div><span class="error">Error</span><br>
+	  </div>
+	  <p><span class="error">Error</span><br>
 		La llave de apertura que ocupa una línea no debe tener espacios antes.<br>
      	Las líneas que comienzan con un símbolo deben empezar con algún espacio.
-	  </div>
+	  </p>
 	</li>
 	<li>
+	  <div class="ejemplo">
+		<ol>
+		  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>
+		</ol>
 	  <pre><code>cp2(C, A, gamma)
 {
     gamma    C
     not gamma    A
 }</code></pre>
-	  <div>Ejemplo anterior corregido.</div>
+	  </div>
+	  <p>Ejemplo anterior corregido.</p>
 	</li>
 	<li>
-	  <pre class="mal"><code>cr(B, alfa)    cr(cr(B, alfa), re(B, a, alfa), alfa)</code></pre>
-	  <div>
+	  <div class="ejemplo mal">
+		<ol>
+		  <li>1</li>
+		</ol>
+		<pre><code>cr(B, alfa)    cr(cr(B, alfa), re(B, a, alfa), alfa)</code></pre>
+	  </div>
+	  <p>
 		<span class="error">Error</span><br>
 		Debe haber algún símbolo.
-	  </div>
+	  </p>
 	</li>
 	<li>
-	  <pre><code>cr(B, alfa)    ...    cr(cr(B, alfa), re(B, a, alfa), alfa)</code></pre>
-	  <div>
+	  <div class="ejemplo">
+		<ol>
+		  <li>1</li>
+		</ol>
+		<pre><code>cr(B, alfa)    ...    cr(cr(B, alfa), re(B, a, alfa), alfa)</code></pre>
+	  </div>
+	  <p>
 		Ejemplo anterior corregido.<br>
 		Pasa de una m-configuration a otra con cualquier símbolo y sin símbolo.
-	  </div>
+	  </p>
 	</li>
   </ul>
 </main>

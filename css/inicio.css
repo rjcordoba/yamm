@@ -222,9 +222,3 @@ aside.ejemplo{
 #cinta .astrsk + li{
 	margin-left:2px;
 }
-
-@media (max-width:888px){
-	p{
-		max-width:100%;
-	}
-}

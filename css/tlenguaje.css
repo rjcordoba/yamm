@@ -1,18 +1,33 @@
-main h2#ej{
-	margin-top:1em;
+h3{
+    margin:0.8em 0 0.6em 0.25em;
+    display:inline-block;
+    border-bottom:1px solid;
+    font-size:1.5em;
+    color: #2c4048;
+}
+
+h3#ej{
+	margin-top:2em;
+	border-bottom:none;
+	color:#2d5363;
 }
 
 aside.gram_ac{
 	line-height:1.55em;
 	font-size:0.86em;
 	margin:2em 0 1.1em;
-	background-color:#ecebe4;
+	background-color:#f3f3f3;
 	padding:0.7em 1.3em;
-	border-left:3px solid #d0cdb4;
+	border-left:3px solid #e0e0e0;
 	width: fit-content;
 }
 
-h2 + p{
+aside.gram_ac > p{
+	line-height:1.85em;
+	margin-bottom: 0.5em;
+}
+
+h3 + p{
 	line-height:1.5em;
 }
 
@@ -60,12 +75,13 @@ dl .noterm sub{
 #ejtrozos{
 	margin-bottom:5.5em;
 	width:fit-content;
+	width:-moz-fit-content;
+	max-width:100%;
 }
 
 #ejtrozos > li{ 
-	border-bottom: solid 1px #bdbaba;
+	border-bottom:solid 1px #e4e4e4;
 	padding:1em 0;
-	display:flex;
 	padding-right:2em;
 }
 
@@ -77,15 +93,14 @@ dl .noterm sub{
 	border:none;
 }
 
-#ejtrozos pre{
-	border:solid 2px #004f02;
-	border-radius:3px;
-	background-color:#fff;
-	padding:0.5em 0.5em;
-	width:23em;
-	overflow-x:auto;
-	line-height:1.8em;
-}
+/* #ejtrozos pre{ */
+/* 	border-radius:3px; */
+/* 	background-color:#fff; */
+/* 	padding:0.5em 0.5em; */
+/* 	min-width:23em; */
+/* 	overflow-x:auto; */
+/* 	/\* line-height:1.8em; *\/ */
+/* } */
 
 #ejtrozos pre.mal{
 	border-color:#870202;	
@@ -96,14 +111,67 @@ dl .noterm sub{
 	font-size:1.1em;
 }
 
-#ejtrozos div{
-	width:43em;
-	line-height:1.6em;
-	font-size:0.85em;
-	padding:0.3em 0 0.3em 1em;
+p{
+	max-width:50em;
 }
 
-@media max-width:799px{
-#cont-principal main{
-	margin-left:6%;
+#ejtrozos p{
+	line-height:1.6em;
+	font-size:0.95em;
+	margin-top:1em;
+}
+
+#ejtrozos p + ul li{
+	margin-top:0.4em;
+	font-size:0.9em;
+}
+
+#ejtrozos li li > p{
+	margin-top:0;
+}
+
+.ejemplo{
+	border:solid 3px #027b05;
+    border-radius:4px;
+    line-height:2.3em;
+    display:flex;
+	width:fit-content;
+    width:-moz-fit-content;
+	max-width:100%;
+}
+
+.ejemplo.mal{
+	border-color:#94031d;
+}
+
+.ejemplo ol{
+    display:flex;
+    flex-direction:column;
+    padding:0.7em 0.2em 0.4em 0.4em;
+    border-right:solid 2px #465254;
+    text-align:right;
+    color:#a2a1a1;
+    background-color:#484646;
+}
+
+.ejemplo pre{
+    background-color:#222;
+    color:#eee;
+    padding:0.7em;
+    overflow-x:auto;
+}
+
+
+@media (max-width:950px){
+	#ejtrozos {
+		margin-bottom:1.5em;
+	}
+	
+	#ejtrozos > li {
+		padding-right:0;
+	}
+
+	aside.gram_ac > p {
+		margin-bottom: 0.5em;
+	}
 }

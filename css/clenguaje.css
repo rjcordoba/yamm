@@ -1,3 +1,11 @@
+h3{
+    margin:0.8em 0 0.6em 0.25em;
+    display:inline-block;
+    border-bottom:1px solid;
+    font-size:1.5em;
+	color:#2c4048
+}
+
 p#explic{
 	margin:1em 0 1em;
 	line-height:1.45em;
@@ -6,18 +14,18 @@ p#explic{
 
 #lis_ins{
 	list-style-type:none;
-	background-color:#efeff1;
-	padding:0 0.8em;
+	/* background-color:#efeff1; */
+	/* padding:0 0.8em; */
 	margin-top:1.2em;
-	border:solid 2px #152f65;
+	/* border:solid 2px #152f65; */
 	border-radius:3px;
 	max-width:49em;
 }
 
 #lis_ins > li{
 	display:flex;
-	border-bottom:solid 2px #041435;
-	padding:1.1em 1em;
+	border-bottom:solid 1px #dfe3ea;
+	padding:1.1em 0;
 }
 
 #lis_ins > li:last-child{
@@ -30,7 +38,7 @@ p#explic{
 }
 
 #lis_ins > li > div{
-	width:45em;
+	max-width:45em;
 	font-size:0.91em;
 	line-height:1.5em;
 }
@@ -74,12 +82,40 @@ span.marca{
 
 #cont_igual{
 	margin-top:1em;
+	font-size:0.95em;
 }
 
 .inst::after{
     content:"→";
-	font-wight:bold;
-    font-size: 1.4em;
-    color: black;
-    padding: 0 0.2em;
+	font-weight:bold;
+    font-size:1.4em;
+    color:black;
+    padding:0 0.2em;
+}
+
+.defins > li::before{
+    content:"•";
+    font-size:0.8em;
+    color:#565656;
+    padding-right:0.4em;
+}
+
+@media (max-width:1000px){
+	#lis_ins > li {
+		display:block;
+	}
+	
+	#lis_ins > li > p{
+		margin:0.2em 0 1.3em 0.3em;
+		border:solid 1px #e2e3e4;
+		background-color:#f6f7f7;
+		display:inline-block;
+		width:auto;
+		padding:0.2em 0.5em 0.4em;
+		border-radius:0.15em;
+	}
+
+	h3 {
+		margin-bottom:0;
+	}
 }

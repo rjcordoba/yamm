@@ -1,15 +1,17 @@
 <?php
 
-function error(){
-    global $orria, $estilos;
-	$estilos = array("noencontrada");
-    $orria = "./orriak/error.html";
-	header("HTTP/1.0 404 Not Found");
-}
-
 $estilos = array();
 $encabezado = array();
 $js = NULL;
+$izenburua = NULL;
+
+function error(){
+    global $orria, $estilos, $izenburua;
+	$estilos = array("noencontrada");
+    $orria = "./orriak/error.html";
+	$izenburua = "Página no encontrada";
+	header("HTTP/1.0 404 Not Found");
+}
 
 $ruta = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
@@ -71,7 +73,7 @@ switch($ruta[2]){
         switch($ruta[3]){
 			case "lenguaje":
 				$encabezado[1] = "Lenguaje AMT";
-				$orria = "/amt/tlenguaje.html";
+				$orria = "./amt/tlenguaje.html";
 				$estilos = array("tlenguaje", "gramat");
 				break;
 			case "tmachine-cmm":
@@ -94,5 +96,5 @@ switch($ruta[2]){
 	default:
 		error();
 }
-$izenburua = $encabezado[0] . " - " . $encabezado[1];
+if(!$izenburua)	$izenburua = $encabezado[0] . " - " . $encabezado[1];
 include "./orriak/pag_general.php";

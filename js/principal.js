@@ -23,9 +23,9 @@ flechas.style.display = "none";
 // 	setTimeout(() =>  {flechas.className = "ponerf"; flechas.style.display = "none";}, 300);
 // }
 
-const flechasa = flechas.getElementsByTagName("a");
-flechasa[0].addEventListener("click", () => {window.scrollTo(0, 0);}, false);
-flechasa[1].addEventListener("click", () => {window.scrollTo(0,document.body.scrollHeight);}, false);
+// const flechasa = flechas.getElementsByTagName("a");
+// flechasa[0].addEventListener("click", () => {window.scrollTo(0, 0);}, false);
+// flechasa[1].addEventListener("click", () => {window.scrollTo(0,document.body.scrollHeight);}, false);
 
 
 function paraScroll(){
