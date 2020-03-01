@@ -41,3 +41,5 @@ for(let i = 1; i < lins; i++){
 if(lins > 225){
 	document.getElementById("pantalla").style.maxHeight = "85vh";
 }
+
+// nums.getElementsByTagName("li")[29].style.pageBreakAfter="always";

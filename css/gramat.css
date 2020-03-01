@@ -106,7 +106,7 @@
 
 @media (max-width:740px){
 	.gramat{
-		width:auto;
+		max-width:100%;
 	}
 
 	.gramat ol > li{

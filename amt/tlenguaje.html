@@ -249,8 +249,8 @@
   </dl>
   <aside class="gram_ac">
 	<p>
-	  Si se usa una letra griega antes de <span class="noterm">behaviour</span> que no aparezca como variable en la <span class="noterm">m-function</span>, esa letra representa cualquier símbolo
-	  que se lea (ejemplo abajo).
+	  Si se usa una letra griega antes de <span class="noterm">behaviour</span> que no aparezca como variable en la <span class="noterm">m-function</span>, esa
+	  letra representa cualquier símbolo que se lea (ejemplo abajo).
 	</p>
   </aside>
   <h3>Operaciones</h3>
@@ -269,16 +269,17 @@
   <p>Los nombres deben estar formados por caracteres del alfabeto español o guiones, empezanado por una letra minúscula. Adicionalmente
 	pueden acabar con cualquier número de comillas simples, seguidas a su vez de cualquier número de dígitos.</p>
   <h3 id="ej">Ejemplos</h3>
-  <ul id="ejtrozos">
+  <ul id="editor" class="oscuro">
 	<li>
 	  <div class="ejemplo">
 		<ol>
 		  <li>1</li>
 		</ol>
-		<pre><code>b    None    P0, R    c</code></pre>
+		<pre><code><span class="mcnombre">b</span>    <span class="simbol">None</span>    <span class="akzioa">P</span><span class="simbol">0</span
+>, <span class="akzioa">R</span>    <span class="mcfinal">c</span></code></pre>
 	  </div>
 	  <p>
-		En la m-configuration si no hay ningún símbolo en la posición actual se imprime «0» y se pasa a leer la posición de la derecha de la actual;
+		En la m-configuration «b», si no hay ningún símbolo en la posición actual se imprime «0» y se pasa a leer la posición de la derecha de la actual;
 		la siguiente m-configuration será «c».
 	  </p>
 	</li>
@@ -287,12 +288,12 @@
 		<ol>
 		  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
 		</ol>
-			<pre><code>b
-{
-    None    P0       b
-    0    R, R, P1    b
-    1    R, R, P0    b
-}</code></pre>
+			<pre><code><span class="mcnombre">b</span>
+<span class="llave">{</span>
+    <span class="simbol">None</span>    <span class="akzioa">P</span><span class="simbol">0</span>       <span class="mcfinal">b</span>
+    <span class="simbol">0</span>    <span class="akzioa">R</span>, <span class="akzioa">R</span>, <span class="akzioa">P</span><span class="simbol">1</span>    <span class="mcfinal">b</span>
+    <span class="simbol">1</span>    <span class="akzioa">R</span>, <span class="akzioa">R</span>, <span class="akzioa">P</span><span class="simbol">0</span>    <span class="mcfinal">b</span>
+<span class="llave">}</span></code></pre>
 	  </div>
 			<p>En la m-configuration b:</p>
 			<ul>
@@ -306,10 +307,11 @@
 		<ol>
 		  <li>1</li><li>2</li><li>3</li><li>4</li>
 		</ol>
-			<pre><code>f(C, B, alfa){
-    sw    L    f1(C, B, alfa)
-    not alfa    L    f(C, B, alfa)
-}</code></pre>
+			<pre><code><span class="mcnombre">f(</span><span class="var_mc">C</span>, <span class="var_mc">B</span>, <span class="var_simb">α</span
+><span class="mcnombre">)</span><span class="llave">{</span>
+    <span class="simbol">&#x0259;</span>    <span class="akzioa">L</span>    <span class="mcfinal">f1(C</span>, <span class="mcfinal">B</span>, <span class="simbol">α</span><span class="mcfinal">)</span>
+    not <span class="simbol">α</span>    <span class="akzioa">L</span>    <span class="mcfinal">f(C</span>, <span class="mcfinal">B</span>, <span class="simbol">α</span><span class="mcfinal">)</span>
+<span class="llave">}</span></code></pre>
 	  </div>
 			<p>Definición de un skeleton.</p>
 	</li>
@@ -318,7 +320,8 @@
 		<ol>
 		  <li>1</li>
 		</ol>
-		<pre><code>c1(C)    beta    pe(C, beta)</code></pre>
+		<pre><code><span class="mcnombre"> c1(</span><span class="var_mc">C</span><span class="mcnombre">)</span
+>    <span class="simbol">β</span>    <span class="mcfinal">pe(C</span>, <span class="simbol">β</span><span class="mcfinal">)</span></code></pre>
 	  </div>
 	  <p>
 		<span class="error">Error</span><br>
@@ -330,7 +333,8 @@
 		<ol>
 		  <li>1</li>
 		</ol>
-		<pre><code>c1(C)    beta    pe(C, beta)</code></pre>
+		<pre><code><span class="mcnombre">c1(</span><span class="var_mc">C</span><span class="mcnombre">)</span
+>    <span class="simbol">β</span>    <span class="mcfinal">pe(C</span>, <span class="simbol">β</span><span class="mcfinal">)</span></code></pre>
 	  </div>
 	  <p>
 		Ejemplo anterior corregido.<br>En la m-configuration c1(C) lee cualquier símbolo y pasa a la m-configuration pe(C, beta), donde beta es cualquier símbolo leído en el
@@ -342,11 +346,11 @@
 		<ol>
 		  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>
 		</ol>
-	  <pre><code>cp2(C, A, gamma)
- {
-gamma    C
-not gamma    A
-}</code></pre>
+	  <pre><code><span class="mcnombre"> c1(</span><span class="var_mc">C</span>, <span class="var_mc">A</span>, <span class="simbol">&gamma;</span><span class="mcnombre">)</span>
+ <span class="llave">{</span>
+<span class="simbol">&gamma;</span>    <span class="mcfinal">C</span>
+not <span class="simbol">&gamma;</span>    <span class="mcfinal">A</span>
+<span class="llave">}</span></code></pre>
 	  </div>
 	  <p><span class="error">Error</span><br>
 		La llave de apertura que ocupa una línea no debe tener espacios antes.<br>
@@ -358,11 +362,11 @@ not gamma    A
 		<ol>
 		  <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>
 		</ol>
-	  <pre><code>cp2(C, A, gamma)
-{
-    gamma    C
-    not gamma    A
-}</code></pre>
+	  <pre><code><span class="mcnombre"> c1(</span><span class="var_mc">C</span>, <span class="var_mc">A</span>, <span class="simbol">&gamma;</span><span class="mcnombre">)</span>
+<span class="llave">{</span>
+    <span class="simbol">&gamma;</span>    <span class="mcfinal">C</span>
+    not <span class="simbol">&gamma;</span>    <span class="mcfinal">A</span>
+<span class="llave">}</span></code></pre>
 	  </div>
 	  <p>Ejemplo anterior corregido.</p>
 	</li>
@@ -371,7 +375,9 @@ not gamma    A
 		<ol>
 		  <li>1</li>
 		</ol>
-		<pre><code>cr(B, alfa)    cr(cr(B, alfa), re(B, a, alfa), alfa)</code></pre>
+		<pre><code><span class="mcnombre">cr(</span><span class="var_mc">B</span>, <span class="var_simb">α</span><span class="mcnombre">)</span
+>    <span class="mcfinal">cr(cr(B</span>, <span class="var_simb">α</span><span class="mcfinal">)</span>, <span class="mcfinal">re(B</span>, <span class="var_simb">a</span
+>, <span class="var_simb">α</span><span class="mcfinal">)</span>, <span class="var_simb">α</span><span class="mcfinal">)</span></code></pre>
 	  </div>
 	  <p>
 		<span class="error">Error</span><br>
@@ -383,7 +389,9 @@ not gamma    A
 		<ol>
 		  <li>1</li>
 		</ol>
-		<pre><code>cr(B, alfa)    ...    cr(cr(B, alfa), re(B, a, alfa), alfa)</code></pre>
+		<pre><code><span class="mcnombre">cr(</span><span class="var_mc">B</span>, <span class="var_simb">α</span><span class="mcnombre">)</span
+>    ...    <span class="mcfinal">cr(cr(B</span>, <span class="var_simb">α</span><span class="mcfinal">)</span>, <span class="mcfinal">re(B</span>, <span class="var_simb">a</span
+>, <span class="var_simb">α</span><span class="mcfinal">)</span>, <span class="var_simb">α</span><span class="mcfinal">)</span></code></pre>
 	  </div>
 	  <p>
 		Ejemplo anterior corregido.<br>

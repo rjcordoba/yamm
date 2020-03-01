@@ -92,6 +92,10 @@ main{
 	padding-left:0.3em;
 }
 
+.oscuro #pantalla > div:last-child{
+	color:#fbd8b8;
+}
+
 #pantalla > div:last-child::selection{
   color:#ddd; 
   background-color:#6b5b02;
@@ -114,12 +118,8 @@ main{
 		display:none;
 	}
 
-	#editor{
-		font-size:1.3em;
-	}
-
 	#nums{
-		color:#eee;
+		color:#6765656b;
 	}
 
 	#pantalla > div:first-child{
@@ -136,17 +136,18 @@ main{
 	}
 
 	#editor{
-		width:120%;
 		height:100%;
-	}
-
-	#editor{
 		width:100%;
 		margin:0;
 		padding:0;
+		font-size:1.3em;
 	}
 
 	*{
 		overflow:hidden !important;
+	}
+	
+	#pantalla > div:last-child {
+		margin-left:0.5em;
 	}
 }

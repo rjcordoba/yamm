@@ -538,15 +538,32 @@ body > footer{
 }
 
 @media print{
-	body > footer, body > header, body > nav, #encabezado h1{
-		display:none;
+	body{
+		font-size:14pt;
+		padding:2em;
+	}
+
+	body > footer,
+	body > header,
+	body > nav,
+	#encabezado h1,
+	#nav-resp, #scroll_gen{
+		display:none !important;
+	}
+
+	#cont-principal{
+		padding:0;
 	}
 
 	#encabezado h2{
 		font-size:1.8em;
+		margin:0;
 	}
 
-	#cont-principal{
-		padding:1em;
-	}
+	/* .np{ */
+	/* 	page-break-after:always; */
+	/* } */
+	/* #cont-principal{ */
+	/* 	padding:1em; */
+	/* } */
 }

@@ -72,28 +72,28 @@ dl .noterm sub{
 	font-style:normal;
 }
 
-#ejtrozos{
+#editor{
 	margin-bottom:5.5em;
 	width:fit-content;
 	width:-moz-fit-content;
 	max-width:100%;
 }
 
-#ejtrozos > li{ 
+#editor > li{ 
 	border-bottom:solid 1px #e4e4e4;
 	padding:1em 0;
 	padding-right:2em;
 }
 
-#ejtrozos li > *{
+#editor li > *{
 	box-sizing:border-box;
 }
 
-#ejtrozos li:last-of-type{
+#editor li:last-of-type{
 	border:none;
 }
 
-/* #ejtrozos pre{ */
+/* #editor pre{ */
 /* 	border-radius:3px; */
 /* 	background-color:#fff; */
 /* 	padding:0.5em 0.5em; */
@@ -102,11 +102,11 @@ dl .noterm sub{
 /* 	/\* line-height:1.8em; *\/ */
 /* } */
 
-#ejtrozos pre.mal{
+#editor pre.mal{
 	border-color:#870202;	
 }
 
-#ejtrozos span.error{
+#editor span.error{
 	color:#870202;
 	font-size:1.1em;
 }
@@ -115,23 +115,24 @@ p{
 	max-width:50em;
 }
 
-#ejtrozos p{
+#editor p{
 	line-height:1.6em;
 	font-size:0.95em;
 	margin-top:1em;
 }
 
-#ejtrozos p + ul li{
+#editor p + ul li{
 	margin-top:0.4em;
 	font-size:0.9em;
 }
 
-#ejtrozos li li > p{
+#editor li li > p{
 	margin-top:0;
 }
 
 .ejemplo{
-	border:solid 3px #027b05;
+	border:solid 2px #027b05;
+	box-shadow:0px 0px 2px 1px #027b05;
     border-radius:4px;
     line-height:2.3em;
     display:flex;
@@ -142,6 +143,7 @@ p{
 
 .ejemplo.mal{
 	border-color:#94031d;
+	box-shadow:0px 0px 2px 1px #94031d;
 }
 
 .ejemplo ol{
@@ -156,18 +158,18 @@ p{
 
 .ejemplo pre{
     background-color:#222;
-    color:#eee;
+ 	color:#fbd8b8;
     padding:0.7em;
     overflow-x:auto;
 }
 
 
 @media (max-width:950px){
-	#ejtrozos {
+	#editor {
 		margin-bottom:1.5em;
 	}
 	
-	#ejtrozos > li {
+	#editor > li {
 		padding-right:0;
 	}
 
