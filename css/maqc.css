@@ -107,13 +107,21 @@ main{
 	line-height:0;
 }
 
-@media (max-width:740px){
+.editor_corto{
+	height:85vh
+}
+
+@media (max-width:790px){
 	#cont-principal {
 		padding: 2em 1%;
 	}
 }
 
-@media print{
+@media print{	
+	.editor_corto{
+		height:auto;
+	}
+
 	#sel_color{
 		display:none;
 	}
@@ -150,4 +158,8 @@ main{
 	#pantalla > div:last-child {
 		margin-left:0.5em;
 	}
-}
+
+/* 	.corte{ */
+/* 		line-height:2em; */
+/* 	} */
+/* } */

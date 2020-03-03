@@ -1,7 +1,7 @@
 <span class="comentarioc">/* Programa usando funciones recursivas que ejecuta un programa
  * C-- codificado. Anteriormente se explicó cómo se codifica, al igual
- * que los términos usados en los comentarios. 
- * En este ejemplo concreto se ejecuta el programa cuyo código 
+ * que los términos usados en los comentarios.
+ * En este ejemplo concreto se ejecuta el programa cuyo código
  * es 1415926535897932384626433832795028841 */</span>
 
 <span class="preproc">#define function unsigned int</span>
@@ -1281,7 +1281,8 @@
 ><span class="nvars">V2</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
-<span class="comentarioc">/* Si el tipo de instrucción X1 es ‘saltar’, devuelve 1; 0 en caso contrario. */</span>
+<span class="comentarioc">/* Si el tipo de instrucción X1 es ‘saltar’, devuelve 1;
+ * 0 en caso contrario. */</span>
 <span class="pclave">function</span><span class="nvars"> es_saltar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U3_1</span><span class="simbind">(</span
@@ -1355,7 +1356,8 @@
 ><span class="nvars">V5</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
-<span class="comentarioc">/* Comprueba si hay instrucción, ejecuta en caso de haberla y vuelve a empezar el ciclo. */</span>
+<span class="comentarioc">/* Comprueba si hay instrucción, ejecuta en caso
+ * de haberla y vuelve a empezar el ciclo. */</span>
 <span class="pclave">function</span><span class="nvars"> ejec3</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span></span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">hay_inst</span><span class="simbind">(</span
@@ -1394,7 +1396,8 @@
 ><span class="nvars">V2</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
-<span class="comentarioc">/* Toma el registro X1 y llama a «ejec1» con y el puntero contenido en él. */</span>
+<span class="comentarioc">/* Toma el registro X1 y llama a «ejec1» con éste
+ * y el puntero contenido en él. */</span>
 <span class="pclave">function</span><span class="nvars"> ejecutar_inst</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">sacar_puntero</span><span class="simbind">(</span
 ><span class="nvars">X1</span><span class="simbind">);</span>
@@ -1412,9 +1415,12 @@
     <span class="pclave">return</span><span class="nvars"> ejecutar_inst</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
-<span class="comentarioc">/* Si X1 es 0 devuelve el registro y acaba la computación;
- * si es 1 ejecuta la siguiente instrucción, si la hubiera, en registro X2, es decir,
- * ejecuta el siguienet paso. */</span>
+<span class="comentarioc">/*
+ * Si X1 es 0 devuelve el registro y acaba la computación;
+ * si es 1 ejecuta la siguiente instrucción, si la hubiera, en
+ * registro X2, es decir,
+ * ejecuta el siguienet paso.
+ */</span>
 <span class="pclave">function</span><span class="nvars"> evaluar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">if</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind"> == </span><span class="numberp">0</span><span class="simbind">){</span>
@@ -1440,9 +1446,11 @@
 ><span class="nvars">V2</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
-<span class="comentarioc">/* Función recursiva primitiva que computa el mismo valor
+<span class="comentarioc">/*
+ *  Función recursiva primitiva que computa el mismo valor
  * que el programa C-- que recibe como argumento; en caso de terminar
- * devuelve un registro con el puntero y programa después del cómputo. */</span>
+ * devuelve un registro con el puntero y programa después del cómputo.
+ */</span>
 <span class="pclave">function</span><span class="nvars"> computar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">dos</span><span class="simbind">(</span
 ><span class="nvars">X1</span><span class="simbind">);</span>

@@ -74,7 +74,7 @@ switch($ruta[2]){
 			case "lenguaje":
 				$encabezado[1] = "Lenguaje AMT";
 				$orria = "./amt/tlenguaje.html";
-				$estilos = array("tlenguaje", "gramat", "colores_amt");
+				$estilos = array("gramat", "colores_amt", "tlenguaje");
 				break;
 			case "tmachine-cmm":
 				$encabezado[1] = "Máquina de Turing ejecutora de C--";
