@@ -6,18 +6,41 @@ h3{
 	color:#2c4048
 }
 
-p#explic{
-	margin:1em 0 1em;
+div#explic{
+	margin-bottom:2.2em
+}
+
+div#explic p{
 	line-height:1.45em;
 	max-width:50em;	
 }
 
+.listpro{
+    margin: 0.8em 0 0.8em 0.4em;
+}
+
+.listpro li{
+    list-style-type:square;
+    margin:0.8em 0 0.8em 0.8em;
+}
+
+.listprod{
+	margin:0.6em 0 2.3em 1.3em;
+    font-size:0.95em;
+}
+
+.listprod li{
+	list-style-type:disc;
+    margin:0.5em 0 0.7em 0;
+}
+
+#iconjunto{
+	margin:0 0.15em;
+}
+
 #lis_ins{
 	list-style-type:none;
-	/* background-color:#efeff1; */
-	/* padding:0 0.8em; */
 	margin-top:1.2em;
-	/* border:solid 2px #152f65; */
 	border-radius:3px;
 	max-width:49em;
 }

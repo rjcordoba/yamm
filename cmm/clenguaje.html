@@ -1,11 +1,48 @@
 <main>
-  <p id="explic">
-	Los únicos símbolos con los que se escribe un programa son: <span class="simb">1</span>, <span class="simb">0</span>,
-	<span class="simb">=</span>, <span class="simb">＊</span>, y el símbolo <em>marca</em>: <span class="marca">’</span>.
-	El lenguaje define cómo colocar y eliminar marcas y el símbolo «1» en distintas posiciones.
-	Las instrucciones se colocan en posiciones consecutivas, empezando por la primera posición y en el orden en que aparecen en el programa.
-	Las instrucciones se ejecutan una detrás de otra empezando por la situada en la primera posición.
-  </p>
+  <div id="explic">
+	<p>
+	  Las instrucciones formadas por los símbolos <span class="simb">1</span>, <span class="simb">0</span>,
+	  <span class="simb">=</span>, <span class="simb">＊</span>, y el símbolo <em>marca</em>: <span class="marca">’</span>, de la manera definida
+	  abajo en la sección ‘instrucciones’, diremos que son <em>instrucciones efectivas</em>. Cualquier otra combinación de símbolos diremos que forman una
+	  instrucciones <em>no válida</em>. Una instrucción sin símbolos diremos que es una <em>instrucción nula</em>.
+	</p>
+	<p>
+	  Un programa se forma escribiendo instrucciones en una lista ordenada <i>L</i> de posiciones. Si <i>p</i> es la posición ocupada por la primera
+	  instrucción escrita de un conjunto de instrucciones ℂ, diremos que ℂ se ha escrito a partir de la posición <i>p</i>.
+	</p>
+	<p>
+	  Para formar un programa, un conjunto ℂ de instrucciones se escribe a partir de una posición <i>p</i> del siguiente modo:
+	</p>
+	<ol class="listpro">
+	  <li>Si ℂ no tiene instrucciones no se escribe nada.</li>
+	  <li>
+		<p>
+		  Si ℂ tiene más de una instrucción, sea <i>q</i> la siguiente posición a <i>p</i> en la lista de instrucciones <i>L</i>,
+		  <i>i</i> la primera instrucción en ℂ que se escribirá y ℤ = ℂ - {<i id="iconjunto">i</i>}. Para escribir ℂ:
+		</p>
+		<ol class="listprod">
+		  <li>
+			<p>
+			  se escribe la instrucción <i>i</i> en <i>p</i>.
+			</p>
+		  </li>
+		  <li>
+			<p>
+			  se escribe el conjunto de instrucciones ℤ a partir de la posición <i>q</i>.
+			</p>
+		  </li>	  
+		</ol>
+	  </li>
+	</ol>
+	<p>
+	  Se iniciará la ejecución de un programa compuesto por las instrucciones situadas en la lista ordenada de posiciones <i>L</i> ejecutando la instrucción
+	  situada en la primera posición de <i>L</i>.
+	</p>
+	<p>
+	  El resultado de ejecutar una instrucción no válida o una instrucción nula es el final de la ejecución del
+	  programa (se para la ejecución). La síntaxis de las instrucciones efectivas y el resultado de su ejecución son los siguientes:
+	</p>
+  </div>
   <h3>Instrucciones</h3>
   <ul id="lis_ins">
 	<li>

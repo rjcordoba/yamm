@@ -2,14 +2,11 @@
 <h3>C--</h3>
 <h4>Lenguaje</h4>
 <p>
-  Especificación del lenguaje de programación C--. Una lista ordenada de instrucciones del lenguaje forman un <em>programa</em>.
-  Para ejecutar el programa la instrucción inicial se coloca en la <em>primera posición</em> y el resto de instrucciones en
-  posiciones sucesivas. Cuando en una posición no hay nada o algo que no sea una instrucción tal y como se definen en la
-  especificación, diremos que en la posición hay una <em>instrucción nula</em>.		  
+  Especificación del lenguaje de programación C--. Se presentan las instrucciones y el modo de escribir un programa a partir de ellas.
 </p>
 <p>
   Durante la ejecución del programa se mantiene un indicador que señala la próxima instrucción en ser ejecutada; a este
-  indicador le llamaré <em>puntero</em>. Al conjunsto de programa y puntero le llamaré <em>registro</em>.
+  indicador le llamaré <em>puntero</em>. Al conjunto de programa y puntero le llamaré <em>registro</em>.
 </p>
 <p>
   Las instrucciones especifican cómo hay que modificar el registro. Cada ejecución de una instrucción diré que es un
@@ -20,7 +17,7 @@
   posición le llamaré la <em>posición referida</em> por la instrucción.
 </p>
 <p>
-  Al ente qeu ejecuta el programa C-- lo llamaré <em>computador</em>.
+  Al ente que ejecuta el programa C-- lo llamaré <em>computador</em>.
 </p>
 <h4>Macros</h4>
 <p>
@@ -165,24 +162,24 @@
 <ol class="regt">
   <li>
 	<p>
-	  Si el programa sólo tiene una instrucción se escoge cualquier celda; sea ésta ℂ. Diré que la instrucción, sea ésta <span class="oblicuo">inst</span>,
-	  se escribe a partir de ℂ si se hace de la siguiente manera:
+	  Si el programa sólo tiene una instrucción se escoge cualquier celda; sea ésta 𝕮. Diré que la instrucción, sea ésta <span class="oblicuo">inst</span>,
+	  se escribe a partir de 𝕮 si se hace de la siguiente manera:
 	</p>
 	<ol class="lrecsv">
 	  <li>
 		<p>
-		  si la instrucción es nula se escribe en ℂ el símbolo ‘’’ (comilla).
+		  si la instrucción es nula se escribe en 𝕮 el símbolo ‘’’ (comilla).
 		</p>
 	  </li>
 	  <li>
 		<p>
-		  si la instrucción <span class="oblicuo">inst</span> tiene un sólo símbolo se escribe éste en ℂ.
+		  si la instrucción <span class="oblicuo">inst</span> tiene un sólo símbolo se escribe éste en 𝕮.
 		</p>
 	  </li>
 	  <li>
 		<p>
-		  para escribir la instrucción <span class="oblicuo">inst</span><span class="comilla">’</span> se escribe <span class="oblicuo">inst</span> a partir de ℂ y el símbolo
-		  ‘’’ en &beta;.
+		  para escribir la instrucción <span class="oblicuo">inst</span><span class="comilla">’</span> se escribe <span class="oblicuo">inst</span>
+		  a partir de 𝕮 y el símbolo ‘’’ en &beta;.
 		</p>
 	  </li>
 	</ol>
@@ -190,8 +187,8 @@
   <li>
 	<p>
 	  Si es programa tiene más de una instrucción, sea <span class="oblicuo">P</span> el programa, <span class="oblicuo">inst</span> la última
-	  instrucción y <span class="oblicuo">P</span><span class="comilla">’</span> el programa resultante de quitar <span class="oblicuo">inst</span> a <span class="oblicuo">P</span>.
-	  Para escribir <span class="oblicuo">P</span>:
+	  instrucción y <span class="oblicuo">P</span><span class="comilla">’</span> el programa resultante de quitar <span class="oblicuo">inst</span>
+	  a <span class="oblicuo">P</span>. Para escribir <span class="oblicuo">P</span>:
 	</p>
 	<ol class="lrecsv">
 	  <li>
@@ -214,26 +211,23 @@
 	Por ejemplo, si el programa es:
   </p>
   <ol id="ejt">
-	<li>0</li>
-	<li>=<span class="comil"><span>’</span><span>’</span></span></li>
+	<li>1<span class="comil"><span>’</span></span></li>
+	<li>=</li>
 	<li>&nbsp;</li>
+	<li>0</li>
 	<li>1</li>
-	<li>1<span class="comil"><span>’</span><span>’</span></span></li>
 	<li>＊<span class="comil"><span>’</span><span>’</span><span>’</span><span>’</span></span></li>
   </ol>
   <p>
 	Habrá que escribir en la cinta:
   </p>
   <ol id="cinta">
-	<li>0</li>
+	<li>1</li>
+	<li>’</li>
 	<li>=</li>
-	<li>’</li>
-	<li>’</li>
 	<li>-</li>
+	<li>0</li>
 	<li>1</li>
-	<li>1</li>
-	<li>’</li>
-	<li>’</li>
 	<li class="astrsk"><span>＊</span></li>
 	<li>’</li>
 	<li>’</li>

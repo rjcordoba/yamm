@@ -5,7 +5,7 @@
     <title><?= $izenburua ?></title>
     <meta name="author" content="R. Córdoba García">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icono" type="image/png" href="/imgs/icono.svg"/>
+	<link rel="icono" type="image/svg" href="/imgs/icono.svg"/>
     <link rel="stylesheet" type="text/css" href="/css/general.css">
 	<?php foreach($estilos as $est): ?>
 	<link rel="stylesheet" type="text/css" href="/css/<?= $est ?>.css">
