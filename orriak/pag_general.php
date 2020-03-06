@@ -5,14 +5,14 @@
     <title><?= $izenburua ?></title>
     <meta name="author" content="R. Córdoba García">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icono" type="image/svg" href="/imgs/icono.svg"/>
+	<link rel="icon" type="image/png" href="/imgs/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/css/general.css">
 	<?php foreach($estilos as $est): ?>
 	<link rel="stylesheet" type="text/css" href="/css/<?= $est ?>.css">
 	<?php endforeach ?>
 	<script defer src="/js/principal.js"></script>
-	<?php foreach($js as $js): ?>
-	<script defer src="/js/<?= $js ?>.js"></script>
+	<?php foreach($js as $sjs): ?>
+	<script defer src="/js/<?= $sjs ?>.js"></script>
 	<?php endforeach ?>
   </head>
   <body>
@@ -53,7 +53,7 @@
 			  </ul>
 			</li>
 			<li>
-			  <h1><a href="/index.html">AMT</a></h1>
+			  <h1><a href="/es/amt/lenguaje">AMT</a></h1>
 			  <ul>
 		  		<li><a href="/es/amt/lenguaje">lenguaje</a></li>
 		  		<li><a href="/es/amt/tmachine-cmm">ejemplo C--</a></li>

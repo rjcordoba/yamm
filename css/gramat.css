@@ -104,15 +104,20 @@
 	font-style:italic;	
 }
 
-@media (max-width:740px){
+@media (max-width:790px){
 	.gramat{
 		max-width:100%;
+		font-size:0.9em;
 	}
 
 	.gramat ol > li{
 		margin-bottom:0.9em;
 	}
 
+	.gramat ol > li:last-child ul li{
+		margin-bottom:0;
+	}
+	
 	.gramat ul li{
 		white-space:nowrap;
 		margin:0 0.4em 0.5em 0;

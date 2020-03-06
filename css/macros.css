@@ -31,7 +31,7 @@ main{
 	display:flex;
 	font-size:0.95em;
 	align-items:center;
-	margin:2em 1em 3em 1em;
+	margin:2em 1em 3em 0.6em;
 }
 
 .main > *:first-child{
@@ -293,6 +293,7 @@ sub{
 
 .mmacro{
 	display:flex;
+	flex-wrap: wrap;
 	align-items:center;
 	margin-bottom:var(--glue-macro);
 	max-width:100%;
@@ -605,16 +606,18 @@ dl.expansor dt.flechita::before{
 	border:solid 1px #ced6ce;
 	border-radius:0.2em;
 	max-width:44em;
+	line-height:1.7em;
 }
 
 .postulado h1{
 	font-size:0.9em;
+	line-height:1em;
 	background-color:#edefed;
 	color:#474e22;
 }
 
 .postulado > ol{
-	margin:0.9em 0 0 1.5em;
+	margin:0.7em 0 0 1.5em;
 }
 
 .postulado > ol li{
@@ -623,7 +626,7 @@ dl.expansor dt.flechita::before{
 }
 
 .postulado > ol ol{
-	margin:0.75em 0 0 1.5em;
+	margin:0.55em 0 0 1.5em;
 }
 
 .postulado > ol ol li{
@@ -883,13 +886,23 @@ pre sub .comil{
 }
 
 @media (max-width:790px){
-	body{
-		font-size:25px;
+	.hojas{
+		font-size:0.9em;
+		margin-left:0;
 	}
+
+	.hojas > span{
+		display:none;
+	}
+
+	h3{
+		margin-bottom:1.2em;
+	}
+
 	.macro{
 		display:block;
 		padding:0.33em 0.4em;
-		font-size:1.3em;
+		font-size:1.1em;
 	}
 
 	.macro > *:first-child, .flecha{
@@ -897,9 +910,8 @@ pre sub .comil{
 		text-align:center;
 	}
 
-	.mmacro{
-		display:block;
-	}
+	/* .mmacro{ */
+	/* } */
 
 	.macro.flech{
 		padding-right:0.4em;
@@ -916,7 +928,8 @@ pre sub .comil{
 	}
 
 	.mmacro .macrodond{
-		margin-top:1.4em;
+		margin:1em 0 0 1.2em;
+		white-space:nowrap;
 	}
 
 	.flechita{
@@ -924,9 +937,13 @@ pre sub .comil{
 		bottom:0.1em;
 		left:3.5em;
 	}
-	
+
 	.macro pre{
 		overflow-x:auto;
+	}
+
+	.expansor .macro{
+		font-size:1em;
 	}
 
 	.ejemplos .flechita::before {
@@ -939,6 +956,7 @@ pre sub .comil{
 
 	.flecha::before{
 		content:"⬇";
+		font-size:1em;
 	}
 
 	.ejemplos{
@@ -979,7 +997,7 @@ pre sub .comil{
 
 	.ejemplos > ol > li::after{
 		content:"⇓";
-		margin:0.7em 0;
+		margin:0.3em 0;
 		text-align:center;
 		display: block;
 	}

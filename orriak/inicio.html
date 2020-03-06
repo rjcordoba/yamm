@@ -1,8 +1,11 @@
 <p>Las secciones del sitio son las siguientes:</p>
 <h3>C--</h3>
-<h4>Lenguaje</h4>
+<h4><a href="/es/cmm/lenguaje">Lenguaje</a></h4>
 <p>
   Especificación del lenguaje de programación C--. Se presentan las instrucciones y el modo de escribir un programa a partir de ellas.
+  Las instrucciones se definen usando reglas gramaticales, donde los no terminales están en cursiva, los terminales en negrita, el
+  símbolo ‘→’ se usa entre el símbolo en la cabecera de la regla y los símbolos por los que puede ser sustituido y el símbolo
+  ‘|’ para separar las opciones de sustitución.
 </p>
 <p>
   Durante la ejecución del programa se mantiene un indicador que señala la próxima instrucción en ser ejecutada; a este
@@ -19,7 +22,7 @@
 <p>
   Al ente que ejecuta el programa C-- lo llamaré <em>computador</em>.
 </p>
-<h4>Macros</h4>
+<h4><a href="/es/cmm/macros/1">Macros</a></h4>
 <p>
   Se presentan una serie de macroinstrucciones, cadenas de símbolos que pueden ser sustituidos sistemáticamente por otras cadenas.
   Al ente que realiza esta sustitución de símbolos le llamaré <em>expansor</em> o <em>traductor</em>. Se presentan además algunas
@@ -63,13 +66,13 @@
 	</p>
   </li>
 </ul>
-<h4>Ejemplo Turing</h4>
+<h4><a href="/es/cmm/tmachine">Ejemplo Turing</a></h4>
 <p>
   Se muestra un programa en C-- (usando macros) que ejecuta una máquina de Turing introducida como dato. Con este ejemplo se pretende
   demostrar que se puede imitar la computación de cualquier máquina, siendo este programa en efecto una máquina universal de Turing
   escrita en C--.
 </p>
-<h4>Ejemplo recursivo</h4>
+<h4><a href="/es/cmm/recursive">Ejemplo recursivo</a></h4>
 <p>
   Se muestra un programa en C-- (usando macros), que usa una función recursiva primitiva que computa lo mismo que un programa C-- que
   se recibe como argumento. La función actúa pues, extrapolando la terminología de Turing, como un ejecutor universal de programas C--.
@@ -100,7 +103,8 @@
 </ol>
 <h5 class="hrecur">codificación de programa</h5>
 <p>
-  Usando la notación <i>p</i><span class="codprog"></span><i>n</i>, donde <i>p</i> es un programa y <i>n</i> su código:
+  Sea <i>L</i> la lista ordenada donde están escritas las instruccionhes del programa <i>p</i> que se va a codificar. Usando la
+  notación <i>p</i><span class="codprog"></span><i>n</i>, donde <i>p</i> es el programa y <i>n</i> su código:
 </p>
 <ol class="lrecsv">
   <li>
@@ -110,16 +114,19 @@
   </li>
   <li>
 	<p>
-	  Sea <i>p</i> un programa, <i>x</i> su única instrucción y <i>x</i><span class="codinst"></span><i>n</i>;
-	  entonces <i>p</i><span class="codprog"></span>3<sup><i>n</i></sup>.		
+	  Si el programa consta de una única instrucción <i>x</i> escrita en la primera posición de <i>L</i>,
+	  entonces <i>p</i><span class="codprog"></span>3<sup><i>n</i></sup>.
 	</p>
   </li>
   <li>
 	<p>
-	  Sea <i>p</i><span class="codprog"></span><i>n</i>, <i>x</i><span class="codinst"></span><i>m</i>, <i>s</i> una posición
-	  vacía en <i>p</i> y <i>q</i> el programa resultante de añadir a <i>p</i> la instrucción <i>x</i> en la posición <i>s</i>;
-	  entonces <i>q</i><span class="codprog"></span><i>n</i> × α<sup><i>m</i></sup>, donde α es un número primo y <i>s</i>
-	  el número de primos menores que α.
+	  Si el programa consta de más de una instrucción, sea <i>q</i> un programa escrito en <i>L</i>, 𝖗 la última posición usada en <i>L</i>
+	  para escribir las instrucciones de <i>q</i> y sea <i>q</i> de tal forma que <i>p</i> es el programa resultante de escribir la
+	  instrucción <i>x</i> en la siguiente posición de 𝖗 en <i>L</i>. Sea <i>x</i><span class="codinst"></span><i>n</i> y
+	  <i>q</i><span class="codprog"></span><i>m</i>; sea a su vez <i>w</i> el programa resultante de sustituir todas las instrucciones del programa
+	  <i>q</i> por instrucciones ‘0’ y <i>w</i><span class="codprog"></span><i>z</i>; entonces 
+	  <i>p</i><span class="codprog"></span><i>m</i> × α<sup><i>n</i></sup>, donde α es el menor número primo mayor que el mayor divisor
+	  de <i>z</i>.
 	</p>
   </li>
 </ol>
@@ -143,13 +150,13 @@
   </p>
 </aside>
 <h3>AMT</h3>
-<h4>Lenguaje</h4>
+<h4><a href="/es/amt/lenguaje">Lenguaje</a></h4>
 <p>
   Se presenta el lenguaje AMT (Alan Mathison Turing) para escribir máquinas de Turing. Este lenguaje es el definido por el propio Turing
   (‘<span class="oblicuo">On Computable Numbers, with an Application to the Entscheidungsproblem</span>’), salvo alguna pequeña modificación
   para evitar ambigüedades a la hora de interpretarlo.
 </p>
-<h4>Ejemplo C--</h4>
+<h4><a href="/es/amt/tmachine-cmm">Ejemplo C--</a></h4>
 <p>
   Se presenta una máquina de Turing que ejecuta programas C--. La máquina empieza con el programa escrito en la cinta y el lector posicionado
   en, o a la derecha de, la celda más a la izquierda que no esté vacía. El programa C-- se escribe en la cinta de la siguiente manera:
@@ -208,7 +215,7 @@
 </p>
 <aside class="ejemplo">
   <p>
-	Por ejemplo, si el programa es:
+	Por ejemplo, si el programa C-- que se quiere que ejecute la máquina de Turing es:
   </p>
   <ol id="ejt">
 	<li>1<span class="comil"><span>’</span></span></li>
@@ -219,7 +226,7 @@
 	<li>＊<span class="comil"><span>’</span><span>’</span><span>’</span><span>’</span></span></li>
   </ol>
   <p>
-	Habrá que escribir en la cinta:
+	Habrá que escribir en la cinta de la máquina:
   </p>
   <ol id="cinta">
 	<li>1</li>

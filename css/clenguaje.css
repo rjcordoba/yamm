@@ -7,11 +7,11 @@ h3{
 }
 
 div#explic{
-	margin-bottom:2.2em
+	margin:0 1em 2.2em 0;
 }
 
 div#explic p{
-	line-height:1.45em;
+	line-height:1.55em;
 	max-width:50em;	
 }
 
@@ -40,7 +40,7 @@ div#explic p{
 
 #lis_ins{
 	list-style-type:none;
-	margin-top:1.2em;
+	margin-top:1.2em 1em 0 0;
 	border-radius:3px;
 	max-width:49em;
 }
@@ -61,7 +61,8 @@ div#explic p{
 }
 
 #lis_ins > li > div{
-	max-width:45em;
+	width:45em;
+	max-width:100%;
 	font-size:0.91em;
 	line-height:1.5em;
 }
@@ -140,5 +141,15 @@ span.marca{
 
 	h3 {
 		margin-bottom:0;
+	}
+}
+
+@media (max-width:780px){
+	div#explic{
+		margin-bottom:1em;
+	}
+
+	div#explic p{
+		line-height:1.6em;
 	}
 }
