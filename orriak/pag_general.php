@@ -14,6 +14,13 @@
 	<?php foreach($js as $sjs): ?>
 	<script defer src="/js/<?= $sjs ?>.js"></script>
 	<?php endforeach ?>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159928104-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-159928104-1');
+	</script>
   </head>
   <body>
     <header id="cabecera">
@@ -74,8 +81,8 @@
 	  </div>
 	</div>
 	<div id="scroll_gen">
-	  <a href="#cabecera" title="Scroll arriba">⬆</a>
-	  <a href="#pie" title="Scroll abajo">⬇</a>
+	  <a href="#" title="Scroll arriba">⬆</a>
+	  <a href="#" title="Scroll abajo">⬇</a>
 	</div>
     <footer id="pie">
 	  <div class="anchura">

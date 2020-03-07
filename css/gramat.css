@@ -6,6 +6,7 @@
 	width:fit-content;
 	width:-moz-fit-content;
 	padding:1em;
+	padding-bottom:0.5em;
 	border:solid 1px #c2c5c5;
 	border-radius:0.12em;
 	overflow-x:auto;
@@ -112,10 +113,6 @@
 
 	.gramat ol > li{
 		margin-bottom:0.9em;
-	}
-
-	.gramat ol > li:last-child ul li{
-		margin-bottom:0;
 	}
 	
 	.gramat ul li{

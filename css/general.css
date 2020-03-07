@@ -310,10 +310,6 @@ body > footer{
 }
 
 @media (max-width:887px){
-	body{
-		/* font-size:15px; */
-    }
-
 	#cont-principal{
 		padding-left:5%;
 	}
@@ -357,7 +353,6 @@ body > footer{
 	}
 
 	#hamburguesa{
-		position:relative;
 		width:1.6em;
 	}
 

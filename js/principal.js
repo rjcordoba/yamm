@@ -18,9 +18,25 @@ ext_macros.addEventListener("click", () => {macros_nums.classList.toggle("extend
 
 flechas.style.display = "none";
 
-// const flechasa = flechas.getElementsByTagName("a");
-// flechasa[0].addEventListener("click", () => {window.scrollTo(0, 0);}, false);
-// flechasa[1].addEventListener("click", () => {window.scrollTo(0,document.body.scrollHeight);}, false);
+(function(){
+ const flechasa = flechas.getElementsByTagName("a");
+
+ flechasa[0].addEventListener("click", (e) => {
+	 e.preventDefault();
+	 window.scrollTo({
+		 top:0,
+		 left:0,
+		 behavior:'smooth'});
+ }, false);
+
+ flechasa[1].addEventListener("click", (e) => {
+	 e.preventDefault();
+	 window.scrollTo({
+		 top:document.body.scrollHeight,
+		 left:0,
+		 behavior:'smooth'});
+ }, false);
+})();
 
 
 function paraScroll(){
