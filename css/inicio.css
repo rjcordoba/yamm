@@ -26,12 +26,15 @@ h3{
 
 h4{
 	font-size:1.3em;
-	color:#37376b;
 	margin:1.2em 0.1em 0.25em;
 }
 
 h4 a:link, h4 a:visited{
-	color:inherit;
+	color:#1d3646;
+}
+
+h4 a:hover{
+	color:#2e5e7d;
 }
 
 .flecha{
@@ -102,9 +105,15 @@ h4 a:link, h4 a:visited{
 
 h5.hrecur{
 	color:#326a82;;
-	margin:0.6em 0 0.5em 0.2em;
+	margin:1em 0 0.5em 0.2em;
 	font-size:1em;
-	text-decoration:underline;
+}
+
+h5.hrecur span::before{
+	content:"⎈ ";
+	position:relative;
+	bottom:0.1em;
+	font-size:0.7em;
 }
 
 ol.lrecsv{

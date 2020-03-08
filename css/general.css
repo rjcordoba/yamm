@@ -40,7 +40,7 @@ img{
 
 #encabezado h2{
 	font-size:1.6em;
-	margin:0.7em 0 0 0;
+	margin-top:0.7em;
 }
 
 .anchura{
@@ -501,10 +501,18 @@ body > footer{
 		font-size:20px;
 	}
 
+	#cont-principal{
+		padding:1.75em 3%;
+	}
+	
 	#encabezado{
 		font-size:1.15em;
 		margin-left:0.7em;
 		margin-bottom:1em;
+	}
+
+	#encabezado h2{
+		margin-top:0.35em;
 	}
 
 	#logop{
@@ -523,10 +531,6 @@ body > footer{
 		left:50%;
 		transform:translate(-50%, -50%);
 		opacity:0.05;
-	}
-
-	#cont-principal{
-		padding:2em 3%;
 	}
 	
 	#scroll_gen{

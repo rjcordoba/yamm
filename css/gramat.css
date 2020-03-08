@@ -9,7 +9,6 @@
 	padding-bottom:0.5em;
 	border:solid 1px #c2c5c5;
 	border-radius:0.12em;
-	overflow-x:auto;
 	max-width:100%;
 	box-sizing:border-box;
 }
@@ -47,6 +46,7 @@
 .gramat ol > li{
 	display:flex;
 	margin-bottom:0.67em;
+	overflow-x:auto;
 }
 
 .gramat ol > li:last-child{
