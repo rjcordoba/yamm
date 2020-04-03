@@ -86,11 +86,17 @@
 	</div>
     <footer id="pie">
 	  <div class="anchura">
-		<div id="autor">
-		  <p>R. Córdoba García</p>
-		  <address>rcordoba77@gmail.com</address>
+		<div id="dsitio">
+		  <div id="autor">
+			<p>R. Córdoba García</p>
+			<address>rcordoba77@gmail.com</address>
+		  </div>
+		  <div id="reconocimientos">
+			  <p>Fuente <span id="fraktur" class="fuente">Kleist Fraktur</span> usada con permiso de <a href="http://www.steffmann.de/">Dieter Steffmann</a>.</p>
+			  <p>Fuente <span id="gabriele" class="fuente">Gabriele Bad</span> usada con permiso de <a href="http://www.fontgrube.de/">Andreas Höfeld</a>.</p>
+		  </div>
 		</div>
-	  </div>
+	  </div>	  
     </footer>
   </body>
 </html>

@@ -1,14 +1,3 @@
-@font-face {
-  font-family:escribir;
-  src: url(../fuentes/Typewriter_dry.otf);
-}
-
-@font-face {
-  font-family:alemana;
-  /* src: url(../fuentes/Bertholdr_Mainzer_Fraktur.ttf); */
-  src: url(../fuentes/Kleist-Fraktur.ttf);
-}
-
 #pizarra *::selection{
 	 background-color:#eef595;
 	 color:#222304;

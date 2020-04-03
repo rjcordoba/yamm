@@ -1,0 +1,247 @@
+<div class="expansor">
+  <h1>Expansiones finales</h1>
+  <p class="mimp">Cuando sólo quedan <span class="noterm">preinstrucciones</span>, el expansor:</p>
+  <ol>
+	<li>Por cada <span class="noterm">id</span> que aparezca en alguna <span class="noterm">preinstrucción</span> <span class="nnoterm">x</span><sup>.<span class="noterm">id</span></sup>:
+	  <ol>
+		<li>añade al final una nueva instrucción ‘1’ y una señal <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> apuntando a esta instrucción.</li>
+		<li>sustituye todas las apariciones de .<span class="noterm">id</span> por <span class="pos_puntos nnoterm pbajo">i</span>.</li>
+	  </ol>
+	</li>
+	<li>Asocia un <span class="noterm">natural</span> a cada <span class="noterm">preinstrucción</span> en el orden en que aparecen:
+	  <ol>
+		<li>a la primera <span class="noterm">preinstrucción</span> le asocia 1.</li>
+		<li>si a una <span class="noterm">preinstrucción</span> le asocia <span class="nnoterm">m</span>,
+		  a la siguiente le asociará <span class="nnoterm">n</span>, donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</li>
+	  </ol>
+	</li>
+	<li>
+	  Por cada señal <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> sustituye en <span class="noterm">macroinstrucciones</span> todas las apariciones de
+	  <span class="pos_puntos nnoterm pbajo">i</span> por <span class="nnoterm">n</span>, donde <span class="nnoterm">n</span> es el <span class="noterm">natural</span>
+	  asociado a la <span class="noterm">preinstrucción</span> a la que apunta <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span>.
+	</li>
+	<li>Expande las <span class="noterm">preinstrucción</span> de la forma <span class="nnoterm">x</span><sup class="nnoterm">n</sup>.</li>
+  </ol>
+</div>
+<aside class="ejemplos">
+  <h1>Ejemplo</h1>
+  <ol>
+	<li>
+	  <div>
+		<pre><code><span class="pclave">INIT</span>
+<span class="simbexp">Z</span><sub class="id_exp">.sum1</sub><span class="simbind"> = </span><span class="numberp">2</span><span class="simbind">;</span>
+<span class="simbexp">Z</span><sub class="id_exp">.resa</sub><span class="simbind"> = </span><span class="simbexp"
+>Z</span><sub class="id_exp">.sum1</sub>;</code></pre>
+		</div>
+	  </li>
+	  <li>
+		<p class="puntitos"></p>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <pre><code>1
+0<sup class="id_exp">.sum1</sup>
+1<sup class="id_exp">.sum1</sup>
+1<sup class="id_exp">.sum1</sup>
+0
+=
+1<span class="flechita"><span class="pos_puntos">2</span></span>
+=<sup class="id_exp">.sum1</sup>
+＊<sup class="pos_puntos">2</sup>
+0<sup class="id_exp">.resa</sup>
+=
+1<sup class="id_exp">.resa</sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="id_exp">.resa</sup>
+＊<sup class="pos_puntos">1</sup></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <pre><code>1
+0<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+0
+=
+1<span class="flechita"><span class="pos_puntos">2</span></span>
+=<sup class="pos_puntos">3</sup>
+＊<sup class="pos_puntos">2</sup>
+0<sup class="id_exp">.resa</sup>
+=
+1<sup class="id_exp">.resa</sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="id_exp">.resa</sup>
+＊<sup class="pos_puntos">1</sup>
+1<span class="flechita"><span class="pos_puntos">3</span></span></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <pre><code>1
+0<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+0
+=
+1<span class="flechita"><span class="pos_puntos">2</span></span>
+=<sup class="pos_puntos">3</sup>
+＊<sup class="pos_puntos">2</sup>
+0<sup class="numbers"><span class="pos_puntos">4</span></sup>
+=
+1<sup class="numbers"><span class="pos_puntos">4</span></sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers"><span class="pos_puntos">4</span></sup>
+＊<sup class="pos_puntos">1</sup>
+1<span class="flechita"><span class="pos_puntos">3</span></span>
+1<span class="flechita"><span class="pos_puntos">4</span></span></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div class="flech">
+		  <ol class="resalt_nums">
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
+>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
+		  </ol>
+		  <pre><code>1
+0<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+1<sup class="pos_puntos">3</sup>
+0
+=
+1<span class="flechita"><span class="pos_puntos">2</span></span>
+=<sup class="pos_puntos">3</sup>
+＊<sup class="pos_puntos">2</sup>
+0<sup class="numbers"><span class="pos_puntos">4</span></sup>
+=
+1<sup class="numbers"><span class="pos_puntos">4</span></sup><span class="flechita"><span class="pos_puntos">1</span></span>
+=<sup class="numbers"><span class="pos_puntos">4</span></sup>
+＊<sup class="pos_puntos">1</sup>
+1<span class="flechita"><span class="pos_puntos">3</span></span>
+1<span class="flechita"><span class="pos_puntos">4</span></span></code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div>
+		  <ol class="resalt_nums">
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
+>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
+		  </ol>
+		  <pre><code>1
+0<sup class="numbers">15</sup>
+1<sup class="numbers">15</sup>
+1<sup class="numbers">15</sup>
+0
+=
+1
+=<sup class="numbers">15</sup>
+＊<sup class="numbers">7</sup>
+0<sup class="numbers">16</sup>
+=
+1<sup class="numbers">16</sup>
+=<sup class="numbers">16</sup>
+＊<sup class="numbers">12</sup>
+1
+1</code></pre>
+		</div>
+	  </li>
+	  <li>
+		<div>
+		  <ol class="resalt_nums">
+			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
+>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li>
+		  </ol>
+		  <pre><code>1
+0<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+0
+=
+1
+=<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+＊<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+0<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+=
+1<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+=<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span></span>
+＊<span class="comilla"><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span><span>’</span
+><span>’</span><span>’</span></span>
+1
+1</code></pre>
+		</div>
+	  </li>
+	</ol>
+  </aside>
+  <div class="gramat glue">
+	<ol>
+	  <li>
+		<div class="nnoterm">&lambda;</div>
+		<div class="flechag"></div>
+		<ul>
+		  <li><span class="noterm">natural</span></li>
+		  <li>Z<sub>&Omega;</sub></li>
+		</ul>
+	  </li>
+	</ol>
+  </div>
+  <h3>Op. Aritméticas 1</h3>
+  <div class="macro flech">
+	<pre><code>Z<sub>&Omega;</sub> += &lambda;;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>Z<sub>.opi</sub> = &lambda;;
+Z<sub>1</sub> = 0;
+＊<sup class="pos_puntos nnoterm">j</sup>
+1<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
+1<sup>&Omega;</sup>
+=<sup>.opi</sup><span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
+＊<sup class="pos_puntos nnoterm">i</sup></code></pre>
+  </div>
+  <div class="macro">
+	<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> + Z<sub>&Psi;</sub>;</code></pre>
+	<div class="flecha"></div>
+<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub>;
+Z<sub>&Omega;</sub> += Z<sub>&Psi;</sub>;</code></pre>
+  </div>
+  <div class="macro">
+	<pre><code>Z<sub>&Omega;</sub>++;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>1<sup>&Omega;</sup>;</code></pre>
+  </div>
+  <div class="macro flech">
+	<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> - Z<sub>&Psi;</sub>;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>Z<sub>&Omega;</sub> = 0;
+Z<sub>1</sub> = 0;
+JUMP
+Z<sub>1</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
+=<sup>&Phi;</sup>
+JUMP
+＊<sup class="pos_puntos nnoterm">j</sup>
+=<sup>&Psi;</sup>
+＊<sup class="pos_puntos nnoterm">i</sup>
+Z<sub>1</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">k</span></span>
+Z<sub>&Omega;</sub>++;
+=<sup>&Phi;</sup>
+＊<sup class="pos_puntos nnoterm">k</sup>
+<span class="puntitos"></span><span class="flechita"><span class="pos_puntos nnoterm">j</span></span></code></pre>
+  </div>
+  <div class="macro flech">
+	<pre><code>Z<sub>&Omega;</sub>--;</code></pre>
+	<div class="flecha"></div>
+<pre><code>Z<sub>1</sub> = 0;
+=<sup>&Omega;</sup>
+JUMP
+＊<sup class="pos_puntos nnoterm">i</sup>
+Z<sub>.opi</sub>= Z<sub>&Omega;</sub>;
+Z<sub>&Omega;</sub> = 0;
+JUMP
+Z<sub>&Omega;</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
+Z<sub>1</sub>++;
+=<sup>.opi</sup>
+＊<sup class="pos_puntos nnoterm">j</sup>
+...<span class="flechita"><span class="pos_puntos nnoterm">i</span></span></code></pre>
+  </div>

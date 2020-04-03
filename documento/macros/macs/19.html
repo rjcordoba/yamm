@@ -1,0 +1,22 @@
+<h3>Librería estándar 1’’</h3>
+<div class="macro larga">
+  <pre><code>#include malloc</code></pre>
+  <div class="flecha"></div>
+  <pre class="include claro"> 
+<span class="pclave">void</span> <span class="nvars">malloc</span><span class="simbind">(</span><span class="pclave">unsigned int </span><span class="nvars">n</span><span class="simbind">){</span>   
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub> = <span class="nvars">n</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="pos_puntos">$npos</sub><span class="simbind"> += </span><span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">void</span> <span class="nvars">free</span><span class="simbind">(</span><span class="pclave">unsigned int </span><span class="nvars">n</span><span class="simbind">){</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub> = <span class="nvars">n</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="pos_puntos">$npos</sub><span class="simbind"> -= </span><span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind">;</span>
+<span class="simbind">}</span>
+	</pre>
+  </div>
+  <div class="macro">
+	<pre><code><span class="term">#include cmmstd</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="term">#include arit_float</span>
+<span class="term">#include malloc</span></code></pre>
+  </div>
