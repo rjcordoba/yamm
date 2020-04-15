@@ -40,5 +40,6 @@ for(let i = 1; i < lins; i++){
 
 if(lins > 225){
 	document.getElementById("pantalla").classList.add("editor_corto");
+	editor.classList.add("tam_imp");
 }
 

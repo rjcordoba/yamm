@@ -3,18 +3,18 @@
 \encabezadop{Sobre el trabajo}
 El presente trabajo trata sobre la equivalencia de distintos tipos de modelos de cómputo; más
 concretamente se centra en demostrar que la potencia de cómputo de los lenguajes actuales, las
-máquinas de Turing y las funciones recursivas es igual, esto es, que cualquier algoritmo que se
-puede expresar en cualquiera de estos modelos se puede expresar también en los otros dos. En toda la
-explicación se da por hecho que se conoce la teoría sobre las máquinas tal y como las definió
-originalmente Turing (\hskip0.1em[1]\hskip0.1em) y las reglas para definir funciones recursivas
-presentadas por S.~C. Kleene en [5].
+máquinas de Turing y las funciones recursivas es igual, esto es, que cualquier problema que se puede
+resolver en cualquiera de estos modelos se puede resolver también en los otros. En toda la
+explicación se da por hecho que se conoce la teoría sobre las máquinas de Turing tal y como las
+definió originalmente su creador (\hskip0.1em[1]\hskip0.1em) y las reglas para definir funciones
+recursivas según están presentadas por S.~C. Kleene en [5].
 
 \def\lambda{λ-\hskip0.1em}
 \encabezados{Justificación y explicación}
 Las máquinas de Turing y el \lambda cálculo inventado por Alonzo Church, así como la teoría sobre las
 funciones recursivas, nacieron en el siglo XX en el marco de los estudios de lógica y el límite
 de lo resoluble. La tesis Church-Turing nos dice que cualquier problema para el que exista un
-algoritmo que lo solucione puede resolverse tanto con una máquina de Turing como usando \lambda
+procedimiento que lo solucione puede resolverse tanto con una máquina de Turing como usando \lambda
 cálculo.
 
 La tesis no se puede demostrar pero tampoco ha sido refutada, con lo que sabemos que no hay método
@@ -25,16 +25,82 @@ de Turing. Sin embargo a la mayoria de personas que empieza a estudiar computaci
 capacidad de cómputo le surge en sentido contrario: ¿cómo es posible con un método tan simple como
 una máquina de Turing resolver lo que resuelve un ordenador actual?
 
-Este trabajo no contiene, pues, algo novedoso ni especialmente interesante; simplemente pretende
-responder a la pregunta anterior dando una demostración más, desde un punto de vista práctico,
-de algo que aunque sabido no es obvio. Algo así como dar un modo de hacer recetas de Thermomix en una
-cocina de posguerra; se necesita más tiempo y se mancha más, pero es posible hacerlo.
+Cuando leemos un tratado sobre una pintura conocida, o una demostración del teorema de Pitágoras
+posiblemente sea por lo interesante que resulta admirar desde otros puntos de vista las obras e
+ideas que nos gustan, y en todo caso nos da una excusa para reflexionar sobre ellas. El hecho de que
+existan tantas obras sobre un mismo tema y docenas de demostraciones distintas del teorema de
+Pitágoras es buena evidencia.
+
+Este trabajo no contiene algo novedoso ni especialmente interesante; es otro acercamiento, desde la
+admiración, a algunas ideas fundamentales de la ciencia y los genios que las engendraron.
+%% Algo así como dar un modo de hacer recetas de Thermomix en
+%% cocina de posguerra; se necesita más tiempo y se mancha más, pero es posible hacerlo.
+
+\encabezados{Lenguaje moderno}
+Las demostraciones de la equivalencia con un lenguaje de programación de los utilizados actualmente
+se hará usando uno concreto. Se ha elegido el lenguaje C entre otras razones porque (1) es un
+lenguaje, al igual que el entorno del que surgió, de gran importancia histórica. Creado por Dennis
+Ritchie en los años 70 para ayudar a desarrollar herramientas para UNIX y el propio sistema
+operativo, ha influenciado desarrollos posteriores, representando pues una pieza importante en el
+camino que va desde ideas fundacionales de las que trata este trabajo hasta la informática del siglo
+XXI; (2) la sencillez de su sintaxis y semántica facilitan mucho las demostraciones; (3) se ha usado
+y se usa para crear programas de los tipos más variados, desde bases de datos hasta sistemas de
+inteligencia artificial o simuladores 3D. Esto hace ver claramente el alcance de cualquier sistema
+que pueda computar lo que computa un programa en este lenguaje; por ejemplo, quedará claro que si
+los ordenadores pueden llegar a dominar a la humanidad entonces las máquinas de Turing pueden
+dominar el mundo.
 
 \encabezados{Estructura del trabajo}
 La mayoría de demostraciones sobre sistemas de cómputo que se pueden encontrar se basan en conceptos
-teóricos. Las demostraciones dadas aquí son más pedestres por así decirlo; se hacen presentando
-soluciones completas.
+teóricos. Las demostraciones dadas aquí son más pedestres por así decirlo; se saca los modelos de
+computación presentados de su contexto teórico presentando ejemplos prácticos completos.
+
 Se empezará con la motivación primera del trabajo, que es la demostración de que para cualquier
-algoritmo, por complejo que sea, que se escriba en un lenguaje de programación de los usados hoy,
-existe una máquina de Turing que ejecuta u
+programa, por complejo que sea, que se escriba en un lenguaje de programación de los usados hoy,
+existe una máquina de Turing equivalente, esto es, que resuelve el mismo problema. Como se ha dicho
+anteriormente, concretamente se pretende demostrar que dado un programa en C se puede encontrar una
+máquina de Turing equivalente.  Una solución sería encontrar un método de traducir las instrucciones
+del programa en la especificación de la máquina, algo así como un compilador de C a máquina de
+Turing. Esto es muy complicado, y desde luego fuera de mi alcance. Otro enfoque sería usar como dato
+para la máquina cualquier programa en C dado, escribiéndolo en la cinta, y crear una máquina de
+Turing universal ejecutora de programas C. Esto parece aún más difícil, como crear una máquina que
+compile y luego ejecute los programas. Basado en esta idea más sencillo parece crear una máquina que
+ejecute programas escritos en código ensamblador o código máquina resultante de compilar el programa
+en C, lo que bastaría para demostrar lo que se propone. Sigue siendo muy difícil crear una máquina
+así. El camino que se tomará estará basado en esta última idea: crearemos un lenguaje de
+programación y una máquina que ejecute programas escritos en este lenguaje.  Esta no es sin embargo
+la solución que se busca, ya que el programa en C computa a partir de unos datos de entrada y la
+máquina que se propone toma como entrada el programa entero; no obstante, una vez mostrada esta
+máquina, demostrar que hay otra maquina que da la misma solución a partir de los mismos datos de
+entrada que recibe el programa en C será fácil.
+
+La dificultad estará pues en demostrar que este lenguaje es equivalente al lenguaje C en el mismo
+sentido que se ha explicado antes. Se creará primero el lenguaje, teniendo en cuenta que los
+programas escritos en él deben ser leídos por una máquina de Turing y debe ser sencilla la
+demostración de la equivalencia con C. Luego se presentará la demostración, que ocupará la mayor
+parte del trabajo. A este nuevo lenguaje, que será muy simple y equivalente a C en cuanto a potencia
+computacional le llamaremos C--.
+
+La demostración sobre la equivalencia de las funciones recursivas también usará este
+lenguaje. Primero especificaremos una forma de codificar, basada en la codificación de Gödel, con la
+que transformar cualquier programa escrito en C-- como un número natural. El grueso de la
+demostración consiste en presentar $ {}^† $ una función recursiva escrita en C que toma como
+argumento la codificación de (vuélvase a † si se quiere) un programa no recursivo escrito en C--,
+que como se habrá demostrado es equivalente a alguna máquina de Turing. Esta función recursiva
+devuelve un número natural que será la codificación del programa usado como entrada tal y como
+quedaría después de ejecutarlo; es decir, la función recursiva ‘imita’ la forma en que actuaría un
+ejecutor de programas C--.
+
+Por último se demuestra que hay algún programa en C, y por tanto en C--, equivalente a cualquier
+máquina de Turing. Esto se hace mostrando un ejemplo concreto e indicando como se puede modificar el
+programa del ejemplo para hacerlo equivalente a otras máquinas.
+
+El modo en el que se construyen las funciones recursivas y la simulitud en la sintaxis de C para
+escribir funciones y la usada por Kleene, que es la que se usa en este trabajo, hace innecesaria la
+desmostración de que cualquier función recursiva puede escribirse como un programa en C. Por otra
+parte, una función recursiva en C puede escribirse como un programa en C--, para el que existe una
+máquina de Turing equivalente, para la que a su vez existe un programa en C equivalente. Esto será
+una demostración indirecta de que cualquier programa recursivo puede escribirse como uno no
+recursivo, ya que el programa en C equivalente a las máquinas de Turing que se construye en la
+demostración es no recursivo.
 \end

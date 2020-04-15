@@ -151,6 +151,10 @@ main{
 		font-size:1.3em;
 	}
 
+	#editor.tam_imp{
+		font-size:12pt;
+	}
+
 	*{
 		overflow:hidden !important;
 	}
