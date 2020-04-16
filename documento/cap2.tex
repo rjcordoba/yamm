@@ -1,0 +1,89 @@
+\input ./estilo
+
+\encabezadop{Algoritmos y programas}
+La definición más general de algoritmo podría ser la de un conjunto de instrucciones que llevan a la
+solución de algún problema. Según esta definición la consideración de algoritmo para un grupo de
+instrucciones dependería del sujeto que las interprete. Por un lado, un algoritmo puede presentarse
+de muchas maneras. Ejemplos de algoritmo, con datos y acciones indicadas más o menos explicitamente,
+podrían ser una serie de señalizaciones e indicaciones en un mapa si el problema es llegar de un
+punto a otro, una partitura musical si lo que se quiere resolver es como interpretar determinada
+pieza musical o las instrucciones para hallar el máximo común divisor de dos número tal y como la
+presenta Euclides en los {\it Elementos}, probablemente el ganador si se hiciese una encuesta sobre
+el primer algoritmo que le viene a la cabeza a un matemático cuando se le pide un ejemplo. Por otra
+parte, aun suponiendo que dos sujetos saben interpretar las instrucciones y de la misma manera, lo
+que pueden llevar a uno a la solución de un problema no tiene por qué ser útil para otro. El
+algoritmo más adecuado dependerá del problema y de quién lo interprete.  Aquí no nos interesa
+encontrar los mejores algoritmos o los más eficientes (de hecho serán terribles), sino atenernos al
+concepto de algoritmo tal y como se entiende en matemáticas; así, lo que trataremos es de encontrar
+una forma de definir algoritmos lo más libre posible de ambigüedades, tanto en la manera de
+definirlos como en el modo de interpretarlos, presuponiendo lo mínimo sobre las capacidades del
+sujeto que vaya a ejecutar el algoritmo, al que llamaremos de aquí en adelante {\it el
+ejecutor}. Concretamente queremos escribir instrucciones que una vez ejecutadas den como
+solución unos datos de salida a partir de unos datos de entrada.
+
+\encabezados{Acciones de las intrucciones}
+Imaginemos que el maestro en un taller tiene unas intrucciones para llevar a cabo determinado
+proceso. Si en algún momento el maestro quiere delegar la tarea en un aprendiz quizás estas
+instrucciones no sean suficientes para conseguir llevar a buen término la tarea; el maestro tendrá
+que suplementar las instrucciones con otras y expandir algunas de las instrucciones por otras más
+sencillas que en conjunto expresen lo mismo. Si el aprendiz quiere que un alumno recién llegado al
+taller se encargue de la tarea tendrá probablemente que hacer lo mismo y preparar otro conjunto de
+instrucciones más amplio que pueda ejecutar el alumno. La utilidad de un algoritmo no recae en que
+pueda explicar el problema sino en que permita encontrar la solución a un problema de manera
+sistemática. Lo que nos interesa es seguir el proceso anterior de simplificar el conjunto de
+intrucciones para lograr que pueda entenderlo el mayor número de personas, de tal modo que se puedan
+ejecutar las intrucciones sin necesidad de saber qué es lo que se está resolviendo.
+
+El reconocimiento de la utilidad de abstraer el problema de este modo está reflejado en el propio
+origen de la palabra {\it algoritmo}, derivado del título latino del libro de Mohammed Ben Musa
+donde explica cómo operar con los símbolos hindo-arábigos para los números, con lo que se podían
+resolver problemas numéricos de manera sistemática. Otro ejemplo de abstracción usando símbolos para
+representar un problema y resolverlo sistemáticamente es el propio álgebra (cuyo nombre proviene de
+otro libro del mismo autor). Esta misma idea de usar operaciones que se pueden llevar a cabo ‘sin
+pensar’ está detrás de los intentos entre los siglos XIX y XX de obtener todos los teoremas a partir
+de axiomas mediante reglas de inferencia y está expresada de manera genial por Turing cuando postula
+su modelo en el que es una máquina la que ejecuta las instrucciones.
+
+Considerando todo esto, todas las instrucciones que usaremos para definir algoritmos consistirán en
+acciones que hagan referencia a datos. Estas acciones serán simples y generales, sin relación con un
+problema concreto, con lo que se podrá usar el mismo conjunto de acciones para dar solución a
+distintos tipos de problemas.
+
+\encabezados{Datos}
+Para hacer referencia a distintos tipos de objetos de una forma no ambigua en las instrucciones y
+que se puedan interpretar en el resultado, necesitamos poder distinguir claramente unos y otros,
+identificarlos univocamente; así, los conjuntos de objetos con los que trabajemos se podrán
+enumerar. Una manera sencilla de escribir algoritmos para problemas con cualquier tipo de objeto con
+esta característica será usando los números naturales como único tipo de dato. De este modo se puede
+establecer una función biyectiva entre los naturales y los objetos con los que trabajemos; sera el
+escritor del algoritmo y el sujeto que haga uso de él quienes definan implícitamente está función e
+interpreten los datos según la finalidad del algoritmo y el problema que aborde. Con esto, el
+ejecutor no tiene necesidad de saber el significado de los datos que maneja, simplificando su labor.
+
+Sin embargo, para el ejecutor simple que suponemos es demasiado requerirle conocer el concepto de
+número. Vamos a facilitar su labor aún más.
+
+\encabezados{El modelo de cómputo}
+Los algoritmos que necesitamos definir tienen que poder escribirse gráficamente para que sean útiles
+para las demostraciones que se pretenden en este trabajo; es decir, tenemos que poder escribir
+programas (de pro: con anterioridad y gramma: escrito) que contengan las instrucciones. Vamos a ver
+con un ejemplo, tomando todo lo dicho anteriormente en cuenta, cómo presentar estos programas para
+poder ser ejecutados.
+
+Postulamos que se tiene una superficie sobre la que escribir tan extensa como haga falta y contamos
+también con un instrumento para escribir. Las instrucciones se colocarán en posiciones consecutivas
+como se explica a continuación, y todas las instrucciones especificarán una acción y una posición
+que tiene significado para la acción. Esto hace que en lo que respecta al ejecutor del programa los
+únicos datos con los que tiene que trabajar sean las posiciones del programa.
+
+Vamos a suponer que las instrucciones se escriben en sentido vertical, de arriba hacia abajo. Para
+marcar el inicio del programa dibujamos una raya horizontal consideramos lo que está bajo la primera
+posición. Para hacer una nueva posición dibujamos una raya paralela a la raya de inicio en una
+posición ya definida; esta posición será la siguiente de la posición sobre la que se ha dibujado la
+raya. Por ejemplo, si se dibuja una raya debajo de la posición de inicio tendremos la primera
+posición sobre esta raya y la siguiente posición a la primera debajo. Si dibujamos una raya en la
+siguiente posición de la primera tendremos la primera posición, la siguiente de la primera y la
+siguiente de la siguiente. De este modo podemos definir las posiciones que queramos. El ejecutor del
+programa tendrá que leer las instrucciones escritas en las posiciones y actuar acorde a su
+significado, que se explica en la siguiente sección.
+\end
