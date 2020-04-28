@@ -4,10 +4,11 @@ concretamente se centra en demostrar que la potencia de cómputo de los lenguaje
 máquinas de Turing y las funciones recursivas es igual, esto es, que cualquier problema que se puede
 resolver en cualquiera de estos modelos se puede resolver también en los otros. En toda la
 explicación se da por hecho que se conoce la teoría sobre las máquinas de Turing tal y como las
-definió originalmente su creador en [1]\footnote*{{\fpies Las indicaciones [{\it x}] hacen referencia a
+definió originalmente su creador en [1]\footnote*{{\fpies \vbox to 14pt{}Las indicaciones [{\it x}] hacen referencia a
 libros citados en la bibliografía.}} y las reglas para definir funciones recursivas según están
 presentadas por S.~C. Kleene en [5].
 
+\def\footnoterule{\kern-2pt \hrule}
 \def\lambda{λ-\hskip0.1em}
 \encabezados{Justificación y explicación}
 Las máquinas de Turing y el \lambda cálculo inventado por Alonzo Church, así como la teoría sobre las
@@ -28,10 +29,8 @@ Cuando leemos un tratado sobre una pintura conocida, o una demostración del teo
 posiblemente sea por lo interesante que resulta admirar desde otros puntos de vista las obras e
 ideas que nos gustan, y en todo caso nos da una excusa para reflexionar sobre ellas. El hecho de que
 existan tantas obras sobre un mismo tema y docenas de demostraciones distintas del teorema de
-Pitágoras es buena evidencia.
-
-Este trabajo no contiene algo novedoso ni especialmente interesante; es otro acercamiento, desde la
-admiración, a algunas ideas fundamentales de la ciencia y los genios que las engendraron.
+Pitágoras es buena evidencia. Este trabajo no contiene algo novedoso ni especialmente interesante;
+es un acercamiento más, desde la admiración, a algunas ideas fundamentales de la ciencia.
 %% Algo así como dar un modo de hacer recetas de Thermomix en
 %% cocina de posguerra; se necesita más tiempo y se mancha más, pero es posible hacerlo.
 
@@ -56,22 +55,22 @@ computación presentados de su contexto teórico presentando ejemplos prácticos
 
 Se empezará con la motivación primera del trabajo, que es la demostración de que para cualquier
 programa, por complejo que sea, que se escriba en un lenguaje de programación de los usados hoy,
-existe una máquina de Turing equivalente, esto es, que resuelve el mismo problema. Como se ha dicho
-anteriormente, concretamente se pretende demostrar que dado un programa en \C/ se puede encontrar una
-máquina de Turing equivalente.  Una solución sería encontrar un método de traducir las instrucciones
-del programa en la especificación de la máquina, algo así como un compilador de \C/ a máquina de
-Turing. Esto es muy complicado, y desde luego fuera de mi alcance. Otro enfoque sería usar como dato
-para la máquina cualquier programa en \C/ dado, escribiéndolo en la cinta, y crear una máquina de
-Turing universal ejecutora de programas \C/. Esto parece aún más difícil, como crear una máquina que
-compile y luego ejecute los programas. Basado en esta idea más sencillo parece crear una máquina que
-ejecute programas escritos en código ensamblador o código máquina resultante de compilar el programa
-en \C/, lo que bastaría para demostrar lo que se propone. Sigue siendo muy difícil crear una máquina
-así. El camino que se tomará estará basado en esta última idea: crearemos un lenguaje de
-programación y una máquina que ejecute programas escritos en este lenguaje.  Esta no es sin embargo
-la solución que se busca, ya que el programa en \C/ computa a partir de unos datos de entrada y la
-máquina que se propone toma como entrada el programa entero; no obstante, una vez mostrada esta
-máquina, demostrar que hay otra maquina que da la misma solución a partir de los mismos datos de
-entrada que recibe el programa en \C/ será fácil.
+existe una máquina de Turing equi\-valente, esto es, que resuelve el mismo problema. Como se ha dicho
+anteriormente, con\-cretamente se pretende demostrar que dado un programa en \C/ se puede encontrar
+una máquina de Turing equivalente.  Una solución sería encontrar un método de traducir las
+instrucciones del programa en la especificación de la máquina, algo así como un compilador de \C/ a
+máquina de Turing. Esto es muy complicado, y desde luego fuera de mi alcance. Otro enfoque sería
+usar como dato para la máquina cualquier programa en \C/ dado, escribiéndolo en la cinta, y crear
+una máquina de Turing universal ejecutora de programas \C/. Esto parece aún más difícil, como crear
+una máquina que compile y luego ejecute los programas. Basado en esta idea más sencillo parece crear
+una máquina que ejecute programas escritos en código ensamblador o código máquina resultante de
+compilar el programa en \C/, lo que bastaría para demostrar lo que se propone. Sigue siendo muy
+difícil crear una máquina así. El camino que se tomará estará basado en esta última idea: crearemos
+un lenguaje de programación y una máquina que ejecute programas escritos en este lenguaje. Ésta no
+es, sin embargo, la solución que se busca, ya que el programa en \C/ computa a partir de unos datos
+de entrada y la máquina que se propone toma como entrada el programa entero; no obstante, una vez
+mostrada esta máquina, demostrar que hay otra que da la misma solución a partir de los mismos datos
+que recibe el programa en \C/ será\nobreak\ fácil.
 
 La dificultad estará pues en demostrar que este lenguaje es equivalente al lenguaje \C/ en el mismo
 sentido que se ha explicado antes. Se creará primero el lenguaje, teniendo en cuenta que los
@@ -102,4 +101,3 @@ máquina de Turing equivalente, para la que a su vez existe un programa en \C/ e
 una demostración indirecta de que cualquier programa recursivo puede escribirse como uno no
 recursivo, ya que el programa en \C/ equivalente a las máquinas de Turing que se construye en la
 demostración es no recursivo.
-
