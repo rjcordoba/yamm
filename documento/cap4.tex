@@ -18,18 +18,56 @@ presentado---la sintaxis completa de \C/ no está contemplada en las reglas---pe
 programas que pueden serlo es tal que es fácil ver que cualquier programa puede adaptarse a una
 forma que permita traducirlo.
 
-\encabezados{Reglas sobre las macroinstrucciones}
+\encabezados{Sobre la demostración}
+Todas las reglas e indicaciones para transformar programas \C/ a otros equivalentes en \c-- aparecen
+en el apéndice D, presentadas como una ayuda para escribir programas \c-- usando
+macroinstrucciones. Se empieza por macros para definir operaciones básicas y se presentan
+posteriormente macros que usan las anteriores como texto de sustitución; el objetivo es llegar a
+macroinstrucciones que se asemejen a construcciones de \C/, de modo que un programa en \c-- se pueda
+escribir mediante macros como si fuese en \C/; así, el trabajo del {\it traductor} sería ir en
+sentido contrario y desde construcciones de \C/ ir sustituyendo hasta llegar a un programa \c--
+equivalente. Al igual que a la hora de ejecutar un programa \c--, la traducción de programas en \C/
+se hace manejando solamente símbolos, sin necesidad de saber nada acerca del programa o siquiera del
+lenguaje.
 
-Todas las reglas y directrices para transformar programas aparecen en el apéndice D, presentadas
-como una ayuda para escribir programas \c-- usando macroinstrucciones. Se empieza por macros para
-definir operaciones básicas y se presentan posteriormente macros que usan las anteriores como texto
-de sustitución; el objetivo es llegar a macroinstrucciones que se asemejen a construcciones de \C/,
-de modo que un programa en \c-- se pueda escribir mediante macros como si fuese en \C/; así, el
-trabajo del {\it traductor} sería ir en sentido contrario y desde construcciones de \C/ ir
-sustituyendo hasta llegar a un programa \c-- equivalente. Al igual que a la hora de ejecutar un
-programa \c--, la traducción de programas en \C/ se hace manejando solamente símbolos, sin necesidad
-de saber nada acerca del programa o siquiera del lenguaje.
+En la demostración se usan distintos recursos, que van apareciendo según sea necesario para que se
+entienda el modo de llegar a acabo la transformación de programas. Se pueden distinguir:
 
+\listademos
+\rightskip0pt
+
+Las {\it macroinstrucciones} del lenguaje \c--. Indican cómo se sustituyen unas cadenas de símbolos
+por otras. Tienen la forma {\hskip3pt{\it cadena1} {\fflecha\lower.14ex\hbox{→}} {\it cadena2}},
+siendo {\it cadena1} la macroinstrucción y {\it cadena2} la cadena por la que se sustituye. Por
+ejemplo, \macroins{INIT}{1} indica que a la hora de escribir el programa, {\fcode INIT} es otro
+nombre para la instrucción {\fcode 1}; el traductor sustituirá, cuando haga la transformación, todas
+las apariciones de {\fcode INIT} por {\fcode 1} a lo largo del texto del programa.
+
+{\it Reglas gramaticales}. Se usa notación basada en la forma de Backus–Naur.  Los no-terminales se
+escriben en cursiva: {\it así}, o en cursiva entre paréntesis angulares: {\fcode⟨\it así\fcode⟩};
+los terminales se escriben en negrita, {\bf así}; la cabecera de las producciones se separa del
+cuerpo con un símbolo «→»; las alternativas en el cuerpo de las producciones se separan con
+«{\fcode|}».\pseudopar Las reglas gramaticales no se refieren a construcciones de ningún lenguaje;
+su propósito es simplificar las reglas de traducción que aparecen posteriormente. Cuando un
+no-terminal aparece en una macro, la regla donde aparece la macro representa todas las reglas de
+traducción resultantes de sustituir el no-terminal en la macro y en el texto de sustitución por
+terminales, de acuerdoa las normas de las reglas gramaticales. Por ejemplo, con la
+producción \gramatprod x01=\estrella \fin en la gramática, la regla basada en macros
+{\cmarcas=1 \macroins{\fcodenoterm x\kernpeq\marcas}{\fcodenoterm x} representa las cuatro
+reglas:\hfil\break{\def\mk{\kern-.2em}\hbadness=10000\hbox to 3in{\hskip6.5pt\macroins{1\marcas\mk}{1}; \macroins{0\kernpeq\marcas\mk}{0};
+\macroins{=\kernpeq\marcas\mk}{=}; \macroins{\estrella\marcas\mk}{\estrella}.}}}
+
+{\it Indicaciones para el traductor}. En las sustituciones de algunas macros, y en traducción del
+programa en general, el traductor debe efectuar algunos procesos y sencillos, más allá de simples
+traducciones de símbolos. Una serie de indicaciones y comentarios a los largo de la explicación
+informan de cómo hacerlo.
+
+{\it Postulados}. Para hacer la traducción de programas, igual que para ejecutar \c--, sólo hay que
+manejar símbolos. Algunos de estos símbolos son los dígitos que se usan habitualmente para
+representar los números naturales en notación indo-arábiga. Los postulados indican cómo se consideran
+y usan en las macros.
+\finlista
+\encabezados{Apuntes sobre la demostración}
 La manera de presentar la demostración por medio de macros ayuda a entender el lenguaje \c-- y cómo
 a partir de las cuatro instrucciones de que consta se pueden ir contruyendo programas para calcular
 operaciones conocidas. Por otra parte, el hecho de incluir los números racionales como tipo de dato
@@ -38,5 +76,74 @@ demostración. No obstante, éste es sólo un caso particular de objetos que se 
 entender cómo se escriben programas que usen números naturales como dato es suficiente para
 comprender cómo construir programas en \c-- y que el lenguaje es Turing-\kern.1em completo. Para
 esto no es necesario entender todas las macros, vale con entender cómo se traducen algunas,
-especialmente las primeras. No debería ser difícil seguir las traducciones del apéndice D. Para no
-alagar la explicación, aquí solamente se comentará de forma breve algunas partes.
+básicamente las primeras. No debería ser difícil seguir las traducciones del apéndice D. Para no
+alargar la explicación, aquí sólamente se comentará de forma breve algunas partes, y sólo en lo que
+se refiere a programas que usan números naturales como único tipo de dato.
+
+Aunque para traducir los programas no se haga referencia a números, sí se usarán números en las
+explicaciones de esta sección. De aquí en adelante se considerarán como definidas dos funciones biyectivas: una
+función $ f $ de naturales a cadenas de dígitos tal que: $ f(1)= $ «\inst{1}{0}» y para todo natural
+$ n $, si $ f(n)=\beta $ entonces $ f(n+1)=\alpha $ , donde $ \alpha $ y $ \beta $ representan
+dígitos y $ \alpha = \beta $ + «\inst{1}{0}» es verdad según los postulados del apéndice D; y una
+función $ g $ de naturales a posiciones donde se escribirá el programa \c-- tal que: $ g(1)= $ {\it
+primera posición} y $ g(n+1)$ es la siguiente posición de la posición $ g(n)$. Por ejemplo $ f(5)=
+$«{\fcode5}», $ f(13)=$«{\fcode13}» y $g(3)$ es la siguiente posición de la siguiente de la primera
+posición.
+
+Cuando en la explicación se haga referencia a algún número {\it n} la referencia puede ser al propio
+número o a $f(n)$ o $g(n)$; se distinguirá a qué se hace referencia por el contexto donde se
+use. Por otro lado, si la referencia es a un número guardado en una posición, nos referiremos a la
+codificación de naturales explicada en la sección §3. Por ejemplo, «en la posición 23 está
+guardado el número 4» significaría que en la posición $g(23)$ hay escrito «\inst{1}{3}».
+
+\encabezadot{Macros básicas}
+Las primeras macros sirven para escribir instrucciones de \c-- sin necesidad de escribir las
+marcas. Por ejemplo, en vez de escribir «\inst04» se puede escribir la macro «{\fcode0\super5}». En
+general, una macro {\fgramatnoterm x\super{\fsupnoterm n}} se sustituye por la instrucción con la
+acción {\it x} y posición referida {\it n}.
+
+Las siguientes macros empiezan a tomar la forma de construcciones de \C/. Se introduce la notación
+{\fcode Z\subind{Ω}}; las letras griegas Φ, Ψ y Ω son no-terminales de la gramática; por el momento
+supondremos que son números naturales. Si se ponen algunos ejemplos sustituyendo las letras griegas
+por números en las macros que sirven para escribir asignaciones, se comprueba que el subíndice está
+relacionado con posiciones finales en el programa. Por ejemplo, \hskip.1em«{\fcode Z\subind{12} =
+9}»\hskip.4em se sustituiría por las instrucciones que guardar el número 9 en la posición 12.
+
+La primera posición de los programas es especial, ya que con ella se hacen las comparaciones, y es a
+su vez la primera instrucción que se ejecuta en todos los programas.  La macro «{\fcode INIT}» está
+pensada para ser usada al principio de todos los programas; se sustituye por «{\fcode 1}», que puede
+ser borrado para guardar cualquier valor, y cuando se ejecuta como instrucción pone una marca en la
+misma primera posición, con lo que no afecta al resto del programa. La macro «{\fcode JUMP}» se
+sustituye por la instrucción «{\fcode =}», lo que significa que se salta una instrucción (lo que hay
+en la primera posición siempre es igual que lo que hay en la primera posición); esta macro se usa en
+la expansión de otras macros. La macro «{\fcode NADA}» se usa en la expansión de otras macros. La
+macro \hskip.1em«\zeta{12} = \zeta{Ω}\hskip.1em», que sería poner en una posición lo
+que hay en esa misma posición, se ignora, se sustituye por la cadena vacía.
+
+En la sustitución de las siguientes macros se usan instrucciones que hacen referencia a posiciones
+donde se pondrán instrucciones resultado de expandir esas mismas macros. En el programa final estas
+posiciones dependerán de cuándo aparece la macroinstrucción en el texto del programa. Para poder
+expandir la macro de la misma manera, sea cuales sean las posiciones finales que ocuparán las
+instrucciones resultado de expandirla, se usan señales para las posiciones, como se explica en la
+indicación que tiene el encabezado «{\kern.16em←\fcode:\kern-.16em⟨natural⟩}». Así, las
+instrucciones de salto, en vez de escribirse «\estrella\super{\fsupnoterm n}», con {\it n} natural,
+se escribirán como «\estrella\super{:\fsupnoterm n}», con una señalización
+«\kern.16em←{:\fcodenoterm n}» en la posición a la que salta la instrucción. Esta {\it n} en {:\it
+n} no se refiere a ningún número; Se usan los símbolos de los números naturales como un modo de
+tener un número infinito de nombres que sean fácil de construir. Las señalizaciones no tienen
+representación en la transformación final del programa; las pone el traductor como indicador. En los
+pasos finales de la traducción del programa, cuando ya se sabe en qué posición real está la
+señalización, se sustituye el nombre {:\it n} en la instrucción de salto por el natural que
+representa la posición. Por ejemplo, si la señalización es «\kern.16em←{\fcode:27}» y está en la
+posicion 58, en todas las intrucciónes «{\fcodenoterm x}{\super{:27}}» se sustuirá «{\fcode:27}» por
+«{\fcode 58}». Ésta tiene la forma de la primera macro que se ha comentado y se sustituirá en un
+paso posterior por una instrucción con la cantidad de marcas que corresponda. En el apéndice hay
+ejemplos que pueden ayudar a entenderlo.
+
+\encabezadot{Operaciones aritméticas}
+La sintaxis de las macros para operaciones aritméticas es indicativa del resultado de expandirlas, y
+el significado de las {\fcode Z}\kernpeq s es el explicado anteriormente. Así, la macro \hskip.1em«
+\zeta{12} = \zeta{3} + \zeta{52}»\hskip.4em se traduciría por instrucciones que ponen en
+la posición 12 la suma de lo que hay en las posiciones 3 y 52. En este punto conviene explicar el
+otro significado que pueden tener las letras griegas que se han visto antes: además de números
+pueden representar cadenas como «{\fcode.sum1}», que aparecería de forma «\zeta{.sum1}»\hskip.4em. 
