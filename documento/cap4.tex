@@ -142,8 +142,58 @@ ejemplos que pueden ayudar a entenderlo.
 
 \encabezadot{Operaciones aritméticas}
 La sintaxis de las macros para operaciones aritméticas es indicativa del resultado de expandirlas, y
-el significado de las {\fcode Z}\kernpeq s es el explicado anteriormente. Así, la macro \hskip.1em«
-\zeta{12} = \zeta{3} + \zeta{52}»\hskip.4em se traduciría por instrucciones que ponen en
-la posición 12 la suma de lo que hay en las posiciones 3 y 52. En este punto conviene explicar el
-otro significado que pueden tener las letras griegas que se han visto antes: además de números
-pueden representar cadenas como «{\fcode.sum1}», que aparecería de forma «\zeta{.sum1}»\hskip.4em. 
+el significado de las {\fcode Z}\kernpeq s es el explicado anteriormente. Así, la macro \hskip.1em
+«\zeta{12} = \zeta{3} + \zeta{52}»\hskip.4em se traduciría por instrucciones que ponen en
+la posición 12 la suma de lo que hay en las posiciones 3 y 52.
+
+Es conveniente explicar aquí el otro significado que pueden tener las letras grie\-gas que se han
+visto antes. Nos referiremos a las macros de la forma {\fgramatnoterm x\super {\fgramatsup
+Ω}} como {\it preinstrucciones}. En las reglas gramaticales, la producción
+\encaje
+\begingroup\fgramat\alternativas ΩΦΨ\fin\hskip.3em→\hskip.3em\begingroup\alternativas{\notermpars{natural}}{\.\notermpars{id}}{\:\notermpars{id}}\fin
+\finencaje
+indica que, además de por naturales, las letras griegas se pueden se sustituídas por cadenas de
+texto que empiezan, bien por «.», bien por «:». Las que se comentaremos ahora son las que empiezan
+por «.». En la página xx se explica cómo se sustituyen los {\.\notermpars{id}} por
+naturales. Explicado informalmente, todos las preinstrucciones con el mismo
+{.\kern-.05em\notermpars{id}} se refieren a la misma posición en el programa final,
+independientemente de la macroinstrucción de la que se haya derivado. Por ejemplo, la posición
+referida por la instrucción «{\fcode=\super{\.\fsup op1}}», resultante de expandir la macro
+«\zeta8{\fcode\ += 3;}», será la misma que si se expande la macro «\zeta{34}{\fcode\ += 17;}» o si
+la asignación es para \zeta{\fsupnoterm n} para cualquier natural {\fgramatnoterm n}---las
+posiciones {\.\notermpars{id}} se podrían considerar como registros en un procesador
+moderno---. Para ‘reutilizar’ estas posiciones, cada {\.\notermpars{id}} se trata como si fuese un
+natural, y una vez que sólo quedan preinstrucciones, esto es, cuando se sabe qué posición ocupará
+cada instrucción del programa, se reserva una posición a continuación de la última posición ocupada
+(se añade una instrucción \inst10, no pensada para ser ejecutada) y se sustituye el
+{\.\notermpars{id}} por el número de posición. Por ejemplo, si el programa de \c-- tiene 850
+posiciones ocupadas una vez que solamente quedan preinstrucciones después de expandir macros, y el
+primer {\.\notermpars{id}} que aparece en alguna preinstrucción es «{\fcode.res}», en la posición
+851 se añade la instrucción «\inst10» y se sustituyen todas las apariciones de «{\fcode.\kern-.2em
+res}» por «851» (así, una preinstrucción como «{\fcode0\super{\.\fsup res}}» se transformaría en
+«{\fcode0\super{\fsup 851}}»).
+
+Hay dos macros que empiezan por «{\fcode RETURN}». La primera simplemente acaba la ejecución del
+programa. La segunda, «{\fcode RETURN λ;}», guarda {\fcode λ} en la primera posición antes de acabar la
+ejecución. La producción gramatical
+\encaje
+\gramatprod λ {\notermpars{natural}}{\zeta Ω} \fin
+\finencaje
+indica que {\fcode λ} puede ser un natural o lo que hay guardado en una posición. Así, por ejemplo, «{\fcode
+RETURN \zeta 8;}» escribe en la primera posición lo que hay en la posición 8 y acaba la ejecución del
+programa. Esta macro ofrece una manera uniforme de terminar los programas, escribiendo el resultado
+en una posición conocida.
+
+\encabezadot{Reserva de posiciones}
+Las siguientes macros e indicaciones se usan para traducir macros que aparecen más adelante o para
+traducir tipos de datos, como vectores. Son complicadas de seguir y alargarían mucho la presente
+explicación. Daremos una explicación resumida de la manera de usar variables.
+
+Las variables son nombres para referirnos a posiciones sin necesidad de saber qué posición
+representará en el programa final.
+
+
+
+
+
+
