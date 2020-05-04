@@ -142,15 +142,17 @@ ejemplos que pueden ayudar a entenderlo.
 
 \encabezadot{Operaciones aritméticas}
 La sintaxis de las macros para operaciones aritméticas es indicativa del resultado de expandirlas, y
-el significado de las {\fcode Z}\kernpeq s es el explicado anteriormente. Así, la macro \hskip.1em
-«\zeta{12} = \zeta{3} + \zeta{52}»\hskip.4em se traduciría por instrucciones que ponen en
-la posición 12 la suma de lo que hay en las posiciones 3 y 52.
+el significado de las {\fcode Z}\kernpeq s es el explicado anteriormente. Así,% la macro
+\vskip-2pt\encaje
+\zeta{12} = \zeta{3} + \zeta{52}
+\finencaje
+se traduciría por instrucciones que ponen en la posición 12 la suma de lo que hay en las posiciones 3 y 52.
 
 Es conveniente explicar aquí el otro significado que pueden tener las letras grie\-gas que se han
 visto antes. Nos referiremos a las macros de la forma {\fgramatnoterm x\super {\fgramatsup
 Ω}} como {\it preinstrucciones}. En las reglas gramaticales, la producción
 \encaje
-\begingroup\fgramat\alternativas ΩΦΨ\fin\hskip.3em→\hskip.3em\begingroup\alternativas{\notermpars{natural}}{\.\notermpars{id}}{\:\notermpars{id}}\fin
+\begingroup\fgramat\noindent\alternativas ΩΦΨ\fin\hskip.3em→\hskip.3em\begingroup\alternativas{\notermpars{natural}}{\.\notermpars{id}}{\:\notermpars{id}}\fin
 \finencaje
 indica que, además de por naturales, las letras griegas se pueden se sustituídas por cadenas de
 texto que empiezan, bien por «.», bien por «:». Las que se comentaremos ahora son las que empiezan
@@ -189,11 +191,80 @@ Las siguientes macros e indicaciones se usan para traducir macros que aparecen m
 traducir tipos de datos, como vectores. Son complicadas de seguir y alargarían mucho la presente
 explicación. Daremos una explicación resumida de la manera de usar variables.
 
-Las variables son nombres para referirnos a posiciones sin necesidad de saber qué posición
-representará en el programa final.
+Las variables son nombres para referirnos a posiciones sin que el escritor del programa necesite
+saber qué posición representará en el programa final. Estos nombres pueden usarse en lugar de las
+\zeta{}s en todas las construcciones donde éstas aparezcan. Por ejemplo, se puede
+escribir
+\encaje
+{\fcode foo = bar * 9;}
+\finencaje
+y se sustituirá por instrucciones que guardan en la posición que representa «{\fcode foo}» la
+multiplicación de lo que hay en la posición que representa «{\fcode bar}» por 9. Esto se podría
+hacer de manera parecida a como se hace con los {\.\notermpars{id}}, pero para que sea uniforme con
+cómo se hace en los subprogramas, que se explica más adelante, se hará de una manera más elaborada.
 
+Si se usan nombres en vez de \zeta{}s hay que utilizar antes de que aparezca el nombre una macro que
+es la equivalente a la declaración de variables en \C/; en esta explicación llamaremos a estas
+macros también declaraciones. Siguiendo con el ejemplo anterior, habría que escribir:
+\encaje
+{\fcode unsigned int foo;\par {\parskip2pt unsigned int bar;}}
+\finencaje
+antes de cualquier otra aparición de {\fcode foo} o {\fcode bar} en el texto. Estas últimas macros
+se eliminan sin sustituirse por ningún texto, pero tienen un efecto secundario: por cada declaración
+de variable que aparezca se asocia un natural al nombre, sea este {\it i}, y se sustituye cada
+aparición del nombre por \igriega{{\fsupnoterm i}} a lo largo de todo el texto siguiente. Los
+naturales se asociacian en el orden habitual, empezando por 1. Juntando los dos ejemplos anteriores,
+con las declaraciones de variables antes que la expresión aritmética y suponiendo que no hay ninguna
+declaración de variables antes que éstas, después de expandir el texto de las declaraciones la expresión
+aritmética quedaría:
+\encaje
+{\fcode \igriega{{\fsup 1}} = \igriega{{\fsup 2}} * 9;}
+\finencaje
+Para relacionar posiciones finales con los nombres el expansor guarda en la última posición, a la
+que llamaremos \top/, el número de posiciones ocupadas en el programa después de haber reservado
+posiciones para los {\.\notermpars{id}} y contando esta misma posición. Por ejemplo, si después de
+haber puesto instrucciones «\inst10» para cada {\.\notermpars{id}} como se explicó antes resultase
+un programa con instrucciones ocupando 877 posiciones, se añadiría en la posición 878 una
+instrucción «{\fcode1\super{\fsup 878}}»; el número de posición a la que se referirá
+un \igriega{{\fsupnoterm n}} en el programa final será lo que hay en la posición \top/ más {\it
+n}. En el ejemplo anterior, «{\fcode foo}» sería la posición 879 y «{\fcode bar}» la 880.
 
+Para que las macros que tratan con variables se puedan expandir de una manera uniforme, todas
+usan «\zeta{.change}» y la operación {\fcode:ajustar:}, que indica al traductor cómo añadir
+instrucciones que cambian las instrucciones que usan las posiciones de las variables como posiciones
+referidas. De algún modo, el programa el que se modifica a sí mismo durante la ejecución,
+ajustándose según las posiciones a las que quiera acceder. En la página xx se explica todo esto. Las
+macros son generales para poder usar vectores y punteros. Considerando sólo la posibilidad de usar
+números naturales es menos complicado de entender.
 
+\encabezados{Operadores relacionales}
+El resultado de las operaciones con operadores relacionales depende del orden de los operandos, en
+este caso números naturales, según la ordenación habitual. Los operadores relacionales que
+necesitamos usar se
+el terminal «{\notermpars{natural}}» mediante la producción
+que usar son «{\fcode=}», «{\fcode!=}», «{\fcode>}», «{\fcode<}», «{\fcode>=}», «{\fcode<=}» con el
+significado conocido y explicado en [4].
 
+\encaje
+\begingroup\fgramat\noindent\alternativas ΩΦΨ\fin\hskip.3em→\hskip.3em\begingroup\alternativas{\notermpars{natural}}{\.\notermpars{ID}}{\:\notermpars{id}}\fin
+\finencaje
 
-
+\encabezados{Subprogramas}
+Los subprogramas son programas dentro del programa general, trozos de código que resuelven problemas
+particulares que ayudan a resolver el problema global. Al igual que el programa general, los
+subprogramas deben ser capaces de recibir datos y escribir otros datos a modo de resultado. Una
+manera de integrar los subprogramas sería ‘pegar’ las instrucciones en los puntos del programa
+principal donde sea necesario, posiciones para escribir los datos de entrada y el resultado. Sin
+necesidad de pegar el código cada vez, se podría poner el código una sóla vez y saltar a la primera
+instrucción de este código cada vez que se quiera ejecutar el subprograma. Estos modos tienen el
+problema de que el propio subprograma sobreescribiría los datos de entrada y de resultado si se
+invocase a sí mismo, es decir, no permite definir subprogramas recursivos. Es necesario para la
+demostración de la equivalente del lenguaje \c-- con las funciones recursivas, por lo que hay que
+buscar otro modo de organizar el código. El modo en que se usan las variables nos da la
+solución. Resumiendo, lo que se hace es cambiar la posición \top/ cada vez que se vayan a ejecutar
+las instrucciones del subprograma. Las intrucciones se ajustan igual que para el programa general,
+pero al cambiar \top/ cada subprograma usará posiciones para los datos diferentes, incluso si se
+llama a sí mismo. Esto no es otra cosa que usar una pila, igual que se usa en los programas \C/
+compilados ejecutándose en un ordenador. Cómo se declaran y definen los subprogramas y sus
+traducciones es farragoso y ocuparía mucho espacio comentarlo todo; está explicado en las páginas
+xxx--xx.
