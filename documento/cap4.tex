@@ -152,23 +152,23 @@ Es conveniente explicar aquí el otro significado que pueden tener las letras gr
 visto antes. Nos referiremos a las macros de la forma {\fgramatnoterm x\super {\fgramatsup
 Ω}} como {\it preinstrucciones}. En las reglas gramaticales, la producción
 \encaje
-\begingroup\fgramat\noindent\alternativas ΩΦΨ\fin\hskip.3em→\hskip.3em\begingroup\alternativas{\notermpars{natural}}{\.\notermpars{id}}{\:\notermpars{id}}\fin
+\begingroup\fgramat\noindent\alternativas ΩΦΨ\fin\hskip.3em→\hskip.3em\begingroup\alternativas{\notermpars{natural}}{.\notermpars{id}}{:\notermpars{id}}\fin
 \finencaje
 indica que, además de por naturales, las letras griegas se pueden se sustituídas por cadenas de
 texto que empiezan, bien por «.», bien por «:». Las que se comentaremos ahora son las que empiezan
-por «.». En la página xx se explica cómo se sustituyen los {\.\notermpars{id}} por
+por «.». En la página xx se explica cómo se sustituyen los {.\notermpars{id}} por
 naturales. Explicado informalmente, todos las preinstrucciones con el mismo
-{.\kern-.05em\notermpars{id}} se refieren a la misma posición en el programa final,
+{.\notermpars{id}} se refieren a la misma posición en el programa final,
 independientemente de la macroinstrucción de la que se haya derivado. Por ejemplo, la posición
 referida por la instrucción «{\fcode=\super{\.\fsup op1}}», resultante de expandir la macro
 «\zeta8{\fcode\ += 3;}», será la misma que si se expande la macro «\zeta{34}{\fcode\ += 17;}» o si
 la asignación es para \zeta{\fsupnoterm n} para cualquier natural {\fgramatnoterm n}---las
-posiciones {\.\notermpars{id}} se podrían considerar como registros en un procesador
-moderno---. Para ‘reutilizar’ estas posiciones, cada {\.\notermpars{id}} se trata como si fuese un
+posiciones {.\notermpars{id}} se podrían considerar como registros en un procesador
+moderno---. Para ‘reutilizar’ estas posiciones, cada {.\notermpars{id}} se trata como si fuese un
 natural, y una vez que sólo quedan preinstrucciones, esto es, cuando se sabe qué posición ocupará
 cada instrucción del programa, se reserva una posición a continuación de la última posición ocupada
 (se añade una instrucción \inst10, no pensada para ser ejecutada) y se sustituye el
-{\.\notermpars{id}} por el número de posición. Por ejemplo, si el programa de \c-- tiene 850
+{.\notermpars{id}} por el número de posición. Por ejemplo, si el programa de \c-- tiene 850
 posiciones ocupadas una vez que solamente quedan preinstrucciones después de expandir macros, y el
 primer {\.\notermpars{id}} que aparece en alguna preinstrucción es «{\fcode.res}», en la posición
 851 se añade la instrucción «\inst10» y se sustituyen todas las apariciones de «{\fcode.\kern-.2em
@@ -237,19 +237,67 @@ ajustándose según las posiciones a las que quiera acceder. En la página xx se
 macros son generales para poder usar vectores y punteros. Considerando sólo la posibilidad de usar
 números naturales es menos complicado de entender.
 
-\encabezados{Operadores relacionales}
-El resultado de las operaciones con operadores relacionales depende del orden de los operandos, en
-este caso números naturales, según la ordenación habitual. Los operadores relacionales que
-necesitamos usar se
-el terminal «{\notermpars{natural}}» mediante la producción
-que usar son «{\fcode=}», «{\fcode!=}», «{\fcode>}», «{\fcode<}», «{\fcode>=}», «{\fcode<=}» con el
-significado conocido y explicado en [4].
+\encabezadot{Operadores lógicos y relacionales}
+Estas macros son sencillas de entender. Aquí se explicarán simplemente las ideas en las que se basa
+la traducción, no la traducción tal y como aparece en el apéndice, considendo solamente números
+naturales como operandos. Representaremos en esta explicación los operandos como {\fgramatnoterm α}
+o {\fgramatnoterm β}.
 
+Los operadores lógicos se llaman también booleanos ya que las operaciones con ellos se basan en el
+algebra de Boole. La representación simbólica de los operadores que consideramos en las traducciones
+es «\&\&», «||» y «!», que representan en el algebra a {\it and}, {\it or} y {\it not}
+respectivamente. En estas operaciones se condideran sólo dos valores para los operadores: {\it
+verdadero} y {\it falso}. En las macros representamos {\it falso} con el 0 (o dicho de otro modo, el
+valor 0 se considera falso en cuanto a estas operaciones se refiere); {\it verdadero} se representa
+con cualquier otro número. La representación de las operaciones lógicas se puede sustituir por la de
+operaciones aritméticas del siguiente modo, separando texto y su traducción con «\flechagram\kernpeq»:
+\listraducciones
+\noindent\macroins{\fgramatnoterm α {\fcode\&\&} β\kern3pt}{\fgramatnoterm\kern3pt α {\fcode*} β}\par
+\noindent\macroins{\fgramatnoterm α {\fcode||} β\kern3pt}{\fgramatnoterm\kern3ptα {\fcode+} β}\par
+\noindent\macroins{!{\fgramatnoterm α}\kern3pt}{\fgramatnoterm\kern3pt {\fcode1 \fcode-} α}
+\finlistatrad
+Si se sustituyen los α y β por 0 y cualquier otro valor se comprueba que el resultado que se
+obtendría es el esperado.
+
+En la reglas gramaticales, el no-terminal que representa los operadores relacionales
+es \notermpars{oprel}; los operadores necesarios son especificados por la producción
 \encaje
-\begingroup\fgramat\noindent\alternativas ΩΦΨ\fin\hskip.3em→\hskip.3em\begingroup\alternativas{\notermpars{natural}}{\.\notermpars{ID}}{\:\notermpars{id}}\fin
+\gramatprod{\notermpars{oprel}}{\fcode=}{\fcode!=}{\fcode>}{\fcode<}{\fcode>=}{\fcode<=} \fin .
 \finencaje
 
-\encabezados{Subprogramas}
+El resultado de las operaciones con estos operadores es el conocido, explicado en [4] (a los
+operadores «==» y «!=» se les llama allí operadores de igualdad). En pocas palabras, el resultado es
+{\it verdadero} o {\it falso}, representados como se ha indicado antes, dependiendo del orden de los
+operandos que se comparan, en el orden normal de los números naturales. Junto con los operadores
+relacionales aparece la construcción «{\fcode!({\fgramatnoterm
+α} \kern-.25em \notermpars{oprel} \kern-.25em {\fgramatnoterm β})}»; el resultado de la operación
+que representa tiene que ser el contrario del de «{\fcode {\fgramatnoterm
+α} \kern-.25em \notermpars{oprel} \kern-.25em {\fgramatnoterm β}}».
+
+En la traducción de «{\fgramatnoterm α {\fcode >} \fgramatnoterm β}» se introduce el subprograma
+«{\fcode negp()}» para que la traducción valga para cualquier número racional, aprovechando la
+representación que se hace de ellos; por la misma razón en la traducción de «{\fgramatnoterm α {\fcode
+==} \fgramatnoterm β}» se usa una resta con el número 2. Si sólo se usasen naturales las
+traducciones podrían ser:
+\listraducciones
+\noindent\macroins{\fgramatnoterm α {\fcode >} β\kern3pt}{\fgramatnoterm\kern3pt β {\fcode -} α}\par
+\noindent\macroins{\fgramatnoterm α {\fcode!=} β\kern3pt}{\fgramatnoterm α {\fcode >} β
+{\fcode||} α {\fcode <} β}\par
+\noindent\macroins{{\fgramatnoterm α {\fcode==} β}\kern3pt}{{\fcode!({\fgramatnoterm α} != {\fgramatnoterm β})}}
+\finlistatrad
+Las otras traducciones se harían igual.
+
+\encabezadot{Estructuras de control}
+Las estructuras de control sirven para decidir si se ejecuta parte del código y en qué orden,
+basándose en alguna condición. En las traducciones de la construcción «{\fcode if}» y «{\fcode
+if-else}» el resultado de la parte condicional se guarda en una posición identificada por «\zeta{.obf}»
+y con una combinación de instrucciones de \c-- {\it comparar} y {\it saltar} («\estrella» y «\inst=0»)
+se decidirá la parte del codigo a ejecutar en el programa final.  La traducción de «{\fcode while}» se
+basa en la de «{\fcode if}» y la de «{\fcode do-while}» y la de «{\fcode for}» se basan en la de «{\fcode
+while}». La traducción de la construcción «{\fcode switch-case}» es la más complicada, pero es un
+simple adorno y no hace falta entenderla.
+
+\encabezadot{Subprogramas}
 Los subprogramas son programas dentro del programa general, trozos de código que resuelven problemas
 particulares que ayudan a resolver el problema global. Al igual que el programa general, los
 subprogramas deben ser capaces de recibir datos y escribir otros datos a modo de resultado. Una
@@ -268,3 +316,17 @@ llama a sí mismo. Esto no es otra cosa que usar una pila, igual que se usa en l
 compilados ejecutándose en un ordenador. Cómo se declaran y definen los subprogramas y sus
 traducciones es farragoso y ocuparía mucho espacio comentarlo todo; está explicado en las páginas
 xxx--xx.
+
+\encabezadot{Entrada\kernpeq/\kernpeq salida}
+La entrada y salida en los lenguajes de programación es el modo que tienen de ofrecer comunicación
+con el dispositivo que va a ejecutar el programa. Hay contrucciones para guardar datos y otras para
+que el dispositivo ofrezca resultados. En \c-- no hay secretos; se puede escribir y leer
+directamente en cualquier posición. Así, una construcción como
+\encaje
+{\fcode scanf("%d", &pos);}
+\finencaje
+se podría representar con un cartel para el ejecutor del programa, apuntando a la posición que se
+identifique como {\fcode pos}, diciendo «{\it escribe aquí el dato que quieras usar, codificado como
+ya sabes}». Para la salida, el ejecutor tendrá que mirar las posiciones que le interesen e
+interpretarlas. Por ejemplo, se puede guardar siempre un dato de salida en la misma posición, como
+se vio con la macro «{\fcode RETURN}» y mirar allí al acabar la ejecución del programa.
