@@ -169,13 +169,13 @@
 <ol class="regt">
   <li>
 	<p>
-	  Si el programa sólo tiene una instrucción se escoge cualquier celda; sea ésta 𝕮. Diré que la instrucción, sea ésta <span class="oblicuo">inst</span>,
+	  Si el programa sólo tiene una instrucción, llamémosla <span class="oblicuo">inst</span>, se escoge cualquier celda; sea ésta 𝕮. Diremos que el programa
 	  se escribe a partir de 𝕮 si se hace de la siguiente manera:
 	</p>
 	<ol class="lrecsv">
 	  <li>
 		<p>
-		  si la instrucción es nula se escribe en 𝕮 el símbolo ‘’’ (comilla).
+		  si la instrucción <span class="oblicuo">inst</span> es nula se escribe en 𝕮 el símbolo «-».
 		</p>
 	  </li>
 	  <li>
@@ -186,30 +186,30 @@
 	  <li>
 		<p>
 		  para escribir la instrucción <span class="oblicuo">inst</span><span class="comilla">’</span> se escribe <span class="oblicuo">inst</span>
-		  a partir de 𝕮 y el símbolo ‘’’ en &beta;.
+		  a partir de 𝕮 y el símbolo «’» en &beta;.
 		</p>
 	  </li>
 	</ol>
   </li>
   <li>
 	<p>
-	  Si es programa tiene más de una instrucción, sea <span class="oblicuo">P</span> el programa, <span class="oblicuo">inst</span> la última
-	  instrucción y <span class="oblicuo">P</span><span class="comilla">’</span> el programa resultante de quitar <span class="oblicuo">inst</span>
+	  Si el programa tiene más de una instrucción, sea <span class="oblicuo">P</span> el programa, <span class="oblicuo">inst</span> la primera
+	  instrucción de <span class="oblicuo">P</span> y <span class="oblicuo">P</span><span class="comilla">’</span> el programa resultante de quitar <span class="oblicuo">inst</span>
 	  a <span class="oblicuo">P</span>. Para escribir <span class="oblicuo">P</span>:
 	</p>
-	<ol class="lrecsv">
+	<ol class="lrecsv">	  
 	  <li>
-		<p>se escribe <span class="oblicuo">P</span><span class="comilla">’</span>.</p>
+		<p>se escribe el programa cuya única instrucción es <span class="oblicuo">inst</span>.</p>
 	  </li>
 	  <li>
-		<p>se escribe <span class="oblicuo">inst</span> a partir de &beta;.</p>
+		<p>se escribe <span class="oblicuo">P</span><span class="comilla">’</span> a partir de &beta;.</p>
 	  </li>
 	</ol>
   </li>
 </ol>
 <p>
   Los sucesivos registros que se derivarían al ejecutar al programa por un computador de C-- quedan reflejados, en el mismo orden, por algún
-  estado de la máquina. Si la ejecución del programa C-- terminase en caso de ser ejecutado por un computador la máquina pararía, e inviertiendo
+  estado de la máquina. Si la ejecución del programa C-- terminase en caso de ser ejecutado por un computador la máquina pararía, e invirtiendo
   las reglas sobre escritura en la cinta se podría obtener el programa final resultante de la ejecución. Esta máquina es por tanto un computador
   de C--.
 </p>

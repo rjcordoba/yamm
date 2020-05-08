@@ -1,4 +1,4 @@
-\newcount\piecab \piecab=0
+\piecab=0
 \encabezadop{Equivalencia de {\ccabez \C/} y {\ccabez \c--}}\piecab=1
 La demostración de la equivalencia de los dos lenguajes consistirá en mostrar cómo se pude
 transformar un programa en \C/ en uno en \c-- que dé el mismo resultado a partir de los mismos
@@ -53,9 +53,9 @@ no-terminal aparece en una macro, la regla donde aparece la macro representa tod
 traducción resultantes de sustituir el no-terminal en la macro y en el texto de sustitución por
 terminales, de acuerdoa las normas de las reglas gramaticales. Por ejemplo, con la
 producción \gramatprod x01=\estrella \fin en la gramática, la regla basada en macros
-{\cmarcas=1 \macroins{\fcodenoterm x\kernpeq\marcas}{\fcodenoterm x} representa las cuatro
-reglas:\hfil\break{\def\mk{\kern-.2em}\hbadness=10000\hbox to 3in{\hskip6.5pt\macroins{1\marcas\mk}{1}; \macroins{0\kernpeq\marcas\mk}{0};
-\macroins{=\kernpeq\marcas\mk}{=}; \macroins{\estrella\marcas\mk}{\estrella}.}}}
+{\def\supuno{\super{\fsup1}}«\macroins{\fcodenoterm x\supuno}{\fcodenoterm x}» representa las cuatro
+reglas:\hfil\break{\def\mk{\kern-.2em}\hbadness=10000\hbox to 3.4in{\vbox to 18pt{}\hskip9.5pt\macroins{1\supuno\mk}{1}; \macroins{0\supuno\mk}{0};
+\macroins{=\supuno\mk}{=}; \macroins{\estrella\supuno\mk}{\estrella}.}}}
 
 {\it Indicaciones para el traductor}. En las sustituciones de algunas macros, y en traducción del
 programa en general, el traductor debe efectuar algunos procesos y sencillos, más allá de simples
@@ -317,16 +317,16 @@ compilados ejecutándose en un ordenador. Cómo se declaran y definen los subpro
 traducciones es farragoso y ocuparía mucho espacio comentarlo todo; está explicado en las páginas
 xxx--xx.
 
-\encabezadot{Entrada\kernpeq/\kernpeq salida}
+\encabezadot{Entrada\kernpeq/\kern.05emsalida}
 La entrada y salida en los lenguajes de programación es el modo que tienen de ofrecer comunicación
 con el dispositivo que va a ejecutar el programa. Hay contrucciones para guardar datos y otras para
 que el dispositivo ofrezca resultados. En \c-- no hay secretos; se puede escribir y leer
 directamente en cualquier posición. Así, una construcción como
 \encaje
-{\fcode scanf("%d", &pos);}
+\fcode scanf("\%d", \&entrada);
 \finencaje
 se podría representar con un cartel para el ejecutor del programa, apuntando a la posición que se
-identifique como {\fcode pos}, diciendo «{\it escribe aquí el dato que quieras usar, codificado como
+identifique como «{\fcode entrada}», diciendo «{\it escribe aquí el dato que quieras usar, codificado como
 ya sabes}». Para la salida, el ejecutor tendrá que mirar las posiciones que le interesen e
 interpretarlas. Por ejemplo, se puede guardar siempre un dato de salida en la misma posición, como
 se vio con la macro «{\fcode RETURN}» y mirar allí al acabar la ejecución del programa.
