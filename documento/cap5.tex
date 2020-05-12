@@ -1,0 +1,147 @@
+\piecab=0
+\encabezadop{Equivalencia de máquinas de Turing y {\ccabez \c--}}\piecab=1
+La equivalencia de las máquinas de Turing con el lenguaje \c-- se demuestra haciendo que una máquina
+de Turing tome el papel de ejecutor de programas \c--. Así, una vez escrito el programa en la cinta
+de la máquina, ésta actuará según indiquen las instrucciones y dejará escrito en la cinta el
+programa tal y como quedaría después de la ejecución del mismo. La cinta será pues el homólogo de la
+superficie infinita que se postuló anteriormente como el lugar donde se escriben los programas. La
+máquina que hace de ejecutor se muestra en el apéndice B; llamaremos a esta máquina {\machine
+E}. Vamos a ver cómo se escribe un programa \c-- en la cinta de \E/ para ser ejecutado.
+
+\encabezados{Cómo escribir el programa}
+Una instrucción se escribe en la cinta escribiendo símbolos en los cuadrados de la cinta. Si el
+cuadrado θ es el cuadrado más a la derecha de los que contienen símbolos resultado de escribir una
+intrucción μ, en el proceso de escritura llamaremos {\it siguiente cuadrado} de μ al cuadrado
+inmediatamente a la derecha del cuadrado θ. Utilizando para referirnos a las instrucciones de \c--
+la notación {\fgramatnoterm x\super{\fsupnoterm\kern.08em n}}, que se usa en la gramática presentada
+anteriormente, diremos que el contenido de una posición de un programa \c-- se escribe a partir de
+un cuadrado κ si se hace del siguiente modo:
+\listanormal
+Si la posición está vacía se escribe «-» en el cuadrado κ.\par
+Si la posición contiene solamente un símbolo (el principal de la instrucción) se escribe en κ
+este símbolo.\par
+Si la posición contiene una instrucción de la forma {\fgramatnoterm x\super{\fsupnoterm
+\kern.1em n}\fcode\kern-.15em\lower.1ex\hbox{’}} se escribe la instrucción {\fgramatnoterm x\super{\fsupnoterm
+\kern.1em n}} a partir del cuadrado κ y se escribe en el siguiente cuadrado de esta
+instrucción el símbolo «{\fcode ’}».
+\finlista
+Para escribir un programa {\it P} en la cinta de la máquina \E/, que en un principio no tendrá
+ningún cuadrado ocupado, se escoge cualquier cuadrado, llamémosle κ, y escribimos
+{\it P} de la siguiente manera:
+\listanormal
+Se escribe a partir del cuadrado κ el contenido de la primera posición de {\it P}.\par Si se ha
+escrito la instrucción μ contenida de una posición ψ, y en {\it P} hay una posición ω siguiente a ψ,
+se escribe el contenido de ω a partir del siguiente cuadrado de μ. Si no hay una posición ω
+la escritura se ha completado.
+\finlista
+En resumen, se escriben los símbolos del programa, uno en cada cuadrado de la cinta, en el orden en
+el que aparecerían si se pusiera el contenido de todas las posiciones concatenado, con «-»
+representando las posiciones vacías. Todo esto se entiende mejor viendo cómo se escribe un programa
+concreto. Por ejemplo, si tenemos el programa compuesto por seis posiciones:
+
+\encabezados{Funcionamiento de la máquina {\font\machine="TeXGyreChorus-MediumItalic" at
+19pt\machine E}} Comentamos aquí algunas de las partes de la máquina \E/. Antes de empezar
+la ejecución del programa \c-- escrito en la cinta de la máquina, ésta debe estar leyendo algún
+cuadrado con símbolos y estará en la \configuration/ {\ffraktur b}. La máquina empezará pues con
+\encaje
+{\mconfig b}    {\fcode...}    {\mconfigfin{ini(selin)}}
+\finencaje
+que simplemente hace que la máquina pase a la \configuration/ {\ffraktur{ini(selin)}}. En
+esta \configuration/ la máquina salta símbolos hacia la izquiera hasta leer un cuadrado vacío;
+entonces se moverá un cuadrado a la derecha. El resultado es que al acabar estará leyendo el primer
+símbolo de la instrucción en la primera posición del programa \c-- (o el símbolo «-» si en el
+programa \c-- la primera posición está vacía).
+
+En la \configuration/ {\ffraktur selin} la máquina busca en la cinta la siguiente instrucción a
+ejecutar; cambia el primer símbolo principal que encuentre por «a», «b», «c o «d», según el
+símbolo. Al ser un símbolo distinto para cada acción se puede saber en fases posteriores, además de
+qué intrucción es la que hay que ejecutar, cuál es su acción, y una vez ejecutada la acción
+permitirá restaurar el símbolo original. A diferencia de las máquinas presentadas por Turing en [1],
+la máquina {\machine E} no trabaja con cuadrados en blanco entre los símbolos. El equivalente a lo
+que Turing llama marcar se hace en \E/ de la manera en la que se hace en {\ffraktur selin}, con
+símbolos asociados con otros y sobreescribiendo y restaurando los originales.
+
+En las \configuration/ {\ffraktur buscop} se buscan la posición referida de la instrucción que se va
+a ejecutar. Lo hace cambiando son símbolos «'» por «|» para llevar la cuenta, y cada vez que cambia
+un símbolo avanza una posición en el programa \c--, empezando desde la primera. Cuando no hay más
+símbolos «'» en la instrucción que se está ejecutando es que ya se ha encontrado la posición
+referida; se pasa entonces a {\ffraktur encop({\fcode α})}.
+
+En la \configuration/ {\ffraktur encop({\fcode α})} la máquina se va moviendo hacia la izquierda
+restaurando los símbolos «'», borrando para ello los símbolos «|». Cuando encuentra «a», «b», «c» o
+«d» va a la configuración que ejecuta la instrucción pertinente.
+
+En {\ffraktur saltar({\fcode α})} la máquina va a la posición referida si hace falta (si no es la
+misma posición que la de la instrucción, lo que sería un bucle infinito) y seguirá la ejecución de
+instrucciones desde allí.
+
+En {\ffraktur marcar({\fcode α})} la máquina desplaza todos los símbolos a la derecha del símbolo
+principal de la posición referida, y escribe «'» en el cuadrado vacío que queda.
+
+En {\ffraktur borrar({\fcode α})} no se hace nada si la posición referida estaba vacía; en caso de
+que hubiera un símbolo principal, borra el símbolo si éste es «1» y borra todos los símbolos «'» de
+la posición. Para ello borra un «'» de la posición referida y mueve una posición a la izquierda
+todos los simbolos a partir del cuadrado de la derecha del que contenía el «'», hasta que no quedan
+más «'» en la posición referida.
+
+Las operaciones en la \configuration/ {\ffraktur comp({\fcode α})} básicamente siguen el mismo
+procedimiento que se hace al buscar posiciones referidas. Se comprueba si la posición referida y la
+primera posición están ambas vacías; si no es así se van cambiando los símbolos «'» por simbolos
+«\Uchar`\~» y «\&» en la posición referida y la primera posiciones para ver si hay la misma
+cantidad, que puede ser ninguna o más. En caso de ser iguales se salta una posición, como indica la
+semántica de la instrucción.
+
+La máquina \E/ es complicada de seguir, como son casi todas las máquinas de Turing excepto las más
+simples; no obstante, poniendo un poco de atención se entiende sin grandes dificultades.
+
+\def\machcoma/{{\font\machinecom="TeXGyreChorus-MediumItalic":embolden=2 at 17pt\machine E\machinecom'}\hskip.4em}
+\encabezados{Sin programa, solamente datos de entrada}
+Vamos a ver cómo obtener a partir de la máquina \E/ una máquina que dé el mismo resultado al
+ejecutar un programa {\it P} sin tener que escribir en la cinta el programa \c--, sino escribiendo
+simplemente los datos de entrada para el programa. A esta máquina la
+llamaremos \machcoma/. Supondremos que los valores de entrada en {\it P} se colocan en las primeras
+posiciones de las reservadas para variables. Si no es así se modifica cambiando el orden en que se
+declaran las variables, según se vio en la traducción de macros.
+
+Consideremos la secuencia de símbolos en la cinta de \E/ después de escribir el programa {\it P}
+como se indicó anteriormente. El número de instrucciones que componen el programa es finito y cada
+instrucción está compuesta por un número finito de símbolos, por lo que la secuencia que hay en la
+cinta también es finita. Sea {\it n} el número de símbolos y sea la secuencia
+\encaje
+\font\mathlista=cmmi10 at 17pt
+\textfont1=\mathlista
+$ s_1, s_2, s_3,\kern.2em ... \kern.2em, s_n $
+\finencaje
+donde {\textfont1=\mathlista $ s_1 $} es el símbolo colocado más a la derecha en la cinta, y para
+cada $ i $, con $ 1\le i \le n $, {\textfont1=\mathlista $ s_i $ es el símbolo a la derecha de $
+s_{i+1} $}. Por cada $ s_i $ crearemos una entrada en la tabla de definición de \machcoma/ de la
+forma
+\encaje
+{\fcode C${}_{i}$\kern22pt None\kern22pt L,\kern.2em P$ s_i $\kern21pt C${}_{i+1}$}
+\finencaje
+Por ejemplo, si hubiera al menos un símbolo, y el primer símbolo empezando por la derecha fuera «’»,
+la primera de estas entradas sería
+\encaje
+{\mconfig{C\subind{\ffraktursub1}}    {\fcode None\hskip0.3in  L,\kern.2em P’\kern-.2em}    \mconfigfin{C\subind{\ffraktursub2}}}
+\finencaje
+Esto hace que la máquina escriba un símbolo $ s_i $, se mueva a la izquierda y pase a la \configuration/ que
+hará lo mismo con el símbolo que estaba originalmente a la izquierda de $ s_i $.
+
+Añadimos todas las entradas de \E/ a la tabla de \machcoma/ y hacemos dos modificaciones: cambiamos
+la última entrada creada antes con \configuration/ inicial $ s_n $ y la transformamos en
+\encaje
+{\fcode C${}_{i}$\kern22pt None\kern22pt L,\kern.2em P$ s_i $\kern21pt selin}
+\finencaje
+Por ejemplo, si hubiese 874 símbolos en la cinta de \E/ la última de las entradas de las creadas
+por cada símbolo sería
+\encaje
+{\mconfig{C\subind{{\ffraktursub874}}}    {\fcode None\hskip0.3in  L,\kern.2em P’\kern-.2em}    \mconfigfin{selin}}
+\finencaje
+Cambiamos ahora la entrada inicial, que aparece al principio de la sección 1.2, y la transformamos en
+\encaje
+{\mconfig b}    {\fcode...}    {\mconfigfin{ini(C\subind{\ffraktursub1})}}
+\finencaje
+Con estas dos modificaciones tenemos la máquina \machcoma/ que estábamos buscando. Al igual que la
+máquina \E/ esta máquina empezará en la \configuration/ {\ffraktur b} y leyendo algún símbolo de los
+datos de entrada. Los datos de entrada se escribirán como ya se ha visto, con símbolos «1» y «'» o
+el símbolo «-» si no hay datos de entrada.

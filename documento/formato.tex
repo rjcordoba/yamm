@@ -1,0 +1,108 @@
+
+\font\tenrm="TeXGyreSchola-Regular:mapping=tex-text" at 12pt     \font\tenit="TeXGyreSchola-Regular/I:mapping=tex-text" at 12pt
+\font\diezrm="TeXGyreSchola-Regular" at 11pt                     \font\tenbf="TeXGyreSchola-Regular/B:mapping=tex-text" at 12pt
+\font\fiverm="TeXGyreSchola-Regular" at 7pt                      \font\tensl="TeXGyreSchola-Regular:slant=0.2, mapping=tex-text" at 12pt
+
+\font\teni=cmmi10 at 14pt    \font\tensy=cmsy10 at 12pt    \font\tenex=cmex10 at 15pt
+\font\seveni=cmmi10           \font\sevensy=cmsy10
+\font\fivei=cmmi7            \font\fivesy=cmsy7
+
+\textfont0=\tenrm              \textfont1=\teni             \textfont2=\tensy             \textfont3=\tenex
+\scriptfont0=\sevenrm          \scriptfont1=\seveni         \scriptfont2=\sevensy         \scriptfont3=\tenex
+\scriptscriptfont0=\fiverm     \scriptscriptfont1=\fivei    \scriptscriptfont2=\fivesy    \scriptscriptfont3=\tenex
+
+\font\mathlista=cmmi10 at 15.5pt
+
+\font\ffoot="TeXGyreSchola-Regular:slant=0.2" at 12pt
+\font\fnumpag="TeXGyreSchola-Regular/B" at 13.6pt
+\font\fencp="TeXGyreSchola-Regular:mapping=tex-text" at 20.5pt
+\font\fencs="TeXGyreSchola-Regular:mapping=tex-text" at 17pt
+\font\fenct="TeXGyreSchola-Regular:mapping=tex-text" at 15pt
+\font\fcode="DejaVuSansMono" at 12pt
+\font\fc="DejaVuSansMono":embolden=1.2 at 18pt
+\font\fcodenoterm="LiberationMono/I" at 12pt
+\font\fcodej="DejaVuSansMono" at 14pt
+\font\fcomilla="DejaVuSansMono" at 14pt
+
+\font\festrella="DejaVuSansMono" at 17.66pt
+\font\fpies="TeXGyreSchola-Regular" at 10pt
+\font\fitems="TeXGyreSchola-Regular" at 11.5pt
+\font\fsimbs="XITS-Regular" at 8pt
+\font\fseñal="XITS-Regular" at 10pt
+\font\fflecha="DejaVuSansMono" at 16pt
+\font\fflechaizq="DejaVuSansMono" at 14pt
+\font\machine="TeXGyreChorus-MediumItalic" at 15pt
+%Fuentes Turing
+\font\ffraktur="Kleist-Fraktur" at 15.5pt
+\font\ffraktursub="Kleist-Fraktur" at 9.5pt
+\font\fgabriele="GabrieleBadAH" at 15pt
+\font\fgabrielen="GabrieleBadAH" at 13pt
+
+\font\for="NimbusMonL-Regu" at 12pt
+
+\font\fgramat="LiberationMono" at 12pt
+\font\fgramatnoterm="LiberationMono/I" at 12pt
+\font\fgramatterm="LiberationMono/B" at 12pt
+\font\fsupnoterm="LiberationMono/I" at 8.2pt
+\font\fsup="DejaVuSansMono" at 8.2pt
+\font\fgramatsup="LiberationMono" at 8.2pt
+
+\newcount\cap \cap=0    \newcount\subcap    \newcount\ssubcap
+\newcount\cmarcas       \newdimen\espacio   \newcount\piecab
+
+%% \def\señalizaciones#1{{\fseñal \raise.8ex\hbox{#1}\kern.16em}} En el cap1 la cruz para la definición de función recursiva.
+\def\estrella{{\festrella\lower0.597ex \hbox{*}}}
+\def\super#1{{\fsup \raise1.1ex \hbox{#1}}}
+\def\subind#1{{\fsup \kern.1em\lower.6ex \hbox{#1}}}
+\def\espenc{\hskip0.2em}
+\def\marcas{\ifnum\cmarcas>0 \kern-.29em{\fcode’}\advance\cmarcas by -1 \marcas\fi}
+\def\inst#1#2{\cmarcas=#2 {\fcode#1\kern.1em\fcomilla\hbox{\marcas}}}
+\def\kernpeq{\kern.1em}
+\def\zeta#1{{\fcode Z\subind{#1}}}
+\def\igriega#1{{\fcode Y\kern-.14em\subind{#1}}}
+\def\top/{{\fcode:\kern-.1em top}}
+\def\flechagram{{\fflecha\lower.175ex\hbox{⇾}}}
+\def\.{.\kern-.05em}
+\def\:{:\kern-.05em}
+
+%Turing
+\def\mconfig#1{{\ffraktur#1}\hskip0.3in}
+\def\mconfigfin#1{\hskip0.3in{\ffraktur#1}}
+\def\configuration/{\hbox{{\it m}-configuration}}
+\def\E/{{\machine E}\kern.2em }
+
+\def\C/{{\fcode C}}
+\def\c--{{\fcode \hbox{C-\kern-.12em-\kern.1em}}}
+\def\ccabez{\ifnum\piecab=0\def\fcode{\fc}\fi}%Para escribir C en el título del capítulo con letras grandes y en el pie con pequeñas.
+
+\def\macroins#1#2{\hbox{{\fcode{#1}{\fflecha\hskip.4em\flechagram\hskip.4em}{#2}}}}%→
+\def\alternativas#1{\ifx#1\fin\setbox1=\lastbox \kern-.3em \hskip1.7\espacio \endgroup\let\altern=\relax
+                    \else\kern.3em #1\kern.3em{\fcode\hbox{|}}\let\altern=\alternativas\fi \altern}
+
+\def\gramatprod#1{\begingroup \espacio= 4pt\hskip\espacio {\fgramatnoterm#1}\hskip.4em plus 2pt→\hskip.3em plus 2pt\fgramatterm\alternativas}
+\def\notermpars#1{{\fcode\kern-.1em ⟨}{\fgramatnoterm#1}{\fcode⟩}}
+
+%generales
+\def\encabezadop#1{\advance\cap by 1\vfil\eject\noindent{\fencp\hskip1.8pt §\the\cap.\espenc #1}\vskip8pt \noindent \subcap=1\def\pie{#1}}
+\def\encabezados#1{\vskip-\lastskip\penalty-100\vskip17pt plus5ptminus4pt\noindent{\fencs\hskip5.2pt
+                   \the\cap.\the\subcap.\espenc #1}\vskip6pt plus.5pt\penalty100\noindent \advance\subcap by 1\ssubcap=1}
+\def\encabezadot#1{\vskip-\lastskip\penalty-100\vskip14pt\noindent{\fenct\hskip6.5pt \the\cap.\the\subcap.\the\ssubcap.\espenc #1}\vskip7pt \noindent \advance\ssubcap by 1}
+\def\pseudopar{\hfill\break\hbox{}\hskip\dimen2}
+
+%Listas
+\def\inilista#1#2#3{\par\begingroup\fitems\dimen1=#1\leftskip=#2\rightskip=\leftskip% \dimen2=\parindent
+                  \parindent=0pt \everypar={\llap{{\fsimbs\raise.6ex\hbox{#3}}\kern.3em}}\vskip.6\dimen1\parskip1.6\dimen1 plus 2pt}
+\def\finlista{\par\vskip-\lastskip\vskip2.8\dimen1\endgroup\noindent}
+\def\listanormal{\inilista{5pt}{14pt}{•\kern.05em}}
+\def\listademos{\inilista{5pt}{10pt}{♦}}
+\def\encaje{\inilista{5pt}{22pt}{}}
+\def\finencaje{\par\vskip-\lastskip\vskip2.05\dimen1\endgroup\noindent}
+\def\listraducciones{\inilista{0pt}{21pt}{\lower.25ex\hbox{⬝}\kern4pt}\parskip22pt\vskip-5pt}
+\def\finlistatrad{\finlista\vskip16pt\noindent}
+\def\centrarline#1{\dimen1=\hsize\advance\dimen1 by -2\leftskip\hbox to \dimen1{\hss#1\hss}}
+
+\rm
+\hsize=6.1in \vsize=24cm
+\hoffset=0.11in
+\baselineskip=17.5pt plus .4pt minus .4pt \parindent=14pt
+\footline={\ffoot\vbox to 42pt{}\hfil \pie \hskip5pt {\fnumpag\folio}\kern-8pt}
