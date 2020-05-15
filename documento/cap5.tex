@@ -36,15 +36,21 @@ la escritura se ha completado.
 \finlista
 En resumen, se escriben los símbolos del programa, uno en cada cuadrado de la cinta, en el orden en
 el que aparecerían si se pusiera el contenido de todas las posiciones concatenado, con «-»
-representando las posiciones vacías. Todo esto se entiende mejor viendo cómo se escribe un programa
-concreto. Por ejemplo, si tenemos el programa compuesto por seis posiciones:
+representando las posiciones vacías. Por ejemplo, si tenemos el programa:
+\vskip.23in
+\hbox{\hskip.3in\programa{{\inst1{1}} = { } 0 1 {\inst\estrella4}}}
+\vskip.2in
+\noindent se escribiría en la cinta de una máquina de la siguiente manera:
+\vskip.23in
+\line{\hfil\cinta{1’=-01{\raise .1ex\hbox{\estrella}}’’’’}\hfil}
+\vskip.16in\hrule width 0pt
 
 \encabezados{Funcionamiento de la máquina {\font\machine="TeXGyreChorus-MediumItalic" at
 19pt\machine E}} Comentamos aquí algunas de las partes de la máquina \E/. Antes de empezar
 la ejecución del programa \c-- escrito en la cinta de la máquina, ésta debe estar leyendo algún
-cuadrado con símbolos y estará en la \configuration/ {\ffraktur b}. La máquina empezará pues con
+cuadrado con símbolos y estará en la \configuration/ {\ffraktur b}. La máquina empezará, pues, con
 \encaje
-{\mconfig b}    {\fcode...}    {\mconfigfin{ini(selin)}}
+{\mconfig b}    {\mconfigfin{ini(selin)}}%   {\fcode...}
 \finencaje
 que simplemente hace que la máquina pase a la \configuration/ {\ffraktur{ini(selin)}}. En
 esta \configuration/ la máquina salta símbolos hacia la izquiera hasta leer un cuadrado vacío;
@@ -58,10 +64,10 @@ símbolo. Al ser un símbolo distinto para cada acción se puede saber en fases 
 qué intrucción es la que hay que ejecutar, cuál es su acción, y una vez ejecutada la acción
 permitirá restaurar el símbolo original. A diferencia de las máquinas presentadas por Turing en [1],
 la máquina {\machine E} no trabaja con cuadrados en blanco entre los símbolos. El equivalente a lo
-que Turing llama marcar se hace en \E/ de la manera en la que se hace en {\ffraktur selin}, con
+que Turing llama marcar se hace en \E/ de la manera en la que se hace en «{\ffraktur selin}», con
 símbolos asociados con otros y sobreescribiendo y restaurando los originales.
 
-En las \configuration/ {\ffraktur buscop} se buscan la posición referida de la instrucción que se va
+En las \configuration/ «{\ffraktur buscop}» se buscan la posición referida de la instrucción que se va
 a ejecutar. Lo hace cambiando son símbolos «'» por «|» para llevar la cuenta, y cada vez que cambia
 un símbolo avanza una posición en el programa \c--, empezando desde la primera. Cuando no hay más
 símbolos «'» en la instrucción que se está ejecutando es que ya se ha encontrado la posición

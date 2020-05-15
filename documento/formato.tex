@@ -1,11 +1,13 @@
-
 \font\tenrm="TeXGyreSchola-Regular:mapping=tex-text" at 12pt     \font\tenit="TeXGyreSchola-Regular/I:mapping=tex-text" at 12pt
 \font\diezrm="TeXGyreSchola-Regular" at 11pt                     \font\tenbf="TeXGyreSchola-Regular/B:mapping=tex-text" at 12pt
 \font\fiverm="TeXGyreSchola-Regular" at 7pt                      \font\tensl="TeXGyreSchola-Regular:slant=0.2, mapping=tex-text" at 12pt
 
-\font\teni=cmmi10 at 14pt    \font\tensy=cmsy10 at 12pt    \font\tenex=cmex10 at 15pt
+\font\teni=cmmi10 at 14pt    \font\tensy=cmsy10 at 14pt    \font\tenex=cmex10 at 15pt
 \font\seveni=cmmi10           \font\sevensy=cmsy10
 \font\fivei=cmmi7            \font\fivesy=cmsy7
+
+\font\tenipeq=cmmi10 at 12pt    \font\tensypeq=cmsy10    \font\tenex=cmex10 at 15pt
+\font\sevenipeq=cmmi10           \font\sevenypeq=cmsy8
 
 \textfont0=\tenrm              \textfont1=\teni             \textfont2=\tensy             \textfont3=\tenex
 \scriptfont0=\sevenrm          \scriptfont1=\seveni         \scriptfont2=\sevensy         \scriptfont3=\tenex
@@ -19,18 +21,18 @@
 \font\fencs="TeXGyreSchola-Regular:mapping=tex-text" at 17pt
 \font\fenct="TeXGyreSchola-Regular:mapping=tex-text" at 15pt
 \font\fcode="DejaVuSansMono" at 12pt
-\font\fc="DejaVuSansMono":embolden=1.2 at 18pt
+\font\fc="DejaVuSansMono":embolden=0.5 at 18pt
 \font\fcodenoterm="LiberationMono/I" at 12pt
 \font\fcodej="DejaVuSansMono" at 14pt
-\font\fcomilla="DejaVuSansMono" at 14pt
+%% \font\fflechaizq="DejaVuSansMono" at 14pt
 
 \font\festrella="DejaVuSansMono" at 17.66pt
 \font\fpies="TeXGyreSchola-Regular" at 10pt
 \font\fitems="TeXGyreSchola-Regular" at 11.5pt
 \font\fsimbs="XITS-Regular" at 8pt
 \font\fseñal="XITS-Regular" at 10pt
+\font\fsimbols="XITS-Regular" at 14pt
 \font\fflecha="DejaVuSansMono" at 16pt
-\font\fflechaizq="DejaVuSansMono" at 14pt
 \font\machine="TeXGyreChorus-MediumItalic" at 15pt
 %Fuentes Turing
 \font\ffraktur="Kleist-Fraktur" at 15.5pt
@@ -55,10 +57,12 @@
 \def\super#1{{\fsup \raise1.1ex \hbox{#1}}}
 \def\subind#1{{\fsup \kern.1em\lower.6ex \hbox{#1}}}
 \def\espenc{\hskip0.2em}
+\def\espacioej{\pseudopar\vbox to 18pt{} \hskip34pt}%espacio antes de matemáticas en las listas.
 \def\marcas{\ifnum\cmarcas>0 \kern-.29em{\fcode’}\advance\cmarcas by -1 \marcas\fi}
-\def\inst#1#2{\cmarcas=#2 {\fcode#1\kern.1em\fcomilla\hbox{\marcas}}}
+\def\inst#1#2{\cmarcas=#2 {\fcode#1\kern.1em\fcodej\hbox{\marcas}}}
 \def\kernpeq{\kern.1em}
 \def\zeta#1{{\fcode Z\subind{#1}}}
+\def\nnat{{\it n} $ \in $ {\fsimbols ℕ}}
 \def\igriega#1{{\fcode Y\kern-.14em\subind{#1}}}
 \def\top/{{\fcode:\kern-.1em top}}
 \def\flechagram{{\fflecha\lower.175ex\hbox{⇾}}}
@@ -70,6 +74,12 @@
 \def\mconfigfin#1{\hskip0.3in{\ffraktur#1}}
 \def\configuration/{\hbox{{\it m}-configuration}}
 \def\E/{{\machine E}\kern.2em }
+\def\puntoscinta{\kern4pt\raise1.4ex\hbox{{\fgramatsup...}}\kern4pt}
+\def\esccinta#1{\ifx\fin#1\let\altern=\relax
+                \else \hbox to .35in{\hfil \vrule width0pt height16pt depth7.3pt #1\hfil}\vrule width\dimen1\let\altern=\esccinta\fi \altern}
+\def\cinta#1{{\dimen1=.05pt \fcode
+              \setbox1=\hbox{\hbox to 11pt{}\vrule width\dimen1\esccinta#1\fin\hbox to 11pt{}}
+              \hbox{\puntoscinta\vbox{\hrule height\dimen1 \box1  \hrule height\dimen1}}\puntoscinta}}
 
 \def\C/{{\fcode C}}
 \def\c--{{\fcode \hbox{C-\kern-.12em-\kern.1em}}}
@@ -79,10 +89,17 @@
 \def\alternativas#1{\ifx#1\fin\setbox1=\lastbox \kern-.3em \hskip1.7\espacio \endgroup\let\altern=\relax
                     \else\kern.3em #1\kern.3em{\fcode\hbox{|}}\let\altern=\alternativas\fi \altern}
 
+\def\ponerins#1{\ifx\fin#1\let\altern=\relax
+                \else \hbox to 1in{\hskip8pt \vrule width0pt height15pt depth5pt #1 \hfil}\hrule height\dimen1 \let\altern=\ponerins\fi \altern}
+\def\programa#1{{\dimen1=.05pt \fcode
+                 \setbox1=\vbox{\hrule height\dimen1\ponerins #1\fin}
+                 \hbox{\vrule width\dimen1 \box1 \vrule width\dimen1}}}
+
 \def\gramatprod#1{\begingroup \espacio= 4pt\hskip\espacio {\fgramatnoterm#1}\hskip.4em plus 2pt→\hskip.3em plus 2pt\fgramatterm\alternativas}
 \def\notermpars#1{{\fcode\kern-.1em ⟨}{\fgramatnoterm#1}{\fcode⟩}}
 
 %generales
+\def\tragar#1{}
 \def\encabezadop#1{\advance\cap by 1\vfil\eject\noindent{\fencp\hskip1.8pt §\the\cap.\espenc #1}\vskip8pt \noindent \subcap=1\def\pie{#1}}
 \def\encabezados#1{\vskip-\lastskip\penalty-100\vskip17pt plus5ptminus4pt\noindent{\fencs\hskip5.2pt
                    \the\cap.\the\subcap.\espenc #1}\vskip6pt plus.5pt\penalty100\noindent \advance\subcap by 1\ssubcap=1}
@@ -91,7 +108,7 @@
 
 %Listas
 \def\inilista#1#2#3{\par\begingroup\fitems\dimen1=#1\leftskip=#2\rightskip=\leftskip% \dimen2=\parindent
-                  \parindent=0pt \everypar={\llap{{\fsimbs\raise.6ex\hbox{#3}}\kern.3em}}\vskip.6\dimen1\parskip1.6\dimen1 plus 2pt}
+                  \parindent=0pt \everypar={\llap{{\fsimbs\raise.6ex\hbox{#3}}\kern.3em}}\vskip.6\dimen1\parskip1.6\dimen1 plus 2pt minus 2pt}
 \def\finlista{\par\vskip-\lastskip\vskip2.8\dimen1\endgroup\noindent}
 \def\listanormal{\inilista{5pt}{14pt}{•\kern.05em}}
 \def\listademos{\inilista{5pt}{10pt}{♦}}

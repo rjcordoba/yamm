@@ -15,31 +15,44 @@ Vamos a ver cómo es la función {\it C}; seguidamente se comentará brevemente 
 «{\fgabrielen computar}» y para finalizar la sección veremos cómo obtener, a partir de «{\fgabrielen
 computar}» y para un programa cualquier {\it P}, una función recursiva que recibiendo como argumento
 unos datos de entrada calcule lo mismo que calcularía {\it P} con esos datos.
-\encabezados{Codificación de programas}
+\encabezados{Programas como números naturales}
 Para ver cómo representar un programa \c-- como un número natural para que pueda ser usado por las
-funciones recursivas, dividiremos la explicación en dos partes: explicamos primero cómo se codifica
+funciones recursivas dividiremos la explicación en dos partes: explicamos primero cómo se codifica
 el contenido de una posición y valiéndonos de esto definiremos después la función {\it C} que
 buscamos.
 \encabezadot{Codificación de contenido de posiciones}
-Para un programa {\it P} de \c-- vamos a definir una función $ c_P $ sobre las
-posiciones de {\it P} tal que dada una posición devuelva la codificación de la instrucción en esa
+Para un programa {\it p} en \c-- vamos a definir una función $ c_p $ sobre las posiciones de {\it p}
+tal que dada una posición devuelva la codificación como número natural de la instrucción en esa
 posición. Definiremos primero una función $ f $, con las intrucciones de \c-- como dominio, del
 siguiente modo:
 \listanormal
-$ f()= 0$, esto es, si no hay dato (contenido de una posición vacía).\par
-Para instrucciones que tienen un único símbolo:\pseudopar
-\vbox to 18pt{} \hskip34pt$ f(\hbox{\fcode0})= 1$,\hskip22pt$ f(\hbox{\fcode=})=2 $,\hskip22pt $
-f(\hbox{\fcode\estrella})=3 $\hskip22pt $ f(\hbox{\fcode1})=4 $.\par
+$ f()= 0$, esto es, si no hay dato (contenido de una posición vacía).
+
+Para instrucciones que tienen un único símbolo:
+\espacioej$ f(\hbox{\fcode0})= 1$,\hskip22pt$ f(\hbox{\fcode=})=2 $,\hskip22pt $
+f(\hbox{\fcode\estrella})=3, $\hskip22pt $ f(\hbox{\fcode1})=4 $.
+
 Para instrucciones de la forma {\fgramatnoterm x\super{\fsupnoterm\kern.1em
-n}\fcode\kern-.15em\lower.1ex\hbox{’}}:\pseudopar
-\vbox to 18pt{} \hskip34pt $ f(\hbox{{\fgramatnoterm x\super{\fsupnoterm\kern.1em n}%
+n}\fcode\kern-.15em\lower.1ex\hbox{’}}, con \nnat:
+\espacioej$ f(\hbox{{\fgramatnoterm x\super{\fsupnoterm\kern.1em n}%
 \fcode\kern-.15em\lower.1ex\hbox{’}}}) =f(\hbox{{\fgramatnoterm x\super{\fsupnoterm\kern.1em n}}})+4 $.
 \finlista
 Por ejemplo, $ f(\hbox{{\fcode\inst{1}3}})=16 $ y $ f(\hbox{{\fcode\inst{=}2}})=10 $.
 
-Definimos ahora dos nuevas funciones: una función $ g $ que dada una posición de un programa
-devuelve la instrucción contenida en esa posición, o nada si la posición está vacía, y una función
-para un programa {\it P}, $ h_P $, sobre los números naturales, tal que $ h_P(1) $ es la
-primera posición de {\it P} y para todo $ n $, $ h_P(n+1) $ es la siguiente posición en {\it P}
-de la posición $ n $ si en {\it P} existe la posición siguiente a $ n $ existe y no está definido si
-la posición no existe.
+Definimos ahora dos sencillas funciones: una función $ g $ que dada una posición de un programa
+devuelve la instrucción contenida en esa posición, o nada si la posición está vacía; y una función
+para un programa {\it p}, $ h_p $, tal que $ h_p(1) $ es la primera posición de {\it p}, y, para
+todo \nnat, $ h_p(n+1) $ es la siguiente de la posición $ h_p(n) $ si tal posición existe, y no está
+definido si la posición no existe. La función $ c_p $ será la composición de estas tres funciones:
+%% \espacioej $ c_p = f \circ g \circ  h_p$.
+\encaje
+$ c_p = f \circ g \circ  h_p$.
+\finencaje
+Poniendo como ejemplo un programa al que llamaremos {\it Ψ}\/:
+\vskip.23in
+\hbox{{\textfont0=\fpies\textfont1=\tenipeq\scriptfont1=\sevenipeq\textfont2=\tensypeq\scriptfont2=\sevenypeq\parskip3pt
+\hbox{\hskip.3in\programa{{\inst1{2}}{\inst1{3}}{\inst1{0}}{\inst\estrella1}}}
+\hskip.25in\vbox{$ c_\psi(1)=12 $\par$ c_\psi(2)=16 $\par$ c_\psi(3)=4 $\par$ c_\psi(4)=7
+$\vskip2pt}}}%\par\hbox{\vrule width1pt height0pt
+
+\encabezadot{Codificación de programas}
