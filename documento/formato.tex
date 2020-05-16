@@ -32,6 +32,7 @@
 \font\fsimbs="XITS-Regular" at 8pt
 \font\fseñal="XITS-Regular" at 10pt
 \font\fsimbols="XITS-Regular" at 14pt
+\font\fmats="XITSMath-Regular" at 13pt
 \font\fflecha="DejaVuSansMono" at 16pt
 \font\machine="TeXGyreChorus-MediumItalic" at 15pt
 %Fuentes Turing
@@ -80,6 +81,10 @@
 \def\cinta#1{{\dimen1=.05pt \fcode
               \setbox1=\hbox{\hbox to 11pt{}\vrule width\dimen1\esccinta#1\fin\hbox to 11pt{}}
               \hbox{\puntoscinta\vbox{\hrule height\dimen1 \box1  \hrule height\dimen1}}\puntoscinta}}
+
+%Apéndice A
+\def\insc--#1#2{{\fgramat#1{\fflecha\hskip.4em→\hskip.4em}{\fcode#2}\hskip.2em |\hskip.2em#1’\hfil}}
+%% \def\insc--#1#2{{\fgramat#1{\hskip.3em→\hskip.3em}{\fcode#2} | #1’}}
 
 \def\C/{{\fcode C}}
 \def\c--{{\fcode \hbox{C-\kern-.12em-\kern.1em}}}

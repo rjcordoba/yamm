@@ -53,6 +53,49 @@ Poniendo como ejemplo un programa al que llamaremos {\it Ψ}\/:
 \hbox{{\textfont0=\fpies\textfont1=\tenipeq\scriptfont1=\sevenipeq\textfont2=\tensypeq\scriptfont2=\sevenypeq\parskip3pt
 \hbox{\hskip.3in\programa{{\inst1{2}}{\inst1{3}}{\inst1{0}}{\inst\estrella1}}}
 \hskip.25in\vbox{$ c_\psi(1)=12 $\par$ c_\psi(2)=16 $\par$ c_\psi(3)=4 $\par$ c_\psi(4)=7
-$\vskip2pt}}}%\par\hbox{\vrule width1pt height0pt
-
+$\vskip2pt}}}
+\vskip10pt\vskip0in
 \encabezadot{Codificación de programas}
+Para llegar hasta la definición de {\it C} que buscamos, antes definimos dos funciones: una función,
+{\it pm}, para todo \nnat\ de la siguiente manera:
+\listanormal
+$ pm(1)=5 $\par
+$ pm(n+1) $ \hskip3pt es el menor primo mayor que \hskip3pt $ pm(n) $
+\finlista
+y otra función sobre un programa {\it p}, a la que llamaremos {\it cm}, con el mismo dominio que la
+función {\it c} definida anteriormente, del siguiente modo:
+\listanormal
+$ cm_p(1)=3^{c(1)} $\par
+$ cm_p(n+1)=cm_p(n)\times pm(n)^{c(n+1)} $
+\finlista
+Definimos por fin la función {\it C} que buscamos, que da como resultado la codificación de un
+programa {\it P}, como sigue:
+\vskip18pt
+\hbox{\hskip.48in{\fitems \raise7.4pt\hbox{$ C(P)=cm_p(\alpha) $} \hskip18pt\vbox{\noindent donde $ \alpha\ge n $
+para todo $ n $\hskip0pt plus 1fil\break perteneciente al dominio de $ cm_p $.}}}
+\vskip18pt
+\noindent Llamemos última posición de un programa {\it P} a la posición para la que no hay siguiente
+posición en {\it P}. Sea {\fmats 𝕌} el conjunto de los programas tales que la última posición está
+vacía y es la siguiente de alguna posición. Es fácil ver que cualquier programa en {\fmats 𝕌} se
+puede transformar en uno equivalente a efectos de computación, esté o no en {\fmats 𝕌}, quitando la
+última posición. Con los programas que no pertenecen a {\fmats 𝕌} como dominio la función {\it C} es
+biyectiva; por tanto, cualquier programa, o uno equivalente, se puede codificar y decodificar
+unívocamente.
+
+Vamos a ver un ejemplo de codificación de un programa. Para ello tomaremos el programa que se usó en
+§5 para explicar cómo se escribe en una máquina de Turing y lo usaremos para ver cómo se transforma
+en un número natural que sirva como entrada para la funcíon recursiva del apéndice D. Así, si
+llamamos {\fmats 𝝎} al programa
+\vskip.23in
+\hbox{\hskip.3in\programa{{\inst1{1}} = { } 0 1 {\inst\estrella4}}}
+\vskip.2in
+\noindent el número que lo representaría será:
+\encaje
+$ C(\hbox{{\fmats 𝝎}})=3^8 \times 5^2 \times 7^0 \times 11^1 \times 13^4 \times 17^{19} $
+\finencaje
+La manera de descodificar un número para obtener el programa que representa se ve en el
+funcionamiento de la función «{\fgabrielen computar}». Damos a continuación algunos apuntes sobre su
+funcionamiento.
+
+{\font\fgabriele="GabrieleBadAH" at 17pt
+\encabezados{Estructura de la función «{\fgabriele computar}»}}
