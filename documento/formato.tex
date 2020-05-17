@@ -54,7 +54,7 @@
 \newcount\cmarcas       \newdimen\espacio   \newcount\piecab
 
 %% \def\señalizaciones#1{{\fseñal \raise.8ex\hbox{#1}\kern.16em}} En el cap1 la cruz para la definición de función recursiva.
-\def\estrella{{\festrella\lower0.597ex \hbox{*}}}
+\def\estrella{{\festrella\lower0.597ex\hbox{*}}}
 \def\super#1{{\fsup \raise1.1ex \hbox{#1}}}
 \def\subind#1{{\fsup \kern.1em\lower.6ex \hbox{#1}}}
 \def\espenc{\hskip0.2em}
@@ -83,8 +83,9 @@
               \hbox{\puntoscinta\vbox{\hrule height\dimen1 \box1  \hrule height\dimen1}}\puntoscinta}}
 
 %Apéndice A
-\def\insc--#1#2{{\fgramat#1{\fflecha\hskip.4em→\hskip.4em}{\fcode#2}\hskip.2em |\hskip.2em#1’\hfil}}
-%% \def\insc--#1#2{{\fgramat#1{\hskip.3em→\hskip.3em}{\fcode#2} | #1’}}
+\def\insc--#1#2{{\fgramattermg\hskip4pt\hbox{\notermparsg{#1}{\fflecha\hskip.4em→\hskip.4em}{\fcodeinscs\lower.12ex\hbox{#2}}\hskip.2em
+               {\fcodeinsc|}\hskip.2em\notermparsg{#1}\kern-.2em’}}\vskip10pt\noindent}
+\def\listainsc#1#2{\listadefs {\fcode#1}: primera posición\par{\notermpars{#2}}{\fgramatterm\kern-.1em’}: siguiente posición a la referida por {\notermpars{#2}}\finlista}
 
 \def\C/{{\fcode C}}
 \def\c--{{\fcode \hbox{C-\kern-.12em-\kern.1em}}}
@@ -121,6 +122,7 @@
 \def\finencaje{\par\vskip-\lastskip\vskip2.05\dimen1\endgroup\noindent}
 \def\listraducciones{\inilista{0pt}{21pt}{\lower.25ex\hbox{⬝}\kern4pt}\parskip22pt\vskip-5pt}
 \def\finlistatrad{\finlista\vskip16pt\noindent}
+\def\listadefs{\inilista{5pt}{14pt}{{\fsimbsinsc\raise.18ex\hbox{■}}\kern.05em}}
 \def\centrarline#1{\dimen1=\hsize\advance\dimen1 by -2\leftskip\hbox to \dimen1{\hss#1\hss}}
 
 \rm

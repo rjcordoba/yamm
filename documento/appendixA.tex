@@ -1,0 +1,58 @@
+\font\fgramatnotermg="LiberationMono/I" at 15pt
+\font\fgramattermg="LiberationMono" at 15pt
+\font\fcodeinsc="DejaVuSansMono" at 15pt
+\font\fcodeinscs="DejaVuSansMono/B" at 15pt
+\font\fsimbsinsc="XITS-Regular" at 4.4pt
+\def\notermparsg#1{{\fcodeinsc\kern-.1em ⟨{\fgramatnotermg#1}⟩}}
+%
+Un programa es un conjunto de posiciones, en cada de las cuales hay una instrucción o no hay
+nada. Llamamos La ejecución de un programa comienza ejecutándose la instrucción en la primera posición
+
+\noindent\insc--{marcar}1%
+Se pone el símbolo «1» en la posición referida si no hay nada en dicha posición, o un símbolo «’» si la
+posición no está vacía. La posición referida es:
+\listainsc1{marcar}
+%% \vskip0pt
+\insc--{borrar}0%
+Se quitan todos los símbolos «’» de la posición referida, y el símbolo «1» si lo hubiera. La
+posición referida es:
+\listainsc0{borrar}
+%% \vskip0pt
+\insc--{comparar}{\raise.1ex\hbox{=}}%
+Si el contenido de la posición referida es igual que el de la primera posición se salta la siguiente
+instrucción, no se ejecuta. En caso contrario la ejecución de instrucciones sigue normalmente. La
+posición referida es:
+\listainsc={comparar}
+El contenido de dos posiciones es igual si y sólo si una de las siguientes afirmaciones es cierta:
+\listanormal
+En cada posición no hay nada.\par
+En cada posición hay solamente un símbolo.\par
+Cada posición tiene símbolos «’» y si se quita a ambas uno de estos símbolos «’» las posiciones son iguales.
+\finlista
+%% \vskip0pt
+\insc--{saltar}{\font\festrella="DejaVuSansMono" at 26.76pt\raise.1ex\hbox{\estrella}}%
+En vez de ejecutarse la siguiente instrucción se ejecuta la intrucción en la posición referida. La
+posición referida es:
+\listainsc{\noindent\estrella}{saltar}
+
+%% \listadefs
+%% Se quitan todas las marcas de la posición referida, y el símbolo «1» si lo hubiera. La posición referida es:
+
+%% {\fcode0}: primera posición.
+%% {\fgramatnoterm borrar}’: siguiente posición de la referida por borrar.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footline{}
+%% \setbox1=\vbox{\hbox{\insc--{comparar}=}}
+%% \dimen1=\hsize \advance\dimen1 by -\wd1
+%% \number\dimen1
+
+%% \number\wd1
+%% \line{\vbox{\hbox to \wd1{\insc--{marcar}1\hfil}}\hskip.0in{\hsize=\dimen1\vbox{
+%% \noindent Se pone el símbolo «1» en la posición referida si no hay nada en dicha posición, o una marca si la
+%% posición no está vacía. La posición referida es:}}}
+
+%% \line{\vbox{\insc--{comparar}0}\hskip.3in{\hsize=3.5in\vbox{\noindent Si
+%% el contenido de la posición referida es igual que el de la primera posición se salta la siguiente
+%% instrucción, no se ejecuta. En caso contrario la ejecución de instrucciones sigue normalmente. La
+%% posición referida es:}}}
