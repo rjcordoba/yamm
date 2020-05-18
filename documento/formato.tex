@@ -83,8 +83,16 @@
               \hbox{\puntoscinta\vbox{\hrule height\dimen1 \box1  \hrule height\dimen1}}\puntoscinta}}
 
 %Apéndice A
-\def\insc--#1#2{{\fgramattermg\hskip4pt\hbox{\notermparsg{#1}{\fflecha\hskip.4em→\hskip.4em}{\fcodeinscs\lower.12ex\hbox{#2}}\hskip.2em
-               {\fcodeinsc|}\hskip.2em\notermparsg{#1}\kern-.2em’}}\vskip10pt\noindent}
+\font\fgramatnotermg="LiberationMono/I" at 16pt
+\font\fgramattermg="LiberationMono" at 16pt
+\font\fcodeinsc="DejaVuSansMono" at 16pt
+\font\fcodeinscs="DejaVuSansMono/B" at 16pt
+\font\fsimbsinsc="XITS-Regular" at 4.4pt
+\font\instenc="TeXGyreSchola-Regular:+smcp" at 22pt
+
+\def\notermparsg#1{{\fcodeinsc\kern-.1em ⟨{\fgramatnotermg#1}⟩}}
+\def\insc--#1#2{{\fgramattermg\noindent\hskip8pt\hbox{\notermparsg{#1}{\fflecha\hskip.4em→\hskip.4em}{\fcodeinscs\lower.12ex\hbox{#2}}\hskip.2em
+               {\fcodeinsc|}\hskip.2em\notermparsg{#1}\kern-.2em{\fcodeinscs’}}}\vskip10pt\noindent}
 \def\listainsc#1#2{\listadefs {\fcode#1}: primera posición\par{\notermpars{#2}}{\fgramatterm\kern-.1em’}: siguiente posición a la referida por {\notermpars{#2}}\finlista}
 
 \def\C/{{\fcode C}}
