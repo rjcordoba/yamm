@@ -33,9 +33,9 @@ Para instrucciones que tienen un único símbolo:
 f(\hbox{\fcode\estrella})=3, $\hskip22pt $ f(\hbox{\fcode1})=4 $.
 
 Para instrucciones de la forma {\fgramatnoterm x\super{\fsupnoterm\kern.1em
-n}\fcode\kern-.15em\lower.1ex\hbox{’}}, con \nnat:
+n}\fcode\kern-.15em\lower.0ex\hbox{’}}, con \nnat:
 \espacioej$ f(\hbox{{\fgramatnoterm x\super{\fsupnoterm\kern.1em n}%
-\fcode\kern-.15em\lower.1ex\hbox{’}}}) =f(\hbox{{\fgramatnoterm x\super{\fsupnoterm\kern.1em n}}})+4 $.
+\fcode\kern-.15em\lower.0ex\hbox{’}}}) =f(\hbox{{\fgramatnoterm x\super{\fsupnoterm\kern.1em n}}})+4 $.
 \finlista
 Por ejemplo, $ f(\hbox{{\fcode\inst{1}3}})=16 $ y $ f(\hbox{{\fcode\inst{=}2}})=10 $.
 
@@ -85,17 +85,66 @@ unívocamente.
 Vamos a ver un ejemplo de codificación de un programa. Para ello tomaremos el programa que se usó en
 §5 para explicar cómo se escribe en una máquina de Turing y lo usaremos para ver cómo se transforma
 en un número natural que sirva como entrada para la funcíon recursiva del apéndice D. Así, si
-llamamos {\fmats 𝝎} al programa
+llamamos {\fmats ξ} al programa
 \vskip.23in
 \hbox{\hskip.3in\programa{{\inst1{1}} = { } 0 1 {\inst\estrella4}}}
 \vskip.2in
 \noindent el número que lo representaría será:
 \encaje
-$ C(\hbox{{\fmats 𝝎}})=3^8 \times 5^2 \times 7^0 \times 11^1 \times 13^4 \times 17^{19} $
+$ C(\hbox{{\fmats ξ}})=3^8 \times 5^2 \times 7^0 \times 11^1 \times 13^4 \times 17^{19} $
 \finencaje
 La manera de descodificar un número para obtener el programa que representa se ve en el
 funcionamiento de la función «{\fgabrielen computar}». Damos a continuación algunos apuntes sobre su
 funcionamiento.
 
-{\font\fgabriele="GabrieleBadAH" at 17pt
-\encabezados{Estructura de la función «{\fgabriele computar}»}}
+{\font\fgabrieleg="GabrieleBadAH" at 17pt
+\encabezados{Apuntes sobre la función «{\fgabrieleg computar}»}}%
+La definición de función recursiva que se usa aquí está basada en las definiciones de funciones
+primitivas recursivas que se dan en [2], pag. 219, y en [x], capítulo~6. Concretamente, la función
+«{\fgabrielen computar}» y las demás funciones que usa son de uno de los siguientes tipos,
+expresados con la notación en [2], donde $ y'=y+1 $\hskip8pt y\hskip8pt $ 1\le i\le n $:
+\vskip2pt
+\lfunciones
+\funespec{$ \hbox{φ}\equis=0 $}
+\funespec{$ \hbox{φ}(x)= x+1 $}
+\funespec{$ \hbox{φ}\equis= x_i $}
+\funespec{\vrule width0pt depth10pt$ \hbox{φ}\equis= \hbox{ψ}(\hbox{χ}_1\equis, ... , \hbox{χ}_m\equis) $}
+\funespec{$ \cases{\hbox{\vrule width0pt depth18pt\fmats φ}(0, x_2, ... x_n)=\hbox{\fmats ψ}(x_2, ... ,x_n), \cr
+                   \hbox{\fmats φ}(0, x_2, ... x_n)=\hbox{\fmats χ}(y, \hbox{\fmats φ}(0, x_2, ... x_n), (x_2, ... ,x_n))\cr}$}
+\vskip4pt\vskip0pt\finlista
+Las funciones se muestran en el apéndice D como un programa \c-- escrito con macros, o sea, como un
+programa \C/, con lo que es sencillo de entender. Las dos primeras funciones, llamadas «{\fgabrielen
+cero}» son del tipo (i); la siguiente función que aparece, «{\fgabrielen S}», es del tipo (ii); las
+funciones en las líneas xx--xx, con nombres de la forma «U{\it x\_y}» son del tipo (iii); todas las
+demás funciones son de los tipos (iv) o (v). Concretamente, «{\fgabrielen computar}» es del tipo
+(iv).
+
+Antes de seguir con el repaso de las funciones conviene introducir el concepto que llamaremos {\it
+registro}, relacionado con los programas \c-- y que se maneja durante la computación tal y como se
+hace en el apéndice D.
+\encabezadot{Señalador y registro}
+Imaginemos que el ejecutor de un programa \c-- tiene otras cosas que hacer, y va y viene, alternando
+la ejecución de algunas instrucciones del programa con sus otras tareas; o que el programa es muy
+largo y hay varios ejecutores que van turnándose en la ejecución del programa. Esto se podría hacer
+manteniendo un señalador que apunte a la próxima instrucción que será ejecutada, del mismo modo que
+se usa un marcapáginas en un libro. Asi se podrá dejar y retomar la tarea de ejecutar el programa a
+capricho. Al conjunto de programa y el señalador es a lo que llamamos {\it registro}.
+
+Durante la computación con «{\fgabrielen computar}» se trabaja con la codificación de registros. Al
+principio de la ejecución se obtiene un registro a partir de la codificación del programa, con el
+señalador en la primera posición; según se van ejecutando instrucciones se obtienen las
+codificaciones con el señalador donde corresponda. La codificación de un registro ρ para un programa
+{\it P} es como sigue:
+
+Si {\it P} es un programa y $\hbox{υ}=\hbox{C}(P)$ es la codificación de {\it P} como número
+natural, la codificación del registro ρ a partir de υ es como sigue:
+\listanormal
+Si $\hbox{υ}=\hbox{C}(\hbox{{\it P}})$ \ es la codificación de {\it P}, entonces \ $ \hbox{ρ}=2\times\hbox{υ} $ \
+es la codificación del registro con el señalador apuntando a la primera posición de {\it P}.
+
+Si μ es la codificación de un registro con el señalizador σ apuntando a la posición ψ, entonces
+\ $ \hbox{ρ}=2\times\hbox{μ} $ \ es la codificación del registro con el señalizador apuntando a la
+siguiente posición de σ en {\it P}.
+\finlista
+\encabezadot{Apuntes II}
+Continuamos haciendo un repaso a las funciones recursivas del apéndice D.
