@@ -388,7 +388,7 @@
     <span class="pclave">return</span><span class="nvars"> mult</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span><span class="nvars">V2</span><span class="simbind">);</span>
 <span class="simbind">}</span>
 
-<span class="comentarioc">/* Devuelve X3 multiplicado X2 veces por X1 =&gt; X3 * X2 ^ X1. */</span>
+<span class="comentarioc">/* Devuelve X3 multiplicado X1 veces por X2 :=&gt; X3 * (X2 ^ X1). */</span>
 <span class="pclave">function</span><span class="nvars"> mult_veces</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">if</span><span class="simbind">(</span><span class="nvars">X1</span><span class="simbind"> == </span><span class="numberp">0</span><span class="simbind">){</span>
@@ -453,8 +453,8 @@
 <span class="pclave">function</span><span class="nvars"> div_emp</span><span class="simbind">(</span><span class="pclave">var</span><span class="simbind">, </span><span class="pclave">var</span
 ><span class="simbind">, </span><span class="pclave">var</span><span class="simbind">, </span><span class="pclave">var</span><span class="simbind">);</span>
 
-<span class="comentarioc">/*Función auxiliar para «div».
- * Compruba si dividendo es mayor que el divisor. */</span>
+<span class="comentarioc">/* Función auxiliar para «div».
+ * Comprueba si dividendo es mayor que el divisor. */</span>
 <span class="pclave">function</span><span class="nvars"> div_aux_mayor_ig</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X3</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U3_2</span><span class="simbind">(</span><span class="nvars">X1</span
@@ -1377,7 +1377,7 @@
 ><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
     <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">pos_inst</span><span class="simbind">(</span
 ><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
-    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">U2_2</span><span class="simbind">(</span
+    <span class="pclave">var</span><span class="nvars"> V3</span><span class="simbind"> = </span><span class="nvars">U2_2</span><span class="simbind">(</span
 ><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
     <span class="pclave">return</span><span class="nvars"> ejec3</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span
 ><span class="nvars">V2</span><span class="simbind">, </span><span class="nvars">V3</span><span class="simbind">);</span>
@@ -1417,9 +1417,8 @@
 
 <span class="comentarioc">/*
  * Si X1 es 0 devuelve el registro y acaba la computación;
- * si es 1 ejecuta la siguiente instrucción, si la hubiera, en
- * registro X2, es decir,
- * ejecuta el siguienet paso.
+ * si es 1 ejecuta la siguiente instrucción, si la hubiera,
+ *  enregistro X2; es decir, ejecuta el siguienet paso.
  */</span>
 <span class="pclave">function</span><span class="nvars"> evaluar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
@@ -1447,7 +1446,7 @@
 <span class="simbind">}</span>
 
 <span class="comentarioc">/*
- *  Función recursiva primitiva que computa el mismo valor
+ * Función recursiva primitiva que computa el mismo valor
  * que el programa C-- que recibe como argumento; en caso de terminar
  * devuelve un registro con el puntero y programa después del cómputo.
  */</span>

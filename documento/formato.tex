@@ -39,7 +39,7 @@
 \font\ffraktur="Kleist-Fraktur" at 15.5pt
 \font\ffraktursub="Kleist-Fraktur" at 9.5pt
 \font\fgabriele="GabrieleBadAH" at 15pt
-\font\fgabrielen="GabrieleBadAH" at 13pt
+\font\fgabrielen="GabrieleBadAH" at 12pt
 
 \font\for="NimbusMonL-Regu" at 12pt
 
@@ -98,7 +98,8 @@
 \def\funespec#1{\leavevmode\hbox{#1}\advance\count1 by 1\par}
 \def\lfunciones{\inilista{5pt}{22pt}{}\count1=1
                 \everypar={\hbox to 40pt{(\romannumeral\count1)\hfil}}}
-
+\def\cachosrec{\begingroup\obeylines\obeyspaces\leftskip10pt\fgabrielen\vskip10pt}
+\def\fincachos{\endgroup\vskip10pt\noindent}
 %-------------------------------
 
 \def\C/{{\fcode C}}

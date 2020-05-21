@@ -22,7 +22,7 @@ el contenido de una posición y valiéndonos de esto definiremos después la fun
 buscamos.
 \encabezadot{Codificación de contenido de posiciones}
 Para un programa {\it p} en \c-- vamos a definir una función $ c_p $ sobre las posiciones de {\it p}
-tal que dada una posición devuelva la codificación como número natural de la instrucción en esa
+tal que dada una posición devuelva la codificación como número natural del contenido de esa
 posición. Definiremos primero una función $ f $, con las intrucciones de \c-- como dominio, del
 siguiente modo:
 \listanormal
@@ -82,10 +82,10 @@ puede transformar en uno equivalente a efectos de computación, esté o no en {\
 biyectiva; por tanto, cualquier programa, o uno equivalente, se puede codificar y decodificar
 unívocamente.
 
-Vamos a ver un ejemplo de codificación de un programa. Para ello tomaremos el programa que se usó en
-§5 para explicar cómo se escribe en una máquina de Turing y lo usaremos para ver cómo se transforma
-en un número natural que sirva como entrada para la funcíon recursiva del apéndice D. Así, si
-llamamos {\fmats ξ} al programa
+Vamos a ver un ejemplo de codificación de un programa. Para ello tomaremos de nuevo el programa que
+se usó en §5 para explicar cómo se escribe en una máquina de Turing y lo usaremos otra vez de
+ejemplo para ver cómo se transforma en un número natural que sirva como entrada para la funcíon
+recursiva del apéndice D. Así, si llamamos {\fmats ξ} al programa
 \vskip.23in
 \hbox{\hskip.3in\programa{{\inst1{1}} = { } 0 1 {\inst\estrella4}}}
 \vskip.2in
@@ -109,19 +109,19 @@ expresados con la notación en [2], donde $ y'=y+1 $\hskip8pt y\hskip8pt $ 1\le 
 \funespec{$ \hbox{φ}(x)= x+1 $}
 \funespec{$ \hbox{φ}\equis= x_i $}
 \funespec{\vrule width0pt depth10pt$ \hbox{φ}\equis= \hbox{ψ}(\hbox{χ}_1\equis, ... , \hbox{χ}_m\equis) $}
-\funespec{$ \cases{\hbox{\vrule width0pt depth18pt\fmats φ}(0, x_2, ... x_n)=\hbox{\fmats ψ}(x_2, ... ,x_n), \cr
-                   \hbox{\fmats φ}(0, x_2, ... x_n)=\hbox{\fmats χ}(y, \hbox{\fmats φ}(0, x_2, ... x_n), (x_2, ... ,x_n))\cr}$}
+\funespec{$ \cases{\hbox{\vrule width0pt depth18pt\fmats φ}(0, x_2, ... x_n)=\hbox{ψ}(x_2, ... ,x_n), \cr
+                   \hbox{\fmats φ}(y', x_2, ... x_n)=\hbox{\fmats χ}(y, \hbox{\fmats φ}(y, x_2, ... x_n), x_2, ... ,x_n)\cr}$}
 \vskip4pt\vskip0pt\finlista
-Las funciones se muestran en el apéndice D como un programa \c-- escrito con macros, o sea, como un
-programa \C/, con lo que es sencillo de entender. Las dos primeras funciones, llamadas «{\fgabrielen
-cero}» son del tipo (i); la siguiente función que aparece, «{\fgabrielen S}», es del tipo (ii); las
-funciones en las líneas xx--xx, con nombres de la forma «U{\it x\_y}» son del tipo (iii); todas las
-demás funciones son de los tipos (iv) o (v). Concretamente, «{\fgabrielen computar}» es del tipo
-(iv).
+Las dos primeras funciones en el apéndice D, llamadas «{\fgabrielen cero}», son del tipo (i); la
+siguiente función que aparece, «{\fgabrielen S}», es del tipo (ii); las funciones en las líneas
+xx--xx, con nombres de la forma «U{\it x\_y}» son del tipo (iii); todas las demás funciones son de
+los tipos (iv) o (v). Concretamente, «{\fgabrielen computar}» es del tipo (iv).
 
-Antes de seguir con el repaso de las funciones conviene introducir el concepto que llamaremos {\it
-registro}, relacionado con los programas \c-- y que se maneja durante la computación tal y como se
-hace en el apéndice D.
+Las funciones anteriores y el resto se muestran como parte de un programa \c-- escrito con macros, o
+sea, en \C/, con lo que son sencillas de entender y no requieren mucha explicación. Veremos por
+encima algunas de las funciones y cómo se hace la computación. Pero antes de seguir con el repaso de
+las funciones conviene introducir el concepto que llamaremos {\it registro}, relacionado con los
+programas \c-- y que se maneja durante la computación.
 \encabezadot{Señalador y registro}
 Imaginemos que el ejecutor de un programa \c-- tiene otras cosas que hacer, y va y viene, alternando
 la ejecución de algunas instrucciones del programa con sus otras tareas; o que el programa es muy
@@ -142,9 +142,87 @@ natural, la codificación del registro ρ a partir de υ es como sigue:
 Si $\hbox{υ}=\hbox{C}(\hbox{{\it P}})$ \ es la codificación de {\it P}, entonces \ $ \hbox{ρ}=2\times\hbox{υ} $ \
 es la codificación del registro con el señalador apuntando a la primera posición de {\it P}.
 
-Si μ es la codificación de un registro con el señalizador σ apuntando a la posición ψ, entonces
-\ $ \hbox{ρ}=2\times\hbox{μ} $ \ es la codificación del registro con el señalizador apuntando a la
-siguiente posición de σ en {\it P}.
+Si μ es la codificación de un registro con el señalizador apuntando a la posición ψ, entonces \
+$ \hbox{ρ}=2\times\hbox{μ} $ \ es la codificación del registro con el señalizador apuntando a la
+siguiente posición de ψ en {\it P}.
 \finlista
-\encabezadot{Apuntes II}
-Continuamos haciendo un repaso a las funciones recursivas del apéndice D.
+Una vez vistos estos conceptos y cómo se codifican, vamos a ver cómo se usan en las funciones
+recursivas cuando ejecutan un programa \c--, siguiendo con el repaso del apéndice D.
+\encabezadot{Apuntes (continuación)}
+Las funciones entre las líneas xx y xxx devuelven las constantes necesarias en otras funciones;
+seguidamente hay funciones que realizan operaciones aritméticas y relacionales y basadas en ellas
+otras funciones que resuelven problemas más específicos y que serán necesarias para definir
+funciones que aparecen más adelante. Los comentarios que aparecen en el código explican lo que
+hacen.
+
+La función «{\fgabrielen computar}» recibe el programa y lo pasa, junto con la constante 2, a la
+función «{\fgabrielen computar\_aux}», para que ésta multiplique, creando el registro con el
+señalador apuntando a la primera posición. La función «{\fgabrielen evaluar}» recibe el registro
+junto con la constante 1. Esta función en la que empieza la interpretación de la posición a la que
+apunte el señalador. El parámetro «{\fgabrielen X1}» indica si la última vez que se interpretó una
+posición ésta estaba vacía o si hay que seguir con la ejecución del programa. Si se llama con 0 la
+ejecución se detendría y se devolvería el programa ejecutado.«{\fgabrielen computar\_aux}» llama a
+«{\fgabrielen evaluar}» con argumento 1, ya que estamos al principio de la evaluación del programa y
+esta última llama a «{\fgabrielen ejecutar}», que interpretará la posición que indica el señalador.
+
+Desde «{\fgabrielen ejecutar}», a partir del registro se saca el contenido de la posición a la que
+apunta el señalador y de éste la instrucción si la hubiera. La función «{\fgabrielen
+eval\_registro}» intenta ejecutar los 4 tipos de instrucciones o nada si la posición a interpretar
+está vacía. Cada una de las funciones que empieza por «{\fgabrielen eval\_}» recibe como primer
+parámetro el tipo de instrucción qeu hay que ejecutar o si la posición está vacía; cada una de las
+funciones modificará y devolverá el registro según reciba el tipo de instrucción que puede ejecutar
+o devolverá 0 en caso contrario. Por ejemplo, si el primer parámetro con el que se llama a la
+función «{\fgabrielen computar}» indica que la intrucción a ejecutar es «marcar», pondrá una marca
+en la posición referida por la instrucción, avanzará el señalador una posición y devolverá el
+registro así modificado; si la instrucción es otra, devolverá 0 en vez de el registro. La función
+«{\fgabrielen eval\_registro}» devuelve finalmente la suma de todos los resultados; sólo uno será
+distinto de 0, con lo que éste será el resultado global. La función «{\fgabrielen ejec3}» recibe
+este valor y llama a «{\fgabrielen hay\_inst}» para comprobar si la posición estaba vacía, guardando
+este valor en «{\fgabrielen V1}», que será 0 o 1; con este valor y el registro después de
+interpretar la posición adecuada, vuelve a empezar el ciclo llamando a «{\fgabrielen evaluar}».
+
+Casi todas las demás funciones tienen que ver con el descodificado y codificado de intrucción,
+posiciones, señalador..., y con la ejecución de las distintas instrucciones. Es más fácil seguirlo
+con el código y los comentarios que con una explicación.
+
+\encabezados{Sin programa, solamente datos de entrada}
+Vamos a ver cómo construir una función que reciba los datos de entrada que recibiría un programa
+{\it P} en \c-- y devuelva lo mismo que devolvería la función «{\fgabrielen computar}» cuando
+ejecuta {\it P}. Esta función lo único que tendrá que hacer es ‘preparar’ un programa a partir de
+los datos de entrada y de {\it P} y pasarlo como argumento a «{\fgabrielen computar}» para que lo
+ejecute. Al igual que se hizo en la explicación para las máquinas de Turing, vamos a suponer que los
+datos de entrada para {\it P} se colocarían en las primeras posiciones donde se guardan las
+variables o que se modifica {\it P} para que sea así. Para que la explicación sea más corta
+supondremos también que el programa {\it P} recibe solamente un dato de entrada.
+
+Para que la función que buscamos, a la que llamaremos «{\fgabrielen precomputar}», ejecute un
+programa a partir de los datos de entrada, este programa tiene que ser conocido al construir la
+función, y por tanto serán conocidos también su codificación y el mayor número primo que se ha
+usado para la codificación; sean éstos {\it n} y {\it p} respectivamente. La función sería:
+
+\font\fgabrielen="GabrieleBadAH" at 11pt
+\cachosrec
+function precomputar(var X1)\Uchar123
+~~~var V1 = preparar(X1);
+~~~return computar(V1);
+\Uchar125
+\fincachos
+La función preparar usará el dato de entrada y la codificación {\it n}, que es una constante, para
+devolver la codificación del programa que necesitamos. La función será:
+\cachosrec
+function preparar(var X1)\Uchar123
+~~~var V1 = programa(X1);
+~~~var V2 = entrada(X1);
+~~~return mult(V1, V2);
+\Uchar125
+\fincachos
+La función «{\fgabrielen programa}» usará «{\fgabrielen cero}» y luego «{\fgabrielen S}» las veces
+que haga falta para devolver la constante que representa {\it n}. La función «{\fgabrielen entrada}»
+devolverá la codificación del contenido de lo que sería la posición siguiente a la última de {\it P}
+con el dato de entrada. Para esto usará otras funciones que obtengan el primo {\it p} como constante
+del mismo modo que se ha visto para «{\fgabrielen programa}» y codifiquen el dato; si el dato es α,
+la codificación sería la de instrucción «{\it marcar}» cuya posición referida fuera α. Con estos
+datos y usando la función «{\fgabrielen mult\_veces}» que está en el apendice D se obtendría la
+codificación del contenido de la posición donde estaría el dato en {\it P}. Con la multiplicación
+que se lleva a cabo en «{\fgabrielen mult}» se obtiene la codificación del programa que queremos.
+
