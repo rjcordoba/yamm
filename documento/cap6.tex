@@ -26,7 +26,7 @@ tal que dada una posición devuelva la codificación como número natural del co
 posición. Definiremos primero una función $ f $, con las intrucciones de \c-- como dominio, del
 siguiente modo:
 \listanormal
-$ f()= 0$, esto es, si no hay dato (contenido de una posición vacía).
+$ f(\kernpeq)= 0$, esto es, si no hay dato (contenido de una posición vacía).
 
 Para instrucciones que tienen un único símbolo:
 \espacioej$ f(\hbox{\fcode0})= 1$,\hskip22pt$ f(\hbox{\fcode=})=2 $,\hskip22pt $
@@ -193,7 +193,8 @@ los datos de entrada y de {\it P} y pasarlo como argumento a «{\fgabrielen comp
 ejecute. Al igual que se hizo en la explicación para las máquinas de Turing, vamos a suponer que los
 datos de entrada para {\it P} se colocarían en las primeras posiciones donde se guardan las
 variables o que se modifica {\it P} para que sea así. Para que la explicación sea más corta
-supondremos también que el programa {\it P} recibe solamente un dato de entrada.
+supondremos también que el programa {\it P} recibe solamente un dato de entrada. El caso para más de
+un dato de entrada es algo más largo pero el proceso es casi igual.
 
 Para que la función que buscamos, a la que llamaremos «{\fgabrielen precomputar}», ejecute un
 programa a partir de los datos de entrada, este programa tiene que ser conocido al construir la
@@ -218,11 +219,32 @@ function preparar(var X1)\Uchar123
 \fincachos
 La función «{\fgabrielen programa}» usará «{\fgabrielen cero}» y luego «{\fgabrielen S}» las veces
 que haga falta para devolver la constante que representa {\it n}. La función «{\fgabrielen entrada}»
-devolverá la codificación del contenido de lo que sería la posición siguiente a la última de {\it P}
-con el dato de entrada. Para esto usará otras funciones que obtengan el primo {\it p} como constante
-del mismo modo que se ha visto para «{\fgabrielen programa}» y codifiquen el dato; si el dato es α,
-la codificación sería la de instrucción «{\it marcar}» cuya posición referida fuera α. Con estos
-datos y usando la función «{\fgabrielen mult\_veces}» que está en el apendice D se obtendría la
-codificación del contenido de la posición donde estaría el dato en {\it P}. Con la multiplicación
-que se lleva a cabo en «{\fgabrielen mult}» se obtiene la codificación del programa que queremos.
+devolverá $ p^\theta $, donde {\it θ\/} es la codificación del contenido de lo que sería la posición
+siguiente a la última posición del programa {\it P} con el dato de entrada en ella. Con la
+multiplicación que se lleva a cabo en «{\fgabrielen mult}» se obtiene la codificación del programa
+que queremos. La función «{\fgabrielen entrada}» sería  de la siguiente manera:
+\cachosrec
+function entrada(var X1)\Uchar123
+~~~var V1 = cod\_instrucción(X1);
+~~~var V2 = primo(X1);
+~~~var V3 = uno(X1);
+~~~return mult\_veces(V1, V2, V3);
+\Uchar125
+\fincachos
+La función «{\fgabrielen primo}» devolverá como constante el número primo {\it p} mencionado
+anteriormente, de manera análoga a se hace en {\fgabrielen programa}. «{\fgabrielen
+cod\_instrucción}» devuelve el {\it θ\/} visto antes, que será igual que la codificación del
+contenido de una posición con una instrucción «{\it marcar}» con la posición referida igual al dato
+de entrada. Las funciones «{\fgabrielen uno}» y «{\fgabrielen mult\_veces}» aparecen en el apéndice
+D.  La función «{\fgabrielen cod\_instrucción}» sería:
+\cachosrec
+function cod\_instrucción(var X1)\Uchar123
+~~~var V1 = cuatro(X1);
+~~~var V2 = U1\_1(X1);
+~~~return mult(V1, V2);
+\Uchar125
+\fincachos
+Las funciones «{\fgabrielen U1\_1}» y «{\fgabrielen mult}» aparecen en el apéndice D. La función
+«{\fgabrielen cuatro}» con un sólo parámetro no aparece pero a partir de las que aparecen es fácil
+ver cómo construirla para que devuelva la constante 4.
 

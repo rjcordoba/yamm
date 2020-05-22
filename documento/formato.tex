@@ -15,13 +15,14 @@
 
 \font\mathlista=cmmi10 at 15.5pt
 
-\font\ffoot="TeXGyreSchola-Regular:slant=0.2" at 12pt
+\font\ffoot="TeXGyreSchola-Regular:slant=0.2" at 10.5pt
 \font\fnumpag="TeXGyreSchola-Regular/B" at 13.6pt
 \font\fencp="TeXGyreSchola-Regular:mapping=tex-text" at 20.5pt
 \font\fencs="TeXGyreSchola-Regular:mapping=tex-text" at 17pt
 \font\fenct="TeXGyreSchola-Regular:mapping=tex-text" at 15pt
 \font\fcode="DejaVuSansMono" at 12pt
 \font\fc="DejaVuSansMono":embolden=0.5 at 18pt
+\font\fcfoot="DejaVuSansMono" at 10.5pt
 \font\fcodenoterm="LiberationMono/I" at 12pt
 \font\fcodej="DejaVuSansMono" at 14pt
 %% \font\fflechaizq="DejaVuSansMono" at 14pt
@@ -104,7 +105,7 @@
 
 \def\C/{{\fcode C}}
 \def\c--{{\fcode \hbox{C-\kern-.12em-\kern.1em}}}
-\def\ccabez{\ifnum\piecab=0\def\fcode{\fc}\fi}%Para escribir C en el título del capítulo con letras grandes y en el pie con pequeñas.
+\def\ccabez{\ifnum\piecab=0\def\fcode{\fc}\else\def\fcode{\fcfoot}\fi}%Para escribir C en el título del capítulo con letras grandes y en el pie con pequeñas.
 
 \def\macroins#1#2{\hbox{{\fcode{#1}{\fflecha\hskip.4em\flechagram\hskip.4em}{#2}}}}%→
 \def\alternativas#1{\ifx#1\fin\setbox1=\lastbox \kern-.3em \hskip1.7\espacio \endgroup\let\altern=\relax
@@ -139,6 +140,13 @@
 \def\finlistatrad{\finlista\vskip16pt\noindent}
 \def\listadefs{\inilista{5pt}{14pt}{{\fsimbsinsc\raise.18ex\hbox{■}}\kern.05em}}
 \def\centrarline#1{\dimen1=\hsize\advance\dimen1 by -2\leftskip\hbox to \dimen1{\hss#1\hss}}
+
+%Apéndices
+
+\def\appendix#1{\advance\count1 by 1 \toks1=\footline \footline{}\vfil\eject\hbox{}\vskip2.95in
+                \hbox{\hskip5pt{\fencp \raise40pt\hbox{Apéndice} \fnumappendix\char\count1}}
+                \vskip25pt{\ftextoappendix\noindent\vrule width 0pt depth 22pt #1} \vfil\eject
+                \def\pie{Apéndice \char\count1 \kern.15em-\kern.2em #1}\footline=\toks1}
 
 \rm
 \hsize=6.1in \vsize=24cm

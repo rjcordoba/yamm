@@ -976,7 +976,8 @@
 
 <span class="comentarioc">/* ------------------------------------------------ */</span>
 
-<span class="comentarioc">/* Devuelve el registro X2 modificado con una marca en la posición X1
+<span class="comentarioc">/* Devuelve el registro X2 modificado con una marca más
+ * en la posición X1, o un símbolo «1» si estaba vacía,
  * y el puntero señalando a la siguiente posición. */</span>
 <span class="pclave">function</span><span class="nvars"> marcar</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span
 ><span class="simbind">, </span><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
@@ -984,7 +985,7 @@
 ><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
     <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">primo_num_inst</span><span class="simbind">(</span
 ><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
-    <span class="pclave">var</span><span class="nvars"> V2</span><span class="simbind"> = </span><span class="nvars">avanzar_inst</span><span class="simbind">(</span
+    <span class="pclave">var</span><span class="nvars"> V3</span><span class="simbind"> = </span><span class="nvars">avanzar_inst</span><span class="simbind">(</span
 ><span class="nvars">X1</span><span class="simbind">, </span><span class="nvars">X2</span><span class="simbind">);</span>
     <span class="pclave">return</span><span class="nvars"> mult_veces</span><span class="simbind">(</span><span class="nvars">V1</span><span class="simbind">, </span
 ><span class="nvars">V2</span><span class="simbind">, </span><span class="nvars">V3</span><span class="simbind">);</span>
@@ -993,7 +994,8 @@
 <span class="comentarioc">/* ------------------------------------------------ */</span>
 
 <span class="comentarioc">/* Auxiliar para «borrar_aux2».
- * Resta para mantener el símbolo en la posición referida si éste no es ‘1’. */</span>
+ * Resta para mantener el símbolo en la
+ * posición referida si éste no es ‘1’. */</span>
 <span class="pclave">function</span><span class="nvars"> borrar_aux3</span><span class="simbind">(</span><span class="pclave">var </span><span class="nvars">X1</span><span class="simbind">, </span
 ><span class="pclave">var </span><span class="nvars">X2</span><span class="simbind">){</span>
     <span class="pclave">var</span><span class="nvars"> V1</span><span class="simbind"> = </span><span class="nvars">U2_1</span><span class="simbind">(</span
