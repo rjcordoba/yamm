@@ -143,13 +143,17 @@
 
 %Apéndices
 
-\def\appendix#1{\advance\count1 by 1 \toks1=\footline \footline{}\vfil\eject\hbox{}\vskip2.95in
+\font\fnumappendix="Waree/B" at 90pt
+\font\ftextoappendix="TeXGyreSchola-Regular/B" at 32pt
+
+\count1=64
+\def\appendix#1{\toks1=\footline \vfil\eject\hbox{}\vskip2.95in\footline{}\advance\count1 by 1\piecab=0
                 \hbox{\hskip5pt{\fencp \raise40pt\hbox{Apéndice} \fnumappendix\char\count1}}
                 \vskip25pt{\ftextoappendix\noindent\vrule width 0pt depth 22pt #1} \vfil\eject
-                \def\pie{Apéndice \char\count1 \kern.15em-\kern.2em #1}\footline=\toks1}
+                \def\pie{Apéndice \char\count1 \kern.15em-\kern.2em #1}\footline=\toks1 \piecab=1}
 
 \rm
 \hsize=6.1in \vsize=24cm
 \hoffset=0.11in
 \baselineskip=17.5pt plus .4pt minus .4pt \parindent=14pt
-\footline={\ffoot\vbox to 42pt{}\hfil \pie \hskip5pt {\fnumpag\folio}\kern-8pt}
+\footline={\ffoot\vbox to 42pt{}\hfill \pie \hskip5pt {\fnumpag\folio}\kern-8pt}
