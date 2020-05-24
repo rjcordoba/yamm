@@ -606,7 +606,7 @@ body > footer{
 	
 	@page {
 		size:6.1in 24cm;
-		margin:0 0 7mm 0;
+		margin:0 0 5mm 0;
     }
 
 	body > footer,
@@ -629,5 +629,11 @@ body > footer{
 
 	.np{
 		page-break-before:always;
+	}
+
+	.lll{
+		/* line-height:6pt !important; */
+		position:relative !important;
+		/* top:-0.66pt; */
 	}
 }
