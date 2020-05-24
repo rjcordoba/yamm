@@ -42,7 +42,7 @@
 \font\fgabriele="GabrieleBadAH" at 15pt
 \font\fgabrielen="GabrieleBadAH" at 12pt
 
-\font\for="NimbusMonL-Regu" at 12pt
+%% \font\for="NimbusMonL-Regu" at 12pt
 
 \font\fgramat="LiberationMono" at 12pt
 \font\fgramatnoterm="LiberationMono/I" at 12pt
@@ -157,11 +157,11 @@
 
 \def\ponerpdfpag{\ifnum\pagsc<\pagspdf \advance\pagsc by 1 \let\bucle=\ponerpdfpag
                        \hbox{\XeTeXpdffile\nombre/ page \pagsc \hfil} \vfil\eject
-K                   \else \let\bucle=\relax\fi \bucle}
+                   \else \let\bucle=\relax\fi \bucle}
 \def\ponerpdf#1+{\pagspdf=\XeTeXpdfpagecount#1.pdf \pagsc=0 \def\nombre/{#1.pdf}
                  \ponerpdfpag}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \rm
 \hsize=6.1in \vsize=24cm
