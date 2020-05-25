@@ -144,6 +144,8 @@
 %Apéndices
 \newcount\pagspdf
 \newcount\pagsc
+\newcount\nummacros
+\newcount\macrosc
 \newtoks\nombreh
 \def\empezarApends{\count1=64
 \font\fc="DejaVuSansMono/B" at 33pt
@@ -160,7 +162,8 @@
                    \else \let\bucle=\relax\fi \bucle}
 \def\ponerpdf#1+{\pagspdf=\XeTeXpdfpagecount#1.pdf \pagsc=0 \def\nombre/{#1.pdf}
                  \ponerpdfpag}
-
+\def\ponermacro{\ifnum\macrosc<\nummacros}
+\def\ponermacros{\macrosc=0 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \rm

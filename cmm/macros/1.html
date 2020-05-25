@@ -94,7 +94,7 @@
 	  </dl>
 	</aside>
   </div>
-  <div class="postulado">
+  <div class="postulado paddd">
 	<h1>Postulado 1</h1>
 	<p>Es verdad:</p>
 	<ol>
@@ -147,7 +147,7 @@
 	  <li><div><pre><code>＊<span class="comilla comgr"><span>’</span><span>’</span></span></code></pre></div></li>
 	</ol>
   </aside>
-  <h3>Asignaciones</h3>
+  <h3 class="escurrir">Asignaciones</h3>
   <div class="macro">
 	<pre><code>Z<sub>&Omega;</sub> = 0;</code></pre>
 	<div class="flecha"></div>
@@ -167,7 +167,7 @@
 	</div>
 	<p>donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</p>
   </div>
-  <aside class="ejemplos">
+  <aside class="ejemplos paddd">
 	<h1>Ejemplo</h1>
 	<ol>
 	  <li>
@@ -292,7 +292,7 @@ JUMP
 	</div>
 	<p>con &Omega; distinto de &Phi;.</p>
   </div>
-  <aside class="ejemplos">
+  <aside class="ejemplos arrr">
 	<h1>Ejemplo</h1>
 	<ol>
 	  <li>
@@ -337,7 +337,7 @@ JUMP
 ＊<sup class="pos_puntos">1</sup></code></pre>
 		</div>
 	  </li>
-	  <li>
+	  <li class="arrrr">
 		<div class="flech">
 		  <ol>
 			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
@@ -355,7 +355,7 @@ JUMP
 ＊<sup class="pos_puntos">1</sup></code></pre>
 		</div>
 	  </li>
-	  <li>
+	  <li class="arrrr">
 		<div class="flech">
 		  <ol>
 			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
@@ -373,7 +373,7 @@ JUMP
 ＊<sup class="numbers">9</sup></code></pre>
 		</div>
 	  </li>
-	  <li>
+	  <li class="arrrr">
 		<div class="flech">
 		  <ol>
 			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li>
@@ -398,3 +398,28 @@ JUMP
 	  </li>
 	</ol>
   </aside>
+<div class="expansor">
+  <h1>Expansiones finales</h1>
+  <p class="mimp">Cuando sólo quedan <span class="noterm">preinstrucciones</span>, el expansor:</p>
+  <ol>
+	<li>Por cada <span class="noterm">id</span> que aparezca en alguna <span class="noterm">preinstrucción</span> <span class="nnoterm">x</span><sup>.<span class="noterm">id</span></sup>:
+	  <ol>
+		<li>añade al final una nueva instrucción ‘1’ y una señal <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> apuntando a esta instrucción.</li>
+		<li>sustituye todas las apariciones de .<span class="noterm">id</span> por <span class="pos_puntos nnoterm pbajo">i</span>.</li>
+	  </ol>
+	</li>
+	<li>Asocia un <span class="noterm">natural</span> a cada <span class="noterm">preinstrucción</span> en el orden en que aparecen:
+	  <ol>
+		<li>a la primera <span class="noterm">preinstrucción</span> le asocia 1.</li>
+		<li>si a una <span class="noterm">preinstrucción</span> le asocia <span class="nnoterm">m</span>,
+		  a la siguiente le asociará <span class="nnoterm">n</span>, donde <span class="nnoterm">n</span> = <span class="nnoterm">m</span> + 1 es verdad.</li>
+	  </ol>
+	</li>
+	<li>
+	  Por cada señal <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span> sustituye en <span class="noterm">macroinstrucciones</span> todas las apariciones de
+	  <span class="pos_puntos nnoterm pbajo">i</span> por <span class="nnoterm">n</span>, donde <span class="nnoterm">n</span> es el <span class="noterm">natural</span>
+	  asociado a la <span class="noterm">preinstrucción</span> a la que apunta <span class="flechita"><span class="pos_puntos nnoterm pbajo">i</span></span>.
+	</li>
+	<li>Expande las <span class="noterm">preinstrucción</span> de la forma <span class="nnoterm">x</span><sup class="nnoterm">n</sup>.</li>
+  </ol>
+</div>
