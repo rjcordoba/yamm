@@ -1091,7 +1091,11 @@ pre sub .comil{
 /* Macro 2 */
 
 /* Macro 3 */
-
+	.mmacro p{
+		/* text-align:right !important; */
+		    /* margin-left:.3em; */
+max-width:40% !important;
+}
 .gramat ol > li {
     margin-bottom:0.4em  !important;
 }
@@ -1103,16 +1107,47 @@ pre sub .comil{
 	/* 	margin-bottom:1.2em !important; */
 	/* } */
 
+/* .escc.ejemplos > ol > li::after { */
+/*     margin: 0 0.3em; */
+/* } */
+
 	.arrr{
-		margin-top:0.3em;
+		margin-top:1em;
 	}
 
-.escurrir .flecha::before {
-    padding: 0 0.3em;
+	.subirpoco{
+		margin-top:-.3em;
+	}
+
+.escurrir.ejemplos > ol > li::after {
+    margin: 0 0.3em !important;
 }
+
 .ejemparriba{
 margin-top:0em !important;
 }
+
+.sinmargen{
+margin-bottom:0 !important;
+}
+
+
+
+.ejempls{
+margin:2.3em 0 1em 0 !important;
+}
+
+.elsis{
+margin-bottom:1.115em !important;
+}
+
+
+.elsis.elsisar{
+margin-bottom:5em !important;
+}
+
+
+
 	/* .macro.larga, .mmacro .macro{ */
 .largakkk{
 		display:block !important;
@@ -1136,13 +1171,6 @@ margin-top:0em !important;
 .literales{
 margin-bottom:1em !important;
 }
-
-ultej.ejemplos > ol > li::after {
-    margin: 0 0.6em;
-}
-	/* .expansor.glue{ */
-	/* 	margin-top:5em !important; */
-	/* } */
 
 	/* aside.aclarcn.glue { */
 	/* 	margin-top:1em !important; */
