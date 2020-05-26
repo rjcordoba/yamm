@@ -1049,44 +1049,6 @@ pre sub .comil{
 		overflow:visible;
 	}
 
-	/* .flecha::before{ */
-	/* 	content:"⮕"; */
-	/* 	font-size:0.5em; */
-	/* } */
-
-	/* .ejemplos ol{ */
-	/* 	display:flex; */
-	/* 	flex-wrap:wrap; */
-	/* } */
-
-	/* .ejemplos > ol > li{ */
-	/* 	display:flex; */
-	/* 	margin-bottom:1.7em; */
-	/* } */
-
-	/* .ejemplos pre{ */
-	/* 	overflow-x:visible; */
-	/* 	padding-right:8em;		 */
-	/* } */
-
-	/* .ejemplos .puntitos{ */
-	/* 	display:flex; */
-	/* 	align-items:center; */
-	/* 	font-size:1.5em; */
-	/* } */
-
-	/* .ejemplos .puntitos::before{ */
-	/* 	transform:none; */
-	/* } */
-
-	/* .ejemplos > ol > li::after{ */
-	/* 	content:"⇒"; */
-	/* 	margin:0 0.7em; */
-	/* 	display:flex; */
-	/* 	align-items:center; */
-	/* 	font-size:1.5em; */
-	/* } */
-
 	.ejemplos pre {
 		background-color:white;
 		color: #000;
@@ -1109,30 +1071,85 @@ pre sub .comil{
 		display:
 			inline;
 	}
+/* Macro 2 */
+	/* .paddd{ */
+	/* 	margin-top:-0.95em !important; */
+	/* } */
 
-	.paddd{
-	margin-bottom:0.95em;
-	}
+	/* .ejemplos > ol > li::after { */
+	/* 	margin: 0 0.5em !important; */
+	/* } */
 
-	.escurrir{
-		margin-top:-1.6em !important;
-		margin-bottom:1.2em !important;
-	}
+	/* .ejemplos{ */
+	/* 	font-size:10pt !important; */
+	/* 	margin-bottom:0 !important; */
+
+	/* } */
+
+	/* .ejemplos + .gramat{ */
+	/*     margin-top: -2em !important;} */
+/* Macro 2 */
+
+/* Macro 3 */
+
+.gramat ol > li {
+    margin-bottom:0.4em  !important;
+}
+
+/* Macro 3 */
+
+	/* .escurrir{ */
+	/* 	margin-top:-1.6em !important; */
+	/* 	margin-bottom:1.2em !important; */
+	/* } */
 
 	.arrr{
-		margin-top:-0.5em;
+		margin-top:0.3em;
 	}
 
-	.arrrr{
-		margin-top:-0em;
-	}
-
-	.expansor.glue{
-		margin-top:5em !important;
-	}
-
-aside.aclarcn.glue {
-    margin-top:1em !important;
+.escurrir .flecha::before {
+    padding: 0 0.3em;
 }
+.ejemparriba{
+margin-top:0em !important;
+}
+	/* .macro.larga, .mmacro .macro{ */
+.largakkk{
+		display:block !important;
+		padding:0.33em 0.4em;
+	}
+
+.largakkk .flecha::before {
+    content: "⬇";
+    font-size: 1.2em;
+}
+
+.largakkk.macro > *:first-child, .largakkk .flecha {
+    margin-top: 0;
+    text-align: center;
+}
+
+.marboo{
+	margin-bottom:1.5em !important;
+}
+
+.literales{
+margin-bottom:1em !important;
+}
+
+ultej.ejemplos > ol > li::after {
+    margin: 0 0.6em;
+}
+	/* .expansor.glue{ */
+	/* 	margin-top:5em !important; */
+	/* } */
+
+	/* aside.aclarcn.glue { */
+	/* 	margin-top:1em !important; */
+	/* } */
+
+	/* .ejemplos > ol > li::after { */
+	/* 	margin: 0 0.65em; */
+	/* } */
 
 }

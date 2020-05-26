@@ -1,4 +1,4 @@
-<h3>Literales</h3>
+<h3 class="literales">Literales</h3>
 <div class="gramat glue">
   <ol>
 	<li>
@@ -109,7 +109,7 @@
   <pre><code><span class="noterm">natc<sub>1</sub></span><span class="term">;</span></code></pre>
 </div>
 <aside class="ejemplos noult">
-  <h1>Ejemplo 1</h1>
+  <h1 class="ejemparriba">Ejemplo 1</h1>
   <ol>
 	<li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = </span><span class="numberp">05308</span
 ><span class="simbind">;</span></code></pre></div></li>
@@ -125,8 +125,8 @@
 ><span class="simbind">;</span></code></pre></div></li>
 	</ol>
   </aside>
-  <aside class="ejemplos">
-	<h1>Ejemplo 1’</h1>
+  <aside class="ejemplos marboo">
+	<h1 class="ejemparriba">Ejemplo 1’</h1>
 	<ol>
 	  <li><div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.op1</sub><span class="simbind"> = -</span><span class="numberp">0003</span
 ><span class="simbind">;</span></code></pre></div></li>
@@ -154,7 +154,7 @@
 	  <div class="flecha"></div>
 	  <pre><code><span class="term">[$$</span><span class="noterm">natc<sub>2</sub></span><span class="term">]</span></code></pre>
 	</div>
-	<div class="macrodond">
+	<div class="macrodond arrr">
 	  <p>donde es verdad:</p>
 	  <ul>
 		<li><span class="noterm">natc<sub>3</sub></span> = <span class="noterm">natc<sub>1</sub></span> * 16</li>
@@ -261,7 +261,7 @@
 	<pre><code><span class="term">[</span><span class="noterm">natn<sub>1</sub></span><span class="term">,</span><span class="noterm">natural<sub>1</sub></span><span class="term">]</span
 ><span class="nnoterm">E</span><span class="term">0</span><span class="noterm">!s<sub>1</sub></span></code></pre>
   </div>
-  <div class="macro larga">
+  <div class="macro larga largakkk">
 	<pre><code><span class="term">[</span><span class="noterm">ceros</span><span class="noterm">natc<sub>1</sub></span><span class="term">,</span><span class="noterm">natural<sub>1</sub></span
 ><span class="term">]</span><span class="nnoterm">E</span><span class="noterm">signo<sub>1</sub></span><span class="noterm">ceros</span><span class="term">0</span
 ><span class="noterm">!ndc<sub>1</sub></span></code></pre>
@@ -291,7 +291,7 @@
 ><span class="term">0]</span><span class="noterm">!ndc<sub>1</sub></span></code></pre>
   </div>
   <div class="mmacro">
-	<div class="macro larga">
+	<div class="macro largakkk">
 	  <pre><code><span class="term">[</span><span class="noterm">natn<sub>1</sub></span><span class="term">,</span><span class="noterm">natural<sub>1</sub></span
 ><span class="term">]</span><span class="nnoterm">E</span><span class="noterm">signo<sub>1</sub></span><span class="nnoterm">n<sub>1</sub></span></code></pre>
 	  <div class="flecha"></div>
@@ -335,7 +335,7 @@
 ><span class="numberp">10</span><span class="simbind">];</span></code></pre></div></li>
 	</ol>
   </aside>
-  <aside class="ejemplos">
+  <aside class="ejemplos ultej">
 	<h1>Ejemplo 1'</h1>
 	<ol>
 	  <li><div><pre><code><span class="simbexp">F<sub class="numbers">7</sub></span><span class="simbind"> = </span><span class="numberp">37</span><span class="simbind">.</span
@@ -367,3 +367,73 @@
 ><span class="numberp">10</span><span class="simbind">];</span></code></pre></div></li>
 	</ol>
   </aside>
+<h3>Reserva de posiciones</h3>
+<div class="gramat glue">
+  <ol>
+	<li>
+	  <div class="noterm">simb</div>
+	  <div class="flechag"></div>
+	  <div class="gramtexto">cualquier símbolo</div>
+	</li>
+	<li>
+	  <div class="noterm">esp</div>
+	  <div class="flechag"></div>
+	  <div class="gramtexto">espacio sin símbolos</div>
+	</li>
+	<li>
+	  <div class="noterm">rcadena</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="noterm">simb</span><span class="noterm">rcadena</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="nnoterm">cadena</div>
+	  <div class="flechag"></div>
+	  <div><span class="noterm">simb</span><span class="noterm">rcadena</span></div>
+	</li>
+	<li>
+	  <div class="noterm">simb_esp</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">simb</span></li>
+		<li><span class="noterm">esp</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">rlínea</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="noterm">simb_esp</span><span class="noterm">rlínea</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">línea</div>
+	  <div class="flechag"></div>
+	  <div><span class="noterm">simb</span><span class="noterm">rlínea</span></div>
+	</li>
+	<li>
+	  <div class="nnoterm">textoc</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">línea</span></li>
+		<li><span class="noterm">línea</span><span class="nnoterm">textoc</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="nnoterm">texto</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="nnoterm">textoc</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="nnoterm">EOF</div>
+	  <div class="flechag"></div>
+	  <div class="gramtexto">final de texto</div>
+	</li>
+  </ol>
+</div>

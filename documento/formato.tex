@@ -16,7 +16,7 @@
 \font\mathlista=cmmi10 at 15.5pt
 
 \font\ffoot="TeXGyreSchola-Regular:slant=0.2" at 10.5pt
-\font\fnumpag="TeXGyreSchola-Regular/B" at 13.6pt
+\font\fnumpag="TeXGyreSchola-Regular/B" at 13.1pt
 \font\fencp="TeXGyreSchola-Regular:mapping=tex-text" at 20.5pt
 \font\fencs="TeXGyreSchola-Regular:mapping=tex-text" at 17pt
 \font\fenct="TeXGyreSchola-Regular:mapping=tex-text" at 15pt
@@ -162,8 +162,10 @@
                    \else \let\bucle=\relax\fi \bucle}
 \def\ponerpdf#1+{\pagspdf=\XeTeXpdfpagecount#1.pdf \pagsc=0 \def\nombre/{#1.pdf}
                  \ponerpdfpag}
-\def\ponermacro{\ifnum\macrosc<\nummacros}
-\def\ponermacros{\macrosc=0 }
+\def\ponermacro{\ifnum\macrosc<\nummacros \advance\macrosc by 1
+                      \edef\nompdf{macros/macros\number\macrosc} \expandafter\ponerpdf\nompdf+ \let\bucle=\ponermacro
+                \else\let\bucle=\relax\fi \bucle}
+\def\ponermacros{\nummacros=3 \macrosc=0 \ponermacro}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \rm

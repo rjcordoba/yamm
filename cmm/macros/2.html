@@ -49,7 +49,7 @@
 1<span class="flechita"><span class="pos_puntos">3</span></span></code></pre>
 		</div>
 	  </li>
-	  <li>
+	  <li class="paddd">
 		<div class="flech">
 		  <pre><code>1
 0<sup class="pos_puntos">3</sup>
@@ -69,7 +69,7 @@
 1<span class="flechita"><span class="pos_puntos">4</span></span></code></pre>
 		</div>
 	  </li>
-	  <li>
+	  <li class="paddd">
 		<div class="flech">
 		  <ol class="resalt_nums">
 			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
@@ -93,7 +93,7 @@
 1<span class="flechita"><span class="pos_puntos">4</span></span></code></pre>
 		</div>
 	  </li>
-	  <li>
+	  <li class="paddd">
 		<div>
 		  <ol class="resalt_nums">
 			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
@@ -117,7 +117,7 @@
 1</code></pre>
 		</div>
 	  </li>
-	  <li>
+	  <li class="paddd">
 		<div>
 		  <ol class="resalt_nums">
 			<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li
@@ -163,7 +163,7 @@
 	  </li>
 	</ol>
   </div>
-  <h3>Op. Aritméticas 1</h3>
+  <h3>Operaciones Aritméticas</h3>
   <div class="macro flech">
 	<pre><code>Z<sub>&Omega;</sub> += &lambda;;</code></pre>
 	<div class="flecha"></div>
@@ -220,3 +220,87 @@ Z<sub>1</sub>++;
 ＊<sup class="pos_puntos nnoterm">j</sup>
 ...<span class="flechita"><span class="pos_puntos nnoterm">i</span></span></code></pre>
   </div>
+<!-- <h3>Op. Aritméticas 2</h3> -->
+<div class="macro flech">
+  <pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> * Z<sub>&Psi;</sub>;</code></pre>
+  <div class="flecha"></div>
+  <pre><code>Z<sub>&Omega;</sub> = 0;
+Z<sub>1</sub> = 0;
+＊<sup class="pos_puntos nnoterm">i</sup>
+Z<sub>1</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
+Z<sub>.cont</sub> = Z<sub>1</sub>;
+Z<sub>&Omega;</sub> += Z<sub>&Phi;</sub>;
+Z<sub>1</sub> = Z<sub>.cont</sub>
+=<sup>&Psi;</sup><span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
+＊<sup class="pos_puntos nnoterm">j</sup></code></pre>
+  </div>
+  <div class="macro flech">
+	<pre><code>STOP</code></pre>
+	<div class="flecha"></div>
+	<pre><code>0<sup class="pos_puntos nnoterm">i</sup>
+1<span class="flechita"><span class="pos_puntos nnoterm">i</span></span></code></pre>
+  </div>
+    <div class="macro">
+	<pre><code>RETURN;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>STOP</code></pre>
+  </div>
+  <div class="macro">
+	<pre><code>RETURN &lambda;;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>Z<sub>1</sub> = &lambda;;
+STOP</code></pre>
+  </div>
+  <div class="macro flech">
+	<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> / Z<sub>&Psi;</sub>;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>Z<sub>&Omega;</sub> = 0;
+Z<sub>.da</sub> = Z<sub>&Phi;</sub>;
+Z<sub>.da</sub>++;
+Z<sub>1</sub> = 0;
+=<sup>&Psi;</sup>
+＊<sup class="pos_puntos nnoterm">i</sup>
+STOP
+Z<sub>&Omega;</sub>++;<span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
+Z<sub>.da</sub> -= Z<sub>&Psi;</sub>;<span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
+Z<sub>1</sub> = 0;
+=<sup>.da</sup>
+＊<sup class="pos_puntos nnoterm">j</sup></code></pre>
+  </div>
+  <div class="macro">
+	<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> % Z<sub>&Psi;</sub>;</code></pre>
+	<div class="flecha"></div>
+	<pre><code>Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> / Z<sub>&Psi;</sub>;
+Z<sub>.ra</sub> = Z<sub>&Omega;</sub> * Z<sub>&Psi;</sub>;
+Z<sub>&Omega;</sub> = Z<sub>&Phi;</sub> - Z<sub>.ra</sub>;</code></pre>
+  </div>
+  <h3>Postulados 2</h3>
+<div class="gramat glue">
+  <ol>
+	<li>
+	  <div class="noterm">natc</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="term">0</span></li>
+		<li><span class="noterm">natural</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <ul>
+		<li>𝖆</li>
+		<li>𝖇</li>
+		<li>𝖈</li>
+	  </ul>
+	  <div class="flechag"></div>
+	  <div class="noterm">natc</div>
+	</li>
+  </ol>
+</div>
+<div class="postulado">
+  <h1>Postulado 1’’’</h1>
+  <p>𝖆 = 0 + 0 es verdad si y sólo sí 𝖆 es 0.</p>
+</div>
+<div class="postulado">
+  <h1>Postulado 1’’’’</h1>
+  <p>1 = 1 + 0 es verdad.</p>
+</div>
