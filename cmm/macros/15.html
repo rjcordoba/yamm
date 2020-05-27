@@ -1,36 +1,36 @@
-<h3>Operaciones lógicas</h3>
-<div class="gramat glueg">
-  <ol>
-	<li>
-	  <div class="noterm">opdb</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li class="term">&&</li>
-		<li class="term">||</li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">opbs</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li>&alpha;</li>
-		<li><span class="term">!</span>&alpha;</li>
-	  </ul>
-	</li>
-	<li>
-	  <ul>
-		<li>&gamma;</li>
-		<li>&delta;</li>
-		<li>&eta;</li>
-	  </ul>
-	  <div class="flechag"></div>
-	  <ul>
-		<li><span class="noterm">opnb</span></li>
-		<li><span class="term">Z</span><sub>&Omega;</sub></li>
-	  </ul>
-	</li>			
-  </ol>
-</div>
+<!-- <h3>Operaciones lógicas</h3> -->
+<!-- <div class="gramat glueg"> -->
+<!--   <ol> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">opdb</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li class="term">&&</li> -->
+<!-- 		<li class="term">||</li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">opbs</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li>&alpha;</li> -->
+<!-- 		<li><span class="term">!</span>&alpha;</li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <ul> -->
+<!-- 		<li>&gamma;</li> -->
+<!-- 		<li>&delta;</li> -->
+<!-- 		<li>&eta;</li> -->
+<!-- 	  </ul> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li><span class="noterm">opnb</span></li> -->
+<!-- 		<li><span class="term">Z</span><sub>&Omega;</sub></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li>			 -->
+<!--   </ol> -->
+<!-- </div> -->
 <div class="macro">
   <pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="noterm">opnb<sub>1</sub></span><span class="term"> || </span
 ><span class="noterm">opnb<sub>2</sub></span><span class="term">;</span></code></pre>
@@ -128,7 +128,7 @@
 	  </li>
 	</ol>
   </aside>
-  <div class="macro">
+  <div class="macro suvvv">
 	<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span>&gamma; <span class="noterm">opdb<sub>1</sub></span
 > <span class="noterm">opbs<sub>1</sub></span><span class="term">;</span></code></pre>
 	<div class="flecha"></div>
@@ -150,14 +150,14 @@
 	  </li>
 	</ol>
   </aside>
-  <div class="macro">
+  <div class="macro suvvv">
 	<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span>&gamma;<span class="term"> || </span
 >&delta;<span class="term"> ||</span></code></pre>
 	<div class="flecha"></div>
 	<pre><code><span class="term">Z</span><sub>.or</sub><span class="term"> = </span>&gamma;<span class="term"> || </span>&delta;<span class="term">;</span>
 <span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z</span><sub>.or</sub><span class="term"> ||</span></code></pre>
   </div>
-  <aside class="ejemplos">
+  <aside class="ejemplos escurrir">
 	<h1>Ejemplo</h1>
 	<ol>
 	  <li>
@@ -175,13 +175,13 @@
 	  </li>
 	</ol>
   </aside>
-  <div class="macro">
+  <div class="macro suvvv">
 	<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span>&gamma;<span class="term"> || </span>&delta;<span class="term"> && </span>&eta;</code></pre>
 	<div class="flecha"></div>
 	<pre><code><span class="term">Z</span><sub>.and</sub><span class="term"> = </span>&delta;<span class="term"> && </span>&eta;<span class="term">;</span>
 <span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span>&gamma;<span class="term"> || </span><span class="term">Z</span><sub>.and</sub></code></pre>
   </div>
-  <aside class="ejemplos">
+  <aside class="ejemplos escurrir">
 	<h1>Ejemplo</h1>
 	<ol>
 	  <li>
@@ -199,13 +199,13 @@
 	  </li>
 	</ol>
   </aside>	  
-  <div class="macro">
+  <div class="macro suub">
 	<pre><code><span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span>&gamma;<span class="term"> && </span>&delta; <span class="noterm">opdb<sub>1</sub></span></code></pre>
 	<div class="flecha"></div>
 	<pre><code><span class="term">Z</span><sub>.and</sub><span class="term"> = </span>&gamma;<span class="term"> && </span>&delta;<span class="term">;</span>
 <span class="term">Z</span><sub>&Omega;</sub><span class="term"> = </span><span class="term">Z</span><sub>.and</sub> <span class="noterm">opdb<sub>1</sub></span></code></pre>
   </div>
-  <aside class="ejemplos">
+  <aside class="ejemplos escurrir">
 	<h1>Ejemplo</h1>
 	<ol>
 	  <li>
@@ -220,6 +220,55 @@
 ><span class="simbind"> &gt; </span><span class="numberp">11</span><span class="simbind">;</span>
 <span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.and</sub><span class="booleano"> && </span
 ><span class="simbexp">Y</span><sub class="numbers">34</sub><span class="simbind"> &gt; </span><span class="numberp">20</span><span class="simbind">;</span></code></pre></div>
+	  </li>
+	</ol>
+  </aside>
+<h3>Estructuras de control</h3>
+<div class="gramat glueg">
+  <ol>
+	<li>
+	  <div class="noterm">rest_b</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="noterm">opdb</span> &gamma; <span class="noterm">rest_b</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">exp_b</div>
+	  <div class="flechag"></div>
+	  <div>&gamma; <span class="noterm">rest_b</span></div>
+	</li>
+  </ol>
+</div>
+<div class="macro">
+  <pre><code><span class="term">if(</span><span class="noterm">opbs<sub>1</sub></span><span class="term">)</span></code></pre>
+  <div class="flecha"></div>
+  <pre><code><span class="term">if(</span><span class="noterm">opbs<sub>1</sub></span><span class="term">|| 0)</span></code></pre>
+  </div>
+  <aside class="ejemplos">
+	<h1>Ejemplo</h1>
+	<ol>
+	  <li>
+		<div><pre><code><span class="pclave">if</span><span class="simbind">(!</span><span class="simbexp">Y</span><sub class="numbers">3</sub><span class="simbind">){</span>
+   <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind"> = </span><span class="numberp">16</span><span class="simbind">;</span>
+<span class="simbind">}</span></code></pre></div>
+	  </li>
+	  <li>
+		<div><pre><code><span class="pclave">if</span><span class="simbind">(!</span><span class="simbexp">Y</span><sub class="numbers">3</sub
+><span class="booleano"> || </span><span class="numberp">0</span><span class="simbind">){</span>
+   <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind"> = </span><span class="numberp">16</span><span class="simbind">;</span>
+<span class="simbind">}</span></code></pre></div>
+	  </li>
+	  <li>
+		<p class="puntitos"></p>
+	  </li>
+	  <li>
+		<div><pre><code><span class="pclave">if</span><span class="simbind">(</span><span class="numberp">0</span><span class="simbind"> &gt; </span
+><span class="numberp">0</span><span class="booleano"> || </span><span class="simbexp">Y</span><sub class="numbers">3</sub><span class="simbind"> == </span
+><span class="numberp">0</span><span class="simbind">){</span>
+   <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind"> = </span><span class="numberp">16</span><span class="simbind">;</span>
+<span class="simbind">}</span></code></pre></div>
 	  </li>
 	</ol>
   </aside>

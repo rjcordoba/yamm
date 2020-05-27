@@ -1,33 +1,33 @@
-<h3>Definición de subprogramas 1'</h3>
-<div class="macro">
-  <pre><code><span class="nnoterm">type </span><span class="noterm">stars</span><span class="term">*</span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre>
-  <div class="flecha"></div>
-  <pre><code><span class="term">Y</span><sub class="numnaty">:nombre</sub><span class="term">(){</span></code></pre>
-  </div>
-  <div class="macro">
-	<pre><code><span class="term">unsigned int </span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre>
-	<div class="flecha"></div>
-	<pre><code><span class="term">Y</span><sub class="numnaty">:nombre</sub><span class="term">(){</span></code></pre>
-  </div>
-  <div class="macro">
-	<pre><code><span class="term">float </span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre>
-	<div class="flecha"></div>
-	<pre><code><span class="term">F</span><sub class="numnatf">:nombre</sub><span class="term">(){</span></code></pre>
-  </div>
-  <div class="macro">
-	<pre><code><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span>
-   <span class="nnoterm">texto</span><sub>1</sub>
-<span class="term">}</span>
-<span class="nnoterm">texto</span><sub>2</sub>
-<span class="nnoterm">EOF</span></code></pre>
-	<div class="flecha"></div>
-	<pre><code><span class="nnoterm">texto</span><sub>2</sub>
-<span class="term">$</span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span>
-   <span class="nnoterm">texto</span><sub>1</sub>
-<span class="term">}</span>
-<span class="nnoterm">EOF</span></code></pre>
-  </div>
-  <aside class="ejemplos">
+<!-- <\!-- <h3>Definición de subprogramas 1'</h3> -\-> -->
+<!-- <div class="macro"> -->
+<!--   <pre><code><span class="nnoterm">type </span><span class="noterm">stars</span><span class="term">*</span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre> -->
+<!--   <div class="flecha"></div> -->
+<!--   <pre><code><span class="term">Y</span><sub class="numnaty">:nombre</sub><span class="term">(){</span></code></pre> -->
+<!--   </div> -->
+<!--   <div class="macro"> -->
+<!-- 	<pre><code><span class="term">unsigned int </span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre> -->
+<!-- 	<div class="flecha"></div> -->
+<!-- 	<pre><code><span class="term">Y</span><sub class="numnaty">:nombre</sub><span class="term">(){</span></code></pre> -->
+<!--   </div> -->
+<!--   <div class="macro"> -->
+<!-- 	<pre><code><span class="term">float </span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span></code></pre> -->
+<!-- 	<div class="flecha"></div> -->
+<!-- 	<pre><code><span class="term">F</span><sub class="numnatf">:nombre</sub><span class="term">(){</span></code></pre> -->
+<!--   </div> -->
+<!--   <div class="macro"> -->
+<!-- 	<pre><code><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span> -->
+<!--    <span class="nnoterm">texto</span><sub>1</sub> -->
+<!-- <span class="term">}</span> -->
+<!-- <span class="nnoterm">texto</span><sub>2</sub> -->
+<!-- <span class="nnoterm">EOF</span></code></pre> -->
+<!-- 	<div class="flecha"></div> -->
+<!-- 	<pre><code><span class="nnoterm">texto</span><sub>2</sub> -->
+<!-- <span class="term">$</span><span class="nnoterm">V</span><sub class="numnatv">:nombre</sub><span class="term">(){</span> -->
+<!--    <span class="nnoterm">texto</span><sub>1</sub> -->
+<!-- <span class="term">}</span> -->
+<!-- <span class="nnoterm">EOF</span></code></pre> -->
+<!--   </div> -->
+  <aside class="ejemplos escurrir">
 	<h1>Ejemplo</h1>
 	<ol>
 	  <li>
@@ -247,3 +247,80 @@
 	</li>
   </ol>
 </div>
+<h3>Llamada a subprogramas</h3>
+<div class="gramat glueg">
+  <ol>
+	<li>
+	  <div class="noterm">argp_y</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">natural</span></li>
+		<li><span class="term">0</span></li>
+		<li><span class="term">Y</span>’<sub class="vacento nnoterm">n</sub></li>
+		<li><span class="term">&amp;</span><span class="nnoterm">V</span><sub class="nnoterm">n</sub><span class="noterm">indf</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">arg_y</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">argp_y</span></li>
+		<li><span class="term">+</span><span class="noterm">argp_y</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">argp_f</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">racional</span></li>
+		<li><span class="term">F</span>’<sub class="vacento nnoterm">n</sub></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">arg_f</div>
+	  <div class="flechag"></div>
+	  <div><span class="noterm">signo</span><span class="noterm">argp_f</span></div>
+	</li>			
+	<li>
+	  <div class="noterm">arg</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">arg_y</span></li>
+		<li><span class="noterm">arg_f</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">rest_args</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="term">,</span><span class="noterm">arg</span><span class="noterm">rest_args</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">args</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li>&epsilon;</li>
+		<li><span class="noterm">arg</span><span class="noterm">rest_args</span></li>
+	  </ul>
+	</li>
+  </ol>
+</div>
+<!-- <div class="macro flech"> -->
+<!--   <pre><code><span class="nnoterm">W</span><sub>:<span class="nnoterm">nombre</span></sub><span class="noterm">tpars<sub>1</sub></span -->
+<!-- ><span class="term">(</span><span class="noterm">args<sub>1</sub></span><span class="term">);</span></code></pre> -->
+<!--   <div class="flecha"></div> -->
+<!--   <pre><code -->
+<!-- ><span class="term">Z</span><sub>.fp</sub><span class="term"> = </span><span class="term">Z</span><sub>:top</sub><span class="term">;</span> -->
+<!-- <span class="term">Z</span><sub>.fp</sub><span class="term"> += </span><span class="term">Z</span><sub>:npos</sub><span class="term">;</span> -->
+<!-- <span class="term">*Y</span><sub class="numnaty">.fp</sub><span class="term"> = </span><span class="term">Z</span><sub>:top</sub><span class="term">;</span> -->
+<!-- <span class="term">:guardar_vals:</span> -->
+<!-- <span class="term">Z</span><sub>.fp</sub><span class="term">++;</span> -->
+<!-- <span class="term">*Y</span><sub class="numnaty">.fp</sub><span class="term"> = </span><span class="term">Z</span><sub>:<span class="nnoterm">i</span></sub><span class="term">;</span> -->
+<!-- :poner_args:<span class="noterm">tpars<sub>1</sub></span><span class="nnoterm">,</span><span class="noterm">args<sub>1</sub></span><span class="term">$</span> -->
+<!-- <span class="term">Z</span><sub>:top</sub><span class="term"> = </span><span class="term">Z</span><sub>.fp</sub><span class="term">;</span> -->
+<!-- <span class="term">＊</span><sup>:<span class="nnoterm">nombre</span></sup> -->
+<!-- 1<sup>:<span class="nnoterm">j</span></sup><span class="flechita"><span class="pos_puntos nnoterm">i</span></span> -->
+<!-- ...<span class="flechita"><span class="pos_puntos nnoterm">j</span></span></code></pre> -->
+<!--   </div> -->

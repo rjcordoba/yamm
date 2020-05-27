@@ -1,92 +1,92 @@
-<h3>Operaciones aritméticas 1'</h3>
-<div class="gramat glueg">
-  <ol>
-	<li>
-	  <div class="noterm">ops</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li class="term">+</li>
-		<li class="term">-</li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">opm</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li class="term">*</li>
-		<li class="term">/</li>
-		<li class="term">%</li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">opd</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li class="term">++</li>
-		<li class="term">--</li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">op</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li><span class="noterm">ops</span></li>
-		<li><span class="noterm">opm</span></li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="nnoterm">res_y(op)</div>
-	  <div class="flechag"></div>
-	  <div><span class="noterm">val_y</span><span class="noterm">op</span><span class="noterm">val_y</span></div>
-	</li>
-	<li>
-	  <div class="nnoterm">res_f(op)</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li><span class="noterm">val_f</span><span class="noterm">op</span><span class="noterm">val_f</span></li>
-		<li><span class="noterm">val_f</span><span class="noterm">op</span><span class="noterm">val_y</span></li>
-		<li><span class="noterm">val_y</span><span class="noterm">op</span><span class="noterm">val_f</span></li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">fna</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li>&epsilon;</li>
-		<li>&alpha; <span class="noterm">ops</span></li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">fnp</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li><span class="noterm">ops</span></li>
-		<li class="term">;</li>
-	  </ul>
-	</li>
-  </ol>
-</div>
-<div class="macro">
-  <pre><code><span class="term">Y</span><span class="acercarsup">’</span><sub class="vacento nnoterm">n</sub><span class="noterm">opd<sub>1</sub></span><span class="term">;</span></code></pre>
-  <div class="flecha"></div>
-  <pre><code><span class="term">Z<sub>.od</sub> = </span><span class="term">Y</span><span class="acercarsup">’</span><sub class="vacento nnoterm">n</sub><span class="term">;</span>
-<span class="term">Z<sub>.od</sub></span><span class="noterm">opd<sub>1</sub></span><span class="term">;</span>
-<span class="term">Y</span><span class="acercarsup">’</span><sub class="vacento nnoterm">n</sub><span class="term"> = Z<sub>.od</sub></span></code></pre>
-  </div>
-  <aside class="ejemplos">
-	<h1>Ejemplo</h1>
-	<ol>
-	  <li>
-		<div><pre><code><span class="simbexp">Y</span><sub class="numbers">87</sub><span class="simbind alejarsup">++;</span></code></pre></div>
-	  </li>
-	  <li>
-		<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.od</sub><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="numbers">87</sub><span class="simbind">;</span>
-<span class="simbexp">Z</span><sub class="id_exp">.od</sub><span class="simbind alejarsup">++;</span>
-<span class="simbexp">Y</span><sub class="numbers">87</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.od</sub><span class="simbind">;</span>
-</code></pre></div>
-	  </li>
-	</ol>
-  </aside>
+<!-- <h3>Operaciones aritméticas 1'</h3> -->
+<!-- <div class="gramat glueg"> -->
+<!--   <ol> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">ops</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li class="term">+</li> -->
+<!-- 		<li class="term">-</li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">opm</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li class="term">*</li> -->
+<!-- 		<li class="term">/</li> -->
+<!-- 		<li class="term">%</li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">opd</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li class="term">++</li> -->
+<!-- 		<li class="term">--</li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">op</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li><span class="noterm">ops</span></li> -->
+<!-- 		<li><span class="noterm">opm</span></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="nnoterm">res_y(op)</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <div><span class="noterm">val_y</span><span class="noterm">op</span><span class="noterm">val_y</span></div> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="nnoterm">res_f(op)</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li><span class="noterm">val_f</span><span class="noterm">op</span><span class="noterm">val_f</span></li> -->
+<!-- 		<li><span class="noterm">val_f</span><span class="noterm">op</span><span class="noterm">val_y</span></li> -->
+<!-- 		<li><span class="noterm">val_y</span><span class="noterm">op</span><span class="noterm">val_f</span></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">fna</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li>&epsilon;</li> -->
+<!-- 		<li>&alpha; <span class="noterm">ops</span></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">fnp</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li><span class="noterm">ops</span></li> -->
+<!-- 		<li class="term">;</li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!--   </ol> -->
+<!-- </div> -->
+<!-- <div class="macro"> -->
+<!--   <pre><code><span class="term">Y</span><span class="acercarsup">’</span><sub class="vacento nnoterm">n</sub><span class="noterm">opd<sub>1</sub></span><span class="term">;</span></code></pre> -->
+<!--   <div class="flecha"></div> -->
+<!--   <pre><code><span class="term">Z<sub>.od</sub> = </span><span class="term">Y</span><span class="acercarsup">’</span><sub class="vacento nnoterm">n</sub><span class="term">;</span> -->
+<!-- <span class="term">Z<sub>.od</sub></span><span class="noterm">opd<sub>1</sub></span><span class="term">;</span> -->
+<!-- <span class="term">Y</span><span class="acercarsup">’</span><sub class="vacento nnoterm">n</sub><span class="term"> = Z<sub>.od</sub></span></code></pre> -->
+<!--   </div> -->
+<!--   <aside class="ejemplos"> -->
+<!-- 	<h1>Ejemplo</h1> -->
+<!-- 	<ol> -->
+<!-- 	  <li> -->
+<!-- 		<div><pre><code><span class="simbexp">Y</span><sub class="numbers">87</sub><span class="simbind alejarsup">++;</span></code></pre></div> -->
+<!-- 	  </li> -->
+<!-- 	  <li> -->
+<!-- 		<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.od</sub><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="numbers">87</sub><span class="simbind">;</span> -->
+<!-- <span class="simbexp">Z</span><sub class="id_exp">.od</sub><span class="simbind alejarsup">++;</span> -->
+<!-- <span class="simbexp">Y</span><sub class="numbers">87</sub><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.od</sub><span class="simbind">;</span> -->
+<!-- </code></pre></div> -->
+<!-- 	  </li> -->
+<!-- 	</ol> -->
+<!--   </aside> -->
   <div class="macro">
 	<pre><code><span class="term">F</span><span class="acercarsup">’</span><sub class="vacento nnoterm">n</sub><span class="term">++;</span></code></pre>
 	<div class="flecha"></div>
@@ -220,7 +220,7 @@
 	  </li>
 	</ol>
   </aside>
-  <div class="macro">
+  <div class="macro cambiooo">
 	<pre><code><span class="nnoterm">V</span>’<sub class="vacento nnoterm">n</sub><span class="term"> = </span><span class="nnoterm">res_y<sub class="term">1</sub
 >(<span class="noterm">op<sub>1</sub></span><span class="acercarsup">)</span></span><span class="noterm">fnp<sub>1</sub></span></code></pre>
 	<div class="flecha"></div>
@@ -245,7 +245,7 @@
 	  </li>
 	</ol>
   </aside>
-  <div class="macro">
+  <div class="macro suvvv">
 	<pre><code><span class="nnoterm">V</span>’<sub class="vacento nnoterm">n</sub><span class="term"> = </span><span class="nnoterm">res_f<sub class="term">1</sub
 >(<span class="noterm">op<sub>1</sub></span><span class="acercarsup">)</span></span><span class="noterm">fnp<sub>1</sub></span></code></pre>
 	<div class="flecha"></div>
@@ -268,7 +268,7 @@
 	  </li>
 	</ol>
   </aside>
-  <div class="macro">
+  <div class="macro suvvv">
 	<pre><code><span class="nnoterm acercarsup">V</span>’<sub class="vacento nnoterm">n</sub><span class="term"> = </span><span class="noterm">fna<sub>1</sub></span
 ><span class="nnoterm">res_y<sub class="term">1</sub>(<span class="noterm">opm<sub>1</sub></span><span class="acercarsup">)</span></span></code></pre>
 	<div class="flecha"></div>
@@ -291,7 +291,7 @@
 	  </li>
 	</ol>
   </aside>
-  <div class="macro">
+  <div class="macro suvvv">
 	<pre><code><span class="nnoterm">V</span>’<sub class="vacento nnoterm">n</sub><span class="term"> = </span><span class="noterm">fna<sub>1</sub></span
 ><span class="nnoterm">res_f<sub class="term">1</sub>(<span class="noterm">opm<sub>1</sub></span><span class="acercarsup">)</span></span></code></pre>
 	<div class="flecha"></div>
@@ -300,7 +300,7 @@
 <span class="nnoterm">V</span><span>’</span><sub class="vacento nnoterm alejar">n</sub><span class="term"> = </span
 ><span class="noterm">fna<sub>1</sub></span><span class="term">F</span><sub class="numnatf">.r2</sub></code></pre>
   </div>
-  <aside class="ejemplos">
+  <aside class="ejemplos lolo">
 	<h1>Ejemplo</h1>
 	<ol>
 	  <li>
@@ -315,7 +315,7 @@
 	  </li>
 	</ol>
   </aside>
-  <div class="gramat glueg">
+  <div class="gramat glueg lala">
 	<ol>
 	  <li>
 		<div class="noterm">tarit</div>
@@ -364,6 +364,54 @@
 ><span class="simbexp">F</span><sub class="numbers">7</sub><span class="simbind"> / </span><span class="numberp">6</span><span class="simbind">;</span>
 <span class="simbexp">Y</span><sub class="numbers">17</sub><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="numbers">17</sub><span class="simbind"> * </span
 ><span class="simbexp">Y</span><sub class="id_exp acercarsup">.od</sub><span class="simbind">;</span></code></pre></div>
+	  </li>
+	</ol>
+  </aside>
+<h3>Operaciones relacionales</h3>
+<div class="gramat glueg">
+  <ol>
+	<li>
+	  <div class="noterm">oprel</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li class="term">&gt;</li>
+		<li class="term">&lt;</li>
+		<li class="term">&gt;=</li>
+		<li class="term">&lt;=</li>
+		<li class="term">==</li>
+		<li class="term">!=</li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">opnb</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="term">Z</span><sub>&Omega;</sub></li>
+		<li>&alpha; <span class="noterm">oprel</span> &beta;</li>
+		<li><span class="term">!(</span>&alpha; <span class="noterm">oprel</span> &beta;<span class="term">)</span></li>
+	  </ul>
+	</li>
+  </ol>
+</div>
+<div class="macro">
+  <pre><code><span class="term">Z</span><sub>.<span class="noterm">id</span></sub><span class="term"> = </span>&alpha;<span class="term"> &gt; </span>&beta;<span class="term">;</span></code></pre>
+  <div class="flecha"></div>
+  <pre><code><span class="term">F</span><sub class="numnatf">.<span class="noterm">id</span></sub><span class="term"> = </span>&beta;<span class="term"> - </span>&alpha;<span class="term">;</span>
+<span class="term">Z</span><sub>.<span class="noterm">id</span></sub><span class="term"> = negp(</span><span class="term">F</span><sub class="numnatf">.<span class="noterm">id</span
+></sub><span class="term">);</span></code></pre>
+  </div>
+  <aside class="ejemplos">
+	<h1>Ejemplo</h1>
+	<ol>
+	  <li>
+		<div><pre><code><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="numberp">3</span
+><span class="simbind"> &gt; </span><span class="simbexp">Y</span><sub class="numbers">13</sub><span class="simbind">;</span></code></pre></div>
+	  </li>
+	  <li>
+		<div><pre><code><span class="simbexp">F</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="numberp">3</span
+><span class="simbind"> - </span><span class="simbexp">Y</span><sub class="numbers">13</sub><span class="simbind">;</span>
+<span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="pos_puntos acercar">negp</sub><span class="simbexp2">$</span
+><span class="nvars">F</span><span class="simbind">(</span><span class="simbexp">F</span><sub class="id_exp">.obf</sub><span class="simbind">);</span></code></pre></div>
 	  </li>
 	</ol>
   </aside>

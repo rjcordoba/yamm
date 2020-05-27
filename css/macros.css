@@ -1061,7 +1061,7 @@ pre sub .comil{
 	.ejemplos li > div{
 		border-color:#b7b8c3;
 	}
-	
+
 	.ejemplos li > div {
 		border: solid 1px #767888;
 		border-radius:2px;
@@ -1096,9 +1096,11 @@ pre sub .comil{
 		    /* margin-left:.3em; */
 max-width:40% !important;
 }
-.gramat ol > li {
-    margin-bottom:0.4em  !important;
-}
+
+
+/* .gramat ol > li { */
+/*     margin-bottom:0.4em  !important; */
+/* } */
 
 /* Macro 3 */
 
@@ -1111,39 +1113,47 @@ max-width:40% !important;
 /*     margin: 0 0.3em; */
 /* } */
 
-	.arrr{
-		margin-top:1em;
-	}
-
-	.subirpoco{
-		margin-top:-.3em;
-	}
 
 .escurrir.ejemplos > ol > li::after {
     margin: 0 0.3em !important;
 }
 
-.ejemparriba{
-margin-top:0em !important;
+	.gramat.glueg.lala{
+		margin-top:-2.4em !important;
+		/* margin-bottom:1em !important; */
+	}
+
+
+
+	.cambiooo{
+		margin-top:-.5em !important;
+		margin-bottom:0em !important;
+	}
+
+
+
+	.lolo{
+		margin-bottom:0 !important;
 }
 
-.sinmargen{
-margin-bottom:0 !important;
+
+	.suvvv{
+		margin-top:-.7em !important;
 }
 
 
 
-.ejempls{
-margin:2.3em 0 1em 0 !important;
-}
-
-.elsis{
-margin-bottom:1.115em !important;
+.bajjjinv{
+		height:3em !important;
 }
 
 
-.elsis.elsisar{
-margin-bottom:5em !important;
+	.bajjj{
+		margin-top:3em !important;
+}
+
+	.suub{
+		margin-top:-1em !important;
 }
 
 

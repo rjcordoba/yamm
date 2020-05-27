@@ -1,53 +1,53 @@
-<h3>Estructuras de control</h3>
-<div class="gramat glueg">
-  <ol>
-	<li>
-	  <div class="noterm">rest_b</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li>&epsilon;</li>
-		<li><span class="noterm">opdb</span> &gamma; <span class="noterm">rest_b</span></li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">exp_b</div>
-	  <div class="flechag"></div>
-	  <div>&gamma; <span class="noterm">rest_b</span></div>
-	</li>
-  </ol>
-</div>
-<div class="macro">
-  <pre><code><span class="term">if(</span><span class="noterm">opbs<sub>1</sub></span><span class="term">)</span></code></pre>
-  <div class="flecha"></div>
-  <pre><code><span class="term">if(</span><span class="noterm">opbs<sub>1</sub></span><span class="term">|| 0)</span></code></pre>
-  </div>
-  <aside class="ejemplos">
-	<h1>Ejemplo</h1>
-	<ol>
-	  <li>
-		<div><pre><code><span class="pclave">if</span><span class="simbind">(!</span><span class="simbexp">Y</span><sub class="numbers">3</sub><span class="simbind">){</span>
-   <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind"> = </span><span class="numberp">16</span><span class="simbind">;</span>
-<span class="simbind">}</span></code></pre></div>
-	  </li>
-	  <li>
-		<div><pre><code><span class="pclave">if</span><span class="simbind">(!</span><span class="simbexp">Y</span><sub class="numbers">3</sub
-><span class="booleano"> || </span><span class="numberp">0</span><span class="simbind">){</span>
-   <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind"> = </span><span class="numberp">16</span><span class="simbind">;</span>
-<span class="simbind">}</span></code></pre></div>
-	  </li>
-	  <li>
-		<p class="puntitos"></p>
-	  </li>
-	  <li>
-		<div><pre><code><span class="pclave">if</span><span class="simbind">(</span><span class="numberp">0</span><span class="simbind"> &gt; </span
-><span class="numberp">0</span><span class="booleano"> || </span><span class="simbexp">Y</span><sub class="numbers">3</sub><span class="simbind"> == </span
-><span class="numberp">0</span><span class="simbind">){</span>
-   <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind"> = </span><span class="numberp">16</span><span class="simbind">;</span>
-<span class="simbind">}</span></code></pre></div>
-	  </li>
-	</ol>
-  </aside>
-  <div class="macro flech">
+<!-- <h3>Estructuras de control</h3> -->
+<!-- <div class="gramat glueg"> -->
+<!--   <ol> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">rest_b</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li>&epsilon;</li> -->
+<!-- 		<li><span class="noterm">opdb</span> &gamma; <span class="noterm">rest_b</span></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">exp_b</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <div>&gamma; <span class="noterm">rest_b</span></div> -->
+<!-- 	</li> -->
+<!--   </ol> -->
+<!-- </div> -->
+<!-- <div class="macro"> -->
+<!--   <pre><code><span class="term">if(</span><span class="noterm">opbs<sub>1</sub></span><span class="term">)</span></code></pre> -->
+<!--   <div class="flecha"></div> -->
+<!--   <pre><code><span class="term">if(</span><span class="noterm">opbs<sub>1</sub></span><span class="term">|| 0)</span></code></pre> -->
+<!--   </div> -->
+<!--   <aside class="ejemplos"> -->
+<!-- 	<h1>Ejemplo</h1> -->
+<!-- 	<ol> -->
+<!-- 	  <li> -->
+<!-- 		<div><pre><code><span class="pclave">if</span><span class="simbind">(!</span><span class="simbexp">Y</span><sub class="numbers">3</sub><span class="simbind">){</span> -->
+<!--    <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind"> = </span><span class="numberp">16</span><span class="simbind">;</span> -->
+<!-- <span class="simbind">}</span></code></pre></div> -->
+<!-- 	  </li> -->
+<!-- 	  <li> -->
+<!-- 		<div><pre><code><span class="pclave">if</span><span class="simbind">(!</span><span class="simbexp">Y</span><sub class="numbers">3</sub -->
+<!-- ><span class="booleano"> || </span><span class="numberp">0</span><span class="simbind">){</span> -->
+<!--    <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind"> = </span><span class="numberp">16</span><span class="simbind">;</span> -->
+<!-- <span class="simbind">}</span></code></pre></div> -->
+<!-- 	  </li> -->
+<!-- 	  <li> -->
+<!-- 		<p class="puntitos"></p> -->
+<!-- 	  </li> -->
+<!-- 	  <li> -->
+<!-- 		<div><pre><code><span class="pclave">if</span><span class="simbind">(</span><span class="numberp">0</span><span class="simbind"> &gt; </span -->
+<!-- ><span class="numberp">0</span><span class="booleano"> || </span><span class="simbexp">Y</span><sub class="numbers">3</sub><span class="simbind"> == </span -->
+<!-- ><span class="numberp">0</span><span class="simbind">){</span> -->
+<!--    <span class="simbexp">Y</span><sub class="numbers">21</sub><span class="simbind"> = </span><span class="numberp">16</span><span class="simbind">;</span> -->
+<!-- <span class="simbind">}</span></code></pre></div> -->
+<!-- 	  </li> -->
+<!-- 	</ol> -->
+<!--   </aside> -->
+  <div class="macro flech bajjj">
 	<pre><code><span class="term">if(</span><span class="noterm">exp_b<sub>1</sub></span><span class="term">){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span></code></pre>
@@ -88,7 +88,7 @@
 	  </li>
 	</ol>
   </aside>
-  <div class="macro flech">
+  <div class="macro flech np">
 	<pre><code><span class="term">if(</span><span class="noterm">exp_b<sub>1</sub></span><span class="term">){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span>
@@ -104,7 +104,7 @@
 <span class="nnoterm">texto</span><sub>2</sub>
 ...<span class="flechita"><span class="pos_puntos nnoterm">i</span></span></code></pre>
 	  </div>
-	  <aside class="ejemplos">
+	  <aside class="ejemplos bajjj">
 		<h1>Ejemplo</h1>
 		<ol>
 		  <li>
@@ -149,7 +149,7 @@
 		  </li>
 		</ol>
 	  </aside>
-	  <div class="macro flech">
+	  <div class="macro flech np">
 		<pre><code><span class="term">while(</span><span class="noterm">exp_b<sub>1</sub></span><span class="term">){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span></code></pre>
@@ -159,7 +159,7 @@
    <span class="term">＊<sup>:i</sup></span>
 <span class="term">}</span></code></pre>
 	  </div>
-	  <aside class="ejemplos">
+	  <aside class="ejemplos bajjj">
 		<h1>Ejemplo</h1>
 		<ol>
 		  <li>
@@ -222,6 +222,7 @@
    <span class="nnoterm">texto</span><sub>2</sub>
 <span class="term">}</span></code></pre>
 	  </div>
+	  <div class="bajjjinv"> </div>
 	  <aside class="ejemplos">
 		<h1>Ejemplo</h1>
 		<ol>
@@ -265,7 +266,7 @@
 		  </li>
 		</ol>
 	  </div>
-	  <div class="macro flech">
+	  <div class="macro flech np">
 		<pre><code><span class="term">switch(</span>&alpha;<sub>1</sub><span class="term">){</span>
    <span class="nnoterm">texto</span><sub>1</sub>
 <span class="term">}</span></code></pre>
@@ -280,6 +281,7 @@
 ...<span class="flechita"><span class="pos_puntos nnoterm">j</span></span>
 </code></pre>
 	  </div>
+	  <div class="bajjjinv"> </div>
 	  <aside class="ejemplos">
 		<h1>Ejemplo</h1>
 		<ol>
@@ -337,6 +339,7 @@
 		  </li>
 		</ol>
 	  </aside>
+	  	  <div class="bajjjinv"> </div>
 	  <div class="expansor">
 		<h1 class="gluepar titpeq"><span class="var_exp">swc</span></h1>
 		<aside class="aclarcn glue">
@@ -402,6 +405,7 @@ JUMP
 		  </li>
 		</ol>
 	  </aside>
+	  <div class="bajjjinv"> </div>
 	  <div class="macro flech">
 		<pre><code><span class="term">:swc:{</span>
    <span class="noterm">texto<sub>1</sub></span>
@@ -447,7 +451,7 @@ JUMP
 		  </li>
 		</ol>
 	  </aside>
-	  <div class="macro">
+	  <div class="macro np">
 		<pre><code><span class="term">:swc:{</span>
    <span class="noterm">texto<sub>1</sub></span>
    <span class="term">$</span>
@@ -496,3 +500,108 @@ JUMP
 <span class="noterm">textoc<sub>1</sub></span></code></pre>
 	  </div>
 	  </div>
+<h3 class="suub">Librería estándar</h3>
+<div class="macro largakkk">
+  <pre><code>#include tipos</code></pre>
+  <div class="flecha"></div>
+  <pre class="include claro"
+><span class="pclave">unsigned int</span> <span class="nvars">pow</span><span class="simbind">(</span><span class="pclave">unsigned int</span
+> <span class="nvars">base</span><span class="simbind">, </span><span class="pclave">unsigned int</span> <span class="nvars">exp</span><span class="simbind">){</span>
+    <span class="pclave">unsigned int</span> <span class="nvars">res</span><span class="simbind">;</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind"> - </span><span class="nvars">base</span><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+      <span class="pclave">return</span><span class="numberp"> 0</span><span class="simbind">;</span>
+    <span class="simbind">}</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind"> - </span><span class="nvars">exp</span><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+      <span class="nvars">res</span><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span>
+    <span class="simbind">}</span>
+    <span class="pclave">else</span><span class="simbind">{</span>
+      <span class="nvars">exp</span><span class="simbind">--;</span>
+      <span class="nvars">res</span><span class="simbind"> = </span><span class="nvars">base</span><span class="simbind"> * </span><span class="nvars">pow</span
+><span class="simbind">(</span><span class="nvars">base</span><span class="simbind">, </span><span class="nvars">exp</span><span class="simbind">);</span>
+    <span class="simbind">}</span>
+    <span class="pclave">return</span><span class="nvars"> res</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">unsigned int</span> <span class="nvars">upow</span><span class="simbind">(</span><span class="pclave">unsigned int</span> <span class="nvars">d</span
+><span class="simbind">, </span><span class="pclave">unsigned int</span> <span class="nvars">v</span><span class="simbind">){</span>
+    <span class="pclave">unsigned int</span> <span class="nvars">res</span><span class="simbind">;</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="nvars">v</span><span class="simbind"> % </span><span class="nvars">d</span><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+      <span class="nvars">res</span><span class="simbind"> = </span><span class="numberp">0</span><span class="simbind">;</span>
+    <span class="simbind">}</span>
+    <span class="pclave">else</span><span class="simbind">{</span>
+      <span class="nvars">v</span><span class="simbind"> = </span><span class="nvars">v</span><span class="simbind"> / </span><span class="nvars">d</span><span class="simbind">;</span>
+      <span class="nvars">res</span><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind"> + </span><span class="nvars">upow</span
+><span class="simbind">(</span><span class="nvars">d</span><span class="simbind">, </span><span class="nvars">v</span><span class="simbind">);</span>
+   <span class="simbind">}</span>
+   <span class="pclave">return</span><span class="nvars"> res</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">float</span> <span class="nvars">litf</span><span class="simbind">(</span><span class="pclave">unsigned int</span> <span class="nvars">num</span
+><span class="simbind">, </span><span class="pclave">unsigned int</span> <span class="nvars">den</span><span class="simbind">){</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind"> - </span><span class="nvars">num</span><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+      <span class="simbexp">Z</span><sub class="id_exp">.ret</sub><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind">;</span>
+      <span class="pclave">return</span><span class="simbexp"> F</span><sub class="id_exp acercar">.ret</sub><span class="simbind">;</span>
+    <span class="simbind">}</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="numberp">1</span><span class="simbind"> - </span><span class="nvars">den</span><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+      <span class="pclave">STOP</span>
+    <span class="simbind">}</span>
+    <span class="nvars">num</span><span class="simbind"> = </span><span class="nvars">pow</span><span class="simbind">(</span><span class="numberp">5</span><span class="simbind">, </span
+><span class="nvars">num</span><span class="simbind">);</span>
+    <span class="nvars">den</span><span class="simbind"> = </span><span class="nvars">pow</span><span class="simbind">(</span><span class="numberp">3</span><span class="simbind">, </span
+><span class="nvars">den</span><span class="simbind">);</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.ret</sub><span class="simbind"> = </span><span class="nvars">num</span><span class="simbind"> * </span><span class="nvars">den</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">unsigned int</span> <span class="nvars">negp</span><span class="simbind">(</span><span class="pclave">float</span> <span class="nvars">v</span><span class="simbind">){</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind"> = </span><span class="nvars">v</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind alejarsup">++;</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.ret</sub><span class="simbind"> = </span><span class="simbexp">Y</span><sub class="id_exp acercar">.opf</sub
+><span class="simbind"> % </span><span class="numberp">2</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">float</span> <span class="nvars">negar</span><span class="simbind">(</span><span class="pclave">float </span><span class="nvars">v</span><span class="simbind">){</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind"> = </span><span class="nvars">v</span><span class="simbind">;</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="numberp">2</span><span class="simbind"> - </span
+><span class="simbexp">Y</span><sub class="id_exp acercar">.opf</sub><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+       <span class="pclave">return</span><span class="numberp"> 1</span><span class="simbind">;</span>
+    <span class="simbind">}</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="nvars">negp</span><span class="simbind">(</span><span class="nvars">v</span><span class="simbind">);</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+       <span class="simbexp">Y</span><sub class="id_exp acercar">.ret</sub><span class="simbind"> = </span><span class="simbexp">Y</span
+><sub class="id_exp acercar">.opf</sub><span class="simbind"> / </span><span class="numberp">2</span><span class="simbind">;</span>
+    <span class="simbind">}</span>
+    <span class="pclave">else</span><span class="simbind">{</span>
+       <span class="simbexp">Y</span><sub class="id_exp acercar">.ret</sub><span class="simbind"> = </span><span class="simbexp">Y</span
+><sub class="id_exp acercar">.opf</sub><span class="simbind"> * </span><span class="numberp">2</span><span class="simbind">;</span>
+    <span class="simbind">}</span>
+<span class="simbind">}</span>
+
+<span class="pclave">unsigned int</span> <span class="nvars">ftoy</span><span class="simbind">(</span><span class="pclave">float </span><span class="nvars">v</span><span class="simbind">){</span>
+    <span class="pclave">unsigned int</span><span class="nvars"> int</span><span class="simbind">, </span><span class="nvars">num</span><span class="simbind">, </span
+><span class="nvars">den</span><span class="simbind">, </span><span class="nvars">c</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind"> = </span><span class="nvars">v</span><span class="simbind">;</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.obf</sub><span class="simbind"> = </span><span class="numberp">2</span><span class="simbind"> - </span
+><span class="simbexp">Y</span><sub class="id_exp acercar">.opf</sub><span class="simbind">;</span>
+    <span class="pclave">if</span><span class="simbind">(</span><span class="simbexp">Z</span><sub class="id_exp">.obf</sub><span class="simbind">){</span>
+       <span class="pclave">return</span><span class="numberp"> 0</span><span class="simbind">;</span>
+    <span class="simbind">}</span>
+    <span class="nvars">v</span><span class="simbind"> = </span><span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind">;</span>
+    <span class="nvars">num</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">5</span><span class="simbind">, </span
+><span class="nvars">num</span><span class="simbind">);</span>
+    <span class="nvars">den</span><span class="simbind"> = </span><span class="nvars">upow</span><span class="simbind">(</span><span class="numberp">3</span><span class="simbind">, </span
+><span class="nvars">den</span><span class="simbind">);</span>
+    <span class="simbexp">Y</span><sub class="id_exp acercar">.ret</sub><span class="simbind"> = </span><span class="nvars">num</span><span class="simbind"> / </span
+><span class="nvars">den</span><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">float</span> <span class="nvars">ytof</span><span class="simbind">(</span><span class="pclave">unsigned int </span><span class="nvars">v</span><span class="simbind">){</span>
+    <span class="pclave">return</span><span class="nvars"> litf</span><span class="simbind">(</span><span class="nvars">v</span><span class="simbind">, </span
+><span class="numberp">1</span><span class="simbind">);</span>
+<span class="simbind">}</span></pre>
+</div>

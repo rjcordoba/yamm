@@ -1,64 +1,64 @@
-<h3>Llamada a subprogramas</h3>
-<div class="gramat glueg">
-  <ol>
-	<li>
-	  <div class="noterm">argp_y</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li><span class="noterm">natural</span></li>
-		<li><span class="term">0</span></li>
-		<li><span class="term">Y</span>’<sub class="vacento nnoterm">n</sub></li>
-		<li><span class="term">&amp;</span><span class="nnoterm">V</span><sub class="nnoterm">n</sub><span class="noterm">indf</span></li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">arg_y</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li><span class="noterm">argp_y</span></li>
-		<li><span class="term">+</span><span class="noterm">argp_y</span></li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">argp_f</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li><span class="noterm">racional</span></li>
-		<li><span class="term">F</span>’<sub class="vacento nnoterm">n</sub></li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">arg_f</div>
-	  <div class="flechag"></div>
-	  <div><span class="noterm">signo</span><span class="noterm">argp_f</span></div>
-	</li>			
-	<li>
-	  <div class="noterm">arg</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li><span class="noterm">arg_y</span></li>
-		<li><span class="noterm">arg_f</span></li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">rest_args</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li>&epsilon;</li>
-		<li><span class="term">,</span><span class="noterm">arg</span><span class="noterm">rest_args</span></li>
-	  </ul>
-	</li>
-	<li>
-	  <div class="noterm">args</div>
-	  <div class="flechag"></div>
-	  <ul>
-		<li>&epsilon;</li>
-		<li><span class="noterm">arg</span><span class="noterm">rest_args</span></li>
-	  </ul>
-	</li>
-  </ol>
-</div>
-<div class="macro flech">
+<!-- <h3>Llamada a subprogramas</h3> -->
+<!-- <div class="gramat glueg"> -->
+<!--   <ol> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">argp_y</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li><span class="noterm">natural</span></li> -->
+<!-- 		<li><span class="term">0</span></li> -->
+<!-- 		<li><span class="term">Y</span>’<sub class="vacento nnoterm">n</sub></li> -->
+<!-- 		<li><span class="term">&amp;</span><span class="nnoterm">V</span><sub class="nnoterm">n</sub><span class="noterm">indf</span></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">arg_y</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li><span class="noterm">argp_y</span></li> -->
+<!-- 		<li><span class="term">+</span><span class="noterm">argp_y</span></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">argp_f</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li><span class="noterm">racional</span></li> -->
+<!-- 		<li><span class="term">F</span>’<sub class="vacento nnoterm">n</sub></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">arg_f</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <div><span class="noterm">signo</span><span class="noterm">argp_f</span></div> -->
+<!-- 	</li>			 -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">arg</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li><span class="noterm">arg_y</span></li> -->
+<!-- 		<li><span class="noterm">arg_f</span></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">rest_args</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li>&epsilon;</li> -->
+<!-- 		<li><span class="term">,</span><span class="noterm">arg</span><span class="noterm">rest_args</span></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!-- 	<li> -->
+<!-- 	  <div class="noterm">args</div> -->
+<!-- 	  <div class="flechag"></div> -->
+<!-- 	  <ul> -->
+<!-- 		<li>&epsilon;</li> -->
+<!-- 		<li><span class="noterm">arg</span><span class="noterm">rest_args</span></li> -->
+<!-- 	  </ul> -->
+<!-- 	</li> -->
+<!--   </ol> -->
+<!-- </div> -->
+<div class="macro flech suub">
   <pre><code><span class="nnoterm">W</span><sub>:<span class="nnoterm">nombre</span></sub><span class="noterm">tpars<sub>1</sub></span
 ><span class="term">(</span><span class="noterm">args<sub>1</sub></span><span class="term">);</span></code></pre>
   <div class="flecha"></div>
@@ -74,8 +74,8 @@
 <span class="term">＊</span><sup>:<span class="nnoterm">nombre</span></sup>
 1<sup>:<span class="nnoterm">j</span></sup><span class="flechita"><span class="pos_puntos nnoterm">i</span></span>
 ...<span class="flechita"><span class="pos_puntos nnoterm">j</span></span></code></pre>
-  </div>
-  <aside class="ejemplos complicado">
+</div>
+  <aside class="ejemplos complicado suub np">
 	<h1>Ejemplo</h1>
 	<ol>
 	  <li>
@@ -99,7 +99,7 @@
 		</div>
 	</ol>
   </aside>
-  <dl class="expansor">
+  <dl class="expansor arribacero">
 	<dt class="titpeq"><span class="var_exp">guardar_vals</span></dt>
 	<dd>
 	  <div class="macro">
@@ -160,7 +160,7 @@
 		</li>
 	  </ol>
 	</aside>
-	<div class="macro larga">
+	<div class="macro larga izzz">
 	  <pre><code><span class="term">:poner_args:$</span><span class="nnoterm">V</span><span class="noterm alejarsup">tpars<sub>1</sub></span><span class="term">,</span
 ><span class="noterm">arg<sub>1</sub></span><span class="noterm">rest_args<sub>1</sub></span><span class="term">$</span></code></pre>
 	  <div class="flecha"></div>
@@ -259,3 +259,64 @@
 	  </ol>
 	</aside>
   </div>
+<h3>Operaciones aritméticas 1</h3>
+<div class="gramat glueg">
+  <ol>
+	<li>
+	  <div><span class="nnoterm">V’’</span></div>
+	  <div class="flechag"></div>
+	  <div><span class="nnoterm">V</span><sub>.<span class="noterm">id</span></sub><span class="noterm">tpars</span><span class="term">(</span><span class="noterm">args</span><span class="term">)</span></div>
+	</li>
+	<li>
+	  <div class="noterm">valp_y</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">natural</span></li>
+		<li><span class="term">0</span></li>
+		<li><span class="nnoterm">Y</span><span class="alejarsup">’</span><sub class="vacento">&Omega;</sub></li>
+		<li><span class="noterm">stars</span><span class="nnoterm">Y</span><span class="alejarsup">’’</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">val_y</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">valp_y</span></li>
+		<li><span class="term">+</span><span class="noterm">valp_y</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">valp_f</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">racional</span></li>
+		<li><span class="nnoterm">F</span>’<sub class="vacento">&Omega;</sub></li>
+		<li><span class="noterm">stars</span><span class="nnoterm">F</span>’’ </li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">val_f</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">signo</span><span class="noterm">valp_f</span></li>
+		<li><span class="term">-</span><span class="noterm">valp_y</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <div class="noterm">valp</div>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">valp_f</span></li>
+		<li><span class="noterm">valp_y</span></li>
+	  </ul>
+	</li>
+	<li>
+	  <ul><li>&alpha;</li><li>&beta;</li></ul>
+	  <div class="flechag"></div>
+	  <ul>
+		<li><span class="noterm">val_y</span></li>
+		<li><span class="noterm">val_f</span></li>
+	  </ul>
+	</li>
+  </ol>
+</div>
