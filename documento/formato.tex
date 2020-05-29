@@ -122,21 +122,21 @@
 
 %generales
 \def\tragar#1{}
-\def\encabezadop#1{\advance\cap by 1\vfil\eject\noindent{\fencp\hskip1.8pt §\the\cap.\espenc #1}\vskip8pt \noindent \subcap=0 \def\pie{#1}}
-\def\encabezados#1{\global\advance\subcap by 1 \global\ssubcap=1 \vskip-\lastskip\penalty-100\vskip17pt plus5ptminus4pt\noindent{\fencs\hskip5.2pt
-                   \the\cap.\the\subcap.\espenc #1}\vskip6pt plus.5pt\penalty100\noindent}
-\def\encabezadot#1{\vskip-\lastskip\penalty-100\vskip14pt\noindent{\fenct\hskip6.5pt \the\cap.\the\subcap.\the\ssubcap.\espenc #1}\vskip7pt \noindent \advance\ssubcap by 1}
+\def\encabezadop#1{\piecab=0 \advance\cap by 1\vfil\eject\noindent{\fencp \hskip1.8pt §\the\cap.\espenc #1}\vskip8pt \subcap=0 \def\pie{\piecab=1 #1} \noindent}
+\def\encabezados#1{\global\advance\subcap by 1 \global\ssubcap=1 \vskip-\lastskip\penalty-100\vskip17pt plus5ptminus4pt  \noindent {\fencs\hskip5.2pt
+                   \the\cap.\the\subcap.\espenc #1}\vskip6pt plus.5pt\penalty100 \noindent}
+\def\encabezadot#1{\vskip-\lastskip\penalty-100\vskip14pt\noindent{\fenct\hskip6.5pt \the\cap.\the\subcap.\the\ssubcap.\espenc #1}\vskip7pt \advance\ssubcap by 1 \noindent}
 \def\pseudopar{\hfill\break\hbox{}\hskip\dimen2}
 
 %Listas
-\def\inilista#1#2#3{\par\begingroup\fitems\dimen1=#1\leftskip=#2\rightskip=\leftskip% \dimen2=\parindent
+\def\inilista#1#2#3{\par\begingroup\fitems\dimen1=#1\leftskip=#2\rightskip=\leftskip \dimen2=\parindent
                   \parindent=0pt \everypar={\llap{{\fsimbs\raise.6ex\hbox{#3}}\kern.3em}}\vskip.6\dimen1\parskip1.6\dimen1 plus 2pt minus 2pt}
 \def\finlista{\par\vskip-\lastskip\vskip2.8\dimen1\endgroup\noindent}
 \def\listanormal{\inilista{5pt}{14pt}{•\kern.05em}}
 \def\listademos{\inilista{5pt}{10pt}{♦}}
 \def\encaje{\inilista{5pt}{22pt}{}}
 \def\finencaje{\par\vskip-\lastskip\vskip2.05\dimen1\endgroup\noindent}
-\def\listraducciones{\inilista{0pt}{21pt}{\lower.25ex\hbox{⬝}\kern4pt}\parskip22pt\vskip-5pt}
+\def\listraducciones{\inilista{0pt}{21pt}{\lower.75ex\hbox{\fsimbols⬝}\kern4pt}\parskip22pt\vskip-5pt}
 \def\finlistatrad{\finlista\vskip16pt\noindent}
 \def\listadefs{\inilista{5pt}{14pt}{{\fsimbsinsc\raise.18ex\hbox{■}}\kern.05em}}
 \def\centrarline#1{\dimen1=\hsize\advance\dimen1 by -2\leftskip\hbox to \dimen1{\hss#1\hss}}
@@ -160,16 +160,25 @@
 \def\ponerpdfpag{\ifnum\pagsc<\pagspdf \advance\pagsc by 1 \let\bucle=\ponerpdfpag
                        \hbox{\XeTeXpdffile\nombre/ page \pagsc \hfil} \vfil\eject
                    \else \let\bucle=\relax\fi \bucle}
-\def\ponerpdf#1+{\pagspdf=\XeTeXpdfpagecount#1.pdf \pagsc=0 \def\nombre/{#1.pdf}
+\def\ponpdf#1{\pagspdf=\XeTeXpdfpagecount#1 \pagsc=0 \def\nombre/{#1}
                  \ponerpdfpag}
+\def\ponerpdf#1+{\ponpdf{pdfs/#1.pdf}}
 \def\ponermacro{\ifnum\macrosc<\nummacros \advance\macrosc by 1
                       \edef\nompdf{macros/macros\number\macrosc} \expandafter\ponerpdf\nompdf+ \let\bucle=\ponermacro
                 \else\let\bucle=\relax\fi \bucle}
-\def\ponermacros{\nummacros=3 \macrosc=0 \ponermacro}
+\def\ponermacros{\nummacros=17 \macrosc=0 \ponermacro}
+\def\ponercapítulo{\ifnum\macrosc<\nummacros \advance\macrosc by 1
+                         \input cap\number\macrosc \let\bucle=\ponercapítulo
+                   \else\let\bucle=\relax\fi\bucle}
+\def\ponercapítulos{\nummacros=6 \macrosc=0 \ponercapítulo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\piepag{\ifodd\pageno \hfill \pie \hskip8pt {\fnumpag\folio}\kern-8pt
+            \else \kern-8pt {\fnumpag\folio}\hskip8pt \pie \hfill\fi}
 
 \rm
 \hsize=6.1in \vsize=24cm
 \hoffset=0.11in
 \baselineskip=17.5pt plus .4pt minus .4pt \parindent=14pt
-\footline={\ffoot\vbox to 42pt{}\hfill \pie \hskip11pt {\fnumpag\folio}\kern-8pt}
+\footline={\ffoot\vbox to 42pt{} \piepag}
+%% \footline={\ffoot\vbox to 42pt{}\hfill \pie \hskip11pt {\fnumpag\folio}\kern-8pt}

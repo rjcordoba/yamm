@@ -1,5 +1,5 @@
-<h3>Librería estándar 1’</h3>
-<div class="macro larga">
+<!-- <h3>Librería estándar 1’</h3> -->
+<div class="macro largakkk">
   <pre><code>#include arit_float</code></pre>
   <div class="flecha"></div>
   <pre class="include claro"> 
@@ -80,6 +80,11 @@
     <span class="pclave">return </span><span class="nvars">res</span><span class="simbind">;</span>
 <span class="simbind">}</span>
 
+
+
+
+
+
 <span class="pclave">float </span><span class="nvars">divf</span><span class="simbind">(</span><span class="pclave">float </span
 ><span class="nvars">n1</span><span class="simbind">, </span><span class="pclave">float </span><span class="nvars">n2</span><span class="simbind">){</span>
     <span class="pclave">unsigned int</span> <span class="nvars">num</span><span class="simbind">, </span><span class="nvars">den</span></span><span class="simbind">;</span>
@@ -101,3 +106,24 @@
 <span class="simbind">}</span>
 </pre>
 </div>
+<div class="macro larga">
+  <pre><code>#include malloc</code></pre>
+  <div class="flecha"></div>
+  <pre class="include claro"> 
+<span class="pclave">void</span> <span class="nvars">malloc</span><span class="simbind">(</span><span class="pclave">unsigned int </span><span class="nvars">n</span><span class="simbind">){</span>   
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub> = <span class="nvars">n</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="pos_puntos">$npos</sub><span class="simbind"> += </span><span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind">;</span>
+<span class="simbind">}</span>
+
+<span class="pclave">void</span> <span class="nvars">free</span><span class="simbind">(</span><span class="pclave">unsigned int </span><span class="nvars">n</span><span class="simbind">){</span>
+    <span class="simbexp">Z</span><sub class="id_exp">.opf</sub> = <span class="nvars">n</span><span class="simbind">;</span>
+    <span class="simbexp">Z</span><sub class="pos_puntos">$npos</sub><span class="simbind"> -= </span><span class="simbexp">Z</span><sub class="id_exp">.opf</sub><span class="simbind">;</span>
+<span class="simbind">}</span>
+	</pre>
+  </div>
+  <div class="macro">
+	<pre><code><span class="term">#include cmmstd</span></code></pre>
+	<div class="flecha"></div>
+	<pre><code><span class="preproc">#include arit_float</span>
+<span class="preproc">#include malloc</span></code></pre>
+  </div>

@@ -1,6 +1,5 @@
-\piecab=0
-\encabezadop{Equivalencia de {\ccabez \C/} y {\ccabez \c--}}\piecab=1
-La demostración de la equivalencia de los dos lenguajes consistirá en mostrar cómo se pude
+\encabezadop{Equivalencia de {\ccabez \C/} y {\ccabez \c--}}%
+La demostración de la equivalencia de los dos lenguajes consistirá en mostrar cómo se puede
 transformar un programa en \C/ en uno en \c-- que dé el mismo resultado a partir de los mismos
 datos. Para explicar cómo se hace la transformación vamos a introducir un nuevo actor, al que
 llamaremos el {\it traductor}, que será quien transforme un programa en otro. Análogamente a los
@@ -9,57 +8,57 @@ traducir programas presuponiendo el mínimo conocimiento al {\it traductor} para
 cabo su trabajo.
 
 El modo de transformar los programas está basado en considerar los programas en \C/ como un conjunto
-de macroinstrucciones, es decir, cadenas de símbolos que pueden ser convertidas en otras cadenas de
-manera prefijada. Casi toda la demostración, y la mayor parte de este documento, consiste presentar
-las reglas de transformación de unas cadenas en otras. A partir de estas reglas y de unas pocas
-directrices simples el {\it traductor} será capaz de transformar un programa en \C/ en uno en \c--
-de manera ‘automática’. No todos los programas en \C/ podrán ser traducidos con el método
-presentado---la sintaxis completa de \C/ no está contemplada en las reglas---pero el subconjunto de los
-programas que pueden serlo es tal que es fácil ver que cualquier programa puede adaptarse a una
-forma que permita traducirlo.
+de macroinstrucciones de \c--, es decir, cadenas de símbolos que pueden ser convertidas de una
+manera prefijada en otras cadenas hasta llegar a un programa \c--. Casi toda la demostración, y la
+mayor parte de este documento, consiste en presentar las reglas de transformación de unas cadenas en
+otras. A partir de estas reglas y de unas pocas directrices simples el {\it traductor} será capaz de
+transformar un programa en \C/ en uno en \c-- de manera ‘automática’. No todos los programas en \C/
+podrán ser traducidos con el método presentado---la sintaxis completa de \C/ no está contemplada en
+las reglas---pero el subconjunto de los programas que pueden serlo es tal que es fácil ver que
+cualquier programa puede adaptarse a una forma que permita traducirlo.
 
-\encabezados{Sobre la demostración}
+\encabezados{Sobre la demostración}%
 Todas las reglas e indicaciones para transformar programas \C/ a otros equivalentes en \c-- aparecen
-en el apéndice D, presentadas como una ayuda para escribir programas \c-- usando
+en el apéndice E, presentadas como una ayuda para escribir programas \c-- usando
 macroinstrucciones. Se empieza por macros para definir operaciones básicas y se presentan
 posteriormente macros que usan las anteriores como texto de sustitución; el objetivo es llegar a
 macroinstrucciones que se asemejen a construcciones de \C/, de modo que un programa en \c-- se pueda
 escribir mediante macros como si fuese en \C/; así, el trabajo del {\it traductor} sería ir en
-sentido contrario y desde construcciones de \C/ ir sustituyendo hasta llegar a un programa \c--
+sentido contrario, y desde construcciones de \C/ ir sustituyendo hasta llegar a un programa \c--
 equivalente. Al igual que a la hora de ejecutar un programa \c--, la traducción de programas en \C/
 se hace manejando solamente símbolos, sin necesidad de saber nada acerca del programa o siquiera del
 lenguaje.
 
 En la demostración se usan distintos recursos, que van apareciendo según sea necesario para que se
-entienda el modo de llegar a acabo la transformación de programas. Se pueden distinguir:
+entienda el modo de llevar a cabo la transformación de programas. Se pueden distinguir:
 
 \listademos
 \rightskip0pt
 
 Las {\it macroinstrucciones} del lenguaje \c--. Indican cómo se sustituyen unas cadenas de símbolos
-por otras. Tienen la forma {\hskip3pt{\it cadena1} {\fflecha\lower.14ex\hbox{→}} {\it cadena2}},
+por otras. Tienen la forma {\hskip3pt{\it cadena1} {\fflecha\lower.14ex\hbox{→}\kernpeq} {\it cadena2}},
 siendo {\it cadena1} la macroinstrucción y {\it cadena2} la cadena por la que se sustituye. Por
 ejemplo, \macroins{INIT}{1} indica que a la hora de escribir el programa, {\fcode INIT} es otro
 nombre para la instrucción {\fcode 1}; el traductor sustituirá, cuando haga la transformación, todas
 las apariciones de {\fcode INIT} por {\fcode 1} a lo largo del texto del programa.
 
-{\it Reglas gramaticales}. Se usa notación basada en la forma de Backus–Naur.  Los no-terminales se
-escriben en cursiva: {\it así}, o en cursiva entre paréntesis angulares: {\fcode⟨\it así\fcode⟩};
+{\it Reglas gramaticales}. Se usa notación basada en la forma de Backus–Naur. Los no-terminales se
+escriben en cursiva, {\it así}, o en cursiva entre paréntesis angulares, {\fcode⟨\it así\fcode⟩};
 los terminales se escriben en negrita, {\bf así}; la cabecera de las producciones se separa del
 cuerpo con un símbolo «→»; las alternativas en el cuerpo de las producciones se separan con
 «{\fcode|}».\pseudopar Las reglas gramaticales no se refieren a construcciones de ningún lenguaje;
 su propósito es simplificar las reglas de traducción que aparecen posteriormente. Cuando un
 no-terminal aparece en una macro, la regla donde aparece la macro representa todas las reglas de
 traducción resultantes de sustituir el no-terminal en la macro y en el texto de sustitución por
-terminales, de acuerdoa las normas de las reglas gramaticales. Por ejemplo, con la
+terminales, de acuerdo a las normas de las reglas gramaticales. Por ejemplo, con la
 producción \gramatprod x01=\estrella \fin en la gramática, la regla basada en macros
 {\def\supuno{\super{\fsup1}}«\macroins{\fcodenoterm x\supuno}{\fcodenoterm x}» representa las cuatro
 reglas:\hfil\break{\def\mk{\kern-.2em}\hbadness=10000\hbox to 3.4in{\vbox to 18pt{}\hskip9.5pt\macroins{1\supuno\mk}{1}; \macroins{0\supuno\mk}{0};
 \macroins{=\supuno\mk}{=}; \macroins{\estrella\supuno\mk}{\estrella}.}}}
 
 {\it Indicaciones para el traductor}. En las sustituciones de algunas macros, y en traducción del
-programa en general, el traductor debe efectuar algunos procesos y sencillos, más allá de simples
-traducciones de símbolos. Una serie de indicaciones y comentarios a los largo de la explicación
+programa en general, el traductor debe efectuar algunos procesos sencillos, más allá de simples
+traducciones de símbolos. Una serie de indicaciones y comentarios a lo largo de la explicación
 informan de cómo hacerlo.
 
 {\it Postulados}. Para hacer la traducción de programas, igual que para ejecutar \c--, sólo hay que
@@ -67,7 +66,7 @@ manejar símbolos. Algunos de estos símbolos son los dígitos que se usan habit
 representar los números naturales en notación indo-arábiga. Los postulados indican cómo se consideran
 y usan en las macros.
 \finlista
-\encabezados{Apuntes sobre la demostración}
+\encabezados{Apuntes sobre la demostración}%
 La manera de presentar la demostración por medio de macros ayuda a entender el lenguaje \c-- y cómo
 a partir de las cuatro instrucciones de que consta se pueden ir contruyendo programas para calcular
 operaciones conocidas. Por otra parte, el hecho de incluir los números racionales como tipo de dato
@@ -76,19 +75,19 @@ demostración. No obstante, éste es sólo un caso particular de objetos que se 
 entender cómo se escriben programas que usen números naturales como dato es suficiente para
 comprender cómo construir programas en \c-- y que el lenguaje es Turing-\kern.1em completo. Para
 esto no es necesario entender todas las macros, vale con entender cómo se traducen algunas,
-básicamente las primeras. No debería ser difícil seguir las traducciones del apéndice D. Para no
+básicamente las primeras. No debería ser difícil seguir las traducciones del apéndice E. Para no
 alargar la explicación, aquí sólamente se comentará de forma breve algunas partes, y sólo en lo que
 se refiere a programas que usan números naturales como único tipo de dato.
 
-Aunque para traducir los programas no se haga referencia a números, sí se usarán números en las
-explicaciones de esta sección. De aquí en adelante se considerarán como definidas dos funciones biyectivas: una
-función $ f $ de naturales a cadenas de dígitos tal que: $ f(1)= $ «\inst{1}{0}» y para todo natural
-$ n $, si $ f(n)=\beta $ entonces $ f(n+1)=\alpha $ , donde $ \alpha $ y $ \beta $ representan
-dígitos y $ \alpha = \beta $ + «\inst{1}{0}» es verdad según los postulados del apéndice D; y una
-función $ g $ de naturales a posiciones donde se escribirá el programa \c-- tal que: $ g(1)= $ {\it
-primera posición} y $ g(n+1)$ es la siguiente posición de la posición $ g(n)$. Por ejemplo $ f(5)=
-$«{\fcode5}», $ f(13)=$«{\fcode13}» y $g(3)$ es la siguiente posición de la siguiente de la primera
-posición.
+Aunque en las reglasd de traducción de los programas no se haga referencia a números, sí se usarán
+números en las explicaciones de esta sección. De aquí en adelante se considerarán como definidas dos
+funciones biyectivas: una función $ f $ de naturales a cadenas de dígitos tal que: $ f(1)= $
+«\inst{1}{0}» y para todo natural $ n $, si $ f(n)=\beta $ entonces $ f(n+1)=\alpha $ , donde
+$ \alpha $ y $ \beta $ representan cadenas de dígitos y $ \alpha = \beta $ + «\inst{1}{0}» es verdad
+según los postulados del apéndice E; y una función $ g $ de naturales a posiciones del programa \c--
+tal que: $ g(1)= $ {\it primera posición} y $ g(n+1)$ es la siguiente de la posición $ g(n)$. Por
+ejemplo $ f(5)= $«{\fcode5}», $ f(13)=$«{\fcode13}» y $g(3)$ es la siguiente posición de la
+siguiente de la primera posición.
 
 Cuando en la explicación se haga referencia a algún número {\it n} la referencia puede ser al propio
 número o a $f(n)$ o $g(n)$; se distinguirá a qué se hace referencia por el contexto donde se
@@ -96,7 +95,7 @@ use. Por otro lado, si la referencia es a un número guardado en una posición, 
 codificación de naturales explicada en la sección §3. Por ejemplo, «en la posición 23 está
 guardado el número 4» significaría que en la posición $g(23)$ hay escrito «\inst{1}{3}».
 
-\encabezadot{Macros básicas}
+\encabezadot{Macros básicas}%
 Las primeras macros sirven para escribir instrucciones de \c-- sin necesidad de escribir las
 marcas. Por ejemplo, en vez de escribir «\inst04» se puede escribir la macro «{\fcode0\super5}». En
 general, una macro {\fgramatnoterm x\super{\fsupnoterm n}} se sustituye por la instrucción con la
@@ -115,13 +114,13 @@ pensada para ser usada al principio de todos los programas; se sustituye por «{
 ser borrado para guardar cualquier valor, y cuando se ejecuta como instrucción pone una marca en la
 misma primera posición, con lo que no afecta al resto del programa. La macro «{\fcode JUMP}» se
 sustituye por la instrucción «{\fcode =}», lo que significa que se salta una instrucción (lo que hay
-en la primera posición siempre es igual que lo que hay en la primera posición); esta macro se usa en
+en la primera posición siempre es igual a lo que hay en la primera posición); esta macro se usa en
 la expansión de otras macros. La macro «{\fcode NADA}» se usa en la expansión de otras macros. La
-macro \hskip.1em«\zeta{12} = \zeta{Ω}\hskip.1em», que sería poner en una posición lo
+macro \hskip.1em«\zeta{Ω} = \zeta{Ω}\hskip.1em», que sería poner en una posición lo
 que hay en esa misma posición, se ignora, se sustituye por la cadena vacía.
 
-En la sustitución de las siguientes macros se usan instrucciones que hacen referencia a posiciones
-donde se pondrán instrucciones resultado de expandir esas mismas macros. En el programa final estas
+Las siguientes macros se sustituyen por instrucciones que hacen referencia a posiciones donde se
+pondrán instrucciones resultado de expandir esas mismas macros. En el programa final estas
 posiciones dependerán de cuándo aparece la macroinstrucción en el texto del programa. Para poder
 expandir la macro de la misma manera, sea cuales sean las posiciones finales que ocuparán las
 instrucciones resultado de expandirla, se usan señales para las posiciones, como se explica en la
@@ -129,18 +128,18 @@ indicación que tiene el encabezado «{\kern.16em←\fcode:\kern-.16em⟨natural
 instrucciones de salto, en vez de escribirse «\estrella\super{\fsupnoterm n}», con {\it n} natural,
 se escribirán como «\estrella\super{:\fsupnoterm n}», con una señalización
 «\kern.16em←{:\fcodenoterm n}» en la posición a la que salta la instrucción. Esta {\it n} en {:\it
-n} no se refiere a ningún número; Se usan los símbolos de los números naturales como un modo de
+n} no se refiere a ningún número; se usan los símbolos de los números naturales como un modo de
 tener un número infinito de nombres que sean fácil de construir. Las señalizaciones no tienen
-representación en la transformación final del programa; las pone el traductor como indicador. En los
+representación en la transformación final del programa, las pone el traductor como indicador. En los
 pasos finales de la traducción del programa, cuando ya se sabe en qué posición real está la
 señalización, se sustituye el nombre {:\it n} en la instrucción de salto por el natural que
 representa la posición. Por ejemplo, si la señalización es «\kern.16em←{\fcode:27}» y está en la
 posicion 58, en todas las intrucciónes «{\fcodenoterm x}{\super{:27}}» se sustuirá «{\fcode:27}» por
-«{\fcode 58}». Ésta tiene la forma de la primera macro que se ha comentado y se sustituirá en un
-paso posterior por una instrucción con la cantidad de marcas que corresponda. En el apéndice hay
-ejemplos que pueden ayudar a entenderlo.
+«{\fcode 58}». Esta «{\fcodenoterm x}{\super{58}}» \kernpeq tiene la forma de la primera macro que se ha
+comentado, y se sustituirá en un paso posterior por una instrucción con la cantidad de marcas que
+corresponda. En el apéndice E hay ejemplos que ayudan a entenderlo.
 
-\encabezadot{Operaciones aritméticas}
+\encabezadot{Operaciones aritméticas}%
 La sintaxis de las macros para operaciones aritméticas es indicativa del resultado de expandirlas, y
 el significado de las {\fcode Z}\kernpeq s es el explicado anteriormente. Así,% la macro
 \vskip-2pt\encaje
@@ -152,9 +151,9 @@ Es conveniente explicar aquí el otro significado que pueden tener las letras gr
 visto antes. Nos referiremos a las macros de la forma {\fgramatnoterm x\super {\fgramatsup
 Ω}} como {\it preinstrucciones}. En las reglas gramaticales, la producción
 \encaje
-\begingroup\fgramat\noindent\alternativas ΩΦΨ\fin\hskip.3em→\hskip.3em\begingroup\alternativas{\notermpars{natural}}{.\notermpars{id}}{:\notermpars{id}}\fin
+\begingroup\fgramat\noindent\alternativas ΩΦΨ\fin\hskip.6em→\hskip.3em\begingroup\alternativas{\notermpars{natural}}{.\notermpars{id}}{:\notermpars{id}}\fin
 \finencaje
-indica que, además de por naturales, las letras griegas se pueden se sustituídas por cadenas de
+indica que, además de por naturales, las letras griegas se pueden se sustituidas por cadenas de
 texto que empiezan, bien por «.», bien por «:». Las que se comentaremos ahora son las que empiezan
 por «.». En la página xx se explica cómo se sustituyen los {.\notermpars{id}} por
 naturales. Explicado informalmente, todos las preinstrucciones con el mismo
@@ -186,10 +185,10 @@ RETURN \zeta 8;}» escribe en la primera posición lo que hay en la posición 8 
 programa. Esta macro ofrece una manera uniforme de terminar los programas, escribiendo el resultado
 en una posición conocida.
 
-\encabezadot{Reserva de posiciones}
-Las siguientes macros e indicaciones se usan para traducir macros que aparecen más adelante o para
-traducir tipos de datos, como vectores. Son complicadas de seguir y alargarían mucho la presente
-explicación. Daremos una explicación resumida de la manera de usar variables.
+\encabezadot{Reserva de posiciones}%
+Las siguientes macros e indicaciones se usan en la traducción de macros que aparecen más adelante o
+para traducir tipos de datos, como vectores. Son complicadas de seguir y alargarían mucho la
+presente explicación. Comentaremos de manera resumida el modo de usar variables.
 
 Las variables son nombres para referirnos a posiciones sin que el escritor del programa necesite
 saber qué posición representará en el programa final. Estos nombres pueden usarse en lugar de las
@@ -203,8 +202,8 @@ multiplicación de lo que hay en la posición que representa «{\fcode bar}» po
 hacer de manera parecida a como se hace con los {\.\notermpars{id}}, pero para que sea uniforme con
 cómo se hace en los subprogramas, que se explica más adelante, se hará de una manera más elaborada.
 
-Si se usan nombres en vez de \zeta{}s hay que utilizar antes de que aparezca el nombre una macro que
-es la equivalente a la declaración de variables en \C/; en esta explicación llamaremos a estas
+Si se usan nombres en vez de \zeta{}s hay que utilizar, antes de que aparezca el nombre, una macro que
+es la equivalente a la declaración de variables en \C/. En esta explicación llamaremos a estas
 macros también declaraciones. Siguiendo con el ejemplo anterior, habría que escribir:
 \encaje
 {\fcode unsigned int foo;\par {\parskip2pt unsigned int bar;}}
@@ -220,34 +219,34 @@ aritmética quedaría:
 \encaje
 {\fcode \igriega{{\fsup 1}} = \igriega{{\fsup 2}} * 9;}
 \finencaje
-Para relacionar posiciones finales con los nombres el expansor guarda en la última posición, a la
+Para relacionar posiciones finales con los nombres, el expansor guarda en la última posición, a la
 que llamaremos \top/, el número de posiciones ocupadas en el programa después de haber reservado
 posiciones para los {\.\notermpars{id}} y contando esta misma posición. Por ejemplo, si después de
 haber puesto instrucciones «\inst10» para cada {\.\notermpars{id}} como se explicó antes resultase
 un programa con instrucciones ocupando 877 posiciones, se añadiría en la posición 878 una
-instrucción «{\fcode1\super{\fsup 878}}»; el número de posición a la que se referirá
+instrucción «{\fcode1\super{\fsup 878}}». El número de posición a la que se referirá
 un \igriega{{\fsupnoterm n}} en el programa final será lo que hay en la posición \top/ más {\it
 n}. En el ejemplo anterior, «{\fcode foo}» sería la posición 879 y «{\fcode bar}» la 880.
 
-Para que las macros que tratan con variables se puedan expandir de una manera uniforme, todas
+Para que las macros que tratan con variables se puedan expandir de una ma\-ne\-ra uniforme, todas
 usan «\zeta{.change}» y la operación {\fcode:ajustar:}, que indica al traductor cómo añadir
 instrucciones que cambian las instrucciones que usan las posiciones de las variables como posiciones
-referidas. De algún modo, el programa el que se modifica a sí mismo durante la ejecución,
-ajustándose según las posiciones a las que quiera acceder. En la página xx se explica todo esto. Las
-macros son generales para poder usar vectores y punteros. Considerando sólo la posibilidad de usar
-números naturales es menos complicado de entender.
+referidas. De algún modo, el programa se modifica a sí mismo durante la ejecución, ajustándose según
+las posiciones a las que quiera acceder. En la página xx se trata sobre todo esto. Las macros son
+generales para poder usar vectores y punteros. Considerando sólo la posibilidad de usar números
+naturales es menos complicado de entender.
 
-\encabezadot{Operadores lógicos y relacionales}
+\encabezadot{Operadores lógicos y relacionales}%
 Estas macros son sencillas de entender. Aquí se explicarán simplemente las ideas en las que se basa
 la traducción, no la traducción tal y como aparece en el apéndice, considendo solamente números
 naturales como operandos. Representaremos en esta explicación los operandos como {\fgramatnoterm α}
-o {\fgramatnoterm β}.
+y {\fgramatnoterm β}.
 
 Los operadores lógicos se llaman también booleanos ya que las operaciones con ellos se basan en el
-algebra de Boole. La representación simbólica de los operadores que consideramos en las traducciones
-es «\&\&», «||» y «!», que representan en el algebra a {\it and}, {\it or} y {\it not}
-respectivamente. En estas operaciones se condideran sólo dos valores para los operadores: {\it
-verdadero} y {\it falso}. En las macros representamos {\it falso} con el 0 (o dicho de otro modo, el
+álgebra de Boole. La representación simbólica de los ope\-ra\-dores que usamos en las traducciones
+es «\&\&», «||» y «!», que representan en el álgebra a {\it and}, {\it or} y {\it not}
+respectivamente. En estas operaciones se consideran sólo dos valores para los operadores: {\it
+verdadero} y {\it falso}. En las traducciones re\-pre\-sentamos {\it falso} con el 0 (o dicho de otro modo, el
 valor 0 se considera falso en cuanto a estas operaciones se refiere); {\it verdadero} se representa
 con cualquier otro número. La representación de las operaciones lógicas se puede sustituir por la de
 operaciones aritméticas del siguiente modo, separando texto y su traducción con «\flechagram\kernpeq»:
@@ -260,12 +259,12 @@ Si se sustituyen los α y β por 0 y cualquier otro valor se comprueba que el re
 obtendría es el esperado.
 
 En la reglas gramaticales, el no-terminal que representa los operadores relacionales
-es \notermpars{oprel}; los operadores necesarios son especificados por la producción
+es \notermpars{oprel}; los operadores que se usan son especificados por la producción
 \encaje
 \gramatprod{\notermpars{oprel}}{\fcode=}{\fcode!=}{\fcode>}{\fcode<}{\fcode>=}{\fcode<=} \fin .
 \finencaje
 
-El resultado de las operaciones con estos operadores es el conocido, explicado en [4] (a los
+El resultado de las operaciones con estos operadores es el conocido, explicado en [8] (a los
 operadores «==» y «!=» se les llama allí operadores de igualdad). En pocas palabras, el resultado es
 {\it verdadero} o {\it falso}, representados como se ha indicado antes, dependiendo del orden de los
 operandos que se comparan, en el orden normal de los números naturales. Junto con los operadores
@@ -274,11 +273,11 @@ relacionales aparece la construcción «{\fcode!({\fgramatnoterm
 que representa tiene que ser el contrario del de «{\fcode {\fgramatnoterm
 α} \kern-.25em \notermpars{oprel} \kern-.25em {\fgramatnoterm β}}».
 
-En la traducción de «{\fgramatnoterm α {\fcode >} \fgramatnoterm β}» se introduce el subprograma
-«{\fcode negp()}» para que la traducción valga para cualquier número racional, aprovechando la
-representación que se hace de ellos; por la misma razón en la traducción de «{\fgramatnoterm α {\fcode
-==} \fgramatnoterm β}» se usa una resta con el número 2. Si sólo se usasen naturales las
-traducciones podrían ser:
+En la traducción de \kernpeq«{\fgramatnoterm α\kern.4em {\fcode >}\kern.4em \fgramatnoterm
+β}» \kernpeq se introduce el subprograma «{\fcode negp()}» para que la traducción valga para
+cualquier número racional, natural o no, aprovechando la representación que se hace de ellos; por la
+misma razón en la traducción de «{\fgramatnoterm α {\fcode ==} \fgramatnoterm β}» se usa una resta
+con el número 2. Si sólo se usasen naturales las traducciones podrían ser:
 \listraducciones
 \noindent\macroins{\fgramatnoterm α {\fcode >} β\kern3pt}{\fgramatnoterm\kern3pt β {\fcode -} α}\par
 \noindent\macroins{\fgramatnoterm α {\fcode!=} β\kern3pt}{\fgramatnoterm α {\fcode >} β
@@ -287,46 +286,48 @@ traducciones podrían ser:
 \finlistatrad
 Las otras traducciones se harían igual.
 
-\encabezadot{Estructuras de control}
+\encabezadot{Estructuras de control}%
 Las estructuras de control sirven para decidir si se ejecuta parte del código y en qué orden,
 basándose en alguna condición. En las traducciones de la construcción «{\fcode if}» y «{\fcode
-if-else}» el resultado de la parte condicional se guarda en una posición identificada por «\zeta{.obf}»
-y con una combinación de instrucciones de \c-- {\it comparar} y {\it saltar} («\estrella» y «\inst=0»)
-se decidirá la parte del codigo a ejecutar en el programa final.  La traducción de «{\fcode while}» se
-basa en la de «{\fcode if}» y la de «{\fcode do-while}» y la de «{\fcode for}» se basan en la de «{\fcode
-while}». La traducción de la construcción «{\fcode switch-case}» es la más complicada, pero es un
-simple adorno y no hace falta entenderla.
+if-else}» \kernpeq el resultado de la parte condicional se guarda en una posición identificada por
+«\zeta{.obf}» y con una combinación de instrucciones de \c-- {\it comparar} y {\it saltar}
+(«\estrella» y «\inst=0») se decidirá la parte del codigo a ejecutar en el programa final. La
+traducción de «{\fcode while}» se basa en la de «{\fcode if}» y la de «{\fcode do-while}» y la de
+«{\fcode for}» se basan en la de «{\fcode while}». La traducción de la construcción «{\fcode
+switch-case}» es la más complicada, pero es un simple adorno y no hace falta entenderla.
 
-\encabezadot{Subprogramas}
+\encabezadot{Subprogramas}%
 Los subprogramas son programas dentro del programa general, trozos de código que resuelven problemas
 particulares que ayudan a resolver el problema global. Al igual que el programa general, los
 subprogramas deben ser capaces de recibir datos y escribir otros datos a modo de resultado. Una
 manera de integrar los subprogramas sería ‘pegar’ las instrucciones en los puntos del programa
-principal donde sea necesario, posiciones para escribir los datos de entrada y el resultado. Sin
-necesidad de pegar el código cada vez, se podría poner el código una sóla vez y saltar a la primera
-instrucción de este código cada vez que se quiera ejecutar el subprograma. Estos modos tienen el
-problema de que el propio subprograma sobreescribiría los datos de entrada y de resultado si se
-invocase a sí mismo, es decir, no permite definir subprogramas recursivos. Es necesario para la
-demostración de la equivalente del lenguaje \c-- con las funciones recursivas, por lo que hay que
-buscar otro modo de organizar el código. El modo en que se usan las variables nos da la
-solución. Resumiendo, lo que se hace es cambiar la posición \top/ cada vez que se vayan a ejecutar
-las instrucciones del subprograma. Las intrucciones se ajustan igual que para el programa general,
-pero al cambiar \top/ cada subprograma usará posiciones para los datos diferentes, incluso si se
-llama a sí mismo. Esto no es otra cosa que usar una pila, igual que se usa en los programas \C/
-compilados ejecutándose en un ordenador. Cómo se declaran y definen los subprogramas y sus
-traducciones es farragoso y ocuparía mucho espacio comentarlo todo; está explicado en las páginas
-xxx--xx.
-
-\encabezadot{Entrada\kernpeq/\kern.05emsalida}
+principal donde sea necesario, y tener una posiciones fijas para escribir los datos de entrada y el
+resultado. Sin necesidad de pegar el código cada vez, se podría poner el código una sóla vez y
+saltar a la primera instrucción de este código cada vez que se quiera ejecutar el subprograma. Estos
+modos tienen el problema de que el propio subprograma sobreescribiría los datos de entrada y de
+resultado si se invocase a sí mismo, es decir, no permite definir subprogramas recursivos. Es
+necesario para la demostración de la equivalente del lenguaje \c-- con las funciones recursivas, por
+lo que hay que buscar otro modo de organizar el código. El modo en que se usan las variables nos da
+la solución. Resumiendo, lo que se hace es cambiar la posición \top/ cada vez que se vayan a
+ejecutar las instrucciones del subprograma. Las intrucciones se ajustan igual que para el programa
+ge\-ne\-ral, pero al cambiar \top/ cada subprograma usará posiciones diferentes para los datos, incluso
+si se llama a sí mismo. Esto no es otra cosa que usar una pila, igual que se usa en los
+programas \C/ compilados ejecutándose en un ordenador. Cómo se declaran y definen los subprogramas y
+sus traducciones es farragoso y ocuparía mucho espacio comentarlo todo; está explicado en las
+páginas xxx--xx.
+\vskip3pt\vskip0pt
+\encabezadot{Entrada\kernpeq{\fencp\lower.3ex\hbox{/}}\kern.06em salida}% 
 La entrada y salida en los lenguajes de programación es el modo que tienen de ofrecer comunicación
-con el dispositivo que va a ejecutar el programa. Hay contrucciones para guardar datos y otras para
-que el dispositivo ofrezca resultados. En \c-- no hay secretos; se puede escribir y leer
-directamente en cualquier posición. Así, una construcción como
+con el dispositivo que va a ejecutar el programa. Hay cons\-truc\-ciones para insertar datos y otras
+para que el dispositivo ofrezca resultados. En \c-- no hay secretos; todos los datos e instrucciones
+están a la vista y se puede escribir y leer directamente en cualquier posición. Así, una
+construcción como
 \encaje
 \fcode scanf("\%d", \&entrada);
 \finencaje
 se podría representar con un cartel para el ejecutor del programa, apuntando a la posición que se
-identifique como «{\fcode entrada}», diciendo «{\it escribe aquí el dato que quieras usar, codificado como
-ya sabes}». Para la salida, el ejecutor tendrá que mirar las posiciones que le interesen e
-interpretarlas. Por ejemplo, se puede guardar siempre un dato de salida en la misma posición, como
-se vio con la macro «{\fcode RETURN}» y mirar allí al acabar la ejecución del programa.
+identifique como «{\fcode entrada}», diciendo: «{\it escribe aquí el dato que quieras usar,
+codificado como ya sabes}». Para la salida, el ejecutor tendrá que mirar las posiciones que le
+interesen e interpretarlas. Por ejemplo, se puede guardar siempre un dato de salida en la misma
+posición, como se vio con la macro «{\fcode RETURN}» y mirar allí al acabar la ejecución del
+programa.

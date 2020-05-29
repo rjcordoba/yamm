@@ -1,11 +1,11 @@
-\encabezadop{Un lenguaje sencillo}
+\encabezadop{Un lenguaje sencillo}%
 Una vez estudiadas las características deseables en los programas que necesitamos, vamos a ver cómo
 escribirlos. Para ello presentaremos una gramática que defina los símbolos que se usarán y cómo
 combinarlos para expresar datos y acciones en forma de instrucciones, así como la semántica de
-éstas; es decir, definiremos un lenguaje de programación, con la misma filosofía de buscar
+éstas; es decir, definiremos un lenguaje de programación, con la misma filosofía de búsqueda de
 sencillez. Éste será el lenguaje \c-- que se usará en las demostraciones.
 
-\encabezados{Los datos}
+\encabezados{Los datos}%
 Como se ha indicado anteriormente, sólo será necesario representar los números
 naturales. Tomando el orden habitual de los números naturales (1, 2, 3, ...), la representación
 se hará de la siguiente manera:
@@ -19,17 +19,18 @@ representación de {\it n}.
 \finlista
 Por ejemplo, el número 2 se representaría como «\inst1{1}» y el número 5 como «\inst1{4}».
 
-\encabezados{Las instrucciones}
+\encabezados{Las instrucciones}%
 Cada instrucción va a indicar una acción y una posición que tendrá significado para dicha acción. A
 cada acción le pondremos un nombre, que usaremos también para referirnos a una instrucción que
-contenga una acción de este tipo. Como hemos visto, las posiciones del programa forman un conjunto
+indique una acción de este tipo. Como hemos visto, las posiciones del programa forman un conjunto
 enumerable en el que se considera una posición como la primera y todas las posiciones menos la
 primera son la siguiente de alguna posición. Por esto, la misma sintaxis usada para representar los
 datos nos va a servir para especificar instrucciones, lo que ayuda a simplificar el lenguaje. Así,
-las instrucciones estarán formadas por un símbolo inicial y por marcas.  El símbolo inicial, al que
-llamaremos {\it símbolo principal} de la instrucción, especificará la acción. A continuación del
-símbolo inicial, las marcas indicarán la posición que compete a la acción; a esta posición le
-llamaremos la {\it posición referida}. Se indica esta posición como sigue:
+las instrucciones estarán formadas por un símbolo inicial y por símbolos «{\fcodej’\kern-.1em}», a
+los que llamaremos {\it marcas}. El símbolo inicial, al que llamaremos {\it símbolo principal} de la
+instrucción, especificará la acción. A continuación del símbolo inicial, las marcas indicarán la
+posición que compete a la acción; a esta posición le llamaremos la {\it posición referida} por la
+instrucción. Se indica la posición referida como sigue:
 
 \listanormal
 Si sólo hay un símbolo (el principal, no hay marcas), la posición referida será la primera.
@@ -39,14 +40,14 @@ referida por la instrucción antes de añadirle la marca.
 \finlista
 Vamos a ver las intrucciones necesarias para el lenguaje que necesitamos.
 
-\encabezadot{Especificar datos}
+\encabezadot{Especificar datos}%
 Para poder trabajar con los datos y escribir el resultado de la ejecución del programa se necesita
 alguna instrucción que escriba en las posiciones; concretamente, según se representan los datos, se
 requiere escribir los símbolos «\inst1{0}» y «{\fcodej’\kern-.1em}». El símbolo
-«{\fcodej’\kern-.1em}» no tiene sentido por sí solo en una posición, por lo que no hay ambigüedad
-si se usa una misma acción para los dos símbolos: si en la posición referida no hay nada se escribe
-«{\fcodej’\kern-.1em}»; se escribe una marca si la posición referida no está vacía, es decir, si
-hay un símbolo principal, posiblemente con marcas. Después de ejecutar esta intrucción se pasa a la
+«{\fcodej’\kern-.1em}» no tiene sentido por sí solo en una posición, por lo que no hay ambigüedad si
+se usa una misma acción para escribir ambos símbolos: si en la posición referida no hay nada se
+escribe «\inst1{0}»; se escribe una marca si la posición referida no está vacía, es decir, si hay un
+símbolo principal, posiblemente con marcas. Después de ejecutar esta intrucción se pasa a la
 siguiente posición para seguir desde allí la ejecución del programa.
 
 El ejecutor del programa sólo ve intrucciones, no se ve afectado por los datos. Será el escritor del
@@ -65,7 +66,7 @@ Nada de los dicho implica que la instrucción sólo pueda escribir marcas en pos
 «\inst1{0}» como símbolo principal. Las instrucciones también son un conjunto enumerable y puede
 considerarse que cuando se pone una marca se escribe la siguiente instrucción de la que había.
 
-\encabezadot{Decisiones}
+\encabezadot{Decisiones}%
 Si solamente se dispusiera de instrucciones para escribir datos los programas serían autómatas que
 se limitarían a realizar patrones fijos, cada programa un patrón. Lo que nos interesa es escribir
 programas que se comporten diferente según los datos iniciales que se le presenten. Para ello
@@ -82,9 +83,9 @@ principal. Al encontrar esta instrucción, el ejecutor comparará dos posiciones
 iguales. Decimos que dos posiciones son iguales si y sólo si:
 
 \listanormal
-Están las dos vacías, esto es, no hay símbolos en ninguna de ellas.
+Están las dos vacías; esto es, no hay símbolos en ninguna de ellas.
 
-En cada una de las posiciones hay un símbolo principal y bien no hay marcas o hay la misma cantidad
+En cada una de las posiciones hay un símbolo principal, y bien no hay marcas o hay la misma cantidad
 de marcas.
 \finlista
 
@@ -99,23 +100,23 @@ son iguales el ejecutor irá a la siguiente posición y seguirá ejecutando el p
 caso contrario, es decir, si las dos posiciones son iguales, el ejecutor irá a la siguiente de la
 siguiente posición y seguirá desde allí la ejecución (saltará una posición).
 
-\encabezadot{Reutilizar posiciones}
+\encabezadot{Reutilizar posiciones}%
 Usando la instrucción {\it marcar} las veces necesarias se puede hacer referencia a cualquier
 natural. El usar en {\it comparar} la primera posición como fija hace ver que es necesario poder
 hacer referencia a naturales anteriores. Para esto utilizaremos la instrucción {\it borrar}, que
 usará el símbolo «\inst0{0}». Esta instrucción indica al ejecutor borrar todas las marcas de la
 posición referida y el símbolo principal solamente si éste es «\inst1{0}» (si es
-«\inst\estrella{0}», «\inst={0}» o «\inst0{0}» sólo borra las marcas en la posición referida si las
-hubiera).  Después de ejecutar esta intrucción se pasa a la siguiente posición para seguir desde
-allí la ejecución del programa.
+«\inst\estrella{0}», «\inst={0}» o «\inst0{0}» sólo borra las marcas en la posición referida, si las
+hubiera). Después de ejecutar esta intrucción se pasa a la siguiente posición para seguir desde allí
+la ejecución del programa.
 
-Esta asimetría del
-resultado de la acción según lo que haya en la posición referida puede ilustrarse si imaginamos que
-el símbolo uno está escrito con el mismo instrumento con el que se escriben las marcas, por ejemplo
-una tiza, y el resto de símbolos principales están grabados o escritos con un marcador indeleble;
-cuando se pasa el borrador por una posición referida, se borra la tiza y el resto queda.
+Esta asimetría del resultado de la acción según lo que haya en la posición referida puede ilustrarse
+si imaginamos que el símbolo «\inst1{0}» está escrito con el mismo instrumento con el que se
+escriben las marcas, por ejemplo una tiza, y el resto de símbolos principales están grabados o
+escritos con un marcador indeleble; cuando se pasa el borrador por una posición referida, se borra
+la tiza y el resto queda.
 
-\encabezados{El lenguaje en su entorno}
+\encabezados{El lenguaje en su entorno}%
 Con los cuatro tipos de instrucciones presentadas será suficiente para tener una lenguaje como el
 que necesitamos. En el apéndice A se especifica el lenguaje más formalmente.
 
@@ -128,5 +129,6 @@ cosa que no sea una instrucción formada según las reglas sintácticas descrita
 posición está vacía---, la ejecución se detiene.
 
 Tal y como está definido el lenguaje se puede intuir que será fácil encontrar una máquina de Turing
-para ejecutar programas. Lo único, si no complicado sí laborioso, que contiene este trabajo será la
-demostración de que este lenguaje es equivalente a \C/. Eso se hará en la siguiente sección.
+para ejecutar programas de este tipo. Lo único si no complicado sí laborioso que contiene este
+trabajo será la demostración de que este lenguaje es equivalente a \C/. Eso se hará en la siguiente
+sección.
