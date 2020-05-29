@@ -152,7 +152,8 @@
 \font\fnumappendix="Waree/B" at 90pt
 \font\ftextoappendix="TeXGyreSchola-Regular/B" at 32pt
 }
-\def\appendix#1{\toks1=\footline \vfil\eject\hbox{}\vskip2.95in\footline{}\advance\count1 by 1 \piecab=0
+\def\pagblanca{\hbox{}\vfil\eject}
+\def\appendix#1{\toks1=\footline \vfil\eject \ifodd\pageno\else\pagblanca\fi \hbox{}\vskip2.95in\footline{}\advance\count1 by 1 \piecab=0
                 \hbox{\hskip5pt{\fencp \raise40pt\hbox{Apéndice} \fnumappendix\char\count1}}
                 \vskip25pt{\ftextoappendix\noindent\vrule width 0pt depth 22pt #1} \vfil\eject
                 \def\pie{Apéndice \char\count1 \kern.15em-\kern.2em #1}\footline=\toks1 \piecab=1}
