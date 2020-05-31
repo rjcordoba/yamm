@@ -1,0 +1,59 @@
+\def\separadorins{\vskip5pt\centerline{\vbox{\hrule height .05pt width 4.1in}}\vskip33pt}
+
+%% \def\separadorins{\vskip55pt}
+
+\noindent Un programa \c-- consiste en un conjunto de posiciones, cada una de las cuales
+contiene una instrucción o está vacía. Una posición, o bien es la primera, o bien es la siguiente de
+otra posición. Llamamos interpretar una posición ψ a ejecutar la instrucción que hay en ψ o parar
+la ejecución del programa si ψ está vacía. La ejecución de un programa empieza interpretando la
+primera posición del mismo.
+
+A continuación se muestran las instrucciones que pueden aparecer en una posición. Se usa una
+variante de la forma de Backus-Naur para definir la sintaxis, con los no-terminales entre los signos
+{\fcode«⟨»} y {\fcode«⟩»}, los terminales en negrita, la cabecera de la producción separada del
+cuerpo por el signo «→» y las opciones de sustitución separadas por el signo «|». Seguido de la
+definición sintáctica de las instrucciones se da la explicación para la ejecución de cada
+instrucción.
+\vskip30pt
+\moveright9pt\vbox{\instenc \hbox{\hskip.3em Instrucciones\hskip.3em}\kern.3ex\hrule}
+\vskip32pt
+\vbox{
+\insc--{marcar}1%
+Se pone el símbolo «1» en la posición referida por la instrucción si no hay nada en dicha posición,
+o un símbolo «’» si la posición no está vacía. La posición referida por una instrucción de este tipo
+es:
+\listainsc1{marcar}%
+Si la instrucción está en la posición ψ, después de ejecutar esta instrucción se pasa a interpretar
+la posición siguiente a ψ.
+}
+\separadorins
+\vbox{
+\insc--{borrar}0%
+Se quitan todos los símbolos «’» de la posición referida, y el símbolo «1» si lo hubiera. La
+posición referida por una instrucción de este tipo es:
+\listainsc0{borrar}%
+Si la instrucción está en la posición ψ, después de ejecutar esta instrucción se pasa a interpretar
+la posición siguiente a ψ.
+}
+\vfil\eject
+\vbox{
+\insc--{comparar}{\raise.1ex\hbox{=}}%
+Sea ψ la posición en la que está la instrucción. Si la posición referida por la instrucción y la
+primera posición no son iguales según la definición de igualdad de posiciones que se da a
+continuación, se interpreta la posición siguiente a ψ; si son iguales se interpreta la posición
+siguiente a la siguiente posición de ψ.  La posición referida por una instrucción de este tipo es:
+\listainsc={comparar}%
+Dos posiciones son iguales si y sólo si una de las siguientes afirmaciones es cierta:
+\listanormal
+En ninguna de las dos posiciones hay nada.\par
+En cada una de las dos posiciones hay solamente un símbolo.\par
+Cada una de las dos posiciones tiene símbolos «’» y si se quita a ambas uno de estos símbolos «’» las posiciones son iguales.
+\finlista
+}
+\separadorins
+\vbox{
+\insc--{saltar}{\font\festrella="DejaVuSansMono" at 26.76pt\raise.1ex\hbox{\estrella}}%
+Se interpreta la posición referida por la instrucción. La posición referida por una instrucción de
+este tipo es:
+\listainsc{\noindent\estrella}{saltar}
+}
