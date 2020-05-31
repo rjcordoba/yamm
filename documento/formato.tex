@@ -25,7 +25,7 @@
 \font\fcfoot="DejaVuSansMono" at 10.5pt
 \font\fcodenoterm="LiberationMono/I" at 12pt
 \font\fcodej="DejaVuSansMono" at 14pt
-%% \font\fflechaizq="DejaVuSansMono" at 14pt
+\font\ftextoappendix="TeXGyreSchola-Regular/B" at 32pt
 
 \font\festrella="DejaVuSansMono" at 17.66pt
 \font\fpies="TeXGyreSchola-Regular" at 10pt
@@ -121,11 +121,35 @@
 \def\notermpars#1{{\fcode\kern-.1em ⟨}{\fgramatnoterm#1}{\fcode⟩}}
 
 %generales
+\def\puntitos{\leaders\hbox to .7em{\hss.\hss}\hfill}
+\def\entradaind#1#2{#1\puntitos\hbox to 1.8em{\hfil#2}\par}
+
+\def\entradaapend#1//#2..{\advance\cap by 1 \subcap=0 \vskip\dimen1 \parindent0pt \advance\count1 by 1
+                         {\bf\char\count1 \ - \entradaind{#1}{#2}}}
+
+\def\librosyotros#1//#2..{\vskip\dimen1{\bf\entradaind{#1}{#2}}}
+
+\def\entradaindp#1//#2..{\advance\cap by 1 \subcap=0 \vskip\dimen1
+                         \parindent0pt {\bf\leavevmode\hbox to 1.2em{\hfil\number\cap}.\kern.5em\entradaind{#1}{#2}}}
+
+\def\entradainds#1//#2..{\advance\subcap by 1 \ssubcap=0
+                         \parindent22pt\number\cap.\number\subcap.\kern.5em\entradaind{#1}{#2}}
+
+\def\entradaindt#1//#2..{\parindent33pt \advance\ssubcap by 1
+                         \number\cap.\number\subcap.\number\ssubcap.\kern.5em\entradaind{#1}{#2}}
+
 \def\tragar#1{}
-\def\encabezadop#1{\piecab=0 \advance\cap by 1\vfil\eject\noindent{\fencp \hskip1.8pt §\the\cap.\espenc #1}\vskip8pt \subcap=0 \def\pie{\piecab=1 #1} \noindent}
-\def\encabezados#1{\global\advance\subcap by 1 \global\ssubcap=1 \vskip-\lastskip\penalty-100\vskip17pt plus5ptminus4pt  \noindent {\fencs\hskip5.2pt
-                   \the\cap.\the\subcap.\espenc #1}\vskip6pt plus.5pt\penalty100 \noindent}
-\def\encabezadot#1{\vskip-\lastskip\penalty-100\vskip14pt\noindent{\fenct\hskip6.5pt \the\cap.\the\subcap.\the\ssubcap.\espenc #1}\vskip7pt \advance\ssubcap by 1 \noindent}
+\def\encabezadop#1{\piecab=0 \advance\cap by 1\vfil\eject\noindent{\fencp \hskip1.8pt §\the\cap.\espenc #1}\vskip8pt
+                   \subcap=0 \def\pie{\piecab=1 #1} \noindent
+                   \write1{\string\entradaindp\space #1//\folio..}}
+
+\def\encabezados#1{\global\advance\subcap by 1 \global\ssubcap=1 \vskip-\lastskip\penalty-100\vskip17pt plus5ptminus4pt
+                   \noindent {\fencs\hskip5.2pt \the\cap.\the\subcap.\espenc\ #1}\vskip6pt plus.5pt\penalty100 \noindent
+                   \write1{\string\entradainds\space #1//\folio..}}
+
+\def\encabezadot#1{\vskip-\lastskip\penalty-100\vskip14pt\noindent{\fenct\hskip6.5pt
+                   \the\cap.\the\subcap.\the\ssubcap.\espenc #1}\vskip7pt \advance\ssubcap by 1 \noindent
+                   \write1{\string\entradaindt\space #1//\folio..}}
 \def\pseudopar{\hfill\break\hbox{}\hskip\dimen2}
 
 %Listas
@@ -150,13 +174,12 @@
 \def\empezarApends{\count1=64
 \font\fc="DejaVuSansMono/B" at 33pt
 \font\fnumappendix="Waree/B" at 90pt
-\font\ftextoappendix="TeXGyreSchola-Regular/B" at 32pt
 }
-\def\pagblanca{\hbox{}\vfil\eject}
-\def\appendix#1{\toks1=\footline \vfil\eject \ifodd\pageno\else\pagblanca\fi \hbox{}\vskip2.95in\footline{}\advance\count1 by 1 \piecab=0
+\def\pagblanca{\hbox{}\vfil\footline{}\eject}
+\def\appendix#1{\vfil\eject \ifodd\pageno\else\pagblanca\fi \hbox{}\vskip2.95in\footline{}\advance\count1 by 1 \piecab=0%\toks1=\footline
                 \hbox{\hskip5pt{\fencp \raise40pt\hbox{Apéndice} \fnumappendix\char\count1}}
                 \vskip25pt{\ftextoappendix\noindent\vrule width 0pt depth 22pt #1} \vfil\eject
-                \def\pie{Apéndice \char\count1 \kern.15em-\kern.2em #1}\footline=\toks1 \piecab=1}
+                \def\pie{Apéndice \char\count1 \kern.15em-\kern.2em #1}\footline=\líneapie \piecab=1}%\write1{\string\entradaapend\space #1//\folio..}
 
 \def\ponerpdfpag{\ifnum\pagsc<\pagspdf \advance\pagsc by 1 \let\bucle=\ponerpdfpag
                        \hbox{\XeTeXpdffile\nombre/ page \pagsc \hfil} \vfil\eject
@@ -169,17 +192,18 @@
                 \else\let\bucle=\relax\fi \bucle}
 \def\ponermacros{\nummacros=17 \macrosc=0 \ponermacro}
 \def\ponercapítulo{\ifnum\macrosc<\nummacros \advance\macrosc by 1
-                         \input cap\number\macrosc \let\bucle=\ponercapítulo
+                         \input capítulos/cap\number\macrosc \let\bucle=\ponercapítulo
                    \else\let\bucle=\relax\fi\bucle}
 \def\ponercapítulos{\nummacros=6 \macrosc=0 \ponercapítulo}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \def\piepag{\ifodd\pageno \hfill \pie \hskip8pt {\fnumpag\folio}\kern-8pt
             \else \kern-8pt {\fnumpag\folio}\hskip8pt \pie \hfill\fi}
 
+\newtoks\líneapie
 \rm
 \hsize=6.1in \vsize=24cm
 \hoffset=0.11in
 \baselineskip=17.5pt plus .4pt minus .4pt \parindent=14pt
 \footline={\ffoot\vbox to 42pt{} \piepag}
+\líneapie=\footline
 %% \footline={\ffoot\vbox to 42pt{}\hfill \pie \hskip11pt {\fnumpag\folio}\kern-8pt}

@@ -1,22 +1,23 @@
 \input ./formato
-\input \ponercapítulos
-
-%% \input capítulos/cap1
-
+\footline={}
+\input portada
+\openout1=índice
+\ponercapítulos 
 \empezarApends
-\def\pie{}
-%% \appendix{Especificación de {\ccabez \c--}}
-%% \input ./appendixA
-
-%% \appendix{Máquina universal de \hskip 0pt plus 1fil\break Turing para programas
-%% {\ccabez \c--\ifnum\piecab=0 \kern-.5em \fi}}
-%% \ponerpdf MTuring+
-%% \appendix{Ejemplo de\hskip 0pt plus 1fil\break máquina de Turing en {\ccabez\C/}}
-%% \ponerpdf MTenC+
-%% \appendix{Función recursiva \hskip 0pt plus 1fil\break ejecutora de programas {\ccabez\c--\ifnum\piecab=0 \kern-.5em \fi}}
-%% \ponerpdf recursivo+
-%% \appendix{Macroinstrucciones de {\ccabez\c--\ifnum\piecab=0 \kern-.5em \fi}}
-%% \ponermacros
-%% \input ./bibliog
-%% \input ./recursos
+\appendix{Especificación de {\ccabez \c--}}
+\input pdfs/appendixA
+\appendix{Máquina universal de \hskip 0pt plus 1fil\break Turing para programas {\ccabez \c--\ifnum\piecab=0 \kern-.5em \fi}}
+\ponerpdf MTuring+
+\appendix{Ejemplo de \hskip 0pt plus 1fil\break máquina de Turing en {\ccabez\C/}}
+\ponerpdf MTenC+
+\appendix{Función recursiva \hskip 0pt plus 1fil\break ejecutora de programas {\ccabez\c--\ifnum\piecab=0 \kern-.5em \fi}}
+\ponerpdf recursivo+
+\appendix{Macroinstrucciones de {\ccabez\c--\ifnum\piecab=0 \kern-.5em \fi}}
+\ponermacros
+\pagblanca\footline=\líneapie
+\input ./bibliog
+%% \escribirind{Bibliografía}
+\input ./recursos
+%% \escribirind{Recursos}
+\closeout1
 \bye
