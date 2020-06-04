@@ -162,4 +162,8 @@ main{
 	#pantalla > div:last-child {
 		margin-left:0.5em;
 	}
+
+	#pantalla #nums {
+		padding-top:.5pt;
+	}
 }

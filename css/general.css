@@ -606,7 +606,7 @@ body > footer{
 	
 	@page {
 		size:6.1in 24cm;
-		margin:0;
+		margin:0 0 7mm 0;
     }
 
 	body > footer,
@@ -615,6 +615,10 @@ body > footer{
 	#encabezado h1,
 	#nav-resp, #scroll_gen{
 		display:none !important;
+	}
+
+	#pantalla > div:last-child div{
+		white-space: pre;
 	}
 
 	#cont-principal{

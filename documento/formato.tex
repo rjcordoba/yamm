@@ -122,7 +122,7 @@
 
 %generales
 \def\puntitos{\leaders\hbox to .7em{\hss.\hss}\hfill}
-\def\entradaind#1#2{#1\puntitos\hbox to 1.8em{\hfil#2}\par}
+\def\entradaind#1#2{#1\puntitos#2\par}%\hbox to 1.8em{\hfil#2}
 
 \def\entradaapend#1//#2..{\advance\cap by 1 \subcap=0 \vskip\dimen1 \parindent0pt \advance\count1 by 1
                          {\bf\char\count1 \ - \entradaind{#1}{#2}}}
