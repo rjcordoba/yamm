@@ -1071,6 +1071,23 @@ pre sub .comil{
 		display:
 			inline;
 	}
+
+	.gramat.escurrir{
+		margin-top:-10px;
+	}
+
+	.gramat.escurrir li{
+		margin-bottom:7.5px;
+	}
+
+	li.elsis {
+		margin-bottom:18px !important;
+	}
+
+	li.elsis.elsisar {
+    margin-bottom: 20px !important;
+}
+
 /* Macro 2 */
 	/* .paddd{ */
 	/* 	margin-top:-0.95em !important; */
